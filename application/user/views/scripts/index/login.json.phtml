@@ -1,0 +1,6 @@
+<?
+// assemble json response
+$response         = array();
+$response['form'] = $this->render('index/login.partial.phtml');
+
+print $this->json($response);

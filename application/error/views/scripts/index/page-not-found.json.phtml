@@ -1,0 +1,6 @@
+<?= Zend_Json::encode(
+    array(
+        'type'      => 'page-not-found',
+        'message'   => 'Page not found: ' . $this->requestUri
+    )
+); ?>

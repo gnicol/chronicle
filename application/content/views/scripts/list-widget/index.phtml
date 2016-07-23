@@ -1,0 +1,14 @@
+<? if ($this->rssUri): ?>
+    <div class="rss-link">
+        <a href="<?= $this->rssUri ?>">
+            <span class="rss-link-icon"></span>
+            <span class="rss-link-label">RSS</span>
+        </a>
+    </div>
+<? endif; ?>
+<?=
+$this->contentList(
+    $this->query,
+    $this->options
+);
+?>

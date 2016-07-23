@@ -1,0 +1,113 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.integration">
+    <title>Integrating Modules (Publish/Subscribe)</title>
+
+    <para>
+        One way for a module to participate in &product.longname; operations is by implementing an
+        <emphasis>integration</emphasis> class. When a module is enabled, disabled, loaded for use,
+        or initialized, it can prepare or clean up the resources that it requires. In addition,
+        modules can publish and subscribe to topics that enable it to create and respond to
+        &product.name; events. These mechanisms provide you with great flexibility in enhancing
+        &product.name;.
+    </para>
+
+    <para>
+        The <filename>Module.php</filename> file defines a module's integration with &product.name;.
+        Example: for a module named "Foo," the basic structure of the integration is as follows:
+    </para>
+
+<programlisting language="php">
+&lt;?php
+/**
+ * Description of the module.
+ *
+ * @copyright   Copyright information.
+ * @license     License information.
+ * @version     Version identifier(s)
+ */
+class Foo_Module extends P4Cms_Module_Integration
+{
+    /**
+     * Perform early integration work (before load).
+     */
+    public static function init()
+    {
+        // subscribe to topics here
+    }
+
+    /**
+     * Perform integration work at load time.
+     */
+    public static function load()
+    {
+    }
+
+    /**
+     * Perform work when this module is enabled.
+     */
+    public static function enable()
+    {
+    }
+
+    /**
+     * Perform work when this module is disabled.
+     */
+    public static function disable()
+    {
+    }
+}
+</programlisting>
+
+    <section id="modules.integration.pubsub">
+        <title>Publish/Subscribe</title>
+
+        <para>
+            Publish/Subscribe (<acronym>pub/sub</acronym>) is a messaging pattern that enables
+            modules to participate in operations without modifying &product.name;. The pattern
+            consists of two roles:
+        </para>
+
+        <itemizedlist>
+            <listitem>
+                A <emphasis>publisher</emphasis> that signals when participation by other modules
+                is available.
+            </listitem>
+
+            <listitem>
+                A <emphasis>subscriber</emphasis> that registers to participate in specific
+                operations.
+            </listitem>
+        </itemizedlist>
+
+        <para>
+            To signal that participation is available, publishers use a <emphasis>topic</emphasis>,
+            which is a unique name used to identify the event. By convention, topic identifiers are
+            composed of a period-separated list of namespaces. For example, the topic
+            <emphasis role="pubsub-topic">p4cms.content.form.validate</emphasis> indicates that the
+            topic is a core <emphasis>p4cms</emphasis> topic, published by the
+            <emphasis>content</emphasis> module when a <emphasis>form.validate</emphasis> operation
+            is underway.
+        </para>
+
+        <xi:include href="module-integration-pubsub.xml" role="module">
+            <xi:fallback>
+                <xi:include href="../../en/guide-developers/module-integration-pubsub.xml" />
+            </xi:fallback>
+        </xi:include>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

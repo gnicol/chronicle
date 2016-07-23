@@ -1,0 +1,45 @@
+<?
+// don't show certain widget controls on the grid (e.g. if they have no effect).
+$hide = array();
+if ($this->form->getValue('region') === 'grid') {
+    switch ($this->type->getId()) {
+        case 'widget/image':
+            $hide = array('sizeType', 'imageWidth', 'imageHeight', 'lockRatio', 'margin', 'alignment');
+            break;
+        case 'widget/image-rotator':
+            $hide = array('imageWidth', 'imageHeight');
+            break;
+        case 'youtube/youtubevideo':
+            $hide = array('videoSize', 'videoWidth', 'videoHeight');
+            break;
+        case 'widget/iframe':
+            $hide = array('iframeWidth', 'iframeHeight');
+            break;
+        case 'content/list':
+            $hide = array('showIcons');
+            break;
+        case 'flickr/stream':
+            $hide = array('imageSize');
+            break;
+    }
+}
+
+// don't show certain widget controls on the cover (e.g. if their values could break the layout)
+if ($this->form->getValue('region') === 'cover') {
+    switch ($this->type->getId()) {
+        case 'widget/image-rotator':
+            $hide = array('imageWidth', 'imageHeight');
+            break;
+    }
+}
+
+// hide the specified elements
+foreach ($hide as $element) {
+    $this->form->getSubForm('config')
+                ->getElement($element)
+                ->addDecorator('htmlTag', array('style' => 'display: none;'));
+}
+
+// leverage the original view script to do the heavy lifting
+print $this->renderScript(APPLICATION_PATH . '/widget/views/scripts/index/configure.partial.phtml');
+?>

@@ -1,0 +1,114 @@
+<?
+// get data grid namespace
+$namespace  = $this->dataGrid()->getNamespace();
+
+// data store url
+$url        = $this->url(
+    array(
+        'module'            => 'content',
+        'controller'        => 'index',
+        'action'            => 'browse',
+        'format'            => 'json'
+    )
+);
+
+// set up data grid columns
+$columnDefaults = array(
+    'type'      => array(
+        'classes'           => 'type',
+        'fixedWidth'        => '9%',
+        'formatter'         => $namespace . '.Formatters.icon',
+        'order'             => 10
+    ),
+    'title'     => array(
+        'classes'           => 'title',
+        'minWidth'          => '35%',
+        'formatter'         => $namespace . '.Formatters.title',
+        'order'             => 20
+    ),
+    'modified'  => array(
+        'label'             => 'Modified',
+        'width'             => '20%',
+        'field'             => '#REdate',
+        'order'             => 30
+    ),
+    'actions'   => $this->dataGrid()->getDefaultActionsColumn()
+);
+
+// set up footer buttons
+$buttons = array();
+if ($this->showAddLink) {
+    $buttons['Add Content'] = array(
+        'attribs'           => array(
+            'class'         => 'add-button',
+            'onclick'       => $namespace . '.Utility.openAddDialog();'
+        )
+    );
+}
+if ($this->showDeleteButton) {
+    $buttons['Delete'] = array(
+        'attribs'           => array(
+            'class'         => 'delete-button',
+            'onclick'       => $namespace . '.Utility.openDeleteDialog();'
+        )
+    );
+}
+
+// array with tooltip dialogs attached to the grid columns
+$fieldTooltips  = array(
+    array(
+        'hrefCallback'      => 'p4cms.content.grid.Utility.getPreviewHref',
+        'attachField'       => 'title',
+        'tooltipClass'      => 'content-grid-title-tooltip'
+    ),
+    array(
+        'attachField'       => 'type',
+        'formatterCallback' => $namespace . '.Formatters.typeTooltip',
+        'tooltipClass'      => 'content-type'
+    )
+);
+
+// if grid includes 'actions' column, generate actions menu.
+$columns = $this->dataGrid()->mergeColumnDefaults(
+    $this->columns,
+    $columnDefaults
+);
+$actions = isset($columns['actions'])
+    ? $this->dataGrid()->getPublishedActions()
+    : null;
+
+print $this->dataGrid(
+    $namespace,
+    array(
+        'form'          => $this->form,
+        'url'           => $url,
+        'pageSize'      => $this->pageSize,
+        'actions'       => $actions,
+        'columns'       => $columns,
+        'footer'        => array('buttons' => $buttons),
+        'attribs'       => array(
+            'query'         => $this->form->getFlattenedValues(),
+            'fieldTooltips' => $fieldTooltips,
+            'selectionMode' => $this->selectionMode,
+            'keepSelection' => true,
+            'minGridHeight' => 0.70
+        )
+    )
+);
+?>
+<script type="text/javascript">
+ dojo.addOnLoad(function(){
+    dojo.connect(<?= $namespace ?>.instance, 'onStyleRow', null, function(row){
+        if(<?= $namespace ?>.instance.getItemValue(row.index, 'deleted')) {
+            row.customClasses += ' deleted';
+        }
+    });
+
+    // refresh grid on content upload.
+    dojo.subscribe('p4cms.content.dnd.upload.complete', function(){
+        if (p4cms.content.grid.instance) {
+            p4cms.content.grid.instance.refresh();
+        }
+    });
+ });
+</script>

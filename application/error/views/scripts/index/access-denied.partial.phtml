@@ -1,0 +1,15 @@
+<?= $this->render("index/error-image.phtml"); ?>
+
+<h1>Access Denied</h1>
+
+<p><?= $this->escape($this->message); ?></p>
+
+<? if (P4Cms_User::fetchActive()->isAnonymous()) : ?>
+  <p>Please <a href="<?= 
+    $this->url(array(
+      'module'      => 'user', 
+      'controller'  => 'index', 
+      'action'      => 'login')) 
+    ?>" onclick="p4cms.user.login(this); return false;">login</a>
+  and try again.</p>
+<? endif; ?>

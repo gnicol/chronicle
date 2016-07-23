@@ -1,0 +1,27 @@
+<?= $this->partial('index/steps.phtml', array('step' => '2')); ?>
+
+<div class="info">
+<h1>Store the site's content:</h1>
+
+<? if (!$this->isP4dInstalled || !$this->isP4dValid): ?>
+ <div class="setup-status bad">
+  <p>
+   The option to automatically create a local depot is not available.
+   <? if (!$this->isP4dInstalled): ?>
+    The Perforce Server is not installed locally.
+   <? else: ?>
+    The correct Perforce Server version (<?=$this->escape($this->minP4Version)?>) is not installed.
+   <? endif; ?>
+  </p>
+ </div>
+<? endif; ?>
+
+<?= $this->form ?>
+</div>
+<script type="text/javascript">
+    dojo.addOnLoad(function() {
+        var node = dojo.query('#serverType-element input')[0];
+        node.focus();
+        node.select();
+    });
+</script>

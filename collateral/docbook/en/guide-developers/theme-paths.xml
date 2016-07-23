@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="themes.anatomy.paths">
+    <title>Folder Structure</title>
+
+    <para>
+        &product.longname; themes are comprised of layouts, view scripts, stylesheets, JavaScript,
+        images and other multimedia files. All of these resources are contained in a folder whose
+        name identifies the theme.
+    </para>
+
+    <para>
+        The theme folder can be placed in two locations within the &product.name; hierarchy,
+        identified below as <constant>CMSDIR</constant>, depending on whether the theme should be
+        available to all hosted sites, or to just a single particular site.
+    </para>
+
+    <itemizedlist>
+        <listitem>
+            Themes for any site:
+            <filename><constant>CMSDIR</constant>/sites/all/themes</filename>
+        </listitem>
+
+        <listitem>
+            Site-specific themes:
+            <filename><constant>CMSDIR</constant>/sites/<replaceable>site-id</replaceable>/themes</filename>
+        </listitem>
+    </itemizedlist>
+
+    <para>
+        The structure of the folder that contains a theme is, by default, as follows:
+    </para>
+
+<programlisting language="text">
+helpers/                - contains view helpers
+images/                 - contains images
+layouts/                - contains layout view scripts
+scripts/                - contains JavaScript files
+styles/                 - contains CSS stylesheets
+views/
+   <replaceable>module</replaceable>/              - contains view scripts for a specific module
+      <replaceable>controller</replaceable>/       - contains view scripts for a specific controller
+         <replaceable>action</replaceable>.phtml   - a view script for a specific action
+icon.png                - the theme's icon
+theme.ini               - configuration file
+</programlisting>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

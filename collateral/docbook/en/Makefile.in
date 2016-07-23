@@ -1,0 +1,161 @@
+# Perforce Chronicle Documentation
+#
+# LICENSE
+#
+# @copyright   2011 Perforce Software. All rights reserved.
+# @license     Please see LICENSE.txt in top-level folder of this distribution.
+# @version     <release>/<patch>
+#
+# Makefile - build Perforce Chronicle product documentation
+#
+# Main targets:
+#  all - render DocBook manual in HTML.
+#  clean - remove staged files.
+#  check - validate DocBook manual using xmllint.
+#  check1 - validate one DocBook XML file using xmllint.
+#    Requires that you set the XMLFILE variable.
+#  pdf-print - PDF version of manual, in two volumes; requires Apache FOP
+#
+
+# -- parameters you are likely to want to change --
+
+# XMLFILE is the name of one DocBook XML file that you want to
+#   test with xmllint, using the 'check1' target.
+
+XSLTPROC=@XSLTPROC@
+XMLLINT=@XMLLINT@
+FOP=@FOP@
+ECSRC=@ECSRC@
+HERE=@HERE@
+
+DOCBOOK_DTD=../docbook-dtd/docbookx.dtd
+DOCBOOK_XSL=../docbook-xsl/htmlhelp/htmlhelp.xsl
+DOCBOOK_FO_XSL=../docbook-xsl/fo/docbook.xsl
+INDEX_XSL=manual-index.xsl
+HTML_XSL=manual-html.xsl
+HTML_DIR=../../../docs/manual
+MANUAL_XML=manual.xml
+MANUAL_PRINT_USERGUIDE_XML=manual-userguide.xml
+MANUAL_PRINT_DEVGUIDE_XML=manual-devguide.xml
+MANUAL_LINT_XML=../en/manual-lint.xml.in
+MODULE=module_specs
+PDF_XSL=manual-pdf.xsl
+PDF_DIR=../../../docs/pdf
+XMLFILE=
+CMSNAME=Chronicle
+SOURCE_DIR=../../../
+SOURCE_DIRS_IGNORE += ../../../application/dojo/
+SOURCE_DIRS_IGNORE += ../../../collateral/
+SOURCE_DIRS_IGNORE += ../../../data/
+SOURCE_DIRS_IGNORE += ../../../docs/
+SOURCE_DIRS_IGNORE += ../../../library/Zend/
+SOURCE_DIRS_IGNORE += ../../../p4-bin/
+SOURCE_DIRS_IGNORE += ../../../tests/
+PUBSUB_TOPICS_XML=guide-developers/module-integration-pubsub.xml
+
+all:  $(MANUAL_XML) html
+
+# Build the docs in HTML format
+
+html: $(HTML_DIR)/index.html resources
+
+$(HTML_DIR)/index.html: html-dir $(MANUAL_XML) $(HTML_XSL)
+	@echo "Rendering pubsub topics..."
+	php pubsub_topics.php $(SOURCE_DIR) $(SOURCE_DIRS_IGNORE) > $(PUBSUB_TOPICS_XML)
+	@echo "Rendering the whole manual with $(XSLTPROC)..."
+	$(XMLLINT) --xinclude --output _temp_manual.xml $(MANUAL_XML)
+	$(XSLTPROC) --xinclude --output _temp_manual2.xml $(INDEX_XSL) _temp_manual.xml
+	$(XSLTPROC) --xinclude --output $(HTML_DIR)/index.html $(HTML_XSL) _temp_manual2.xml
+
+html-dir:
+	@if [ ! -e $(HTML_DIR) ]; then \
+		mkdir $(HTML_DIR); \
+	fi
+
+$(MANUAL_XML): ../en/$(MANUAL_XML).in
+	sed -e 's!@DOCBOOK_DTD@!$(DOCBOOK_DTD)!' $< > $@
+
+$(HTML_XSL): ../en/$(HTML_XSL).in
+	sed -e 's!@DOCBOOK_XSL@!$(DOCBOOK_XSL)!' -e 's!@RELEASE@!@VERSION@!' $< > $@
+
+resources: html-dir
+	@echo "Copying manual figures (recursively)..."
+#	-[ -d resources/html ] && cp -r resources/html/* $(HTML_DIR)/ && chmod -R +w $(HTML_DIR)/*
+	cp -r resources/html/* $(HTML_DIR)/
+	chmod -R +w $(HTML_DIR)/*
+
+pubsub:
+	php pubsub_topics.php $(SOURCE_DIR) $(SOURCE_DIRS_IGNORE) > $(PUBSUB_TOPICS_XML)
+
+# Build the docs in PDF format
+
+pdf-print: pdf-print-userguide pdf-print-devguide pdf-print-adminguide
+
+pdf-dir:
+	@if [ ! -e $(PDF_DIR) ]; then \
+		mkdir $(PDF_DIR); \
+	fi
+
+pdf: pdf-dir $(MANUAL_XML) $(PDF_XSL)
+	@echo "Rendering of the PDF manual with $(FOP)..."
+	$(XMLLINT) --xinclude --output _temp_manual.xml $(MANUAL_XML)
+	$(XSLTPROC) --xinclude --output $(CMSNAME).fo $(PDF_XSL) _temp_manual.xml
+	"$(FOP)" -fo $(CMSNAME).fo -pdf $(PDF_DIR)/$(CMSNAME).pdf
+
+pdf-print-userguide: pdf-dir $(PDF_XSL) $(MANUAL_PRINT_USERGUIDE_XML)
+	@echo "Rendering user guide of the PDF manual with $(FOP)..."
+	$(XMLLINT) --xinclude --output _temp_manual_userguide.xml $(MANUAL_PRINT_USERGUIDE_XML)
+	$(XSLTPROC) --xinclude --output $(CMSNAME).fo $(PDF_XSL) _temp_manual_userguide.xml
+	"$(FOP)" -fo $(CMSNAME).fo -pdf $(PDF_DIR)/$(CMSNAME)-UserGuide.pdf
+
+pdf-print-devguide: pdf-dir $(PDF_XSL) $(MANUAL_PRINT_DEVGUIDE_XML)
+	@echo "Rendering dev guide of the PDF manual with $(FOP)..."
+	$(XMLLINT) --xinclude --output _temp_manual_devguide.xml $(MANUAL_PRINT_DEVGUIDE_XML)
+	$(XSLTPROC) --xinclude --output $(CMSNAME).fo $(PDF_XSL) _temp_manual_devguide.xml
+	"$(FOP)" -fo $(CMSNAME).fo -pdf $(PDF_DIR)/$(CMSNAME)-DeveloperGuide.pdf
+
+$(MANUAL_PRINT_USERGUIDE_XML): ../en/$(MANUAL_PRINT_USERGUIDE_XML).in
+	sed -e 's!@DOCBOOK_DTD@!$(DOCBOOK_DTD)!' $< > $@
+
+$(MANUAL_PRINT_DEVGUIDE_XML): ../en/$(MANUAL_PRINT_DEVGUIDE_XML).in
+	sed -e 's!@DOCBOOK_DTD@!$(DOCBOOK_DTD)!' $< > $@
+
+$(PDF_XSL): ../en/$(PDF_XSL).in
+	sed -e 's!@DOCBOOK_FO_XSL@!$(DOCBOOK_FO_XSL)!' $< > $@
+
+# Cleanup
+
+check: $(MANUAL_XML)
+	@echo "Checking the whole manual with $(XMLLINT)..."
+	@$(XMLLINT) --xinclude --output _temp_manual.xml $(MANUAL_XML)
+	@$(XMLLINT) --valid --noout --postvalid _temp_manual.xml \
+		&& echo "OK"
+
+check1: $(MANUAL_LINT_XML)
+	@if [ -n "$(XMLFILE)" ] ; then \
+		if [ -f "$(MODULE)/$(XMLFILE)" ] ; then \
+			echo "Checking $(XMLFILE) with $(XMLLINT)..." ; \
+			sed -e 's!@XMLFILE@!$(MODULE)/$(XMLFILE)!' -e 's!@DOCBOOK_DTD@!$(DOCBOOK_DTD)!' $(MANUAL_LINT_XML) \
+				| $(XMLLINT) --xinclude --output _temp_$(XMLFILE) - ; \
+			$(XMLLINT) --valid --noout --postvalid _temp_$(XMLFILE) \
+				&& echo "OK" ; \
+		else \
+			echo "File $(MODULE)/$(XMLFILE) not found." ; \
+		fi ; \
+	else \
+		echo "Please specify a filename, e.g. 'make XMLFILE=filename.xml lint'" ; \
+	fi
+
+clean:
+	-rm -f _temp_*.xml
+	-rm -f $(CMSNAME).fo
+	-rm -Rf $(HTML_DIR)
+	-rm -Rf $(INLINE_DIR)
+	-rm -Rf $(PDF_DIR)
+
+cleanall: clean
+	-rm -f config.* configure
+	-rm -rf autom4te.cache
+	-rm -f Makefile
+	-rm -f $(HTML_XSL) $(INLINE_HTML_XSL) $(PDF_XSL) $(MANUAL_XML) $(MANUAL_PRINT1_XML) $(MANUAL_PRINT2_XML)
+	-rm -f $(PUBSUB_TOPICS_XML)

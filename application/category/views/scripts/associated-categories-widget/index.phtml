@@ -1,0 +1,19 @@
+<?
+if ($this->display) {
+    echo $this->preamble;
+    if (count($this->categories)) {
+        echo "<ul class=\"associated-categories-list\">\n";
+        foreach ($this->categories as $category) {
+            $chunks = array();
+            foreach ($category->getAncestors() as $ancestor) {
+                $chunks[] = $this->escape($ancestor->getTitle());
+            }
+            $chunks[] = '<a href="'. $category->getUri() .'">'. $this->escape($category->getTitle()) .'</a>';
+            echo '<li class="associated-categories-entry">'. implode('&nbsp;/&nbsp;', $chunks) ."</li>\n";
+        }
+        echo "</ul>\n";
+    } else {
+        echo "No category associations to display.\n";
+    }
+}
+?>

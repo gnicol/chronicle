@@ -1,0 +1,204 @@
+/* styling for printing System Information */
+.p4cms-ui.system-module .p4cms-ui.manage-toolbar,
+.p4cms-ui.system-module .p4cms-ui.p4cms-dock {
+    display: none;
+}
+
+.p4cms-ui.system-module #layout-top {
+    background: transparent;
+    height: 3em;
+}
+
+.tab-wrapper .system-information {
+    width: 960px;
+}
+
+span.systemInformationUpper{
+    display: none;
+}
+
+.tab-wrapper .system-information .dijitTabContainerLeft-tabs {
+    display: none;
+}
+
+.tab-wrapper .system-information .dijitTab.dijitTabActive,
+.tab-wrapper .system-information .dijitTab.dijitTabChecked,
+.tab-wrapper .system-information .dijitTab.dijitTabHover {
+    background: #fff;
+}
+
+.tab-wrapper .dijitTabContainerLeft-tabs .dijitTabChecked .dijitTabContent {
+}
+
+.tab-wrapper .system-information .dijitTabInnerDiv,
+.tab-wrapper .system-information .dijitTabActive .dijitTabInnerDiv,
+.tab-wrapper .system-information .dijitTabContent,
+.tab-wrapper .system-information .dijitTabActive .dijitTabContent {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border: 0 none;
+    background: #fff;
+}
+
+.tab-wrapper .system-information .dijitTab.dijitTabActive .tabLabel,
+.tab-wrapper .system-information .dijitTab.dijitTabChecked .tabLabel,
+.tab-wrapper .system-information .dijitTab.dijitTabHover .tabLabel {
+    background: #fff;
+    border-right: 1px solid #000;
+}
+
+
+.tab-wrapper .system-information .dijitTabContent div {
+    overflow: hidden;
+}
+
+.tab-wrapper .system-information img.dijitIcon {
+    display: none;
+}
+
+.tab-wrapper .system-information .dijitTab .tabLabel {
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    background: #fff;
+}
+
+.tab-wrapper .system-information .dijitTabPaneWrapper {
+    border: 0 none;
+    background: #fff;
+}
+.tab-wrapper .system-information .dijitContentPane {
+    padding-left: 0;
+    background: #fff;
+}
+
+.tab-wrapper .system-information .dijitContentPane h1.system-info-section-heading {
+    display: block;
+    margin: 10px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.tab-wrapper .system-information .dijitContentPane.dijitHidden {
+    display: block !important;
+}
+
+/* styling for status report panes */
+.p4cms-ui.system-module .dijitContentPane.details {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid black !important;
+}
+.p4cms-ui.system-module .status-wrapper {
+    border: 0 none;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    padding-bottom: 10px;
+}
+
+/* styling for each status report row */
+.p4cms-ui.system-module .status-wrapper .status {
+    color: #000;
+    background: #fff;
+    padding: 2px 0;
+}
+
+.p4cms-ui.system-module .status-wrapper .status + .status {
+    border-top: 0 none;
+}
+
+.p4cms-ui.system-module .status-wrapper .status.good,
+.p4cms-ui.system-module .status-wrapper .status.bad,
+.p4cms-ui.system-module .status-wrapper .status.warn,
+.p4cms-ui.system-module .requirements .status.good,
+.p4cms-ui.system-module .requirements .status.bad,
+.p4cms-ui.system-module .requirements .status.warn {
+    background: #fff;
+}
+
+.p4cms-ui.system-module .status-wrapper .status .label {
+    width: 135px;
+}
+
+.p4cms-ui.system-module .status-wrapper .status .label:before,
+.p4cms-ui.system-module .requirements .status h3:before {
+    font-family: monospace;
+    width: 1em;
+    margin-right: 4px;
+    display: block;
+    float: left;
+    text-align: center;
+}
+
+.p4cms-ui.system-module .status-wrapper .status.good .label:before,
+.p4cms-ui.system-module .requirements .status.good h3:before {
+    content: '\2713';
+}
+
+.p4cms-ui.system-module .status-wrapper .status.bad .label:before,
+.p4cms-ui.system-module .requirements .status.bad h3:before {
+    content: '\2716';
+}
+
+.p4cms-ui.system-module .status-wrapper .status.warn .label:before,
+.p4cms-ui.system-module .requirements .status.warn h3:before {
+    content: '!';
+}
+
+.p4cms-ui.system-module .status-wrapper .status.loading .label:before {
+    content: '?';
+}
+
+.p4cms-ui.system-module .status-wrapper .status .value {
+    margin-left: 135px;
+}
+
+.p4cms-ui.system-module .requirements {
+    border: 0 none;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    margin: 0 !important;
+    padding-bottom: 10px;
+}
+
+.p4cms-ui.system-module .requirements .status {
+    padding: 2px 0;
+    color: #000;
+}
+.p4cms-ui.system-module .requirements .status + .status {
+    border-top: 0 none;
+}
+
+.p4cms-ui.system-module .requirements .status:first-child,
+.p4cms-ui.system-module .requirements .status:last-child {
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+}
+
+.p4cms-ui.system-module .requirements h3 {
+    float: left;
+    width: 135px;
+    margin: 0 0 1px 0 !important;
+    text-align: left;
+    font-size: 12px !important;
+    white-space: nowrap;
+    line-height: 15px;
+}
+
+.p4cms-ui.system-module .requirements .status p {
+    margin: 0;
+}
+
+.p4cms-ui.system-module .status-wrapper .status.phpinfo {
+    height: auto !important;
+    overflow: visible;
+}
+.p4cms-ui.system-module .status-wrapper .status.phpinfo table {
+    width: 100%;
+}

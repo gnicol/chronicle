@@ -1,0 +1,13 @@
+<MSDeploy.iisApp> 
+
+  <iisApp 
+    path="perforce-chronicle"
+    />
+
+  <setAcl 
+    path="data" 
+    setAclAccess="Write" 
+    setAclUser="anonymousAuthenticationUser"
+    />
+
+</MSDeploy.iisApp> 

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="branches.add">
+    <title>Adding a Branch</title>
+
+    <para>
+        There are two ways to add a branch:
+    </para>
+
+    <section>
+        <title>Add a Branch based on the Active Branch</title>
+
+        <orderedlist>
+            <listitem>
+                Click the "active branch" indicator in the &product.longname; toolbar.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-manage-branches.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                The branch popup menu appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-branch_popup-add.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guimenuitem>Add Branch</guimenuitem>. The <emphasis role="dialog">Add
+                Branch</emphasis> dialog appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-add_branch-simple.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Fill in the branch configuration. Branch configuration details are described
+                in <xref linkend="branches.edit.configuration"/>.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Save</guibutton>. The new branch is created within the current
+                site, as a child branch of the active branch.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section>
+        <title>Add a Branch based on Any Existing Branch</title>
+
+        <orderedlist>
+            <listitem>
+                Click the "active branch" indicator in the &product.longname; toolbar.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-manage-branches.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                The branch popup menu appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-branch_popup-manage.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guimenuitem>Manage Branches</guimenuitem>. The
+                <emphasis role="screen">Sites and Branches</emphasis> screen appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-manage_sites_and_branches-add_branch.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Add Branch</guibutton> in the datagrid footer. The
+                <emphasis role="dialog">Add Branch</emphasis> dialog appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-add_branch-full.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Fill in the branch configuration. Branch configuration details are described
+                in <xref linkend="branches.edit.configuration"/>.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Save</guibutton>. The new branch is created within the selected
+                site, with the selected parent branch.
+            </listitem>
+        </orderedlist>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

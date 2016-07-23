@@ -1,0 +1,14 @@
+.widget-feed-feed ul li .feed-item-description {
+    display: block;
+}
+
+.widget-feed-feed ul li .feed-item-date {
+    font-style: italic;
+    padding-left: 5px;
+}
+
+/* Widget Configure Form */
+
+.p4cms-ui.config-widget .feed-config-form dd[id$=config-showFeedUrl-element] {
+    margin-top: -8px;
+}

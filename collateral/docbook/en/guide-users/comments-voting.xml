@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="comments.voting">
+    <title>Voting on Comments</title>
+
+    <bridgehead>
+        To vote on a comment:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Navigate to the content entry that contains a comment you wish to vote on, and
+            scroll down to the Comments listed near the bottom of the page.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/form-vote_comment.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            If you like the comment, click the arrow pointing <emphasis role="bold">up</emphasis>,
+            seen just above the vote count. Click the arrow pointing
+            <emphasis role="bold">down</emphasis> if you do not like the comment.
+        </listitem>
+
+        <listitem>
+            <para>
+                Your vote is registered. If <emphasis>One Vote Per-User</emphasis> is enabled, you
+                cannot vote on the same comment again. Otherwise, you may continue clicking on the
+                voting arrows.
+            </para>
+
+            <para>
+                The vote count that appears between the voting arrows updates each time you register
+                your vote, and reflects the <emphasis>score</emphasis> for this comment; up votes
+                increase the score, whereas down votes reduce the score and can make it negative.
+            </para>
+        </listitem>
+    </orderedlist>
+
+    <note>
+        <title>Voting Must Be Enabled</title>
+
+        <para>
+            <emphasis role="bold">Allow Voting</emphasis> must be enabled for the content entry
+            before any votes may be registered. Please refer to
+            <xref linkend="comments.configure"/>.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

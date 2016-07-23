@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.delete">
+    <title>Deleting Content</title>
+
+    <para>
+        There are three ways to delete content:
+    </para>
+
+    <section id="content.delete.view">
+        <title>Delete While Viewing Content</title>
+
+        <orderedlist numeration="arabic">
+            <listitem>
+                Navigate to the content by using links or menus provided by the site.
+            </listitem>
+            
+            <listitem>
+                Click <guibutton>Edit</guibutton> in the &product.longname; toolbar to begin
+                editing.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-content-edit.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click the <guibutton>Delete</guibutton> button in the toolbar.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-edit_content-delete.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                A delete confirmation dialog appears.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-delete_content-single.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                Here you can optionally provide a comment that appears in the version history
+                for the deleted entry. &product.name; uses a default comment if you do not
+                provide one.
+            </listitem>
+
+            <listitem>
+                Click the <guibutton>Delete</guibutton> button in the dialog to complete the
+                deletion of the content. Your content is now deleted from the web site.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section id="content.delete.manage.single">
+        <title>Delete Single Entry</title>
+
+        <orderedlist numeration="arabic">
+            <listitem>
+                Click <guibutton>Content</guibutton> in the &product.name; toolbar.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-manage-content_focus.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                <para></para>
+
+                The <emphasis role="screen">Manage Content</emphasis> screen is displayed.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-manage_content-action.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Scroll through the available content to locate the content entry you wish to delete.
+            </listitem>
+
+            <listitem>
+                Click the button in the <emphasis role="bold">Actions</emphasis> column in the row
+                containing the content entry you wish to delete.
+            </listitem>
+
+            <listitem>
+                Select the <guimenuitem>Delete</guimenuitem> option in the popup menu.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/popup_menu-delete.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                The <emphasis role="dialog">Delete Content</emphasis> dialog appears.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-delete_content-single.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                Here you can optionally provide a comment that appears in the version history for
+                the deleted entry. &product.name; uses a default comment if you do not provide one.
+            </listitem>
+
+            <listitem>
+                Click the <guibutton>Delete</guibutton> button in the dialog. &product.name;
+                deletes the entry.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section id="content.delete.batch">
+        <title>Delete Multiple Entries</title>
+
+        <orderedlist>
+            <listitem>
+                Click <guibutton>Content</guibutton> in the &product.name; toolbar.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-manage-content_focus.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                <para></para>
+
+                The <emphasis role="screen">Manage Content</emphasis> screen appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-manage_content.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Select the entries you wish to delete:
+
+                <note>
+                    <title>Do Not Click the Entry's Title</title>
+
+                    <para>
+                        When selecting one or more entries, click on the row, but not the entry's
+                        title.
+                    </para>
+                </note>
+
+                <itemizedlist>
+                    <listitem>
+                        To select a single entry, click on the row.
+                    </listitem>
+
+                    <listitem>
+                        To add entry into the selection, use <keycombo><keycap>CTRL</keycap>
+                        <mousebutton>Left-click</mousebutton></keycombo>
+                        (<keycombo><keycap>Command</keycap><mousebutton>Left-click</mousebutton>
+                        </keycombo> on Mac) on the desired entry's row.
+                    </listitem>
+
+                    <listitem>
+                        To remove entry from the selection, use <keycombo><keycap>CTRL</keycap>
+                        <mousebutton>Left-click</mousebutton></keycombo>
+                        (<keycombo><keycap>Command</keycap><mousebutton>Left-click</mousebutton>
+                        </keycombo> on Mac) on the not-desired entry's row.
+                    </listitem>
+
+                    <listitem>
+                        You can also select a range of entries by selecting the first entry in the
+                        range and then holding a <keycap>Shift</keycap> key and clicking on the row
+                        of the last entry.
+                    </listitem>
+                </itemizedlist>
+
+                The number of selected entries is shown in the grid footer beside the indicator of
+                the total number of entries.
+            </listitem>
+
+            <listitem>
+                Click the <guibutton>Delete</guibutton> button in the grid footer; this button is
+                activated when one or more entries are selected. The <emphasis role="dialog">Delete
+                Content</emphasis> dialog is displayed.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-delete_content-multiple.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                Here you can optionally provide a comment that appears in the version history for
+                every deleted entry. &product.name; uses a default comment if you do not provide
+                one.
+            </listitem>
+
+            <listitem>
+                <para>
+                    Click the <guibutton>Delete</guibutton> button in the dialog. &product.name;
+                    deletes all selected content entries at once.
+                </para>
+                    
+                <para>
+                    Should a problem occurs during deletion, for example if you do not have
+                    sufficient permissions to delete an entry, a notification appears and all
+                    deletions are reverted. You can then deselect the entries that could not be
+                    deleted and try the deletion again.
+                </para>
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <note>
+        <title>Don't Worry!</title>
+
+        <para>
+            &product.name; remembers all your changes, including deletions. If you wish to
+            re-instate deleted content, please see <xref linkend="content.history"/>.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

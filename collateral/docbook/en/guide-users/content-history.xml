@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.history">
+    <title>Viewing the History of Web Site Content</title>
+
+    <para>
+        &product.longname; maintains the history of every content change you save. You can view that
+        history, compare different versions, and rollback to a previous version.
+    </para>
+
+    <section id="content.history.view">
+        <title>How to View Content History</title>
+
+        <orderedlist>
+            <listitem>
+                Navigate to the content entry of interest.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>History</guibutton> in the &product.name; toolbar.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-content-history.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guibutton>History List</guibutton> in the expanded toolbar.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-history-history_list.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                <para></para>
+
+                The <emphasis role="dialog">History</emphasis> dialog is displayed, listing the
+                versions of the content item you selected. (You can use the filtering features on
+                the left to reduce the list of items for easier navigation.)
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-history.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section id="content.history.view.older">
+        <title>How to View Older Versions</title>
+
+        <orderedlist>
+            <listitem>
+                View the content history using the <link linkend="content.history.view">instructions
+                above</link>.
+            </listitem>
+
+            <listitem>
+                Right-click a version entry and choose <guimenuitem>View</guimenuitem>.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/popup_menu-history-view.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section id="content.history.view.diff">
+        <title>How to View Differences</title>
+
+        <orderedlist>
+            <listitem>
+                View the content history using the <link linkend="content.history.view">instructions
+                above</link>.
+            </listitem>
+
+            <listitem>
+                To compare versions, right-click a version entry and choose the desired
+                <guimenuitem>Diff</guimenuitem> option.
+                
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/popup_menu-history-diff.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                The <emphasis role="dialog">Diff</emphasis> dialog is displayed. Hover your mouse
+                over each of the numbered callouts to highlight the associated area of the dialog.
+
+                <mediaobjectco role="screen-dd">
+                    <subtitle>The Diff Dialog</subtitle>
+
+                    <imageobjectco>
+                        <areaspec units="imagemap">
+                            <area id="screen-dd-spot-nav" linkends="screen-dd-co-nav" coords="19,39,136,61"/>
+                            <area id="screen-dd-spot-counts" linkends="screen-dd-co-counts" coords="138,39,330,61"/>
+                            <area id="screen-dd-spot-options" linkends="screen-dd-co-options" coords="357,39,630,61"/>
+                            <area id="screen-dd-spot-oldside" linkends="screen-dd-co-oldside" coords="14,64,313,88"/>
+                            <area id="screen-dd-spot-newside" linkends="screen-dd-co-newside" coords="324,64,622,88"/>
+                            <area id="screen-dd-spot-text" linkends="screen-dd-co-text" coords="22,110,615,146"/>
+                            <area id="screen-dd-spot-image" linkends="screen-dd-co-image" coords="22,169,615,290"/>
+                            <area id="screen-dd-spot-editor" linkends="screen-dd-co-editor" coords="22,313,615,415"/>
+                        </areaspec>
+
+                        <imageobject>
+                            <imagedata fileref="images/dialog-diff-callouts.png"/>
+                        </imageobject>
+
+                        <calloutlist>
+                            <callout id="screen-dd-co-nav" arearefs="screen-dd-spot-nav">
+                                <para>
+                                    <emphasis role="bold">Diff Navigation</emphasis>: 
+                                    Click the arrows to move from element to element. The focused
+                                    element has a black border, unfocused elements have a grey
+                                    border.
+                                </para>
+                            </callout>
+                            <callout id="screen-dd-co-counts" arearefs="screen-dd-spot-counts">
+                                <para>
+                                    <emphasis role="bold">Diff Counts</emphasis>:
+                                    This area displays how many of each kind of change exists
+                                    between the two versions, coloured to match the highlight
+                                    markers.
+                                </para>
+                            </callout>
+                            <callout id="screen-dd-co-options" arearefs="screen-dd-spot-options">
+                                <para>
+                                    <emphasis role="bold">Diff Options</emphasis>:
+                                    <emphasis>Hide Unchanged Fields</emphasis>, when checked, all
+                                    unchanged elements are removed from display so you can focus on
+                                    just the changed elements. When unchecked, all elements are
+                                    displayed. <emphasis>Ignore Whitespace</emphasis>, when checked,
+                                    causes all changes resulting from edits to whitespace to be
+                                    hidden. When unchecked, all changes are displayed.
+                                </para>
+                            </callout>
+                            <callout id="screen-dd-co-oldside" arearefs="screen-dd-spot-oldside">
+                                <para>
+                                    <emphasis role="bold">Older Version</emphasis>:
+                                    The older version of the two is displayed in the left-hand
+                                    column in the dialog. The version heading reports the version
+                                    number, user responsible, and age of the change.
+                                </para>
+                            </callout>
+                            <callout id="screen-dd-co-newside" arearefs="screen-dd-spot-newside">
+                                <para>
+                                    <emphasis role="bold">Newer Version</emphasis>:
+                                    The newer version of the two is displayed in the right-hand
+                                    column in the dialog. The version heading reports the version
+                                    number, user responsible, and age of the change.
+                                </para>
+                            </callout>
+                            <callout id="screen-dd-co-text" arearefs="screen-dd-spot-text">
+                                <para>
+                                    <emphasis role="bold">Text Elements</emphasis>:
+                                    Text elements are displayed side-by-side with the positions of
+                                    changes highlighted as an addition, deletion, or change as
+                                    appropriate.
+                                </para>
+                            </callout>
+                            <callout id="screen-dd-co-image" arearefs="screen-dd-spot-image">
+                                <para>
+                                    <emphasis role="bold">Image Elements</emphasis>:
+                                    Image elements are displayed side-by-side, with the footer
+                                    reporting the filename, MIME-type, dimensions, and file size for
+                                    each version. <emphasis>Overlay</emphasis> is an alternate
+                                    comparison mode, and is discussed
+                                    <link linkend="content.history.image.overlay">below</link>.
+                                </para>
+                            </callout>
+                            <callout id="screen-dd-co-editor" arearefs="screen-dd-spot-editor">
+                                <para>
+                                    <emphasis role="bold">Editor Elements</emphasis>:
+                                    Editor elements are displayed as their <acronym>HTML</acronym>
+                                    source side-by-side, with the positions of changes highlighted
+                                    as an addition, deletion, or change as appropriate.
+                                    <emphasis>Side By Side</emphasis> is an alternate comparison
+                                    mode that shows the in-place display of the element, but does
+                                    not include change highlights. <emphasis>Overlay</emphasis> is
+                                    another comparison mode that works similarly to image elements'
+                                    overlay mode. Please see
+                                    <link linkend="content.history.image.overlay">below</link>.
+                                </para>
+                            </callout>
+                        </calloutlist>
+                    </imageobjectco>
+                </mediaobjectco>
+            </listitem>
+        </orderedlist>
+
+        <section id="content.history.image.overlay">
+            <title>Image Overlay Comparison</title>
+
+            <para>
+                The <emphasis>Overlay</emphasis> mode for images combines the old and new versions
+                of an image with the new version overlayed on the old version. Both images are
+                centered, and the controls beneath allow you to adjust the opacity so more or less
+                of each version:
+            </para>
+
+            <mediaobjectco role="screen-dd">
+                <subtitle>Image Overlay Mode</subtitle>
+
+                <imageobjectco>
+                    <areaspec units="imagemap">
+                        <area id="screen-io-spot-overlay" linkends="screen-io-co-overlay" coords="1,22,591,103"/>
+                        <area id="screen-io-spot-play" linkends="screen-io-co-play" coords="114,106,159,126"/>
+                        <area id="screen-io-spot-opacity" linkends="screen-io-co-opacity" coords="173,106,403,126"/>
+                        <area id="screen-io-spot-borders" linkends="screen-io-co-borders" coords="438,106,488,126"/>
+                    </areaspec>
+
+                    <imageobject>
+                        <imagedata fileref="images/dialog-diff-image_overlay-callouts.png"/>
+                    </imageobject>
+
+                    <calloutlist>
+                        <callout id="screen-io-co-overlay" arearefs="screen-io-spot-overlay">
+                            <para>
+                                <emphasis role="bold">The Images</emphasis>: 
+                                The images are overlayed in this area.
+                            </para>
+                        </callout>
+                        <callout id="screen-io-co-play" arearefs="screen-io-spot-play">
+                            <para>
+                                <emphasis role="bold">Play Button</emphasis>:
+                                Clicking this button causes the opacity of the two images to be
+                                animated from fully displaying the old version, through an equal mix
+                                of each, to fully displaying the new version.
+                            </para>
+                        </callout>
+                        <callout id="screen-io-co-opacity" arearefs="screen-io-spot-opacity">
+                            <para>
+                                <emphasis role="bold">Opacity Slider</emphasis>:
+                                The shield-shaped button can be clicked and dragged to adjust the
+                                opacity of the image overlay to show more or less of each version of
+                                the image. The dots at the left, middle (hidden initially), and
+                                right of the slider, when clicked, snap the slider to those
+                                positions.
+                            </para>
+                        </callout>
+                        <callout id="screen-io-co-borders" arearefs="screen-io-spot-borders">
+                            <para>
+                                <emphasis role="bold">Border Toggle</emphasis>:
+                                Click this button to toggle the display of a border around each
+                                image, which can help identify the size of each image.
+                            </para>
+                        </callout>
+                    </calloutlist>
+                </imageobjectco>
+            </mediaobjectco>
+        </section>
+
+        <section id="content.history.editor.sidebyside">
+            <title>Editor Side By Side Comparison</title>
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-diff-text_sbs.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para>
+                This comparison mode displays the in-place view of each version side-by-side.
+                There are no markers indicating where changes exist.
+            </para>
+        </section>
+
+        <section id="content.history.editor.overlay">
+            <title>Editor Overlay Comparison</title>
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-diff-text_overlay.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para>
+                This comparison mode displays the new version overlayed over the old version. The
+                controls are identical to the <link linkend="content.history.image.overlay">image
+                overlay mode</link>.
+            </para>
+        </section>
+    </section>
+
+    <section id="content.history.rollback">
+        <title>How to Restore a Previous Version</title>
+
+        <orderedlist>
+            <listitem>
+                View the content history using the <link linkend="content.history.view">instructions
+                above</link>.
+            </listitem>
+
+            <listitem>
+                To restore an older version, right-click it and choose
+                <guimenuitem>Rollback</guimenuitem>. The selected version is copied to become the
+                latest version.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/popup_menu-history-rollback.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <note>
+        <title>Alternate Ways to Access History</title>
+        
+        <para>
+            When using the <emphasis role="screen">Manage Content</emphasis> screen, you can view
+            the history of an entry by selecting <guimenuitem>History</guimenuitem> from the actions
+            or context menu.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

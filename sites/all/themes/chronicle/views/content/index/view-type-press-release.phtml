@@ -1,0 +1,14 @@
+<?= $this->contentEntry()->open(); ?>
+<div id="intro-short">
+ <div class="container-thin">
+<?= $this->contentEntry()->element('title') ?>
+<?= $this->contentEntry()->element('subtitle'); ?>
+ </div>
+</div>
+
+<div id="main">
+ <div class="container-thin">
+<?= $this->contentEntry()->element('body') ?>
+ </div>
+</div>
+<?= $this->contentEntry()->close(); ?>

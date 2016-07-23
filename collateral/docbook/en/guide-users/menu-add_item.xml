@@ -1,0 +1,381 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="navigation.menu.add.item">
+    <title>Adding Menu Items</title>
+
+    <bridgehead>
+        To add a new menu item:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click <guibutton>Manage</guibutton> in the &product.longname; toolbar.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-manage.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guimenuitem>Menus</guimenuitem>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-toolbar_menu-menus.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para></para>
+
+            The <emphasis role="screen">Manage Menus</emphasis> screen is displayed.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-manage_menus-add_menu_item.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Add Menu Item</guibutton>. The <emphasis role="dialog">Add
+            Menu Item</emphasis> dialog is displayed.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-add_menu_item.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Define the menu by specifying the following information:
+
+            <variablelist>
+                <varlistentry>
+                    <term>Label</term>
+
+                    <listitem>
+                        A friendly label to identify this item.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Position</term>
+
+                    <listitem>
+                        The position of a menu item is expressed with the two selection controls.
+                        The first control includes the choices <emphasis>After</emphasis>,
+                        <emphasis>Before</emphasis>, and <emphasis>Under</emphasis>, which indicate
+                        a position relative to the choice made in the second selection. The second
+                        control provides a list of existing menus.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Type</term>
+
+                    <listitem>
+                        Choose from the list of menu item types, including the defaults
+                        described in <xref linkend="navigation.menu.overview"/>.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Type-Specific Fields</term>
+
+                    <listitem>
+                        The fields appearing between Type and Target vary depending on
+                        the menu item type:
+
+<table pgwide="1" frame="all" tabstyle="wide" id="navigation.menu.add.item.type.fields">
+<title>Menu Item Type-Specific Fields</title>
+<tgroup cols="3">
+    <colspec colname="type"/>
+    <colspec colname="field"/>
+    <colspec colname="description"/>
+    <thead>
+        <row>
+            <entry width="40%">Type</entry>
+            <entry width="30%">Field</entry>
+            <entry width="30%">Description</entry>
+        </row>
+    </thead>
+    <tbody>
+        <row>
+            <entry morerows="1">Action</entry>
+
+            <entry>Action</entry>
+
+            <entry>
+                Select an action from the list of all actions provided by all enabled
+                modules; when this menu item is clicked, the selection action is invoked.
+                Note that some actions may not behave well when invoked via a menu item.
+            </entry>
+        </row>
+
+        <row>
+            <entry>Parameters</entry>
+
+            <entry>
+                Express any parameters to be passed to the selected action in INI format.
+            </entry>
+        </row>
+
+        <row>
+            <entry morerows="1">Content</entry>
+
+            <entry>Entry</entry>
+
+            <entry>
+                Accepts a content id, which you can browse for by clicking
+                <guibutton>Browse</guibutton>. When this menu item is clicked, the selected
+                content entry is displayed.
+            </entry>
+        </row>
+
+        <row>
+            <entry>Action</entry>
+
+            <entry>
+                Determines the link's action to display the content entry's page, display the
+                content entry as an image (also works for <acronym>PDF</acronym>s), or download the
+                content entry.
+            </entry>
+        </row>
+
+        <row>
+            <entry>Heading</entry>
+
+            <entry namest="field" nameend="description">
+                This menu item just occupies space in the menu and is not clickable.
+            </entry>
+        </row>
+
+        <row>
+            <entry>Link</entry>
+
+            <entry>Address</entry>
+
+            <entry>
+                Enter a URL to visit when this menu item is clicked.
+            </entry>
+        </row>
+
+        <row>
+            <entry>Active&#xA0;User's&#xA0;Profile</entry>
+
+            <entry namest="field" nameend="description">
+                When this menu item is clicked, the active user's profile page is displayed.
+            </entry>
+        </row>
+
+        <row>
+            <entry>Login/Logout</entry>
+
+            <entry namest="field" nameend="description">
+                If the current user is not logged in, this menu item is labeled
+                <emphasis>Login</emphasis> and when clicked, the user is presented with the
+                login form. If the current user is logged in, this menu item is labeled
+                <emphasis>Logout</emphasis> and when clicked, the user is logged out of
+                &product.name;
+            </entry>
+        </row>
+
+        <row>
+            <entry morerows="2">Category Listing</entry>
+
+            <entry>Maximum&#xA0;Depth</entry>
+
+            <entry>
+                Categories can be hierarchical. This field lets you specify how many levels of
+                categories to display.
+            </entry>
+        </row>
+
+        <row>
+            <entry>Maximum Items</entry>
+
+            <entry>
+                This field lets you specify how many category entries, at most, to display.
+            </entry>
+        </row>
+
+        <row>
+            <entry>Include&#xA0;Content</entry>
+
+            <entry>
+                This field toggles the display of content associated with the listed categories.
+            </entry>
+        </row>
+
+        <row>
+            <entry>Content Listing</entry>
+
+            <entry>Maximum&#xA0;Items</entry>
+
+            <entry>
+                This field lets you specify how many content entries, at most, to display.
+            </entry>
+        </row>
+    </tbody>
+</tgroup>
+</table>
+
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Target</term>
+
+                    <listitem>
+                        Choose the browser window that should be used when this menu
+                        item is clicked. The options are <emphasis>Current
+                        Window</emphasis>, <emphasis>New Window</emphasis>,
+                        <emphasis>Top Window</emphasis>, <emphasis>Parent
+                        Window</emphasis>.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>CSS Class</term>
+
+                    <listitem>
+                        You can specify a <acronym>CSS</acronym> class to help style
+                        this menu item differently than other menu items. You may need
+                        access to the current theme, specifically to edit its stylesheet
+                        files, to use this option effectively.
+                    </listitem>
+                </varlistentry>
+            </variablelist>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton>.
+        </listitem>
+    </orderedlist>
+
+    <section id="navigation.menu.add.content.edit">
+        <title>How to Add a Menu Item for a Content Entry While Editing</title>
+
+        <orderedlist numeration="arabic">
+            <listitem>
+                Navigate to the content entry you would like to include in a menu.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Edit</guibutton>.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-content-edit.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Menus</guibutton>.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-edit_content-menus.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                <para></para>
+
+                The <emphasis role="dialog">Menu Item</emphasis> tooltip dialog is displayed.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-content_edit-menus-new_menu_item-focus.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guibutton>New Menu Item</guibutton>. The dialog updates to allow you to
+                configure the menu item that should link to this content entry.
+
+                <mediaobjectco role="screen-mc">
+                    <subtitle>The Edit Menu Item Dialog</subtitle>
+
+                    <imageobjectco>
+                        <areaspec units="imagemap">
+                            <area id="screen-emi-spot-label" linkends="screen-emi-co-label" coords="18,51,179,92"/>
+                            <area id="screen-emi-spot-remove" linkends="screen-emi-co-remove" coords="185,51,255,72"/>
+                            <area id="screen-emi-spot-position" linkends="screen-emi-co-position" coords="18,93,155,167"/>
+                        </areaspec>
+
+                        <imageobject>
+                            <imagedata fileref="images/dialog-content_edit-menus-configure_menu_item-callouts.png"/>
+                        </imageobject>
+
+                        <calloutlist>
+                            <callout id="screen-emi-co-label" arearefs="screen-emi-spot-label">
+                                <para>
+                                    <emphasis role="bold">Label</emphasis>:
+                                    When <emphasis role="bold">Use content entry's title</emphasis>
+                                    is checked, the menu item is labelled with the entry's title.
+                                    If unchecked, a text field appears to allow you to specify the
+                                    menu item's label.
+                                </para>
+                            </callout>
+                            <callout id="screen-emi-co-remove" arearefs="screen-emi-spot-remove">
+                                <para>
+                                    <emphasis role="bold">Remove</emphasis>:
+                                    Click the <emphasis role="bold">Remove</emphasis> link to remove
+                                    menu item.
+                                </para>
+                            </callout>
+                            <callout id="screen-emi-co-position" arearefs="screen-emi-spot-position">
+                                <para>
+                                    <emphasis role="bold">Position</emphasis>:
+                                    The position of a menu item is expressed with the two
+                                    selection controls. The first control includes the choices
+                                    <emphasis>After</emphasis>, <emphasis>Before</emphasis>, and
+                                    <emphasis>Under</emphasis>, which indicate a position relative
+                                    to the choice made in the second selection. The second control
+                                    provides a list of existing menus.
+                                </para>
+                            </callout>
+                        </calloutlist>
+                    </imageobjectco>
+                </mediaobjectco>
+            </listitem>
+
+            <listitem>
+                Configure the menu item.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Save</guibutton>. Your content entry is saved along with the new
+                menu item.
+            </listitem>
+        </orderedlist>
+
+        <note>
+            <title>Content Entries in Menus</title>
+
+            <para>
+                You can create as many menu items for a content entry as you require.
+            </para>
+        </note>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

@@ -1,0 +1,9 @@
+<?php
+    $file = $this->leftRecord->toP4File();
+    $leftVersion = $file->getStatus('headRev');
+    $file = $this->rightRecord->toP4File();
+    $rightVersion = $file->getStatus('headRev');
+?>
+<div class="no-difference">
+    No differences found between version #<?= $leftVersion ?> and version #<?= $rightVersion ?>.
+</div>

@@ -1,0 +1,12 @@
+<div class="main">
+<?= $this->contentEntry()->open() ?>
+<?= $this->contentEntry()->element('title') ?>
+<?= $this->contentEntry()->element('date') ?>
+<?= $this->contentEntry()->element('author') ?>
+<?= $this->contentEntry()->element('body') ?>
+<?= $this->contentEntry()->close() ?>
+</div>
+
+<div class="sidebar">
+<?= $this->region('sidebar') ?>
+</div>

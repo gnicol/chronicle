@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.manage">
+    <title>Managing Content</title>
+
+    <para>
+        The <emphasis role="screen">Manage Content</emphasis> screen is where most content
+        management tasks are performed. This section provides a summary of its features. Hover your
+        mouse over each of the numbered callouts to highlight the associated area of the screen.
+    </para>
+
+    <mediaobjectco role="screen-mc">
+        <subtitle>The Manage Content Screen</subtitle>
+
+        <imageobjectco>
+            <areaspec units="imagemap">
+                <area id="screen-mco-spot-search" linkends="screen-mco-co-search" coords="0,90,129,124"/>
+                <area id="screen-mco-spot-type" linkends="screen-mco-co-type" coords="0,128,129,225"/>
+                <area id="screen-mco-spot-workflow" linkends="screen-mco-co-workflow" coords="0,233,129,312"/>
+                <area id="screen-mco-spot-deleted" linkends="screen-mco-co-deleted" coords="0,319,129,372"/>
+                <area id="screen-mco-spot-sortable" linkends="screen-mco-co-sortable" coords="147,89,639,107"/>
+                <area id="screen-mco-spot-titles" linkends="screen-mco-co-titles" coords="191,111,352,149"/>
+                <area id="screen-mco-spot-actions" linkends="screen-mco-co-actions" coords="577,109,607,171"/>
+                <area id="screen-mco-spot-scrollbar" linkends="screen-mco-co-scrollbar" coords="611,107,639,416"/>
+                <area id="screen-mco-spot-buttons" linkends="screen-mco-co-buttons" coords="463,418,639,436"/>
+            </areaspec>
+
+            <imageobject>
+                <imagedata fileref="images/screen-manage_content-callouts.png"/>
+            </imageobject>
+
+            <calloutlist>
+                <callout id="screen-mco-co-search" arearefs="screen-mco-spot-search">
+                    <para>
+                        <emphasis role="bold">Filter by Text Search</emphasis>: 
+                        Enter text to filter the list of content to entries containing the text.
+                    </para>
+                </callout>
+
+                <callout id="screen-mco-co-type" arearefs="screen-mco-spot-type">
+                    <para>
+                        <emphasis role="bold">Filter by Content Type</emphasis>:
+                        Click on one or more checkboxes to filter the list of content to entries of
+                        the selected types. When no checkboxes are checked, content of all types is
+                        included.
+                    </para>
+                </callout>
+
+                <callout id="screen-mco-co-workflow" arearefs="screen-mco-spot-workflow">
+                    <para>
+                        <emphasis role="bold">Filter by Workflow State</emphasis>:
+                        Click on one of the radio buttons to filter the list of content to entries
+                        matching the workflow state selection.
+                    </para>
+                </callout>
+
+                <callout id="screen-mco-co-deleted" arearefs="screen-mco-spot-deleted">
+                    <para>
+                        <emphasis role="bold">Filter by Deleted Status</emphasis>:
+                        Click on one of the radio buttons to filter the list of content to entries
+                        matching the deleted status selection.
+                    </para>
+                </callout>
+
+                <callout id="screen-mco-co-sortable" arearefs="screen-mco-spot-sortable">
+                    <para>
+                        <emphasis role="bold">Sort Content</emphasis>:
+                        Click on one of the columns to sort the content by that column's details,
+                        click again to change the sort direction (an indicator arrow appears).
+                        The <emphasis role="bold">Actions</emphasis> and
+                        <emphasis role="bold">Workflow</emphasis> columns are not sortable.
+                    </para>
+                </callout>
+
+                <callout id="screen-mco-co-titles" arearefs="screen-mco-spot-titles">
+                    <para>
+                        <emphasis role="bold">View by Title Click</emphasis>:
+                        Click on one of the content titles to view that content entry. If you hover
+                        your mouse over a title, a tooltip appears presenting the content's
+                        <emphasis>excerpt</emphasis>.
+                    </para>
+                </callout>
+
+                <callout id="screen-mco-co-actions" arearefs="screen-mco-spot-actions">
+                    <para>
+                        <emphasis role="bold">Actions Drop-down Menu</emphasis>:
+                        Click on one of the drop-down menus in the Actions column to see and use
+                        actions available for each entry, including View, Edit, and Delete.
+                    </para>
+                </callout>
+
+                <callout id="screen-mco-co-scrollbar" arearefs="screen-mco-spot-scrollbar">
+                    <para>
+                        <emphasis role="bold">Lazy-load Scrollbar</emphasis>:
+                        When there are many more content entries than can fit on-screen, only
+                        enough entries are retrieved to fill the display. When you use the
+                        scrollbar, additional entries are fetched. This means that scrolling might
+                        appear to be slightly slower than you might expect, but it allows filtering,
+                        sorting and initial display to be much faster when you have hundreds or
+                        thousands of content entries.
+                    </para>
+                </callout>
+
+                <callout id="screen-mco-co-buttons" arearefs="screen-mco-spot-buttons">
+                    <para>
+                        <emphasis role="bold">Buttons</emphasis>:
+                        The buttons at the bottom right provide the ability to add a new content
+                        entry, bulk delete selected entries, or bulk change the workflow state of
+                        selected entries. The buttons for bulk operations are be disabled until one
+                        or more entries are selected by clicking on the desired rows in the grid.
+                    </para>
+                </callout>
+            </calloutlist>
+        </imageobjectco>
+    </mediaobjectco>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

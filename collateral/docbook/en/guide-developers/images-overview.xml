@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="image.manipulation.overview">
+    <title>Overview</title>
+
+    <para>
+        &product.longname; provides an image library that can perform select image manipulations,
+        such as scaling, to be done on the server. Using the image library greatly assists theme
+        developers, who can specify sizes for images to fit within the theme without having to
+        restrict the sizes of images that users upload. This chapter is focused on module
+        developers, providing an overview of how the image library works, and how to interact with
+        and extend the image library.
+    </para>
+
+    <para>
+        While the image library can provide better image quality, or can help reduce bandwidth, it
+        requires an additional <acronym>PHP</acronym> extension to be installed on the server. If
+        necessary, ask your system administrator to install one of the following extensions:
+    </para>
+
+    <section id="image.manipulation.overview.libraries">
+        <title>Supported Image Libraries</title>
+
+        <para>
+            Currently supported libraries include:
+            <itemizedlist>
+                <listitem>
+                    <ulink url="http://www.imagemagick.org/">ImageMagick</ulink> is "a software
+                    suite to create, edit, compose, or convert bitmap images. It can read and write
+                    images in a variety of formats (over 100)." To use this library, the
+                    <ulink url="http://www.php.net/manual/en/book.imagick.php">imagick</ulink>
+                    extension must be installed.
+                </listitem>
+
+                <listitem>
+                    <ulink url="http://www.boutell.com/gd/">GD</ulink> is "an open source code
+                    library for the dynamic creation of images by programmers. GD creates PNG, JPEG,
+                    and GIF images, among other formats." To use this library, the
+                    <ulink url="http://www.php.net/manual/en/book.image.php">gd</ulink> extension
+                    must be installed.
+                </listitem>
+            </itemizedlist>
+        </para>
+
+        <para>
+            If you have more than one of the supported image libraries installed, &product.name;
+            defaults to using ImageMagick, if available, then GD.
+        </para>
+    </section>
+
+    <section id="image.manipulation.overview.transformations">
+        <title>Standard Transformations</title>
+
+        <para>
+            &product.name; provides the following transformations in each of the supplied drivers:
+        </para>
+
+        <variablelist>
+            <varlistentry>
+                <term>crop</term>
+
+                <listitem>
+                    Crops the image to the given size at the specified position.
+
+<programlisting language="php">
+&lt;?php
+    $image->transform('crop', array(width, height, x, y));
+</programlisting>
+
+                    <itemizedlist>
+                        <listitem>
+                            <replaceable>width</replaceable> specifies the integer width in pixels
+                            of the cropped image.
+                        </listitem>
+
+                        <listitem>
+                            <replaceable>height</replaceable> specifies the integer height in pixels
+                            of the cropped image.
+                        </listitem>
+
+                        <listitem>
+                            <replaceable>x</replaceable> specifies the integer starting pixel of the
+                            crop from the left side. 0 would begin the crop with the left-most
+                            pixel.
+                        </listitem>
+
+                        <listitem>
+                            <replaceable>y</replaceable> specifies the integer starting pixel of the
+                            crop from the top side. 0 would begin the crop with the top-most pixel.
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>rotate</term>
+
+                <listitem>
+                    Rotates the image.
+
+<programlisting language="php">
+&lt;?php
+    $image->transform('rotate', array(degrees));
+</programlisting>
+
+                    <itemizedlist>
+                        <listitem>
+                            <replaceable>degrees</replaceable> specifies the floating point degrees
+                            to rotate the image by, in the clock-wise direction.
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>scale</term>
+
+                <listitem>
+                    Scales the image to the specified dimensions.
+
+<programlisting language="php">
+&lt;?php
+    $image->transform('scale', array(width, height));
+</programlisting>
+
+                    <itemizedlist>
+                        <listitem>
+                            <replaceable>width</replaceable> specifies the integer width in pixels
+                            of the scaled image.
+                        </listitem>
+
+                        <listitem>
+                            <replaceable>height</replaceable> specifies the integer height in pixels
+                            of the scaled image.
+                        </listitem>
+                    </itemizedlist>
+
+                    <note>
+                        <title>Maintaining Aspect Ratio</title>
+
+                        <para>
+                            If only the width, or the height, is specified, the image is scaled to
+                            match the specified size, and the unspecified size is computed to
+                            maintain the aspect ratio, or shape, of the image.
+                        </para>
+
+                        <para>
+                            For example, if the original image is 1024x768 pixels, invoking
+                            <classname>scale</classname> with a width of 100 pixels would result in
+                            a scaled image of 100x75 pixels. Instead, if
+                            <classname>scale</classname> is invoked with a height of 100 pixels, the
+                            scaled image would be 133x100 pixels. To specify only a height, provide
+                            the width as <constant>null</constant>.
+                        </para>
+                    </note>
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>sharpen</term>
+
+                <listitem>
+                    Sharpens the image.
+
+<programlisting language="php">
+&lt;?php
+    $image->transform('sharpen');
+</programlisting>
+
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

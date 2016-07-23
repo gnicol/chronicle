@@ -1,0 +1,58 @@
+/* Menus */
+
+.p4cms-ui.dijitMenuPopup,
+.p4cms-ui.dijitPopup,
+.p4cms-ui.dijitMenuPopup table {
+    font-size: 13px;
+    color: #1a1a1a;
+    padding: 4px 0;
+    border: 1px solid #a7a7a7;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    background: #ebebeb;
+}
+
+.p4cms-ui.dijitMenuPopup,
+.p4cms-ui.dijitPopup {
+    box-shadow: 0px 2px 15px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 2px 15px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 2px 15px rgba(0,0,0,0.5);
+}
+
+.p4cms-ui.dijitMenuPopup .dijitMenu,
+.p4cms-ui.dijitPopup .dijitMenu {
+    border: none;
+    background: inherit;
+    -webkit-box-shadow: 0 0 0 transparent;
+}
+
+.p4cms-ui.dijitMenuPopup .dijitMenuItem,
+.p4cms-ui.dijitPopup .dijitMenuItem {
+    background: inherit;
+}
+
+.p4cms-ui.dijitMenuPopup .dijitMenuItem .dijitMenuItemLabel,
+.p4cms-ui.dijitPopup .dijitMenuItem .dijitMenuItemLabel {
+    min-width: 90px;
+    padding: 5px 7px;
+}
+
+.p4cms-ui.dijitMenuPopup .dijitHover.dijitMenuItem,
+.p4cms-ui.dijitMenuPopup .dijitHover.dijitMenuItem td,
+.p4cms-ui.dijitPopup .dijitHover.dijitMenuItem,
+.p4cms-ui.dijitPopup .dijitHover.dijitMenuItem td
+{
+    background: #2c59d7;
+    color: #fff;
+}
+
+.p4cms-ui.dijitMenuPopup .dijitMenuSeparator td {
+    padding: 2px 0;
+}
+
+.p4cms-ui.dijitPopup .dijitMenuArrowCell .dijitMenuExpand,
+.p4cms-ui.dijitMenuPopup .dijitMenuArrowCell .dijitMenuExpand {
+    position: relative;
+    top: -1px;
+}

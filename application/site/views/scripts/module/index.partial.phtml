@@ -1,0 +1,54 @@
+<?
+// get data grid namespace
+$namespace  = $this->dataGrid()->getNamespace();
+
+// data store url
+$url        = $this->url(
+    array(
+        'module'        => 'site',
+        'controller'    => 'module',
+        'action'        => 'index',
+        'format'        => 'json'
+    )
+);
+
+// set up data grid columns
+$columns = array(
+    'name'              => array(
+        'label'         => 'Module',
+        'width'         => '65%',
+        'formatter'     => $namespace . '.Formatters.module'
+    ),
+    'maintainer'        => array(
+        'label'         => 'Maintained By',
+        'width'         => '20%',
+        'formatter'     => $namespace . '.Formatters.maintainer'
+    ),
+    'status'            => array(
+        'width'         => '10%',
+        'formatter'     => $namespace . '.Formatters.status'
+    )
+);
+if (count($this->actions)) {
+    $columns[] = $this->dataGrid()->getDefaultActionsColumn();
+}
+
+print $this->dataGrid(
+    $namespace,
+    array(
+        'form'          => $this->form,
+        'url'           => $url . '?' . $this->query,
+        'pageSize'      => $this->pageSize,
+        'columns'       => $columns
+    )
+);
+?>
+<script type="text/javascript">
+ dojo.addOnLoad(function(){
+    dojo.connect(<?= $namespace ?>.instance, 'onStyleRow', null, function(row){
+        if (<?= $namespace ?>.instance.getItemValue(row.index, 'enabled')) {
+            row.customClasses += " enabled";
+        }
+    })
+ });
+</script>

@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.wysiwyg">
+    <title><acronym>WYSIWYG</acronym> Editor</title>
+
+    <para>
+        When you edit content in an <emphasis>editor</emphasis> element, a tooltip containing
+        <acronym>WYSIWYG</acronym> controls appears, allowing you to style and manipulate the
+        element's content in a number of ways. Most of these controls require you to first select
+        some text, then operate the control. Hover your mouse over each of the numbered callouts to
+        highlight the associated area of the tooltip.
+    </para>
+
+    <note>
+        <title>Using the Tableau theme?</title>
+
+        <para>
+            Please review <link linkend="tableau.editing">the editor's adjustments</link> when the
+            Tableau theme is active.
+        </para>
+    </note>
+
+    <mediaobjectco role="screen-wt">
+        <subtitle>The <acronym>WYSIWYG</acronym> Controls</subtitle>
+
+        <imageobjectco>
+            <areaspec units="imagemap">
+                <area id="screen-wt-spot-format" linkends="screen-wt-co-format" coords="20,43,142,66"/>
+                <area id="screen-wt-spot-font" linkends="screen-wt-co-font" coords="146,44,268,66"/>
+                <area id="screen-wt-spot-size" linkends="screen-wt-co-size" coords="272,44,394,66"/>
+                <area id="screen-wt-spot-color" linkends="screen-wt-co-color" coords="397,37,437,66"/>
+                <area id="screen-wt-spot-paste" linkends="screen-wt-co-paste" coords="440,37,480,66"/>
+                <area id="screen-wt-spot-style" linkends="screen-wt-co-style" coords="9,69,120,92"/>
+                <area id="screen-wt-spot-align" linkends="screen-wt-co-align" coords="122,69,234,92"/>
+                <area id="screen-wt-spot-lists" linkends="screen-wt-co-lists" coords="236,69,348,92"/>
+                <area id="screen-wt-spot-links" linkends="screen-wt-co-links" coords="350,69,410,92"/>
+                <area id="screen-wt-spot-source" linkends="screen-wt-co-source" coords="412,69,446,92"/>
+            </areaspec>
+
+            <imageobject>
+                <imagedata fileref="images/dialog-wysiwyg-callouts.png"/>
+            </imageobject>
+
+            <calloutlist>
+                <callout id="screen-wt-co-format" arearefs="screen-wt-spot-format">
+                    <para>
+                        <emphasis role="bold">Format</emphasis>: 
+                        This control lets you choose a markup format for the selected text,
+                        including Paragraph, Heading, Subheading, Sub-subheading, and
+                        Pre-formatted.
+                    </para>
+                </callout>
+
+                <callout id="screen-wt-co-font" arearefs="screen-wt-spot-font">
+                    <para>
+                        <emphasis role="bold">Font</emphasis>:
+                        This control lets you choose a font for the selected text, including
+                        Arial, Times New Roman, Comic Sans MS, and Courier New.
+                    </para>
+                </callout>
+
+                <callout id="screen-wt-co-size" arearefs="screen-wt-spot-size">
+                    <para>
+                        <emphasis role="bold">Text Size</emphasis>:
+                        This control lets you choose the size of the selected text, including
+                        xx-small, x-small, small, medium, large, x-large, and xx-large.
+
+                    </para>
+                </callout>
+
+                <callout id="screen-wt-co-color" arearefs="screen-wt-spot-color">
+                    <para>
+                        <emphasis role="bold">Text Color</emphasis>:
+                        This control lets you choose the color of the selected text:
+
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/dialog-wysiwyg-color.png"/>
+                            </imageobject>
+                        </mediaobject>
+                    </para>
+                </callout>
+
+                <callout id="screen-wt-co-paste" arearefs="screen-wt-spot-paste">
+                    <para>
+                        <emphasis role="bold">Paste Mode</emphasis>:
+                        This control lets you choose how pasting text into the editor works:
+
+                        <mediaobject>
+                            <imageobject>
+                                <imagedata fileref="images/dialog-wysiwyg-paste_mode.png"/>
+                            </imageobject>
+                        </mediaobject>
+
+                        "Standard Paste Mode" attempts to maintain the formatting and styling of the
+                        text when it is pasted. "Plain Text Paste Mode" attempts to remove all
+                        formatting and styling from the text. After you select a paste mode, the
+                        control's icon changes to reflect the current mode.
+                    </para>
+                </callout>
+
+                <callout id="screen-wt-co-style" arearefs="screen-wt-spot-style">
+                    <para>
+                        <emphasis role="bold">Text Style</emphasis>:
+                        These four controls let you toggle a style of the selected text. From
+                        left to right these are boldface, italics, underlined, and strike-through.
+                    </para>
+                </callout>
+
+                <callout id="screen-wt-co-align" arearefs="screen-wt-spot-align">
+                    <para>
+                        <emphasis role="bold">Text Alignment</emphasis>:
+                        These four controls let you align the selected text. From left to right
+                        these are flush left, center, flush right, and flush left and right.
+                    </para>
+                </callout>
+
+                <callout id="screen-wt-co-lists" arearefs="screen-wt-spot-lists">
+                    <para>
+                        <emphasis role="bold">Create Lists or Adjust Indent</emphasis>:
+                        The first two controls in this area let you create bulleted or numbered
+                        lists with the selected text. The second two controls respectively increase
+                        or decrease the indentation of the selected text.
+                    </para>
+                </callout>
+
+                <callout id="screen-wt-co-links" arearefs="screen-wt-spot-links">
+                    <para>
+                        <emphasis role="bold">Insert Links and Images</emphasis>:
+                        The first control in this area allows you to insert an
+                        <acronym>HTML</acronym> link at the cursor position, or to create a link
+                        for the selected text via the <emphasis role="dialog">Create Link</emphasis>
+                        dialog. Please see <xref linkend="content.wysiwyg.create-link"/> below.
+                        The second control in this area allows you to insert an image at the cursor
+                        position via the <emphasis role="dialog">Insert Image</emphasis> dialog.
+                        Please see <xref linkend="content.wysiwyg.insert-image"/> below.
+                        Once a link or image has been inserted, double-click the link or image to
+                        re-open the appropriate dialog for further editing.
+                    </para>
+                </callout>
+
+                <callout id="screen-wt-co-source" arearefs="screen-wt-spot-source">
+                    <para>
+                        <emphasis role="bold">Toggle Source Mode</emphasis>:
+                        This control toggles the element's rendering in the editor from
+                        <acronym>WYSIWYG</acronym> mode to source mode. This is useful when you need
+                        to customize the <acronym>HTML</acronym> markup embedded in the content.
+                    </para>
+                </callout>
+            </calloutlist>
+        </imageobjectco>
+    </mediaobjectco>
+
+    <section id="content.wysiwyg.create-link">
+        <title>Creating Links</title>
+
+        <para>
+            The <emphasis role="bold">Create Link</emphasis> dialog appears when you click the
+            <emphasis role="bold">Link</emphasis> control in the <acronym>WYSIWYG</acronym> tooltip.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-create_link.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <variablelist>
+                <varlistentry>
+                    <term>Link Source</term>
+
+                    <listitem>
+                        You can choose to create a link to content already entered into
+                        &product.name;, or any URL you choose. Click <guibutton>Browse</guibutton>
+                        to list existing content entries for the selection.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Link Properties</term>
+
+                    <listitem>
+                        These settings allow you to control the appearance and behavior of the
+                        link.
+
+                        <itemizedlist>
+                            <listitem>
+                                <emphasis>Displayed Text</emphasis> is the text that appears to
+                                be linked.
+                            </listitem>
+
+                            <listitem>
+                                <emphasis>Use Content Title</emphasis> (only available when the Link
+                                Source is 'Content'), when checked, causes uses the content entry's
+                                title for the Displayed Text.
+                            </listitem>
+
+                            <listitem>
+                                <emphasis>Action</emphasis> (only available when the Link Source is
+                                'Content') determines the link's action to display the content
+                                entry's page, display the content entry as an image (also works for
+                                <acronym>PDF</acronym>s), or download the content entry.
+                            </listitem>
+
+                            <listitem>
+                                <emphasis>Open In</emphasis> allows you to control whether the link
+                                opens in the current browser window, a new window, or another
+                                existing window.
+                            </listitem>
+
+                            <listitem>
+                                <emphasis><acronym>CSS</acronym> Class</emphasis> allows you to
+                                use a stylesheet to customize the appearance of the link.
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </varlistentry>
+            </variablelist>
+        </para>
+    </section>
+
+    <section id="content.wysiwyg.insert-image">
+        <title>Inserting Images</title>
+
+        <para>
+            The <emphasis role="bold">Insert Image</emphasis> dialog appears when you click the
+            <emphasis role="bold">Image</emphasis> control in the <acronym>WYSIWYG</acronym>
+            tooltip.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-insert_image.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <variablelist>
+                <varlistentry>
+                    <term>Image Source</term>
+
+                    <listitem>
+                        You can choose to insert an image content entry, or an image at any URL you
+                        specify. Click <guibutton>Browse</guibutton> to list existing images for
+                        the selection, or click <guibutton>New Image</guibutton> to upload an image
+                        thereby creating a new content entry.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Image Properties</term>
+
+                    <listitem>
+                        These settings allow you to control the appearance and positioning of the
+                        image.
+
+                        <itemizedlist>
+                            <listitem>
+                                <emphasis>Alt Text</emphasis> is the text that appears in a tooltip
+                                when the mouse is hovered over the image.
+                            </listitem>
+
+                            <listitem>
+                                <emphasis>Size</emphasis> lets you choose to display the image
+                                at Full Size, or Custom Size. The <emphasis>Width</emphasis>,
+                                <emphasis>Height</emphasis>, and <emphasis>Scale
+                                Proportionally</emphasis> are disabled until you choose
+                                Custom Size.
+                            </listitem>
+
+                            <listitem>
+                                <emphasis>Width</emphasis> allows you specify the width of the
+                                image. Requires that <emphasis>Size</emphasis> be set to
+                                Custom Size.
+                            </listitem>
+
+                            <listitem>
+                                <emphasis>Height</emphasis> allows you specify the height of the
+                                image. Requires that <emphasis>Size</emphasis> be set to
+                                Custom Size.
+                            </listitem>
+
+                            <listitem>
+                                When checked, <emphasis>Scale Proportionally</emphasis> affects the
+                                <emphasis>Width</emphasis> and <emphasis>Height</emphasis> values to
+                                maintain the shape of the image; if you are entering a width, the
+                                height is automatically updated to an appropriate value, and
+                                vice-versa. When this property is unchecked, you can use the
+                                <emphasis>Width</emphasis> and <emphasis>Height</emphasis> values to
+                                change the size and shape of the image.
+                            </listitem>
+
+                            <listitem>
+                                <emphasis>Margin</emphasis> allows you specify the amount of space
+                                that should appear between the edges of the image and the
+                                surrounding text.
+                            </listitem>
+
+                            <listitem>
+                                <emphasis><acronym>CSS</acronym> Class</emphasis> allows you to
+                                use a stylesheet to customize the appearance of the image.
+                            </listitem>
+
+                            <listitem>
+                                <emphasis>Alignment</emphasis> allows you specify how the image is
+                                aligned with the surrounding text.
+                            </listitem>
+                        </itemizedlist>
+                    </listitem>
+                </varlistentry>
+            </variablelist>
+        </para>
+
+        <note>
+            <title>Server-Side Image Resizing</title>
+
+            <para>
+                If the web server hosting &product.name; has a supported <acronym>PHP</acronym>
+                image library installed (see <xref linkend="chapter.image.manipulation"/> for more
+                details), local images with a specified width/height are resized on the server to
+                minimize data transfer and improve page load time.
+            </para>
+        </note>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

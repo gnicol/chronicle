@@ -1,0 +1,51 @@
+from selenium import selenium
+import unittest, time, re, sys, getopt
+sys.path.append("shared")
+import functions
+
+class test_Widgets_Add_Youtube(unittest.TestCase):
+    def setUp(self):
+        self.verificationErrors = []
+        self.selenium = selenium(connection["host"], connection["port"], connection["browser"], connection["url"])
+        self.selenium.start()
+
+    def test_widgets_add_youtube(self):
+        sel = self.selenium
+        sel.open("/")
+        sel.click("p4cms-site-toolbar-stack-controller_p4cms-site-toolbar-page-widgets_label")
+        sel.click("//span[@id='p4cms-site-toolbar-stack-controller']/span[5]/input")
+        sel.click("//span[@id='region-features-add']/span")
+        sel.click("//div[@id='region-features']/span/input")
+        functions.waitForElementPresent(sel,"css=ul.widget-types > li:nth(6) > a.add-widget > span.widget-type-label")
+        sel.click("css=ul.widget-types > li:nth(6) > a.add-widget > span.widget-type-label")
+        functions.waitForTextPresent(sel,"Configure YouTube Video Widget")
+        functions.waitForElementPresent(sel,"//div/dl/dd/input")
+        sel.type("//div/dl/dd/input", "http://www.youtube.com/watch?v=jXz2YOEWpwM")
+        sel.select("//dd[2]/select", "label=Custom")
+        sel.click("css=option[value=custom]")
+        sel.type("//dd[3]/fieldset/dl/dd/input", "349")
+        sel.type("//dd[3]/fieldset/dl/dd[2]/input", "149")
+        sel.click("//div/dl/dd[5]/div/input")
+        sel.click("//dd/span/span/span/span[3]")
+        sel.click("save")
+        sel.click("//body")
+        try: 
+           self.failUnless(sel.is_element_present("//div[2]/div[4]/div"))
+           functions.printResults("6455","pass")
+        except AssertionError, e:
+           self.verificationErrors.append(str(e))
+           functions.printResults("6455","fail")
+    
+    def tearDown(self):
+        self.selenium.stop()
+        self.assertEqual([], self.verificationErrors)
+
+if __name__ == "__main__":
+
+    connection = functions.connect(sys.argv)
+    del sys.argv[1:]
+    
+    detailids = ("6455")
+    functions.printDetailIds(detailids)
+
+    unittest.main()

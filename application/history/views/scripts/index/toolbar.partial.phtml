@@ -1,0 +1,110 @@
+<div class="left">
+    <span class="version">
+        Version:
+        <?= $this->rev ?>
+         of
+        <?= $this->headRev ?>
+    </span>
+
+    <div dojoType="dijit.form.Button"
+         class="button-left button-small"
+         <?= $this->rev === '1' ? 'disabled="disabled"' : '' ?>
+         showLabel="false" iconClass="button-prev">
+        Previous Version
+        <? if ($this->rev !== '1') : ?>
+        <script type="dojo/method" event="onClick">
+            window.location = "<?= $this->type->getUri(
+                                     $this->id,
+                                     'view',
+                                     array('version' => ($this->rev - 1))
+                                   ); ?>";
+        </script>
+        <? endif ?>
+    </div><div dojoType="dijit.form.Button"
+        class="button-right button-small"
+        <?= $this->rev === $this->headRev ? 'disabled="disabled"' : '' ?>
+        showLabel="false" iconClass="button-next">
+        Next Version
+        <? if ($this->rev !== $this->headRev) : ?>
+        <script type="dojo/method" event="onClick">
+            window.location = "<?= $this->type->getUri(
+                                     $this->id,
+                                     'view',
+                                     array('version' => ($this->rev + 1))
+                                   ); ?>";
+        </script>
+        <? endif ?>
+    </div><div dojoType="dijit.form.DropDownButton" class="versions-button" showLabel="false">
+        <span>All Versions</span>
+        <?
+            $versions = array();
+
+            foreach ($this->changes as $change) {
+                $changeFile = $change->getFileObject($this->file);
+
+                $versions[] = array(
+                    'label'     => "Version "
+                                 . $changeFile->getStatus('headRev')
+                                 . " by "
+                                 . $change->getUser()
+                                 . " "
+                                 . $this->timeAgo($change->getDateTime()),
+                    'onClick'   => 'window.location = "'
+                                 . $this->type->getUri(
+                                     $this->id,
+                                     'view',
+                                     array('version' => $changeFile->getStatus('headRev'))
+                                   )
+                                 . '";'
+                );
+            }
+
+            $dijitMenu = $this->navigation()->findHelper('dijitMenu');
+            print $dijitMenu->renderMenu(new P4Cms_Navigation($versions));
+        ?>
+    </div>
+</div>
+
+<div class="middle">
+    <span class="change">
+        <span class="action"><?= rtrim($this->file->getStatus('headAction'), 'e') ?>ed</span> by
+        <span class="user"><?= $this->change->getUser(); ?></span>
+        <span class="date"><?= $this->timeAgo($this->change->getDateTime()); ?></span>
+        <span class="description"><?= $this->truncate($this->change->getDescription(), 50, '...') ;?></span>
+    </span>
+</div>
+
+<script type="text/javascript">
+    dojo.query('.middle .description', dojo.byId('history-toolbar')).forEach(
+        function(attachNode)
+        {
+            var tooltip = new p4cms.ui.Tooltip({
+                connectId:    attachNode,
+                label:        "<div class='history-tooltip'>"
+                            + "<?= $this->escapeAttr($this->change->getDescription()) ?>"
+                            + "</div>",
+                position:     ["below"]
+            });
+            dojo.attr(attachNode, 'tooltip', tooltip);
+        }
+    );
+</script>
+
+<div class="right">
+    <? if (count($this->actions)) : ?>
+    <div dojoType="dijit.form.DropDownButton" class="button-small history-actions">
+        <span><img src="<?= $this->module('ui')->getBaseUrl(); ?>/images/icon-dropdown.gif"></span>
+        <?
+        $dijitMenu = $this->navigation()->findHelper('dijitMenu');
+        print $dijitMenu->renderMenu($this->actions);
+        ?>
+    </div>
+    <? endif; ?>
+
+    <div dojoType="dijit.form.Button" class="button-small">
+        History List
+        <script type="dojo/method" event="onClick">
+            p4cms.history.view('<?= $this->escapeJs($this->type->getId())?>', '<?= $this->escapeJs($this->id) ?>');
+        </script>
+    </div>
+</div>

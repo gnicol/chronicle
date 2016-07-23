@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<appendix id="copyrights">
+    <title>Copyright Information</title>
+
+    <para>
+        The following copyrights are applicable to portions of &product.longname;:
+    </para>
+
+    <itemizedlist>
+        <listitem>
+            Copyright &copy; 2005-<?dbtimestamp format="Y"?> Zend Technologies Inc.
+            (<ulink url="http://www.zend.com" />)
+        </listitem>
+
+        <listitem>
+            Copyright &copy; 2004-<?dbtimestamp format="Y"?> The Dojo Foundation
+            (<ulink url="http://dojotoolkit.org" />)
+        </listitem>
+
+        <listitem>
+            Copyright &copy; 2010-2011 Matthew Weier O'Phinney
+            (<ulink url="http://mwop.net/blog/199-A-Simple-PHP-Publish-Subscribe-System.html" />)
+        </listitem>
+
+        <listitem>
+            Copyright &copy; 2007 Paul Butler
+            (<ulink url="http://paulbutler.org/archives/a-simple-diff-algorithm-in-php/" />)
+        </listitem>
+
+        <listitem>
+            Copyright &copy; 2012 Ajax.org
+            (<ulink url="http://ace.ajax.org/" />)
+        </listitem>
+
+        <listitem>
+            Copyright &copy; 2004-2011 Alex Gorbatchev
+            (<ulink url="http://alexgorbatchev.com/SyntaxHighlighter/" />)
+        </listitem>
+
+        <listitem>
+            Copyright &copy; 2011 John Resig
+            (<ulink url="http://jquery.com/" />)
+        </listitem>
+    </itemizedlist>
+</appendix>
+<!--
+vim:se ts=4 sw=4 et:
+-->

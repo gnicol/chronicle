@@ -1,0 +1,11 @@
+<?
+// show the iframe if we have one.
+if ($this->widget->getConfig('iframeSrc')) {
+?>
+<iframe scrolling="<?= $this->escapeAttr($this->widget->getConfig('iframeScroll')) ?>"
+        src="<?= $this->escapeAttr($this->widget->getConfig('iframeSrc')) ?>" 
+        height="<?= $this->escapeAttr($this->widget->getConfig('iframeHeight')) ?>"
+        width="<?= $this->escapeAttr($this->widget->getConfig('iframeWidth')) ?>"></iframe>
+<? } else { ?>
+    <p>IFrame source URL not set.</p>
+<? } ?>

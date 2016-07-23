@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="themes.view.helpers">
+    <title>View Helpers</title>
+
+    <para>
+        <emphasis>View helpers</emphasis> are <acronym>PHP</acronym> functions that assist in
+        generating markup. Some view helpers are required to enable &product.longname; to operate
+        correctly, and others are provided (or can be created) to assist with repetitive markup
+        tasks. View helpers are used in <link linkend="themes.view.scripts">view
+        scripts</link> and <link linkend="themes.layouts">layouts</link>. Place view helpers
+        in the <filename>helpers</filename> folder, within the theme's folder.
+    </para>
+
+    <para>
+        For detailed information about view helpers, refer to the
+        <ulink url="http://framework.zend.com/manual/1.11/en/zend.view.helpers.html">Zend Framework
+        documentation.</ulink>
+    </para>
+
+    <note>
+        <title>Class Prefix</title>
+
+        <para>
+            If you are creating a view helper for your theme, the class prefix is
+            <classname>Theme_Helper_</classname>. For a helper called <methodname>Foo</methodname>,
+            the full classname would be <classname>Theme_Helper_Foo</classname>.
+        </para>
+    </note>
+
+    <section id="themes.view.helpers.escape">
+        <title>Escaping Values for Presentation and Security</title>
+
+        <para>
+            &product.name; provides three view helpers that escape values included in view scripts,
+            both to ensure that the values do not mess up the presentation, and to prevent
+            cross-site scripting (<acronym>XSS</acronym>) attacks. <acronym>PHP</acronym> developers
+            should already be familar with the <command>htmlspecialchars</command> command that
+            converts selected characters to their equivalent <acronym>HTML</acronym> entities.
+            &product.name;'s view helpers do a more thorough job of entity conversion, and take into
+            account the current character encoding.
+        </para>
+
+        <para>
+            Values that are to be displayed to users should be handled as follows:
+        </para>
+
+<programlisting language="php">
+&lt;?= $this-&gt;escape($value); ?&gt;
+</programlisting>
+
+        <para>
+            Values that need to be included within <acronym>HTML</acronym> attributes should be
+            handled as follows:
+        </para>
+
+<programlisting language="php">
+&lt;a href="&lt;?= $this-&gt;escapeAttr($url); ?&gt;"&gt;A link&lt;/a&gt;
+</programlisting>
+
+        <warning>
+            <title>URL Validation</title>
+
+            <para>
+                When you use <command>escapeAttr</command> for <acronym>URL</acronym>s, be aware
+                that only escaping is performed. To fully protect against <acronym>XSS</acronym>
+                attacks, validation of the URL must also be performed. Please see
+                <ulink url="https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet#RULE_.235_-_URL_Escape_Before_Inserting_Untrusted_Data_into_HTML_URL_Parameter_Values">The
+                OWASP XSS (Cross Site Scripting) Prevention Cheat Sheet</ulink> for more details.
+            </para>
+        </warning>
+
+        <para>
+            Values that need to be included within <acronym>javascript</acronym> code should be
+            handled as follows:
+        </para>
+
+<programlisting language="php">
+&lt;script type="text/javascript"&gt;var x='&lt;?= $this-&gt;escapeJs($data); ?&gt;';&lt;/script&gt;
+</programlisting>
+    </section>
+
+    <section id="themes.view.helpers.url">
+        <title>Composing <acronym>URL</acronym>s</title>
+
+        <para>
+            To compose a <acronym>URL</acronym> that points to an asset within the theme's folder,
+            you can use: <code>&lt;?= $this-&gt;theme()-&gt;getBaseUrl()</code>. Here are a few
+            examples:
+        </para>
+
+<programlisting language="php">
+&lt;a href="&lt;?= $this-&gt;theme()-&gt;getBaseUrl() ?&gt;/binary_files/example.document"&gt;Download the example&lt;/a&gt;
+
+&lt;img src="&lt;?= $this-&gt;theme()-&gt;getBaseUrl() ?&gt;/images/photo.jpg" alt="a photo"&gt;
+</programlisting>
+
+        <para>
+            To compose a <acronym>URL</acronym> that points to a &product.name; content entry, you
+            can use the <emphasis>url</emphasis> view helper. For example, to produce a
+            <acronym>URL</acronym> that targets the <emphasis>content</emphasis> module's
+            <emphasis>index</emphasis> controller's <emphasis>view</emphasis> action, with the
+            parameter <emphasis>id=123</emphasis>, include the following <acronym>PHP</acronym> code
+            in your view script or layout:
+        </para>
+
+<programlisting language="php">
+&lt;?= $this-&gt;url(array(
+    'module'     =&gt; 'content',
+    'controller' =&gt; 'index',
+    'action'     =&gt; 'view',
+    'id'         =&gt; '123'
+)) ?&gt;
+</programlisting>
+
+        <para>
+            This approach ignores any custom <acronym>URL</acronym> that may have been assigned to
+            a content entry. The alternative approach, when your view script has a content entry
+            object available (or fetches a particular one), is to produce its possibly-custom
+            <acronym>URL</acronym> as follows:
+        </para>
+
+<programlisting language="php">
+&lt;?
+    $entry = P4Cms_Content::fetch(123);
+    echo $this->escape($entry->getUri());
+?&gt;
+</programlisting>
+
+        <para>
+            If the content entry is a binary file, instead of producing a link to the content
+            entry's web page, you might prefer to make the link download the content:
+        </para>
+
+<programlisting language="php">
+&lt;a href="&lt;?= $this-&gt;url(array(
+    'module'     =&gt; 'content',
+    'controller' =&gt; 'index',
+    'action'     =&gt; 'download',
+    'id'         =&gt; '123'
+)) ?&gt;">Download item #123&lt;/a&gt;
+
+&lt;!-- or from an object, possibly with a custom URL --&gt;
+
+&lt;a href="&lt;? $entry = P4Cms_Content::fetch(123); echo $entry->getUri('download'); ?&gt;"&gt;
+Download item #123&lt;/a&gt;
+</programlisting>
+
+        <para>
+            For the display of Image content entries (or that include an image), the code would be:
+        </para>
+
+<programlisting language="php">
+&lt;img src="&lt;?= $this-&gt;url(array(
+    'module'     =&gt; 'content',
+    'controller' =&gt; 'index',
+    'action'     =&gt; 'image',
+    'id'         =&gt; '123'
+)) ?&gt;/&gt;
+
+&lt;!-- or from an object, possibly with a custom URL --&gt;
+
+&lt;img src="&lt;? $entry = P4Cms_Content::fetch(123); echo $entry->getUri('image'); ?&gt;"/&gt;
+</programlisting>
+
+        <para>
+            Additionally, images can be scaled on the server by adding additional parameter when
+            generating the <acronym>URL</acronym>:
+        </para>
+
+<programlisting language="php">
+&lt;img src="&lt;?= $this-&gt;url(array(
+    'module'     =&gt; 'content',
+    'controller' =&gt; 'index',
+    'action'     =&gt; 'image',
+    'id'         =&gt; '123',
+    'width'      =&gt; 90,
+    'height'     =&gt; 72
+)) ?&gt;/&gt;
+
+&lt;!-- or from an object --&gt;
+
+&lt;img src="&lt;? $entry = P4Cms_Content::fetch(123);
+    echo $entry->getUri('image', array('width' => 90, 'height' => 72)); ?&gt;"/&gt;
+</programlisting>
+
+        <note>
+            <title>Image Aspect Ratio, Constraints, and Sharpening</title>
+
+            <para>
+                To preserve an image's <term4gloss>aspect ratio</term4gloss>, you can include just
+                one of the dimension parameters, either <command>width</command> or
+                <command>height</command>, and the other dimension is computed.
+            </para>
+
+            <para>
+                For example, if the original image's size is 5184x3456 pixels, if you specify a
+                width of 90 pixels, the height of the resized image is 67 pixels. Alternatively, if
+                you specify a height of 72 pixels, the width of the resized image is 108 pixels.
+            </para>
+
+            <para>
+                Sometimes, the image you are resizing is extremely wide or tall. For a very wide
+                image when you only specify the desired height, the danger is that after resizing
+                the image is much too wide for your layout. Here we want to constrain the image even
+                further. In this case, you should add the parameter
+                <command>'maxWidth' => <replaceable>xxx</replaceable></command>
+                (<replaceable>xxx</replaceable> is the maximum width in pixels). Alternatively, for
+                a very tall image when you only specify the desired width, you should add the
+                parameter <command>'maxHeight' => <replaceable>yyy</replaceable></command>
+                (<replaceable>yyy</replaceable> is the maximum height in pixels).
+            </para>
+
+            <para>
+                Finally, some large images can look blurry when resized to thumbnail size. In
+                these cases, you should add the parameter <command>'sharpen' => 1</command>. This
+                applies a predetermined amount of sharpening to the thumbnail that can reduce the
+                blurring.
+            </para>
+        </note>
+    </section>
+
+    <section id="themes.view.helpers.region">
+        <title>Managing Regions</title>
+
+        <para>
+            <emphasis>Regions</emphasis> specify rectangular areas on a web page where widgets can
+            be displayed. Regions can be used in a layout or a view script. Wherever a region's
+            markup is generated, the widgets configured to appear in that region also have their
+            markup generated and included in the region's markup. To define a region, include the
+            following <acronym>PHP</acronym> code in your layout:
+        </para>
+
+<programlisting language="text">
+&lt;?= $this-&gt;region('<emphasis>region_name</emphasis>') ?&gt;
+</programlisting>
+
+        <para>
+            The <emphasis>region_name</emphasis> is a unique name that you assign to distinguish
+            between regions. For example, you might have regions named "header," "footer," and
+            "sidebar," to represent the appropriate areas of the pages you are designing for your
+            theme.
+        </para>
+
+        <para>
+            If widgets are configured for a region and you switch your site to use a different theme
+            that contains a region with the same name, the widgets are displayed. If region names
+            are unique to the theme, the only widgets initially displayed are default widgets that
+            have been specified in the second theme's <filename>theme.ini</filename> file.
+        </para>
+    </section>
+
+    <section id="themes.view.helpers.navigation">
+        <title>Navigation</title>
+
+        <para>
+            Navigation in &product.name; uses an enhanced implementation of
+            <classname>Zend_Navigation</classname>. For background information about terminology and
+            navigation, refer to the
+            <ulink url="http://framework.zend.com/manual/en/zend.navigation.introduction.html">Zend_Navigation
+            documentation</ulink>.
+        </para>
+
+        <section id="themes.view.helpers.navigation.breadcrumb">
+            <title>Rendering A Breadcrumb</title>
+
+            <para>
+                A <emphasis>Breadcrumb</emphasis> is a navigational aid that displays the active
+                selection within navigation. The following example shows how to activate the display
+                of the breadcrumb. The code checks whether the "manage-toolbar" navigation exists
+                and if so: fetches it, expands any dynamic sections and attempts to locate a page
+                called <command>Manage Content</command>. If that page exists, the page is made
+                active. Finally, the navigation is rendered as a breadcrumb.
+            </para>
+
+<programlisting language="php">
+&lt;?php
+if (P4Cms_Menu::exists('manage-toolbar')) {
+    $menu = P4Cms_Menu::fetch('manage-toolbar');
+    $expanded = $menu-&gt;getExpandedContainer();
+    $page = $expanded-&gt;findBy('label', 'Manage Content');
+    if ($page) {
+        $page-&gt;setActive(true);
+    }
+    echo $this-&gt;breadcrumbs($expanded);
+}
+?&gt;
+</programlisting>
+
+            <para>
+                The following example links the last item in the breadcrumb:
+            </para>
+
+<programlisting language="php">
+&lt;?= $this-&gt;breadcrumbs($expanded)-&gt;setLinkLast(true) ?&gt;
+</programlisting>
+
+            <para>
+                The following example displays an arrow as the separator between breadcrumbs:
+            </para>
+
+<programlisting language="php">
+&lt;?= $this->breadcrumbs($expanded)->setSeparator(' -&gt; ') ?&gt;
+</programlisting>
+
+            <para>
+                Options can be combined; for example:
+            </para>
+
+<programlisting language="php">
+&lt;?= $this->breadcrumbs($expanded)->setLinkLast(true)->setSeparator('--') ?&gt;
+</programlisting>
+
+            <para>
+                For more information about breadcrumb rendering, see the
+                <ulink url="http://framework.zend.com/manual/1.11/en/zend.view.helpers.html#zend.view.helpers.initial.navigation.breadcrumbs">Zend
+                Framework documentation</ulink>.
+            </para>
+        </section>
+    </section>
+
+    <section id="themes.view.helpers.contentlist">
+        <title>Content List</title>
+
+        <para>
+            A list of content in &product.name; can be displayed using the Content List view helper
+            to query for content and provide information regarding display options. By default, the
+            view helper shows the title of each content entry, wrapped in a link to the content
+            page. For example, to show the latest 10 pieces of content sorted so the newest is
+            first:
+        </para>
+
+<programlisting language="php">
+&lt;?= $this-&gt;contentList(
+    P4Cms_Record_Query::create()
+            -&gt;setMaxRows(10)
+            -&gt;setSortBy(P4Cms_Record_Query::SORT_DATE)
+            -&gt;setReverseOrder(true)
+);
+&gt;
+</programlisting>
+
+        <para>
+            An additional array of options can be passed to the view helper, allowing for more
+            granular control of the presentation of the content list. This array contains two parts:
+            a list of fields, with filters and decorators to control their display, and an optional
+            view script used to render the list. For more information on filters and decorators,
+            refer to the Zend
+            <ulink url="http://framework.zend.com/manual/en/zend.form.standardDecorators.html">filter
+            </ulink> and
+            <ulink url="http://framework.zend.com/manual/en/zend.filter.set.html">decorator
+            </ulink> documentation.
+
+            This example provides links to the 5 last uploaded files:
+        </para>
+
+<programlisting language="php">
+&lt;?= $this-&gt;contentList(
+        $this-&gt;view-&gt;query = P4Cms_Record_Query::create()
+            -&gt;setMaxRows($this-&gt;getOption('count'))
+            -&gt;setSortBy(P4Cms_Record_Query::SORT_DATE)
+            -&gt;setReverseOrder(true)
+            -&gt;setFilter(P4Cms_Record_Filter::create()-&gt;add('contentType', 'file')),
+        array(
+            'fields'    =&gt; array(
+                'file'         =&gt; array(
+                    'decorators'    =&gt; array(
+                        'displayFileLink'
+                    )
+                )
+            )
+        )
+    );
+?&gt;
+</programlisting>
+
+        <para>
+            This example uses an optional template to apply custom html. All fields are available
+            to the template for use, and additional filters or decorators can be applied.
+        </para>
+
+<programlisting language="php">
+&lt;?= $this-&gt;contentList(
+        $this-&gt;view-&gt;query = P4Cms_Record_Query::create()
+            -&gt;setMaxRows($this-&gt;getOption('count'))
+            -&gt;setSortBy(P4Cms_Record_Query::SORT_DATE)
+            -&gt;setReverseOrder(true),
+    array(
+        'template' => 'foo.phtml'
+    )
+);
+?&gt;
+</programlisting>
+
+        <para>
+            The template file:
+        </para>
+
+<programlisting language="php">
+&lt;? foreach ($this-&gt;entries as $entry) { ?&gt;
+    &lt;div class = "myClass"&gt;&lt;?= $entry-&gt;title ?&gt;&lt;/div&gt;
+&lt;? } ?&gt;
+</programlisting>
+
+        <para>
+            Options can be added to the P4Cms_Record_Filter object to allow other modules to
+            influence the query. So far, only <command>lucene</command> search and
+            <command>categories</command> are supported.
+        </para>
+
+<programlisting language="php">
+&lt;?= $this-&gt;contentList(
+        $this-&gt;view-&gt;query = P4Cms_Record_Query::create()
+            -&gt;setMaxRows($this-&gt;getOption('count'))
+            -&gt;setSortBy(P4Cms_Record_Query::SORT_DATE)
+            -&gt;setReverseOrder(true)
+            -&gt;setFilter(
+                P4Cms_Record_Filter::create(
+                    'lucene'     =&gt; 'search keywords',
+                    'categories' =&gt; array('category1', 'category2')
+                )
+            )
+        )
+    );
+?&gt;
+</programlisting>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

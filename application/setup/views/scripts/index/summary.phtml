@@ -1,0 +1,75 @@
+<?= $this->partial('index/steps.phtml', array('step' => '5')); ?>
+
+<div class="info">
+<h1>You have successfully created the site.</h1>
+
+<p>
+ Please print out this information for future reference.
+</p>
+
+<br/>
+
+<div class="summary">
+<?
+    $siteConfig = $this->site->getConfig();
+    $rowNumber  = 0;
+    $rowClasses = array('even', 'odd');
+?>
+
+<table>
+<tbody>
+  <tr class="<?= $rowClasses[$rowNumber++ % 2] ?>">
+   <td class="label">Site Title</td>
+   <td class="value"><?= $this->escape($siteConfig->getTitle()) ?></td>
+  </tr>
+  <tr class="<?= $rowClasses[$rowNumber++ % 2] ?>">
+   <td class="label">Site Description</td>
+   <td class="value"><?= $this->escape($siteConfig->getDescription()) ?></td>
+  </tr>
+  <tr class="<?= $rowClasses[$rowNumber++ % 2] ?>">
+   <td class="label">Site Address<?= count($siteConfig->getUrls()) > 1 ? 'es' : '' ?></td>
+   <td class="value"><?
+       foreach ($siteConfig->getUrls() as $count => $url) {
+           if ($count) {
+               echo "<br>";
+           }
+           if (!strpos($url, '://')) {
+               echo "http://";
+           }
+           echo $this->escape($url);
+       }
+    ?></td>
+  </tr>
+  <tr class="<?= $rowClasses[$rowNumber++ % 2] ?>">
+   <td class="label"><?= $this->isRsh ? 'Local' : ''; ?> Server</td>
+   <td class="value"><?= $this->escape($this->port); ?></td>
+  </tr>
+  <tr class="<?= $rowClasses[$rowNumber++ % 2] ?>">
+   <td class="label">Administrator</td>
+   <td class="value"><?= $this->escape($this->admin['user']) ?></td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div id="buttons-element">
+ <fieldset id="fieldset-buttons">
+  <div dojoType="dijit.form.Button" class="button-large preferred"
+       onClick="window.location='<?= $this->escape($siteConfig->getUrl()) ?>';">View Site</div>
+  <div dojoType="dijit.form.Button" class="button-large"
+       onClick="window.print();">Print</div>
+ </fieldset>
+</div>
+
+</div>
+<script type="text/javascript">
+    dojo.addOnLoad(function() {
+        dojo.connect(dojo.body(), 'onkeydown', function(e) {
+            var event = e ? e : event;
+            var key = event.keyCode;
+            if (key == 13) {
+                dijit.getEnclosingWidget(dojo.query('.button-large.preferred')[0]).onClick();
+            }
+        });
+    });
+</script>

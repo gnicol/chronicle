@@ -1,0 +1,306 @@
+/* setup background colors */
+.p4cms-ui.setup-module,
+.p4cms-ui.setup-module #layout-top,
+.p4cms-ui.setup-module #layout-main {
+    background-color: #f2f2f2;
+}
+
+.p4cms-ui.setup-module #layout-bottom {
+    margin-top: 20px;
+}
+
+/* styling for splash page */
+
+.p4cms-ui.setup-module .splash {
+    text-align: center;
+}
+
+/* styling for setup wizard step display */
+
+.p4cms-ui.setup-module .steps {
+    float: left;
+    background: url('images/unpack.png') no-repeat 0px 100%;
+    padding-bottom: 180px;
+}
+.p4cms-ui.setup-module .steps .step {
+    margin-bottom: 4px;
+    width: 190px;
+}
+.p4cms-ui.setup-module .steps .step span {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+}
+
+.p4cms-ui.setup-module .steps .step .label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #1a1a1a;
+    padding: 7px 0px 7px 10px;
+    border: 1px solid #a7a7a7;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    background: url('../../ui/resources/images/button-bg.png') left top repeat-x;
+    width: 158px;
+}
+.p4cms-ui.setup-module .steps .step .arrow {
+    display: inline-block;
+    width: 11px;
+    height: 31px;
+}
+
+.p4cms-ui.setup-module .steps .step.current .label {
+    background: url('../../ui/resources/images/button-bg-hover.png') left top repeat-x;
+    border-right: 0px;
+    -webkit-border-top-right-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    -moz-border-radius-bottomright: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.p4cms-ui.setup-module .steps .step.current .arrow {
+    background: url('images/step-arrow-cap.png') left top no-repeat;
+}
+
+/* generic step styling */
+
+.p4cms-ui.setup-module .info {
+    float: left;
+    margin-left: 3x;
+    width: 584px;
+    background-color: #fff;
+    border: 1px solid #c7c7c7;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    padding: 18px 10px 7px 20px;
+    font-size: 13px;
+    color: #1a1a1a;
+}
+
+.p4cms-ui.setup-module .info p {
+    line-height: 18px;
+    padding-right: 10px;
+}
+
+.p4cms-ui.setup-module .info h1 {
+    font-size: 17px;
+    font-weight: bold;
+    margin: 0 0 .75em 0;
+}
+
+.p4cms-ui.setup-module .info form {
+    padding-top: .5em;
+}
+.p4cms-ui.setup-module .info dl dt {
+    width: 130px;
+}
+.p4cms-ui.setup-module #buttons-element {
+    text-align: right;
+    border: 0 none;
+    padding-top: 1em;
+}
+.p4cms-ui.setup-module div#buttons-element {
+    margin-bottom: 3px;
+    padding-top: 1px;
+}
+.p4cms-ui.setup-module fieldset#fieldset-buttons {
+    padding: 0;
+    display: inline-block;
+    border: 0 none;
+}
+.p4cms-ui.setup-module fieldset#fieldset-buttons dd {
+    padding: 0;
+    margin: 0;
+    margin-left: 5px;
+    float: left;
+}
+
+.p4cms-ui.setup-module .info .server {
+    font-weight: bold;
+}
+
+.p4cms-ui.setup-module .dijitTextArea {
+    width: 100%;
+}
+
+/* styling for requirements */
+
+.p4cms-ui.setup-module h2.status,
+.p4cms-ui.system-module h2.status {
+    font-size: 15px;
+    font-weight: bold;
+}
+.p4cms-ui.setup-module h2.status.good,
+.p4cms-ui.system-module h2.status.good {
+    color: #060;
+}
+.p4cms-ui.setup-module h2.status.bad,
+.p4cms-ui.system-module h2.status.bad {
+    color: #f00;
+}
+
+.p4cms-ui.setup-module .requirements,
+.p4cms-ui.system-module .requirements {
+    border: 1px solid #c7c7c7;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    margin: 10px 0;
+    margin-left: -10px;
+}
+
+.p4cms-ui.system-module .requirements {
+    margin-top: 0;
+}
+
+.p4cms-ui.setup-module .requirements .status:first-child,
+.p4cms-ui.system-module .requirements .status:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-topright: 6px;
+}
+
+.p4cms-ui.setup-module .requirements .status:last-child,
+.p4cms-ui.system-module .requirements .status:last-child {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -webkit-border-bottom-right-radius: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    -moz-border-radius-bottomright: 6px;
+}
+
+.p4cms-ui.setup-module .requirements .status,
+.p4cms-ui.system-module .requirements .status {
+    padding: 18px 6px 18px 116px;
+    margin: 0;
+    border: 0px;
+    color: #1a1a1a;
+}
+.p4cms-ui.setup-module .requirements .status + .status,
+.p4cms-ui.system-module .requirements .status + .status {
+    border-top: 1px solid #c7c7c7;
+}
+
+.p4cms-ui.setup-module .requirements .status h3,
+.p4cms-ui.setup-module .requirements .status p,
+.p4cms-ui.system-module .requirements .status h3,
+.p4cms-ui.system-module .requirements .status p {
+    font-size: 12px;
+    margin: 2px 0;
+}
+.p4cms-ui.setup-module .requirements .status h3,
+.p4cms-ui.system-module .requirements .status h3 {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.p4cms-ui.setup-module .requirements .status.good,
+.p4cms-ui.system-module .requirements .status.good {
+    background: #e3f9e4 url('images/prereq-good.png') no-repeat 35px 48%;
+}
+.p4cms-ui.setup-module .requirements .status.bad,
+.p4cms-ui.system-module .requirements .status.bad {
+    background: #f9e7e7 url('images/prereq-bad.png') no-repeat 40px 48%;
+}
+.p4cms-ui.setup-module .requirements .status.warn,
+.p4cms-ui.system-module .requirements .status.warn {
+    background: #fdf9dc url('images/prereq-warn.png') no-repeat 34px 48%;
+}
+
+.p4cms-ui.setup-module dt#serverType-label {
+    width: 0;
+    margin: 0;
+    padding: 0;
+}
+.p4cms-ui.setup-module dd#serverType-element {
+    margin-top: 5px;
+}
+.p4cms-ui.setup-module dd#serverType-element label {
+    display: block;
+    margin-top: 0;
+}
+
+.p4cms-ui.setup-module #port-element input {
+    width: 250px;
+}
+
+.p4cms-ui.setup-module #port-element.disabled {
+    display: none;
+}
+
+.p4cms-ui.setup-module p.description {
+    color: #555;
+    font-size: 11px;
+}
+
+.p4cms-ui.setup-module fieldset.existing-server {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.p4cms-ui.setup-module fieldset.existing-server.disabled {
+    display: none;
+}
+
+/* styling for the summary table */
+
+.p4cms-ui.setup-module .info .summary {
+    border: 1px solid #c7c7c7;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    margin: 0 0 10px -10px;
+}
+.p4cms-ui.setup-module .info .summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.p4cms-ui.setup-module .info .summary table tr.odd {
+    background-color: #eef2f5;
+}
+.p4cms-ui.setup-module .info .summary table td {
+    padding: 8px 10px;
+    vertical-align: top;
+}
+.p4cms-ui.setup-module .info .summary table td.label {
+    font-weight: bold;
+    width: 23%;
+    text-align: right;
+}
+.p4cms-ui.setup-module .info .summary table td.value {
+    width: 77%;
+}
+
+.p4cms-ui.setup-module ul.errors {
+    margin: 0;
+    max-width: 440px;
+}
+
+.p4cms-ui.setup-module form.site-form textarea#urls {
+    width: 400px;
+}
+
+/* styling for Chronicle Password when connecting to a P4 server using external auth */
+.p4cms-ui.setup-module .info form.administrator-form fieldset.external-auth {
+    padding: 18px 0 5px 0;
+    margin: 5px 10px 10px 0;
+    border: none;
+}
+
+.p4cms-ui.setup-module .info form.administrator-form fieldset.external-auth legend {
+    padding-top: 25px;
+    font-weight: bold;
+}
+
+.p4cms-ui.setup-module .info form.administrator-form fieldset.external-auth dd.external-auth {
+    margin-bottom: 25px;
+}

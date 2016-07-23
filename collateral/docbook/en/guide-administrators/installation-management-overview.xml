@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="installation.management.overview">
+    <title>Overview</title>
+
+    <para>
+        This chapter covers the management aspects of themes, modules, using the IDE module to
+        edit theme or module files, backups and restores, and importing from a WordPress
+        installation.
+    </para>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

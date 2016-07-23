@@ -1,0 +1,5 @@
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+http_proxy=http://10.50.50.20:8080
+http_noproxy=\*.perforce.com,localhost
+https_proxy=https://10.50.50.20:8080
+https_noproxy=\*.perforce.com,localhost

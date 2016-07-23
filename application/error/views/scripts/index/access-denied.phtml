@@ -1,0 +1,6 @@
+<?php
+
+// wrap error in header/footer (don't use layouts)
+print $this->render('header.phtml');
+print $this->render('index/access-denied.partial.phtml');
+print $this->render('footer.phtml');

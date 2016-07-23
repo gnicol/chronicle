@@ -1,0 +1,58 @@
+<?
+// get data grid namespace
+$namespace  = $this->dataGrid()->getNamespace();
+
+// data store url
+$url        = $this->url(
+    array(
+        'module'        => 'comment',
+        'controller'    => 'index',
+        'action'        => 'moderate',
+        'format'        => 'json'
+    )
+);
+
+// set up data grid columns
+$columns = array(
+    'comment'   => array(
+        'width'         => '50%',
+        'order'         => 10
+    ),
+    'status'    => array(
+        'classes'       => 'status',
+        'width'         => '20%',
+        'order'         => 20
+    ),
+    'postTime'  => array(
+        'label'         => 'Posted',
+        'formatter'     => 'p4cms.ui.grid.formatters.TimeAgo',
+        'width'         => '20%',
+        'order'         => 30
+    ),
+    'actions'   => $this->dataGrid()->getDefaultActionsColumn()
+);
+
+// array with tooltip dialogs attached to the grid columns
+$fieldTooltips  = array(
+    array(
+        'sourceField'   => 'tooltip',
+        'attachField'   => 'comment',
+        'tooltipClass'  => 'comment'
+    )
+);
+
+print $this->dataGrid(
+    $namespace,
+    array(
+        'form'          => $this->form,
+        'url'           => $url,
+        'pageSize'      => $this->pageSize,
+        'actions'       => $this->actions,
+        'columns'       => $columns,
+        'attribs'       => array(
+            'query'         => $this->form->getFlattenedValues(),
+            'fieldTooltips' => $fieldTooltips
+        )
+    )
+);
+?>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="comments.add">
+    <title>Adding Comments</title>
+
+    <bridgehead>
+        To add a comment as an authenticated user:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Navigate to the content entry you wish to comment on, and scroll down to the Comments
+            form near the bottom of the page.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/form-post_comment-authenticated.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Enter your comment in the provided text box.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Post Comment</guibutton>. The page refreshes. If
+            <emphasis>show comments</emphasis> has been enabled and your comment does not require
+            approval, your comment is included in the list of comments.
+        </listitem>
+    </orderedlist>
+        
+    <bridgehead>
+        To add a comment as an un-authenticated user:
+    </bridgehead>
+        
+    <orderedlist>
+        <listitem>
+            Navigate to the content entry you wish to comment on, and scroll down to the Comments
+            form near the bottom of the page.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/form-post_comment-unauthenticated.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Enter your name, email address, comment, and <acronym>CAPTCHA</acronym> verification.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Post Comment</guibutton>. The page refreshes. If
+            <emphasis>show comments</emphasis> has been enabled and your comment does not require
+            approval, your comment is included in the list of comments.
+        </listitem>
+    </orderedlist>
+
+    <xi:include href="../standalone/enable-comments.xml" role="module">
+        <xi:fallback>
+            <xi:include href="../../en/standalone/enable-comments.xml" />
+        </xi:fallback>
+    </xi:include>
+
+    <note>
+        <title>Using the Tableau theme?</title>
+
+        <para>
+            Please review <link linkend="tableau.social">the adjustments to comments</link> when
+            the Tableau theme is active.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

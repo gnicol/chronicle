@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.type.image-gallery">
+    <title>The Image Gallery Content Type</title>
+
+    <para>
+        The Image Gallery content type provides a simple way to display a grid of clickable
+        thumbnails in &product.longname;. Images can be added to the gallery via drag-and-drop (for
+        a <link linkend="content.add.dnd.supported-browsers">supported web browser</link>), or
+        selected from any previously added Image content entries. Clicking on an image shows a
+        larger or full-size version in a "lightbox" presentation.
+    </para>
+
+    <section>
+        <title>Creating an Image Gallery</title>
+
+        <orderedlist>
+            <listitem>
+                Please refer to <xref linkend="content.add"/> to see the process for choosing a
+                content type. Choose the Image Gallery content type. The new Image Gallery is
+                displayed:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-image_gallery-start.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                <note>
+                    <title>Drop Files Here &mdash; the <emphasis>gallery</emphasis> area</title>
+
+                    <para>
+                        For browsers that <link linkend="content.add.dnd.supported-browsers">support
+                        drag-and-drop file operations</link>, the area where images appear is
+                        labelled "Images (drop files here)"; otherwise the label is "Images".
+                    </para>
+                </note>
+            </listitem>
+
+            <listitem>
+                Choose an approach for adding images:
+
+                <orderedlist numeration="upperalpha">
+                    <listitem>
+                        <emphasis role="bold">Using Drag-and-Drop</emphasis>
+
+                        <para>
+                            <emphasis>Note: this only works with a
+                            <link linkend="content.add.dnd.supported-browsers">supported web
+                            browser</link>.</emphasis>
+                        </para>
+
+                        <orderedlist numeration="arabic">
+                            <listitem>
+                                Drag one or more images from outside your browser onto the
+                                <emphasis>gallery</emphasis> area. An upload dialog appears:
+
+                                <mediaobject>
+                                    <imageobject>
+                                        <imagedata fileref="images/dialog-upload_content.png"/>
+                                    </imageobject>
+                                </mediaobject>
+                            </listitem>
+
+                            <listitem>
+                                Click <guibutton>Upload</guibutton> to upload the images. A progress
+                                dialog is displayed while the images are uploaded:
+
+                                <mediaobject>
+                                    <imageobject>
+                                        <imagedata fileref="images/dialog-upload_content-progress.png"/>
+                                    </imageobject>
+                                </mediaobject>
+
+                                When the upload completes, thumbnails of the images are displayed:
+
+                                <mediaobject>
+                                    <imageobject>
+                                        <imagedata fileref="images/screen-image_gallery-uploaded.png"/>
+                                    </imageobject>
+                                </mediaobject>
+                            </listitem>
+                        </orderedlist>
+                    </listitem>
+
+                    <listitem>
+                        <emphasis role="bold">By Selecting Content</emphasis>
+
+                        <orderedlist numeration="arabic">
+                            <listitem>
+                                Click the <emphasis>gallery</emphasis> area. A tooltip dialog
+                                appears:
+
+                                <mediaobject>
+                                    <imageobject>
+                                        <imagedata fileref="images/dialog-image_gallery-tooltip-new.png"/>
+                                    </imageobject>
+                                </mediaobject>
+                            </listitem>
+
+                            <listitem>
+                                Click <guibutton>Browse</guibutton>. A content selection dialog appears:
+
+                                <mediaobject>
+                                    <imageobject>
+                                        <imagedata fileref="images/dialog-image_gallery-select.png"/>
+                                    </imageobject>
+                                </mediaobject>
+                            </listitem>
+
+                            <listitem>
+                                Select one or more images. Click <guibutton>Select</guibutton>. The
+                                tooltip dialog is updated with your selection:
+
+                                <mediaobject>
+                                    <imageobject>
+                                        <imagedata fileref="images/dialog-image_gallery-tooltip-selected.png"/>
+                                    </imageobject>
+                                </mediaobject>
+                            </listitem>
+
+                            <listitem>
+                                Click off the <emphasis>gallery</emphasis> area. Thumbnails of the
+                                images are displayed:
+
+                                <mediaobject>
+                                    <imageobject>
+                                        <imagedata fileref="images/screen-image_gallery-uploaded.png"/>
+                                    </imageobject>
+                                </mediaobject>
+                            </listitem>
+                        </orderedlist>
+                    </listitem>
+                </orderedlist>
+            </listitem>
+
+            <listitem>
+                Complete any other changes, then click <guibutton>Save</guibutton>.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section>
+        <title>Using an Image Gallery</title>
+
+        <para>
+            After the content entry is saved, clicking on an image thumbnail causes a "lightbox"
+            presentation of the image &mdash; a dark page overlay reduces attention on the page
+            while viewing images.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-image_gallery-lightbox.png"/>
+                </imageobject>
+            </mediaobject>
+
+            While the lightbox presentation is active, hovering the mouse over the left or right
+            side of the image displays an arrow if, respectively, there are previous or next images
+            available. Clicking on the image when the arrow is visible presents the previous or next
+            image.
+        </para>
+
+        <para>
+            Click the <guibutton>X</guibutton> at the top right of the image, or anywhere off the
+            image, to exit the lightbox presentation.
+        </para>
+
+        <note>
+            <title>Using the Tableau theme?</title>
+
+            <para>
+                Please review <link linkend="tableau.image-gallery">the adjustments to image
+                galleries</link> when the Tableau theme is active.
+            </para>
+        </note>
+    </section>
+
+    <section>
+        <title>Removing Images from the Gallery</title>
+
+        <orderedlist>
+            <listitem>
+                Click <guibutton>Edit</guibutton> in the &product.longname; toolbar to begin
+                editing.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-content-edit.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click the <emphasis>gallery</emphasis> area containing thumbnails. A tooltip dialog
+                listing all the images in the gallery appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-image_gallery-tooltip-selected.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Clear</guibutton> beside an image you wish to remove. The image is
+                removed from the list of thumbnails in the tooltip dialog, and its thumbnail is
+                removed from the <emphasis>gallery</emphasis> area.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Save</guibutton> to complete the removal of the image(s).
+            </listitem>
+        </orderedlist>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

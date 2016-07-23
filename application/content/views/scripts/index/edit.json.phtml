@@ -1,0 +1,34 @@
+<?php
+
+// different response data for success/failure cases.
+if ($this->isValid) {
+    $data = array(
+        'isValid'       => true,
+        'contentId'     => $this->entry->getId(),
+        'contentType'   => $this->entry->getContentTypeId(),
+        'contentTitle'  => $this->entry->getTitle(),
+        'contentUri'    => $this->entry->getUri()
+    );
+} else {
+    $data = array(
+        'isValid'       => false,
+        'isConflict'    => $this->isConflict,
+        'errors'        => $this->errors,
+        'form'          => $this->form->render()
+    );
+
+    // if we have a conflict error; include details
+    // on the head revision.
+    if ($this->isConflict) {
+        $headEntry = P4Cms_Content::fetch($this->entry->getId(), array('includeDeleted' => true));
+        $data += $this->contentEntry($headEntry)->data(array(
+            'fields' => false,
+            'change' => true,
+            'status' => true,
+            'opened' => true
+        ));
+    }
+}
+
+print Zend_Json::encode($data);
+?>

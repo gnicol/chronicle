@@ -1,0 +1,9 @@
+<?php
+// render form to get dojo.requires into play
+$output = $this->form->render();
+
+// emit the dojo requires and the form.
+echo $this->dojo(array('extras', 'layers'));
+echo $output;
+
+?>

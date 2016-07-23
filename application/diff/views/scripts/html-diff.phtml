@@ -1,0 +1,16 @@
+<div dojoType="p4cms.diff.DiffElement"  plugins="['p4cms.diff.plugins.SourceDiff', 'p4cms.diff.plugins.SideBySideDiff', {name: 'p4cms.diff.plugins.OverlayDiff', positionAt: 'tl'}]">
+  <div class="diff-mode rendered side-by-side">
+    <table class="diff-table">
+      <tbody class="diff <? print $this->diffResult->hasDiffs() ? 'change' : 'same' ?>">
+        <tr class="side-by-side-container">
+          <td class="left"><div class="wrapper child-table-reset"><?=  $this->leftRecord->getExpandedValue($this->fieldName) ?></div></td>
+          <td class="gutter"></td>
+          <td class="right"><div class="wrapper child-table-reset"><?= $this->rightRecord->getExpandedValue($this->fieldName) ?></div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <?
+    print $this->render('text-diff.phtml');
+  ?>
+</div>

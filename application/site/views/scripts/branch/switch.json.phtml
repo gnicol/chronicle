@@ -1,0 +1,13 @@
+<?
+$data = Zend_Json::encode(
+    array(
+        'site'   => $this->site->getSiteId(),
+        'branch' => $this->site->getBranchBasename()
+    )
+);
+
+// if we have a callback we're doing jsonp otherwise
+// simply return the json encoded data
+print $this->callback
+    ? $this->callback . '(' . $data . ');'
+    : $data;

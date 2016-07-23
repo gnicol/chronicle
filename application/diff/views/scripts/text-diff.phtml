@@ -1,0 +1,56 @@
+<div class="diff-mode source diff-mode-active">
+  <table class="diff-table lines">
+  <?
+  $leftLine = $rightLine = 1;
+  foreach ($this->diffResult->getChunks() as $chunk) :
+  ?>
+    <tbody class="diff <?
+        print $chunk->getChunkType();
+        print ' ';
+        print $chunk->isWhitespaceChange() ? 'whitespace-change' : '';
+    ?>">
+      <?
+        for ($i = 0; $i < $chunk->getMaxValueCount(); $i++) :
+            // do sub-line diffing for changed values.
+            if ($chunk->isChange()) {
+                $subChunks = $chunk->getSubDiff($i)->getChunks();
+            } else {
+                $subChunks = null;
+            }
+      ?>
+        <tr class="<?
+            print is_null($chunk->getLeft($i))  ? 'left-null'  : '';
+            print ' ';
+            print is_null($chunk->getRight($i)) ? 'right-null' : '';
+        ?>">
+          <td class="left num"><?= is_null($chunk->getLeft($i)) ? '' : $leftLine++ ?></td>
+          <td class="left line"><?
+            if (!$subChunks || is_null($chunk->getLeft($i))) {
+                print $this->escape($chunk->getLeft($i));
+            } else {
+                foreach ($subChunks as $subChunk) {
+                    print "<span class=" . $subChunk->getChunkType() . ">";
+                    print $this->escape(implode('', $subChunk->getLeft()));
+                    print "</span>";
+                }
+            }
+          ?></td>
+          <td class="gutter"></td>
+          <td class="right num"><?= is_null($chunk->getRight($i)) ? '' : $rightLine++ ?></td>
+          <td class="right line"><?
+            if (!$subChunks || is_null($chunk->getRight($i))) {
+                print $this->escape($chunk->getRight($i));
+            } else {
+                foreach ($subChunks as $subChunk) {
+                    print "<span class=" . $subChunk->getChunkType() . ">";
+                    print $this->escape(implode('', $subChunk->getRight()));
+                    print "</span>";
+                }
+            }
+           ?></td>
+         </tr>
+       <? endfor; ?>
+    </tbody>
+  <? endforeach; ?>
+  </table>
+</div>

@@ -1,0 +1,7 @@
+<? foreach ($this->systemInfo as $systemInfo) : ?>
+<?= $systemInfo->title ?>
+
+ <?= $systemInfo->render($this) ?>
+
+
+<? endforeach; ?>

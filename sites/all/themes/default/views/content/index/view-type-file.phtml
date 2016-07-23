@@ -1,0 +1,52 @@
+<?= $this->contentEntry()->open() ?>
+<div dojoType="p4cms.mobile.Book"
+    paginate="{sourceNode: '.source', pageOneExtraConfig: {targetNode: '.details-container', columns: 1, outputAllOnFail: false}}">
+  <div dojoType="p4cms.mobile.Page" selected="true">
+    <div class="mblViewContent cover">
+
+      <?= $this->contentEntry()->element('file'); ?>
+
+      <?
+      // download link (if not adding)
+      if ($this->entry->getId() && $this->entry->getFieldMetadata('file')) :
+          $metadata = $this->entry->getFieldMetadata('file');
+      ?>
+        <div class="links">
+          <a href="<?= $this->entry->getUri('download') ?>">Download</a>
+        </div>
+      <? endif; ?>
+
+      <?= $this->contentEntry()->element('title') ?>
+
+      <div class="details-container"></div>
+    </div>
+  </div>
+  <div class="source" style="display: none;">
+    <dl>
+        <? if (isset($metadata['filename'])) : ?>
+        <dt class="filename">Filename:</dt>
+        <dd class="filename"><?= $metadata['filename'] ?></dd>
+        <? endif; ?>
+        <? if (isset($metadata['dimensions']['width']) && isset($metadata['dimensions']['height'])) : ?>
+        <dt class="size">Dimensions:</dt>
+        <dd class="size content-element">
+            <?= $this->escape($metadata['dimensions']['width']) . ' x ' .
+                $this->escape($metadata['dimensions']['height']) .' pixels'?>
+        </dd>
+        <? endif; ?>
+        <? if (isset($metadata['fileSize'])) : ?>
+        <dt class="size">File size:</dt>
+        <dd class="size content-element"><?= $this->fileSize($metadata['fileSize']) ?></dd>
+        <? endif; ?>
+        <? if (isset($metadata['mimeType'])) : ?>
+        <dt class="mimetype">Type:</dt>
+        <dd class="mimetype content-element"><?= $this->escape($metadata['mimeType']) ?></dd>
+        <? endif; ?>
+        <dt class="date">Date:</dt>
+        <dd class="date"><?= $this->contentEntry()->element('date') ?></dd>
+        <dt class="description">Description:</dt>
+        <dd class="description"><?= $this->contentEntry()->element('description') ?></dd>
+    </dl>
+  </div>
+</div>
+<?= $this->contentEntry()->close() ?>

@@ -1,0 +1,82 @@
+<?
+// get data grid namespace
+$namespace  = $this->dataGrid()->getNamespace();
+
+// data store url
+$url        = $this->url(
+    array(
+        'module'        => 'site',
+        'controller'    => 'branch',
+        'action'        => 'manage',
+        'format'        => 'json'
+    )
+);
+
+// set up columns
+$columns = array(
+    'name'              => array(
+        'width'         => '71%',
+        'formatter'     => $namespace . '.Formatters.name'
+    ),
+    'owner'             => array(
+        'width'         => '20%',
+        'formatter'     => $namespace . '.Formatters.owner'
+    )
+);
+if (count($this->actions)) {
+    $columns[] = $this->dataGrid()->getDefaultActionsColumn();
+}
+
+// set up footer buttons
+$buttons = array();
+$buttons['Add Site'] = array(
+    'attribs'       => array(
+        'class'     => 'add-button',
+        'onclick'   => 'document.location.href = p4cms.url({module: "setup", start: "yes"});',
+        'disabled'  => !$this->showAddSiteButton
+    )
+);
+$buttons['Add Branch'] = array(
+    'attribs'       => array(
+        'class'     => 'add-button',
+        'onclick'   => $namespace . '.Utility.openFormDialog("add");',
+        'disabled'  => !$this->showAddBranchButton
+    )
+);
+
+print $this->dataGrid(
+    $namespace,
+    array(
+        'gridLabel'     => 'branches',
+        'form'          => $this->form,
+        'url'           => $url,
+        'pageSize'      => $this->pageSize,
+        'actions'       => $this->actions,
+        'columns'       => $columns,
+        'footer'        => array(
+            'buttons'       => $buttons
+        ),
+        'attribs'       => array(
+            'disableSort'   => "true",
+            'selectionMode' => "none",
+            'fieldTooltips' => array(
+                array(
+                    'attachField'       => 'name',
+                    'formatterCallback' => $namespace . '.Formatters.branchTooltip',
+                    'aroundNode'        => 'span.name',
+                    'tooltipClass'      => 'branch'
+                )
+            )
+        )
+    )
+);
+?>
+<script type="text/javascript">
+ // add custom class to distinguish between sites and branches
+ dojo.addOnLoad(function(){
+     dojo.connect(<?= $namespace ?>.instance, 'onStyleRow', function(row){
+         var type = <?= $namespace ?>.instance.getItemValue(row.index, 'type');
+         row.customClasses += type === 'site' ? ' site' : ' branch';
+     });
+ });
+</script>

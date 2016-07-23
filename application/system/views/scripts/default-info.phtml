@@ -1,0 +1,28 @@
+<div class="status-wrapper">
+<?  if (is_array($this->content)) {
+        foreach ($this->content as $label => $message) {
+            if (is_array($message)) {
+                echo $this->partial('indicator.phtml',
+                    array(
+                        'label'     => $label,
+                        'status'    => '',
+                        'class'     => (array_key_exists('displayClass', $message)) ? $message['displayClass'] : 'good',
+                        'message'   => $message['details'],
+                    )
+                );
+            } else {
+                echo $this->partial('indicator.phtml',
+                    array(
+                        'label'     => $label,
+                        'status'    => '',
+                        'class'     => 'good',
+                        'message'   => $message,
+                    )
+                );
+            }
+        }
+    } else {
+        echo $this->escape($this->content);
+    }
+?>
+</div>

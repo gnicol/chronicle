@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="navigation.category.overview">
+    <title>Categories Overview</title>
+
+    <para>
+        Categories enable you to group related content to help users navigate your web site. For
+        example, if your site contains a large number of press releases, you can create categories
+        like "News," "Sports," "Science," and so on, to enable users to list only items of interest.
+        To display a list of categories for your web site users, add a
+        <link linkend="widgets.configure.menuwidget">Menu widget</link> and select the
+        <guimenuitem>Categories Listing</guimenuitem> menu. A content item can be assigned to any
+        number of categories &mdash; there's no maximum.
+    </para>
+
+    <para>
+        You can create hierarchies of categories by defining parent categories. These hierarchies
+        are appropriately indented when displayed, to help users navigate.
+    </para>
+
+    <bridgehead>
+        To assign content to a category:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Navigate to the content entry of interest.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Edit</guibutton>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-content-edit.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Categories</guibutton>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-edit_content-categories.png"/>
+                </imageobject>
+            </mediaobject>
+
+            A tooltip dialog appears listing the available categories, and provides a way to add a
+            new category.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-content_edit-categories.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Check the categories that the content entry should be assigned to.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton>. Your content is saved along with the new category
+            assignments.
+        </listitem>
+    </orderedlist>
+
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

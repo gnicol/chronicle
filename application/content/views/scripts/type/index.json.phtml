@@ -1,0 +1,30 @@
+<?
+// setup paginated content adapter.
+$adapter    = new Zend_Paginator_Adapter_Iterator($this->types);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// serve dojo data to populate the data grid.
+// pass per-item callback to craft each entry.
+print $this->dataGrid()->dojoData(
+    $paginator,
+    function($type, $dataGrid)
+    {
+        $iconUrl = $dataGrid->view->url(array(
+            'module'        => 'content',
+            'controller'    => 'type',
+            'action'        => 'icon',
+            'id'            => $type->getId()
+        ));
+
+        return array(
+            'id'            => $type->getId(),
+            'label'         => $type->getLabel(),
+            'group'         => $type->getGroup(),
+            'description'   => $dataGrid->view->truncate($type->getDescription(), 250, '...'),
+            'elements'      => $type->getElementNames(),
+            'icon'          => $iconUrl
+        );
+    }
+);

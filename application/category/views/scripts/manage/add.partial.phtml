@@ -1,0 +1,22 @@
+<?
+if ($this->shortForm) {
+    // invoke add category js function when form is
+    // submitted, instead of posting.
+    $this->form->setAttrib(
+        'onSubmit',
+        'p4cms.category.addCategoryFromTooltip(this); return false;'
+    );
+
+    // remove some, optional, elements to shrink the form down
+    $this->form->removeElement('description');
+    $this->form->removeElement('indexContent');
+}
+
+// render the form to collect dojo requires.
+$form = $this->form->render();
+
+// include necessary dojo requires.
+print $this->dojo(array('extras', 'layers'));
+
+// display form.
+print $form;

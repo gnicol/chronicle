@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="navigation.category.manage">
+    <title>Managing Categories</title>
+
+    <para>
+        Hover your mouse over each of the numbered callouts to highlight the associated area of the
+        <emphasis role="screen">Manage Categories</emphasis> screen.
+    </para>
+
+    <mediaobjectco role="screen-mcg">
+        <subtitle>The Manage Categories Screen</subtitle>
+
+        <imageobjectco>
+            <areaspec units="imagemap">
+                <area id="screen-mca-spot-search" linkends="screen-mca-co-search" coords="0,91,128,124"/>
+                <area id="screen-mca-spot-count" linkends="screen-mca-co-count" coords="0,129,128,181"/>
+                <area id="screen-mca-spot-sortable" linkends="screen-mca-co-sortable" coords="147,89,640,107"/>
+                <area id="screen-mca-spot-actions" linkends="screen-mca-co-actions" coords="576,110,607,192"/>
+                <area id="screen-mca-spot-scrollbar" linkends="screen-mca-co-scrollbar" coords="613,107,640,230"/>
+            </areaspec>
+
+            <imageobject>
+                <imagedata fileref="images/screen-manage_categories-callouts.png"/>
+            </imageobject>
+
+            <calloutlist>
+                <callout id="screen-mca-co-search" arearefs="screen-mca-spot-search">
+                    <para>
+                        <emphasis role="bold">Filter by Text Search</emphasis>: 
+                        Enter text to filter the list of categories to entries containing the text.
+                    </para>
+                </callout>
+                <callout id="screen-mca-co-count" arearefs="screen-mca-spot-count">
+                    <para>
+                        <emphasis role="bold">Filter by Number of Entries</emphasis>:
+                        Click on one of the radio buttons to filter the list of categories by the
+                        number of associated content entries.
+                    </para>
+                </callout>
+                <callout id="screen-mca-co-sortable" arearefs="screen-mca-spot-sortable">
+                    <para>
+                        <emphasis role="bold">Sort Categories</emphasis>:
+                        Click on one of the columns to sort the categories by that column's details,
+                        click again to change the sort direction (an indicator arrow appears).
+                        The <emphasis role="bold">Entries</emphasis> and
+                        <emphasis role="bold">Actions</emphasis> columns are not sortable.
+                    </para>
+                </callout>
+                <callout id="screen-mca-co-actions" arearefs="screen-mca-spot-actions">
+                    <para>
+                        <emphasis role="bold">Actions Drop-down Menu</emphasis>:
+                        Click on one of the drop-down menus in the Actions column to see and use
+                        actions available for each entry, including View, Edit, and Delete.
+                    </para>
+                </callout>
+                <callout id="screen-mca-co-scrollbar" arearefs="screen-mca-spot-scrollbar">
+                    <para>
+                        <emphasis role="bold">Lazy-load Scrollbar</emphasis>:
+                        When there are many more categories than can fit on-screen, only enough
+                        categories are retrieved to fill the display. When you use the scrollbar,
+                        additional categories are fetched. This means that scrolling might appear to
+                        be slightly slower than you might expect, but it allows filtering, sorting
+                        and initial display to be much faster when you have hundreds or thousands of
+                        categories.
+                    </para>
+                </callout>
+            </calloutlist>
+        </imageobjectco>
+    </mediaobjectco>
+    
+    <section id="navigation.category.manage.dragndrop">
+        <title>Dragging Categories to Manage Nesting</title>
+        
+        <para>
+            In addition to being able to manage a category's nesting through the
+            <emphasis role="dialog">Edit Category</emphasis> dialog, a category row in the
+            <emphasis role="screen">Manage Categories</emphasis> screen can be dragged onto another
+            category.
+        </para>
+
+        <para>
+            When a category is dragged on top of another category, the category beneath is
+            highlighted.
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-manage_categories-dnd-nested-highlight.png"/>
+            </imageobject>
+        </mediaobject>
+
+        <para>
+            If you release the dragged category here, it becomes nested within the
+            highlighted category.
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-manage_categories-dnd-nested-moved.png"/>
+            </imageobject>
+        </mediaobject>
+
+        <para>
+            When a category is dragged to the very top or very bottom of the category grid, a thin
+            marker, or "drop line", appears, indicating the target location.
+        </para>
+            
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-manage_categories-dnd-unnested-highlight.png"/>
+            </imageobject>
+        </mediaobject>
+
+        <para>
+            If you release the dragged category here, it is moved so that it is no longer nested
+            within another category.
+        </para>
+            
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-manage_categories-dnd-unnested-moved.png"/>
+            </imageobject>
+        </mediaobject>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

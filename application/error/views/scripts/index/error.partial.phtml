@@ -1,0 +1,38 @@
+<? $forDevelopers = in_array(strtolower($this->env), array('testing', 'development')); ?>
+<?= $this->render(
+        "index/error-image.phtml",
+        array(
+            "noimage"   => !$forDevelopers,
+            "heading"   => "Oops, we're sorry."
+        )
+); ?>
+
+<h1>An error occurred</h1>
+
+<p><?= $this->escape($this->message) ?></p>
+
+<? if ($forDevelopers): ?>
+<div class="notice exception">
+ <h3>Exception:</h3>
+
+ <dl>
+  <dt>Type:</dt>
+  <dd><?= $this->escape(get_class($this->exception)) ?></dd>
+
+  <dt>Message:</dt>
+  <dd><?= $this->escape($this->exception->getMessage()) ?></dd>
+ </dl>
+</div>
+
+<div class="notice stacktrace">
+ <h3>Stack Trace:</h3>
+
+ <pre><?= $this->stackTrace($this->exception) ?></pre>
+</div>
+
+<div class="notice request">
+ <h3>Request Parameters:</h3>
+
+ <pre><?= $this->escape(print_r($this->request->getParams(), true)); ?></pre>
+</div>
+<? endif; ?>

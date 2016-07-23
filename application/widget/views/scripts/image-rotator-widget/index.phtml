@@ -1,0 +1,62 @@
+<?
+// limit result to just the selected content.
+$query = new P4Cms_Record_Query;
+$query->setIds($this->ids);
+
+// default is to sort entries in the order they were selected.
+$postSort = array('id' => array(P4Cms_Model_Iterator::SORT_FIXED => $this->ids));
+
+// each image can have a caption and a link
+// take advantage of content list helper's entry-options feature
+// to pass these through to the display image decorator.
+$entryOptions = array();
+foreach ($this->images as $image) {
+    $options = array();
+    if (isset($image['link'])) {
+        $options['link']    = $image['link'];
+    }
+    if (isset($image['caption'])) {
+        $options['caption'] = $image['caption'];
+    }
+
+    $entryOptions[$image['id']] = array(
+        'fields' => array(
+            'file' => array(
+                'decorators' => array(
+                    'image' => array(
+                        'options' => $options
+                    )
+                )
+            )
+        )
+    );
+}
+
+if (!empty($this->images)) {
+    print $this->contentList(
+        $query,
+        array(
+            'dojoType'      => 'p4cms.widget.ImageRotator',
+            'emptyMessage'  => '',
+            'postSort'      => $postSort,
+            'entryOptions'  => $entryOptions,
+            'fields'        => array(
+                'file'      => array(
+                    'decorators' => array(
+                        'image'  => array(
+                            'decorator'     => 'DisplayImage',
+                            'options'       => array(
+                                'asBackground'  => true,
+                                'noSize'        => true
+                            )
+                        )
+                    )
+                )
+            ),
+            'width'         => $this->widget->getConfig('imageWidth'),
+            'height'        => $this->widget->getConfig('imageHeight')
+        ))->render();
+} else {
+    print "No images to display.";
+}
+?>

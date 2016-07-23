@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="social.sharethis">
+    <title>ShareThis</title>
+
+    <para>
+        The optional ShareThis module helps your site's users share your content through popular
+        social media services like Facebook, Twitter, Google+. It uses ShareThis service
+        (<ulink url="http://www.sharethis.com/">www.sharethis.com</ulink>), which provides buttons
+        for selected social media services (over 100 to choose from); each button provides an
+        interface to facilitate easy content sharing.
+    </para>
+
+    <para>
+        Features include:
+    </para>
+
+    <itemizedlist>
+        <listitem>
+            Supports up to
+            <ulink url="http://sharethis.com/publishers/services-directory">100 social media
+            services</ulink>.
+        </listitem>
+
+        <listitem>
+            Configurable button styles.
+        </listitem>
+
+        <listitem>
+            Default button inclusion configurable by content type.
+        </listitem>
+
+        <listitem>
+            Detailed page analytics are available at sharethis.com via your publisher key.
+        </listitem>
+
+        <listitem>
+            You can decide where to provide sharing buttons per content entry.
+        </listitem>
+    </itemizedlist>
+
+    <section>
+        <title>Configuring the ShareThis Module</title>
+
+        <orderedlist>
+            <listitem>
+                Ensure that the ShareThis module is enabled. Please refer to
+                <xref linkend="modules.management.enable-disable"/>.
+            </listitem>
+
+            <listitem>
+                Choose <command>Manage > Modules</command>. The <emphasis role="screen">Manage
+                Modules</emphasis> screen is displayed, listing available modules.
+            </listitem>
+
+            <listitem>
+                Scroll down to ShareThis.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Configure</guibutton>. A dialog appears presenting the ShareThis
+                module configuration:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-sharethis_configuration.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Select the desired button presentation in the <emphasis role="bold">Button
+                Style</emphasis> field. <emphasis>Large</emphasis> and <emphasis>Small</emphasis>
+                refer to the button sizes. <emphasis>Vertical Counters</emphasis> and
+                <emphasis>Horizontal Counters</emphasis> provides large buttons along with a
+                <emphasis>counter</emphasis> displaying the number of clicks received.
+            </listitem>
+
+            <listitem>
+                <para>
+                    Select the services/buttons to be displayed below your content entries. The
+                    <emphasis>Selected Services</emphasis> box on the left contains services whose
+                    buttons (in the given order) are to be displayed with your content. The list of
+                    selected services defaults to ShareThis, Facebook, Twitter, LinkedIn and Email.
+                    The <emphasis>Available Services</emphasis> box on the right contains all
+                    available sharing services. Note: the selected services can be changed at any
+                    time, and the selected services apply for all content entries.
+                </para>
+
+                <para>
+                    To change the order of your Selected Services, drag-and-drop the service to the
+                    desired position. Services can be removed by dragging them from the
+                    <emphasis>Selected Services</emphasis> box to the <emphasis>Available
+                    Services</emphasis> box. Services can be added by dragging them from the
+                    <emphasis>Available Services</emphasis> box to the <emphasis>Selected
+                    Services</emphasis> box.
+                </para>
+            </listitem>
+
+            <listitem>
+                Select which content types should present ShareThis buttons by default.
+            </listitem>
+
+            <listitem>
+                Optionally enter a publisher key. A publisher key can be obtained by signing up
+                for a <emphasis>Publisher Account</emphasis> at
+                <ulink url="http://www.sharethis.com/register">sharethis.com</ulink>. You can also
+                generate a random key by clicking on the 'Generate Key' button. However, to access
+                the ShareThis analytics, this publisher key must be registered with your
+                www.sharethis.com account by contacting their support service.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section>
+        <title>Adding ShareThis Buttons to Content</title>
+
+        <orderedlist>
+            <listitem>
+                Navigate to the content entry for which you wish to add ShareThis buttons.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Edit</guibutton> in the &product.name; toolbar to begin
+                editing.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-content-edit.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click the <guibutton>ShareThis</guibutton> button in the toolbar.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-edit_content-sharethis-focus.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                <para></para>
+
+                The ShareThis dialog appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-content_edit-sharethis.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Make the <emphasis>Show ShareThis Buttons</emphasis> checkbox checked.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Save</guibutton> to save the ShareThis configuration. The social
+                services selected in the ShareThis module configuration appears below the content
+                entry.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <note>
+        <title>Problems with ShareThis?</title>
+
+        <para>
+            Chronicle's ShareThis module integrates the ShareThis service with Chronicle. The
+            presentation of service sharing buttons, and all functionality they provide, is
+            controlled by the ShareThis service. If you encounter any problems, please consult with
+            ShareThis <ulink url="http://support.sharethis.com/">technical support</ulink>.
+        </para>
+    </note>
+
+    <note>
+        <title>Using the Tableau theme?</title>
+
+        <para>
+            Please review <link linkend="tableau.social">the adjustments to Disqus
+            conversations</link> when the Tableau theme is active.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

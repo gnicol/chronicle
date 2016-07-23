@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.edit">
+    <title>Editing Content</title>
+
+    <bridgehead>
+        To edit web site content:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Select the content to be edited. This can be done in a couple of ways:
+
+            <orderedlist>
+                <listitem>
+                    Navigate to the content by using links or menus provided by the site.
+                </listitem>
+
+                <listitem>
+                    Click <guibutton>Content</guibutton> in the &product.longname; toolbar.
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/toolbar-manage-content_focus.png"/>
+                        </imageobject>
+                    </mediaobject>
+
+                    <para></para>
+
+                    The <emphasis role="screen">Manage Content</emphasis> screen is displayed.
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/screen-manage_content-title.png"/>
+                        </imageobject>
+                    </mediaobject>
+
+                    Scroll through the available content to locate the content entry you wish to
+                    edit, then click on the entry's title to display it.
+                </listitem>
+            </orderedlist>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Edit</guibutton> in the &product.name; toolbar to begin editing.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-content-edit.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Each element of the type of content is identified by dotted borders. Click inside a
+            border and then enter the desired content.
+        </listitem>
+
+        <listitem>
+            To view or edit the page as it is displayed, click <emphasis role="bold">In-Place
+            Mode</emphasis>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-edit_mode-in_place.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The use of this mode is described in <xref linkend="content.add"/>.
+        </listitem>
+
+        <listitem>
+            To edit content as a set of fields, click <emphasis role="bold">Form Mode</emphasis>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-edit_mode-form.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para></para>
+
+            The <emphasis role="bold">Form Mode</emphasis> editing layer appears:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-edit-form_mode.png"/>
+                </imageobject>
+            </mediaobject>
+
+            Notice that the toolbar buttons <emphasis role="bold">URL</emphasis>,
+            <emphasis role="bold">Menus</emphasis> and
+            <emphasis role="bold">Categories</emphasis> disappear in Form Mode, and their
+            options appear in a sidebar to the right of the element editing area.
+        </listitem>
+
+        <listitem>
+            If you wish to cancel any changes you have made and leave the content in its original
+            state, click <guibutton>Cancel</guibutton>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-edit_content-cancel.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-edit_content-save.png"/>
+                </imageobject>
+            </mediaobject>
+
+            Your revised content is saved, and editing ends.
+        </listitem>
+    </orderedlist>
+
+    <note>
+        <title>Saving With Workflow</title>
+
+        <para>
+            If a <emphasis>workflow</emphasis> is assigned to the type of content you are adding,
+            some additional options may be available to you, including the option to publish the
+            content and/or provide a comment describing why the content was added. These options
+            are presented after you click <guibutton>Save</guibutton>.
+        </para>
+
+        <para>
+            You should also be aware that if the workflow assigned to your content includes
+            conditions, those conditions are not evaluated continuously. This means that, for the
+            current release of &product.name;, you may have to save your content and then begin
+            editing again to see new workflow transition options.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

@@ -1,0 +1,23 @@
+<? if ($this->widget->isAsynchronous()): ?>
+ <div dojoType="dojox.layout.ContentPane"
+      class="widget-container<?= $this->widget->class ? ' '. $this->escapeAttr($this->widget->class) : '' ?> widget-<?= $this->widgetCounter ?>"
+      containerClass="<?= $this->escapeAttr($this->widget->class) ?>"
+      executeScripts="true"
+  href="<?= $this->url(array(
+    'module'        => 'widget',
+    'controller'    => 'index',
+    'action'        => 'index',
+    'region'        => $this->widget->region,
+    'widget'        => $this->widget->id,
+    'format'        => 'partial',
+    'widgetContext' => ($this->widgetContext ? $this->widgetContext : null),
+  )) ?>">
+ </div>
+<? else: ?>
+ <div dojoType="dojox.layout.ContentPane"
+      class="widget-container<?= $this->widget->class ? ' '. $this->escapeAttr($this->widget->class) : '' ?> widget-<?= $this->widgetCounter ?>"
+      containerClass="<?= $this->escapeAttr($this->widget->class) ?>"
+      executeScripts="true">
+  <?= $this->render('widget-body.phtml') ?>
+ </div>
+<? endif; ?>

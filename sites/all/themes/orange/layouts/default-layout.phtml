@@ -1,0 +1,54 @@
+<?= $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<?= $this->headMeta() ?>
+<?= $this->headTitle() ?>
+<?= $this->dojo() ?>
+<?= $this->headScript() ?>
+<?= $this->headLink() ?>
+<?= $this->headStyle() ?>
+<? $p4Url = 'http://www.perforce.com/'; ?>
+</head>
+
+<body class='claro
+ <?=$this->layout()->getLayout()?>
+ <?=$this->request()->getModuleName()?>-module
+ <?=$this->request()->getControllerName()?>-controller
+ <?=$this->request()->getActionName()?>-action'>
+<?=$this->toolbar()?>
+<?=$this->notifications()?>
+
+<div id="wrapper">
+
+<div id="header">
+ <?= $this->region('orange-header') ?>
+ <?= $this->menu('primary', array('maxDepth' => 0)); ?>
+</div>
+
+<div id="main">
+ <div class="intro">
+  <?= $this->region('orange-splash') ?>
+ </div>
+
+<?= $this->layout()->content ?>
+
+ <div class="sidebar">
+  <?= $this->region('sidebar') ?>
+ </div>
+
+ <br class="clear"/>
+</div>
+
+<div id="footer">
+ <div class="footer-left">
+  <?= $this->menu('footer', array('maxDepth' => 0)); ?>
+ </div>
+ <div class="footer-right">
+  <?= $this->region('footer') ?>
+ </div>
+</div>
+
+</div>
+
+</body>
+</html>

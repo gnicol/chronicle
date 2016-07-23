@@ -1,0 +1,102 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.tests">
+    <title>Tests</title>
+
+    <para>
+        A <emphasis>test</emphasis> class includes methods that target logic provided by
+        controllers, models, etc., and applies assertions to verify that the logic works as
+        intended. &product.longname; was built with an extensive test suite that uses
+        <ulink url="http://www.phpunit.de/manual/current/en/index.html">PHPUnit</ulink>.
+    </para>
+
+    <para>
+       To add PHPUnit tests for your own module, create a <filename>tests</filename> folder under
+       your module's folder and include the following files:
+    </para>
+
+    <orderedlist>
+        <listitem>
+            A <filename>phpunit.xml</filename> file located in the <filename>tests</filename>
+            folder. Here is an example for the <classname>Foo</classname> module:
+
+<programlisting language="text">
+&lt;phpunit bootstrap="../../../../../tests/phpunit/TestBootstrap.php"&gt;
+ &lt;testsuites&gt;
+  &lt;testsuite name="Foo Module"&gt;
+   &lt;directory&gt;.&lt;/directory&gt;
+  &lt;/testsuite&gt;
+ &lt;/testsuites&gt;
+&lt;/phpunit&gt;
+</programlisting>
+
+        </listitem>
+
+        <listitem>
+            A test file for the functionality that you want to test. Here is an example test file
+            that exercises the <classname>Foo</classname> module's <filename>index</filename>
+            controller:
+
+<programlisting language="php">
+&lt;?php
+/**
+ * Description of tests for Foo_IndexController
+ *
+ * @copyright   copyright info
+ * @license     license info
+ * @version     version info
+ */
+class Foo_Test_IndexControllerTest extends ModuleControllerTest
+{
+    /**
+     * Runs before each test method
+     */
+    public function setUp()
+    {
+    }
+
+    /**
+     * Runs after each test method
+     */
+    public function tearDown()
+    {
+    }
+
+    /**
+     * Test indexAction
+     */
+    public function testIndex()
+    {
+        $this-&gt;utility-&gt;impersonate('administrator');
+
+        $this-&gt;dispatch('/foo');
+        $this-&gt;assertModule('foo');
+        $this-&gt;assertController('index');
+        $this-&gt;assertAction('index');
+    }
+}
+</programlisting>
+
+        </listitem>
+    </orderedlist>
+
+    <para>
+        To run all tests, open a terminal, change directories to the
+        <filename><constant>CMSDIR</constant>/tests/phpunit</filename> directory and issue the
+        <command>phpunit</command> command.
+    </para>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

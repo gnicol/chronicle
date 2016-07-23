@@ -1,0 +1,27 @@
+/* Dijit Calendar */
+
+.p4cms-ui .dijitCalendarPopup {
+    font-size: 11px;
+}
+
+.p4cms-ui .dijitCalendarMonthLabel {
+    font-size: 12px;
+}
+
+.p4cms-ui .dijitCalendarPopup h3 {
+    font-size: 12px;
+}
+
+.p4cms-ui .dijitCalendarPopup .dijitSpacer {
+    height: 1px;
+}
+
+.p4cms-ui .dijitCalendarPopup .dijitCalendarYearLabel {
+    text-align: center;
+}
+
+.p4cms-ui .dijitCalendarPopup .dijitDropDownButton .dijitButtonContents {
+    background: none;
+    border: none;
+    padding: 2px 2px 3px 2px;
+}

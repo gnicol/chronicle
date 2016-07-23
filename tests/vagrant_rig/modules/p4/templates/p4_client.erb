@@ -1,0 +1,44 @@
+# A Perforce Client Specification.
+#
+#  Client:      The client name.
+#  Description: A short description of the client (optional).
+#  Root:        The base directory of the client workspace.
+#  Options:     Client options:
+#                      [no]allwrite [no]clobber [no]compress
+#                      [un]locked [no]modtime [no]rmdir
+#  SubmitOptions:
+#                      submitunchanged/submitunchanged+reopen
+#                      revertunchanged/revertunchanged+reopen
+#                      leaveunchanged/leaveunchanged+reopen
+#  LineEnd:     Text file line endings on client: local/unix/mac/win/share.
+#  ServerID:    If set, restricts access to the named server.
+#  Partition:   If set, describes data partitioning across servers.
+#  View:        Lines to map depot files into the client workspace.
+#  Stream:      The stream to which this client's view will be dedicated.
+#               (Files in stream paths can be submitted only by dedicated
+#               stream clients.) When this optional field is set, the
+#               View field will be automatically replaced by a stream
+#               view as the client spec is saved.
+#
+# Use 'p4 help client' to see more about client views and options.
+Client: <%= clientName %>
+
+Description:
+	This p4 client was automatically generated using Puppet's p4::sync class, 
+	which may be found under //depot/tools/build/puppet/modules/p4/...
+
+Root:	<%= clientRoot %>
+
+Options:	<%= options %>
+
+SubmitOptions:	<%= submitOptions %>
+
+LineEnd:	<%= lineEnd %>
+
+View:
+<% view.each do |viewLine|
+	depotPath, localPath = viewLine.split(';')
+-%>
+	<%= depotPath %>	//<%= clientName %>/<%= localPath %>
+<% end -%>
+

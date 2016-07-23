@@ -1,0 +1,33 @@
+<?
+// setup paginated adapter.
+$adapter    = new Zend_Paginator_Adapter_Iterator($this->items);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// serve dojo data to populate the data grid.
+$data = $this->dataGrid()->dojoData(
+    $paginator,
+    function ($item) {
+        // return the item's values along with its id
+        $values       = $item->toArray();
+        $values['id'] = $item->getId();
+
+        // strip out the full branch details if present
+        unset($values['branch']);
+
+        return $values;
+    }
+);
+
+// append number of total obligatory items
+$data->setMetadata(
+    'numObligatoryRows',
+    $this->items->filter(
+        'obligatory',
+        true,
+        array(P4_Model_Iterator::FILTER_COPY)
+    )->count()
+);
+
+print $data;

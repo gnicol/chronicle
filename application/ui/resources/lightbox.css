@@ -1,0 +1,51 @@
+/* Light Box */
+
+.lightbox-underlay {
+    background-color: #000;
+    cursor: pointer;
+}
+
+.lightbox-frame {
+    border: none;
+    box-shadow: 0px 0px 15px #333;
+    background-color: #fff;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+    cursor: pointer;
+}
+
+.lightbox-close,
+.lightbox-prev .icon,
+.lightbox-next .icon {
+    background-image: url('images/lightbox-icons.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    display: inline-block;
+    visibility: hidden;
+    width: 40px;
+    height: 40px;
+}
+
+.lightbox-prev .icon,
+.lightbox-next .icon {
+    height: 100%;
+    min-height: 40px;
+    background-position: -40px 50%;
+}
+
+.lightbox-next .icon {
+    background-position: -80px 50%;
+}
+
+.lightbox-prev:hover .icon,
+.lightbox-next:hover .icon {
+    visibility: visible;
+}
+
+.lightbox-next {
+    text-align: right;
+}
+

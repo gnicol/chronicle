@@ -1,0 +1,108 @@
+.error-page div#content {
+    padding-top: 20px;
+    margin:  5% auto;
+    width: 960px;
+    text-align: center;
+}
+
+.error-page h1 {
+    font-size: 40px;
+    margin: 0;
+    padding: 5px 0;
+}
+.error-page h2 {
+    font-size: 25px;
+    margin: 0;
+    padding: 5px 0;
+}
+.error-page h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.error-page h2 span {
+    color: #00649d;
+}
+
+.error-page p {
+    font-size: 16px;
+}
+
+.error-page .notice {
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    background: white;
+    padding: 9px;
+    margin: 12px 0;
+}
+.error-page .notice + .notice {
+    margin-top: 0;
+}
+.error-page .exception dt {
+    float: left;
+    width: 5em;
+    font-weight: bold;
+    color: #707070;
+    text-align: right;
+    margin-right: 1em;
+}
+.error-page pre {
+    font-family: monospace;
+    padding: 1em;
+    font-size: 12px;
+    margin-top: 6px;
+}
+
+/* Page Not Found Search Form */
+
+.error-page form.search-form {
+    padding: 20px 0;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.error-page form.search-form dl {
+    display: inline;
+}
+
+.error-page form.search-form dt {
+    font-size: 16px;
+    width: auto;
+    margin: -1px 0;
+    display: inline-block;
+    float: none;
+    vertical-align: text-top;
+}
+
+.error-page form.search-form dd {
+    display: inline;
+    float: none;
+}
+
+.error-page form.search-form input {
+    min-width: 0;
+    vertical-align: middle;
+}
+
+.error-page form.search-form input[type="text"] {
+    background: url('../../ui/resources/images/input-bg-repeat.jpg') white repeat-x scroll left top;
+    border: 1px solid #A8A8A8;
+    padding: 3px 0;
+    top: 1px;
+    margin-right: 10px;
+}
+
+.error-page form.search-form input[type="submit"] {
+    background: url('../../ui/resources/images/button-bg.png') repeat-x scroll left top;
+    border: 1px solid #A7A7A7;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    padding: 5px 9px;
+    font-size: 13px;
+    color: #1a1a1a;
+}

@@ -1,0 +1,23 @@
+<?
+// should only be one chunk for binary diffs.
+$chunk = current($this->diffResult->getChunks());
+?>
+
+<div class="diff-mode diff-mode-active">
+  <table class="diff-table binary">
+    <tbody class="diff <?= $chunk->getChunkType() ?>">
+      <tr>
+        <td class="left">
+          <?= !$chunk->isChange() ? 'No difference' : 'Content differs' ?>
+          from version #<?= $this->rightFile->getStatus('headRev') ?>
+        </td>
+        <td class="gutter">
+        <td class="right">
+          <?= !$chunk->isChange() ? 'No difference' : 'Content differs' ?>
+          from version
+          #<?= $this->leftFile->getStatus('headRev') ?>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

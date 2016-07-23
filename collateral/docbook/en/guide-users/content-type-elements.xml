@@ -1,0 +1,559 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.type.elements">
+    <title>Specifying Content Type Elements</title>
+
+    <para>
+        Content types are composed of <emphasis>elements</emphasis>, which are individual fields
+        that you can define and configure in detail. For example, a press release can contain a
+        title, date and body text. Each of these elements can be styled separately. These elements
+        are specified in the <property>Elements</property> field on the <emphasis role="screen">Add
+        Content Type</emphasis> screen.
+    </para>
+
+    <para>
+        To specify an element, use the following syntax:
+    </para>
+
+<programlisting language="text">
+[<replaceable>element_name</replaceable>]
+type                = "<replaceable>element-type</replaceable>"
+options.label       = "<replaceable>screen-label</replaceable>"
+options.description = "<replaceable>description</replaceable>"
+<replaceable>option name</replaceable>         = "<replaceable>value</replaceable>"
+...
+</programlisting>
+
+    <para>
+        The <replaceable>element_name</replaceable>, <replaceable>type</replaceable> and
+        <replaceable>label</replaceable> are required.
+    </para>
+
+    <itemizedlist>
+        <listitem>
+            <property>Element name</property>: Unique identifier for the element; can be composed
+            of letters, numbers, and underscores.
+        </listitem>
+
+        <listitem>
+            <property>Type</property>: The data type of the element, as described in detail in
+            <link linkend="content.type.elements.types">Types</link> below.
+        </listitem>
+
+        <listitem>
+            <property>Label</property>: This is a friendlier name for the field (example: "Date")
+        </listitem>
+
+        <listitem>
+            <property>Description</property>: Additional text to display near the field. Use it to
+            guide data entry (example: "Enter a description of the product.")
+        </listitem>
+    </itemizedlist>
+
+    <para>
+        Additional options enable you to specify attributes of the element such as whether it is
+        required, how it is filtered, formatted, validated, and so on.
+    </para>
+
+    <para>
+        For example, the following code specifies the elements for a Press Release:
+    </para>
+
+<programlisting language="ini">
+[headline]
+type                    = text
+options.label           = Headline
+options.required        = true
+display.tagName         = h1
+display.filters.0       = HtmlSpecialChars
+
+[icon]
+type                    = imageFile
+options.label           = Icon
+options.required        = true
+search.index.disabled   = true
+
+[date]
+type                    = dateTextBox
+options.label           = Release Date
+display.filters.0       = HtmlSpecialChars
+
+[description]
+type                    = editor
+options.label           = Description
+display.filters.0       = DefaultStripTags
+</programlisting>
+
+    <note>
+        <title>Zend Form Elements</title>
+
+        <para>
+            &product.longname; content type elements are based upon
+            <ulink url="http://framework.zend.com/manual/en/zend.form.elements.html">Zend Form
+            Elements</ulink> and
+            <ulink url="http://framework.zend.com/manual/en/zend.dojo.form.html">Zend Dojo Form
+            Elements</ulink>.
+        </para>
+    </note>
+
+    <section id="content.type.elements.types">
+        <title>Element Types</title>
+
+        <para>
+            You can use the following element types to define content types:
+        </para>
+
+        <table frame="all" id="content.type.elements.types.table-1">
+            <title>Element Types</title>
+            <tgroup cols="2">
+                <thead>
+                    <row>
+                        <entry>Type</entry>
+                        <entry>Description, Example, Options</entry>
+                    </row>
+                </thead>
+
+                <tbody>
+                    <row>
+                        <entry>
+                            <property>checkbox</property>
+                        </entry>
+
+                        <entry>
+                            Displays a single check box. To display a label for the check box, set
+                            the <option>options.label</option> parameter. To specify the values
+                            returned when the user clicks <guibutton>Save</guibutton>, specify the
+                            <option>options.checkedValue</option> and
+                            <option>options.uncheckedValue</option> parameters. To configure the
+                            default state of the check box when first displayed, set
+                            <option>options.checked</option> to true (checked) or false (unchecked).
+
+                            <informalexample id="content.type.elements.types.checkbox">
+<programlisting language="ini">
+[checkbox]
+type = "checkbox"
+options.label = "Hockey pool participation?"
+options.checkedValue = "Yes"
+options.uncheckedValue = "No"
+options.checked = true
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>dateTextBox</property>
+                        </entry>
+
+                        <entry>
+                            Displays a field in which users enter dates. Also displays a calendar
+                            date-picker. To configure the format in which dates must be entered,
+                            specify the <option>datePattern</option> parameter with a
+                            <ulink url="http://www.unicode.org/reports/tr35/#Date_Format_Patterns">Unicode
+                            date format</ulink>. To configure whether white space variation is
+                            tolerated, set the <option>strict</option> parameter to true or false.
+
+                            <informalexample id="content.type.elements.types.dateTextBox">
+<programlisting language="ini">
+[DateTest]
+type = "DateTextBox"
+options.strict = true
+options.datePattern = "dd/MM/yyyy"
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>editor</property>
+                        </entry>
+
+                        <entry>
+                            Creates a <acronym>WYSIWYG</acronym> editor box. You can add plugins to
+                            the editor by specifying
+                            <ulink url="http://dojotoolkit.org/reference-guide/dijit/Editor.html#builtin-commands">Dojo
+                            editor plugins</ulink> for the desired options, as shown in the example
+                            code. You can also create custom editor plugins in Javascript and add
+                            them. It is important to specify the DefaultStripTags display filter as
+                            shown in example to remove any malicious <acronym>HTML</acronym>.
+
+                            <informalexample id="content.type.elements.types.editor">
+<programlisting language="ini">
+[Recipe]
+type = "editor"
+options.label = "Enter your recipe"
+options.extraPlugins[] = "fontName"
+options.extraPlugins[] = "fontSize"
+options.extraPlugins[] = "formatBlock"
+options.extraPlugins[] = "toolbarlinebreak"
+options.extraPlugins[] = "foreColor"
+options.extraPlugins[] = "hiliteColor"
+options.extraPlugins[] = "||"
+options.extraPlugins[] = "image"
+options.extraPlugins[] = "link"
+options.extraPlugins[] = "pagebreak"
+options.extraPlugins[] = "viewsource"
+display.filters.0 = "DefaultStripTags"
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>file</property>
+                        </entry>
+
+                        <entry>
+                            Creates a form element that enables users to upload files.
+
+                            <informalexample id="content.type.elements.types.file">
+<programlisting language="ini">
+[File]
+type = "file"
+options.label = "Press Release"
+options.description = "PDF format (30K - 1M)."
+options.validators.mimeType.validator = "mimeType"
+options.validators.mimeType.options = "application/pdf"
+options.validators.size.validator = "Size"
+options.validators.size.options.min = 30720
+options.validators.size.options.max = 1048576
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>imageFile</property>
+                        </entry>
+
+                        <entry>
+                            Creates a form element that enables users to upload images.
+
+                            <informalexample id="content.type.elements.types.imageFile">
+<programlisting language="ini">
+[Icon]
+type                    = "imageFile"
+options.label           = "Icon"
+options.required        = true
+search.index.disabled   = true
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>imageSelect</property>
+                        </entry>
+
+                        <entry>
+                            Creates a form element that enables the display of multiple images as a
+                            group, and enables adding images via drag-and-drop for
+                            <link linkend="content.add.dnd.supported-browsers">supported web
+                            browsers</link>.
+
+                            <informalexample id="content.type.elements.types.imageSelect">
+<programlisting language="ini">
+[images]
+type = "imageSelect"
+options.label = "Images"
+options.multiple = "1"
+options.placeholder = "Images (drop files here)"
+options.browseOptions.type.types.0 = "Assets/image"
+display.image.height = "150"
+display.image.link = "1"
+display.image.target = "_lightbox"
+display.image.maxWidth = "500"
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>multiCheckbox</property>
+                        </entry>
+
+                        <entry>
+                            Displays a list of checkboxes.
+
+                            <informalexample id="content.type.elements.types.multicheckbox">
+<programlisting language="ini">
+[SportsList]
+type = "multiCheckbox"
+options.label = "Favorite sports"
+options.multiOptions.1 = "Tennis"
+options.multiOptions.2 = "Hockey"
+options.multiOptions.3 = "Curling"
+options.multiOptions.4 = "Soccer"
+options.multiOptions.5 = "Football"
+options.multiOptions.6 = "Basketball"
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>multiselect</property>
+                        </entry>
+
+                        <entry>
+                            Displays a list of options.
+
+                            <informalexample id="content.type.elements.types.multiselect">
+<programlisting language="ini">
+[SportsList]
+type = "multiselect"
+options.label = "Favorite sports"
+options.multiOptions.1 = "Tennis"
+options.multiOptions.2 = "Hockey"
+options.multiOptions.3 = "Curling"
+options.multiOptions.4 = "Soccer"
+options.multiOptions.5 = "Football"
+options.multiOptions.6 = "Basketball"
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>radio</property>
+                        </entry>
+
+                        <entry>
+                            Display one or more radio buttons.
+
+                            <informalexample id="content.type.elements.types.radio">
+<programlisting language="ini">
+[RadioOption1]
+type = "radio"
+options.multiOptions.1 = "Radio #1"
+options.multiOptions.2 = "Radio #2"
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>select</property>
+                        </entry>
+
+                        <entry>
+                            Creates a drop-down list from which users choose an option (a
+                            <emphasis>pick list</emphasis>). [please note, the key's value is shown
+                            when the content is displayed, not the label.]
+
+                            <informalexample id="content.type.elements.types.select">
+<programlisting language="ini">
+[Sport]
+type = "select"
+options.label = "Sport"
+options.multiOptions.Tennis = "Tennis"
+options.multiOptions.Hockey = "Hockey"
+options.multiOptions.Curling = "Curling"
+options.multiOptions.Soccer = "Soccer"
+options.multiOptions.Football = "Football"
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>text</property>
+                        </entry>
+
+                        <entry>
+                            Displays a single line plain text entry field. It is important to filter
+                            the output as shown in the example to ensure entered data is interpreted
+                            as plain text.
+
+                            <informalexample id="content.type.elements.types.text">
+<programlisting language="ini">
+[Name]
+type = "text"
+options.label = "Name"
+display.filters.0 = "HtmlSpecialChars"
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>textarea</property>
+                        </entry>
+
+                        <entry>
+                            Displays a multi-line plain text field. It is important to filter the
+                            output as shown in the example to ensure entered data is interpreted as
+                            plain text.
+
+                            <informalexample id="content.type.elements.types.textarea">
+<programlisting language="ini">
+[Address]
+type = "textarea"
+options.label = "Address"
+display.filters.0 = "HtmlSpecialChars"
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>validationTextBox</property>
+                        </entry>
+
+                        <entry>
+                            Displays an entry field and specify the format in which text must be
+                            entered into it. It is important to filter the output as shown in the
+                            example to ensure entered data is interpreted as plain text.
+
+                            <informalexample id="content.type.elements.types.validationTextBox">
+<programlisting language="ini">
+[TwoWords]
+type = "validationTextBox"
+options.label = "Two Words"
+options.required = "1"
+options.regExp = "[\w]+[\s]+[\w]+"
+options.invalidMessage = "Input must two words separated by whitespace."
+options.validators.regex.validator = "regex"
+options.validators.regex.options.pattern = "/^[\w]+[\s]+[\w]+$/"
+display.filters.0 = "HtmlSpecialChars"
+</programlisting>
+                            </informalexample>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+
+    <section id="content.type.elements.default-value">
+        <title>Default Value for Elements</title>
+
+        <para>
+            You can specify a default value for an element:
+        </para>
+
+<programlisting language="ini">
+options.value = "The default value for this element"
+</programlisting>
+    </section>
+
+    <section id="content.type.elements.validating">
+        <title>Validating and Filtering Input</title>
+
+        <para>
+            &product.name; uses functionality provided by the Zend framework to enable you to
+            validate and filter user input. It is important to appropriately filter displayed values
+            for fields which allow text entry. You can allow a subset of <acronym>HTML</acronym>
+            tags/attributes to be used via the <methodname>DefaultStripTags</methodname> filter;
+            this is recommended for the editor field type. Further, you can ensure the value is
+            interpreted as plain text via the <methodname>HtmlSpecialChars</methodname> filter; this
+            is recommended for any fields accepting arbitrary user input such as text and textarea.
+        </para>
+
+<programlisting language="ini">
+[title]
+type = "text"
+options.label = "Title"
+display.filters.0 = "HtmlSpecialChars"
+
+[body]
+type = "editor"
+options.label = "Body"
+display.filters.0 = "DefaultStripTags"
+</programlisting>
+    </section>
+
+    <section id="content.type.elements.display">
+        <title>Display Options</title>
+
+        <variablelist>
+            <varlistentry>
+                <term>display.tagName</term>
+
+                <listitem>
+                    Use this option to specify the <acronym>HTML</acronym> tag to be used to display
+                    the element. For example:
+
+<programlisting language="ini">
+[title]
+type = "text"
+options.label = "Title"
+options.required = true
+display.tagName = "h1"
+</programlisting>
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>display.render</term>
+
+                <listitem>
+                    Use this option to indicate that the element should normally be hidden from view
+                    and in-place editing; the element is still editable in form mode. For example:
+
+<programlisting language="ini">
+[hideme]
+type = "text"
+options.label = "Not Normally Visible"
+display.render = false
+</programlisting>
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>display.showLabel</term>
+
+                <listitem>
+                    Use this option to display the element label before the element value.
+
+<programlisting language="ini">
+[author]
+type = "text"
+options.label = "Author"
+display.showLabel = true
+</programlisting>
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+
+    <section id="content.type.elements.macros">
+        <title>Option to Use Macros</title>
+
+        <para>
+            Using <link linkend="macros.list">Macros</link> in content is possible when an element's
+            definition includes:
+        </para>
+
+<programlisting language="ini">
+options.macros.enabled = true
+</programlisting>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

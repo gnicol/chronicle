@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="workflows.scheduled.transitions">
+    <title>Scheduling Transitions</title>
+
+    <para>
+        When a content entry is saved, if you have sufficient privileges to change the workflow
+        state, you are given the option to have the workflow change immediately or at a
+        future date. This feature is useful if you prefer to prepare content for publication
+        early and wish to avoid having to manually publish content at the appropriate time.
+    </para>
+
+    <bridgehead>
+        To transition content in the future:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Begin adding or editing a content entry. Please see <xref linkend="content.add"/>, or
+            <xref linkend="content.edit"/> for more details.
+        </listitem>
+
+        <listitem>
+            Click the <guibutton>Save</guibutton> button.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-edit_content-save.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The <emphasis role="dialog">Save Content</emphasis> dialog is displayed:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-save_content.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Select a workflow state to which the content should transition. For these steps,
+            <emphasis>Publish</emphasis> is selected.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-save_content-focus_publish.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The dialog expands to display the scheduling options.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-save_content-schedule.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <emphasis role="bold">Now</emphasis> to indicate that the workflow transition
+            should occur immediately. Or click <emphasis role="bold">Specify Server Date and
+            Time</emphasis>, then use the controls just below to select a date and time.
+
+            <note>
+                <title>Server Time Display</title>
+
+                <para>
+                    The current web server time is displayed to help you decide on a date and time
+                    for a state transition.
+                </para>
+            </note>
+        </listitem>
+
+        <listitem>
+            Click the <guibutton>Save</guibutton> button to save your content.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-save_content-focus_save.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+    </orderedlist>
+
+    <note>
+        <title>Content Edits Saved Immediately</title>
+
+        <para>
+            Whether you choose to transition your content to a new state immediately or sometime
+            in the future, when you click <guibutton>Save</guibutton> any additions or modifications
+            to your content entry are saved immediately.
+        </para>
+    </note>
+
+    <section id="workflows.scheduled.transitions.batch">
+        <title>Scheduling Workflow Transitions for Multiple Entries</title>
+
+        <para>
+            You can also schedule workflow transitions for multiple entries at once by selecting entries
+            via the <emphasis role="screen">Manage Content</emphasis> screen.
+        </para>
+
+        <note>
+            <title>Please be patient</title>
+
+            <para>
+                Scheduling a large number of workflow transitions can take some time.
+            </para>
+        </note>
+
+        <orderedlist>
+            <listitem>
+                Click <guibutton>Content</guibutton> in the &product.longname; toolbar.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-manage-content_focus.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                The <emphasis role="screen">Manage Content</emphasis> screen is displayed.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-manage_content.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Select the entries you want to schedule a workflow transition for:
+
+                <note>
+                    <title>Do Not Click the Entry's Title</title>
+
+                    <para>
+                        When selecting one or more entries, click on the entry's row, but not the
+                        entry's title.
+                    </para>
+                </note>
+
+                <itemizedlist>
+                    <listitem>
+                        To select a single entry, click on the entry's row.
+                    </listitem>
+
+                    <listitem>
+                        To add entry into the selection, use <keycombo><keycap>CTRL</keycap>
+                        <mousebutton>Left-click</mousebutton></keycombo>
+                        (<keycombo><keycap>Command</keycap><mousebutton>Left-click</mousebutton>
+                        </keycombo> on Mac) on the desired entry's row.
+                    </listitem>
+
+                    <listitem>
+                        To remove entry from the selection, use <keycombo><keycap>CTRL</keycap>
+                        <mousebutton>Left-click</mousebutton></keycombo>
+                        (<keycombo><keycap>Command</keycap><mousebutton>Left-click</mousebutton>
+                        </keycombo> on Mac) on the not-desired entry's row.
+                    </listitem>
+
+                    <listitem>
+                        You can also select a range of entries by selecting the first entry in the range
+                        and then holding a <keycap>Shift</keycap> key and clicking on the row of the
+                        last entry.
+                    </listitem>
+                </itemizedlist>
+
+                The number of selected entries is shown in the grid footer beside the indicator of the
+                total number of entries.
+            </listitem>
+
+            <listitem>
+                Click the <guibutton>Workflow</guibutton> button in the grid footer; this button
+                is activated when one or more entries are selected. The
+                <emphasis role="dialog">Change Workflow Status</emphasis> dialog is displayed.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-change_workflow_status.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                Here you can specify which workflow state the selected content entries should
+                transition to, when the transition should occur, and an optional comment to
+                describe the transition.
+            </listitem>
+
+            <listitem>
+                <para>
+                    Select a workflow state to which the selected content entries should transition.
+                </para>
+
+                <para>
+                    The list of workflow states is composed of the intersection of matching states from
+                    the workflows of all selected entries. For example, if there are two distinct
+                    workflows for all selected entries, where the first workflow defines
+                    <emphasis>draft</emphasis>, <emphasis>review</emphasis> and
+                    <emphasis>published</emphasis> states, and the second workflow defines
+                    <emphasis>draft</emphasis>, <emphasis>published</emphasis>
+                    and <emphasis>obsolete</emphasis>, the list of states contains only the options
+                    <emphasis>draft</emphasis> and <emphasis>published</emphasis>. 
+                    The <emphasis>review</emphasis> and <emphasis>obsolete</emphasis> states are not
+                    included because they do not exist in both workflows.
+                </para>
+
+                <para>
+                    Workflow states from multiple workflows may have differing labels. When this occurs,
+                    the labels for a common state are all displayed, separated by slashes.
+                </para>
+
+                Finally, the list of workflow states does not represent content entries that have no
+                associated workflow.
+            </listitem>
+
+            <listitem>
+                Select a scheduling option for the status changes.
+            </listitem>
+
+            <listitem>
+                <para>
+                    Click the <guibutton>Change Status</guibutton> button. &product.name; prepares the
+                    transition for all selected content entries.
+                </para>
+
+                <para>
+                    When successful, a notification appears indicating the number of entries processed.
+                </para>
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/notification-changed_workflow_status-success.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                <para>
+                    Upon failure to prepare the transition for one or more entries, a warning dialog is
+                    displayed where you can see how many entries cannot be transited to the selected
+                    workflow state:
+                </para>
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-change_workflow_status-failure.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                <para>
+                    At this point, no changes to the selected entries have been made. Click on the
+                    <guibutton>Continue</guibutton> button if you wish to schedule workflow transition
+                    for only those entries where it is allowed.
+                </para>
+
+
+                <para>
+                    There are several reasons, why scheduling a workflow transition may be denied on
+                    some entries:
+                </para>
+
+                <itemizedlist>
+                    <listitem>
+                        One or more of the selected entries is/are not under any workflow and the
+                        selected workflow status is not <emphasis>published</emphasis>.
+                    </listitem>
+
+                    <listitem>
+                        Selected workflow transition is not allowed on one or more of the selected
+                        entries due to one or more
+                        <link linkend="workflows.configure.conditions">conditions</link> attached to the
+                        transition.
+                    </listitem>
+
+                    <listitem>
+                        You don't have a permission to edit one or more of the selected entries.
+                    </listitem>
+                </itemizedlist>
+
+                <warning>
+                    <para>
+                        Please be aware that what you see in the workflow status selection list are
+                        workflow state labels (friendlier identifiers) that are
+                        <emphasis role="bold">not</emphasis> used as identifiers of workflow states
+                        when workflow transition options are calculated.
+                    </para>
+                </warning>
+
+            </listitem>
+
+        </orderedlist>
+    </section>
+
+    <section id="workflow.scheduled.transitions.grid">
+        <title>Reviewing Scheduled Workflow Transitions</title>
+
+        <para>
+            When viewing the content grid, any entries with pending workflow state transitions
+            are indicated in the Workflow column. If you hover your mouse over the transition
+            indicator, a tooltip appears providing details of the transition:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/tooltip-workflow_schedule.png"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+    </section>
+
+    <note>
+        <title>Processing Scheduled Workflow Transitions</title>
+
+        <para>
+            Scheduled workflow transitions are processed automatically by the
+            <classname>Cron</classname> module, but depend on sufficiently regular activation to
+            meet your scheduling expectations. Please see <xref linkend="site.time-based-tasks"/>
+            for more details.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

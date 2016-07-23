@@ -1,0 +1,11 @@
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', '<?= $this->escape($this->accountNumber) ?>']);
+<? echo ($this->userId) ? "_gaq.push(['_setCustomVar', 0, 'userId', '" . $this->escape($this->userId) . "']);" : '' ?>
+<? echo ($this->userRole) ? "_gaq.push(['_setCustomVar', 1, 'userRole', '" . $this->escape($this->userRole) . "']);" : '' ?>
+_gaq.push(['_trackPageview']);
+
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();

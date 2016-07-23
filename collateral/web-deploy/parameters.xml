@@ -1,0 +1,27 @@
+<parameters>  
+
+  <parameter  
+    name="AppPath" 
+    defaultValue="Perforce Chronicle"  
+    tags="iisapp"  
+    >  
+    <parameterEntry  
+      type="ProviderPath"  
+      scope="iisApp"  
+      match="perforce-chronicle"  
+      />  
+  </parameter>
+
+  <parameter 
+    name="SetAclParameter1" 
+    defaultValue="{AppPath}/data" 
+    tags="Hidden"
+    > 
+    <parameterEntry 
+      type="ProviderPath" 
+      scope="setAcl" 
+      match="data" 
+      /> 
+  </parameter> 
+
+</parameters>  

@@ -1,0 +1,36 @@
+body {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#nav li a {
+    padding: 17px 16px;
+}
+
+#nav li.logo {
+    padding-top: 11px;
+}
+
+#header {
+    text-align: center;
+}
+
+.breadcrumbs {
+    margin: 0;
+    text-align: left;
+}
+
+.container.main,
+div.section, div.book, div.part, div.chapter, div.appendix, div.index, div.glossary {
+    text-align: left;
+}
+
+.sidebar h5.subtitle img {
+    position: relative;
+    margin-top: -5px;
+}
+
+div.note, div.warning {
+    margin: 12px 15px;
+    width: auto;
+}

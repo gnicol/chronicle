@@ -1,0 +1,28 @@
+<?
+// setup paginated role adapter.
+$adapter    = new Zend_Paginator_Adapter_Iterator($this->roles);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// serve dojo data to populate the data grid.
+// pass per-item callback to craft each entry.
+print $this->dataGrid()->dojoData(
+    $paginator,
+    function($role, $dataGrid)
+    {
+        return array(
+            'id'            => $role->getId(),
+            'type'          => ucfirst($role->getType()),
+            'isSystem'      => $role->isSystem(),
+            'isVirtual'     => $role->isVirtual(),
+            'usersCount'    => $role->isVirtual() ? null : count($role->getRealUsers()),
+            'editUri'       => $dataGrid->view->url(
+                array('module' => 'user', 'controller' => 'role', 'action' => 'edit', 'id' => $role->getId())
+            ),
+            'deleteUri'     => $dataGrid->view->url(
+                array('module' => 'user', 'controller' => 'role', 'action' => 'delete', 'id' => $role->getId())
+            ),
+        );
+    }
+);

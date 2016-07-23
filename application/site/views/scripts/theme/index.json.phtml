@@ -1,0 +1,33 @@
+<?
+// setup paginated content adapter.
+$adapter    = new Zend_Paginator_Adapter_Iterator($this->themes);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// serve dojo data to populate the data grid.
+// pass per-item callback to craft each entry.
+print $this->dataGrid()->dojoData(
+    $paginator,
+    function($theme, $dataGrid)
+    {
+        $iconUrl = ($theme->hasIcon())
+            ? $theme->getIconUrl()
+            : $dataGrid->view->module('site')->getBaseUrl() . '/images/theme-icon.png';;
+
+        return array(
+            'name'          => $theme->getName(),
+            'label'         => $theme->getLabel(),
+            'version'       => $theme->getVersion(),
+            'description'   => $theme->getDescription(),
+            'active'        => ($theme->name === $dataGrid->view->theme->name ? 1 : 0),
+            'maintainer'    => array(
+                'name'      => $theme->getMaintainerInfo('name'),
+                'email'     => $theme->getMaintainerInfo('email'),
+                'url'       => $theme->getMaintainerInfo('url'),
+            ),
+            'icon'          => $iconUrl
+        );
+    },
+    'name'
+);

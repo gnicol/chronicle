@@ -1,0 +1,51 @@
+from selenium import selenium
+import unittest, time, re, sys, getopt
+sys.path.append("shared")
+import functions
+
+class test_Widgets_Add_Flickr(unittest.TestCase):
+    def setUp(self):
+        self.verificationErrors = []
+        self.selenium = selenium(connection["host"], connection["port"], connection["browser"], connection["url"])
+        self.selenium.start()
+
+    def test_widgets_add_flickr(self):
+        sel = self.selenium
+        sel.open("/")
+        sel.click("p4cms-site-toolbar-stack-controller_p4cms-site-toolbar-page-widgets_label")
+        sel.click("//span[@id='p4cms-site-toolbar-stack-controller']/span[5]/input")
+        sel.click("//span[@id='region-features-add']/span")
+        sel.click("//div[@id='region-features']/span/input")
+        functions.waitForElementPresent(sel,"css=ul.widget-types > li:nth(2) > a.add-widget > span.widget-type-label")
+        sel.click("css=ul.widget-types > li:nth(2) > a.add-widget > span.widget-type-label")
+        functions.waitForTextPresent(sel,"Configure Flickr Stream Widget")
+        try: self.failUnless(sel.is_element_present("//div[4]/div/div"))
+        except AssertionError, e: self.verificationErrors.append(str(e))
+        functions.waitForElementPresent(sel,"name=config[sourceTag]")
+        sel.type("name=config[sourceTag]", "perforce")
+        sel.select("//dd[5]/select", "label=Square")
+        sel.type("//dd[7]/input", "10")
+        sel.click("//dd/span/span/span/span[3]")
+        sel.click("save")
+        sel.click("//body")
+        try: 
+           self.failUnless(sel.is_element_present("//div[2]/div[4]/div/div"))
+           functions.printResults("6448","pass")
+        except AssertionError, e:
+           self.verificationErrors.append(str(e))
+           functions.printResults("6448","fail")
+    
+    def tearDown(self):
+        self.selenium.stop()
+        self.assertEqual([], self.verificationErrors)
+
+if __name__ == "__main__":
+
+    connection = functions.connect(sys.argv)
+    del sys.argv[1:]
+    
+    detailids = ("6448")
+    functions.printDetailIds(detailids)
+
+    unittest.main()
+

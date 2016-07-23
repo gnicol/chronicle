@@ -1,0 +1,82 @@
+<?
+// get data grid namespace
+$namespace  = $this->dataGrid()->getNamespace();
+
+// data store url
+$url        = $this->url(
+    array(
+        'module'        => 'user',
+        'controller'    => 'acl',
+        'action'        => 'index',
+        'format'        => 'json'
+    )
+);
+
+// calculate column widths
+// @todo doesn't work well if roleWidth is too small as grid header
+//       won't shrink to cut off the label (for some browsers)
+$roleWidth = floor(70 / count($this->roles));        // set permissions width close to 30%
+$permWidth = 100 - $roleWidth * count($this->roles);
+
+// set up columns
+$columns = array(
+    'label' => array(
+        'label'     => 'Permission',
+        'width'     => $permWidth . '%',
+        'classes'   => 'label',
+        'formatter' => $namespace . '.Formatters.label'
+    )
+);
+foreach ($this->roles as $role) {
+    $roleId = $this->escapeAttr($role->getId());
+    $columns['role-' . $roleId] = array(
+        'label'     => $roleId,
+        'classes'   => 'rule',
+        'width'     => $roleWidth . '%',
+        'formatter' => $namespace . '.Formatters.rule'
+    );
+}
+
+// set up footer buttons
+$buttons = array(
+    'Save Changes'      => array(
+        'attribs'       => array(
+            'class'     => 'preferred',
+            'onclick'   => $namespace . '.Utility.save();'
+        )
+    ),
+    'Reset to Defaults' => array(
+        'attribs'       => array(
+            'onclick'   => $namespace . '.Utility.confirmReset();'
+        )
+    )
+);
+
+print $this->dataGrid(
+    $namespace,
+    array(
+        'form'          => $this->form,
+        'url'           => $url,
+        'pageSize'      => $this->pageSize,
+        'columns'       => $columns,
+        'footer'        => array(
+            'buttons'       => $buttons,
+            'attribs'       => array(
+                'showRowCount'  => 'false'
+            )
+        ),
+        'attribs'       => array(
+            'disableSort'   => 'true'
+        )
+    )
+);
+?>
+<script type="text/javascript">
+ dojo.addOnLoad(function(){
+    dojo.connect(<?= $namespace ?>.instance, 'onStyleRow', null, function(row){
+        var type = <?= $namespace ?>.instance.getItemValue(row.index, 'type');
+        row.customClasses += " acl-" + type;
+    })
+ });
+ <?= $namespace ?>.rules = <?= Zend_Json::encode($this->rules) ?>;
+</script>

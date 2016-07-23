@@ -1,0 +1,10 @@
+<phpunit bootstrap="../../../../../tests/phpunit/TestBootstrap.php">
+ <testsuites>
+  <testsuite name="Flickr Module">
+   <directory>.</directory>
+  </testsuite>
+ </testsuites>
+ <php>
+  <const name="TEST_FLICKR_KEY" value="3710cf8e77a07a58415971b7e5a5a097"/>
+ </php>
+</phpunit>

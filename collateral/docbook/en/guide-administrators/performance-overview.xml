@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="performance.overview">
+    <title>Overview</title>
+
+    <para>
+        As your web site grows in popularity, you may notice that pages take longer to load, or
+        worse, pages may fail to load at all if you web server is over capacity. These are
+        symptoms of a lack of performance. This chapter discusses options you can use to get the
+        best performance from your &product.longname; site, and provides some feature-specific
+        recommendations when horizontal scaling is employed.
+    </para>
+
+    <para>
+        The options are:
+    </para>
+
+    <variablelist>
+        <varlistentry>
+            <term>Use the Fastest Hardware You Can Afford</term>
+
+            <listitem>
+                Many performance problems could be remedied, or at least alleviated, by using faster
+                hardware; faster CPU, storage, or network capability can make significant
+                differences.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>Use a Dedicated Server for Perforce</term>
+
+            <listitem>
+                Running the Perforce server on the same machine as your web server does work, but
+                the Perforce server can run faster on its own machine. This is particularly
+                important when you have many content entries; dedicated memory and fast disks can
+                notably reduce the time for content access, particularly when performing bulk
+                operations such as sorting.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>Cache</term>
+
+            <listitem>
+                Cache can provide dramatic performance improvements. For example, returning a cached
+                content page can be hundreds or thousands of times faster than performing the
+                operations required to construct the page. The tradeoff to using cache is that the
+                information could be out of date.
+            </listitem>
+        </varlistentry>
+    </variablelist>
+
+    <section id="performance.overview.single-web-server">
+        <title>Single Web Server Options</title>
+
+        <para role="float-right">
+            <inlinemediaobject>
+                <imageobject role="inline">
+                    <imagedata fileref="images/diagram-horizontal_scaling-single_servers.png"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+
+        <para>
+            With a single web server, the options for improving performance are limited; to host
+            your &product.name; site, it needs to run the web server software, the Perforce
+            server software for content storage, and Chronicle itself.
+        </para>
+
+        <para>
+            &product.name; includes the <acronym>P4PHP</acronym> extension, which provides a
+            persistent connection to the Perforce server; it eliminates the overhead of
+            establishing a connection for each operation required to retrieve or change content.
+            &product.name; automatically uses <acronym>APC</acronym> when it is installed to cache
+            full pages. Using <acronym>P4PHP</acronym> and <acronym>APC</acronym> together can
+            nearly double the performance of &product.name;.
+        </para>
+    </section>
+
+    <section id="performance.overview.multiple-web-server">
+        <title>Multiple Web Servers</title>
+
+        <para role="float-right">
+            <inlinemediaobject>
+                <imageobject role="inline">
+                    <imagedata fileref="images/diagram-horizontal_scaling-multiple_servers_1.png"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+
+        <para>
+            When a single web server becomes insufficient to handled the popularity of your site,
+            the next step is to add additional web servers, a technique known as
+            <emphasis>horizontal scaling</emphasis>. The largest web-based companies, such as
+            Google, Amazon, and Facebook, all use thousands or even hundreds of thousands of web
+            servers to host their sites.
+        </para>
+
+        <para>
+            One of the challenges of adding web servers, aside from the cost of the hardware, is
+            configuring the hardware so that each web server is serving the same content. To achieve
+            this, each web server needs to communicate with a common Perforce server, and this
+            typically means running the Perforce server software on its own machine.
+        </para>
+
+        <para role="float-right">
+            <inlinemediaobject>
+                <imageobject role="inline">
+                    <imagedata fileref="images/diagram-horizontal_scaling-multiple_servers_2.png"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+
+        <para>
+            The cache strategy also needs to change when multiple web servers are employed. If each
+            web server has its own independent cache, it is not possible to guarantee delivery of
+            the same content when content is updated. The solution here is to use a shared cache.
+            Unfortunately, a shared cache is usually slower than the file-based cache each
+            individual web server could use. &product.name; can be configured to use the
+            memory-based cache called memcached. Common practice is to configure memcached to run on
+            each of the web servers, as web servers often have memory to spare, but the best
+            performance can be achieved with dedicated memcached servers.
+        </para>
+    </section>
+
+    <section id="performance.overview.cloud">
+        <title>Hosting in the Cloud</title>
+
+        <para>
+            Scaling the performance of your web site to meet demand can require a significant
+            amount of hardware. This increased demand may be short lived, from a few seconds or
+            minutes where you may decide that the best action is no action, to a few days or
+            weeks. The longer the increased demand lasts, the more tempting it is to deploy
+            additional hardware. When the demand falls off, you then have hardware sitting idle.
+        </para>
+
+        <para>
+            Cloud computing services, such as Amazon's Web Services, allow you to <emphasis>spin
+            up</emphasis> additional server instances as needed with only a few minutes' delay.
+            If the demand drops, you simply remove server instances as appropriate.
+        </para>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

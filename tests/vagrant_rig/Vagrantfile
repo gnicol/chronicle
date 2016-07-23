@@ -1,0 +1,25 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant::Config.run do |config|
+
+    config.vm.define :cms do |cms_config|
+      cms_config.vm.box = "lucid32"
+      cms_config.vm.box_url = "http://files.vagrantup.com/lucid32.box"  
+      cms_config.vm.forward_port("http", 80, 8080)
+      cms_config.vm.provision :puppet, :module_path => "modules" do |puppet|
+        puppet.manifests_path = "manifests"
+        puppet.manifest_file  = "cms.pp"
+      end
+    end
+
+    config.vm.define :test do |test_config|
+      test_config.vm.box = "lucid32"
+      test_config.vm.box_url = "http://files.vagrantup.com/lucid32.box"  
+      test_config.vm.provision :puppet, :module_path => "modules" do |puppet|
+        puppet.manifests_path = "manifests"
+        puppet.manifest_file  = "tests.pp"
+      end
+    end
+
+end

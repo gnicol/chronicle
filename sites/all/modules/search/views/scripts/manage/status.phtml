@@ -1,0 +1,12 @@
+<h3>Status</h3>
+
+<dl>
+<?php
+foreach ($this->status as $key => $value) {?>
+    <dd><?= ucfirst($key)?> = <?= $value?></dd>
+<?php } ?>
+</dl>
+
+<div dojoType='dijit.ProgressBar' style='width:90%;' jsId='jsoptimizeProgress'
+     id='optimizeProgress' progress="50%"></div><br />
+

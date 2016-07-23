@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<note>
+    <title>Internet Explorer CSS Limitations</title>
+
+    <para>
+        Internet Explorer (<acronym>IE</acronym>) has a limitation of directly loading up to
+        31 <acronym>CSS</acronym> stylesheets. As &product.name; has many optional modules and
+        themes, each with their own styles, it is very easy to reach or exceed this limitation.
+        When this occurs, any additional stylesheets are not loaded and the styling of your
+        site is likely incorrect. Please see
+        <ulink url="http://blogs.msdn.com/b/ieinternals/archive/2011/05/14/10164546.aspx">Eric
+        Law's IEInternals blog posting</ulink> for more details.
+    </para>
+
+    <para>
+        To mitigate this limitation, &product.name; automatically aggregates or consolidates
+        stylesheets for production or development modes respectively. In production mode, all
+        stylesheets are aggregated into a single stylesheet to minimize the web requests and
+        improve cache behaviour. In development mode, stylesheets are consolidated into style
+        blocks that use the <command>@import</command> <acronym>CSS</acronym> rule when the
+        site is accessed via Internet Explorer. Microsoft allows up to 31 such style blocks that
+        can each include up to 31 <command>@import</command> rules.
+    </para>
+</note>
+<!--
+vim:se ts=4 sw=4 et:
+-->

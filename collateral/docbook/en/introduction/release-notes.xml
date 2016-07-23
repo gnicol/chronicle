@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="release-notes" role="sidebar">
+    <title>Release Notes</title>
+
+    <section id="release-notes.majorupdates">
+        <title>Major New Functionality in <release/></title>
+
+        <variablelist>
+            <varlistentry>
+                <term><link linkend="getstarted.tableau">Tableau Theme</link></term>
+
+                <listitem>
+                    #509302
+                    <?linebreak?>
+                    Tablet-first theme to provide a richer experience when browsing from a tablet.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+
+    <section id="release-notes.minorupdates">
+        <title>Minor New Functionality in <release/></title>
+
+        <variablelist>
+            <varlistentry>
+                <term><link linkend="social.sharethis">ShareThis Integration</link></term>
+                <listitem>
+                    #495475
+                    <?linebreak?>
+                    ShareThis (<ulink url="http://sharethis.com/">http://sharethis.com/</ulink>)
+                    integration to facilitate sharing &product.longname; pages with social media
+                    services.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term><link linkend="social.disqus">Disqus Integration</link></term>
+
+                <listitem>
+                    #507420
+                    <?linebreak?>
+                    Disqus (<ulink url="http://disqus.com/">http://disqus.com/</ulink>) integration
+                    to enable its comment platform with your &product.name; site.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>
+                    <link linkend="users.external_auth">External Authentication Support</link>
+                </term>
+
+                <listitem>
+                    #496910
+                    <?linebreak?>
+                    External authentication performed by the Perforce Server is now supported for
+                    use with &product.name;.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>
+                    <link linkend="installation.management.wordpress-import">WordPress
+                    Importer</link>
+                </term>
+
+                <listitem>
+                    #508764
+                    <?linebreak?>
+                    &product.name; can import a Wordpress export in XML format.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>2012.1 Perforce Binaries</term>
+
+                <listitem>
+                    #498813, #520237
+                    <?linebreak?>
+                    Included Perforce server binaries and the P4PHP extension were upgraded to the
+                    latest 2012.1 patch versions.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+
+    <section id="release-notes.bugfixes">
+        <title>Bug Fixes in <release/></title>
+
+        <itemizedlist>
+            <listitem>
+                #523878 (Bug #58650)
+                <?linebreak?>
+                Fixed an issue where a user could not be deleted if that user
+                had files open for edit.
+            </listitem>
+
+            <listitem>
+                #498888 (Bug #57115)
+                <?linebreak?>
+                DataGrids were scrolling very slowly when using the mouse
+                scrollwheel in Firefox 13+
+            </listitem>
+
+            <listitem>
+                #499867 (Bug #58425)
+                <?linebreak?>
+                Correct datagrid borders display under IE9.
+            </listitem>
+
+            <listitem>
+                #488176 (Bug #57561)
+                <?linebreak?>
+                Correct a theme CSS problem where the first widget in the splash
+                region displayed its text centered regardless of justification.
+            </listitem>
+
+            <listitem>
+                #487343 (Bug #57563)
+                <?linebreak?>
+                Prevent a fatal error during setup by increasing tolerance of
+                older versions of the ImageMagick PHP extension (such as the
+                version included with Ubuntu 10.04 LTS).
+            </listitem>
+
+            <listitem>
+                #486873 (Bug #57425)
+                <?linebreak?>
+                Fixed an issue where using the options.extraPlugins array in the
+                content-type definition wouldn't allow you to use the same
+                plugins as those available by default.
+            </listitem>
+
+            <listitem>
+                #486029 (Bug #57491)
+                <?linebreak?>
+                Fixed an issue where HiddenElements were trying to draw their
+                dashed edit border even though they are always hidden.
+            </listitem>
+        </itemizedlist>
+    </section>
+
+    <section id="release-notes.known-issues">
+        <title>Known Issues</title>
+
+        <variablelist>
+            <varlistentry>
+                <term>
+                    Dependency on <filename>pdftotext</filename> for Searching Inside
+                    <acronym>PDF</acronym> Documents
+                </term>
+
+                <listitem>
+                    To search within <acronym>PDF</acronym> documents, &product.name; tries to
+                    detect if the <filename>pdftotext</filename> command exists, and uses that to
+                    index <acronym>PDF</acronym> documents. If the command is not present,
+                    &product.name; cannot index the contents of <acronym>PDF</acronym>
+                    files, and as a result, you cannot search within <acronym>PDF</acronym> files.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>
+                    &product.name; Administration Using Tableau Theme and Mobile Device
+                </term>
+
+                <listitem>
+                    The Tableau theme is intended for anonymous users to experience. Many UI
+                    components required for effective administration have not been revised for use
+                    on mobile devices. For administrative functions, please use a desktop browser.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+
+    <sidebar id="release-notes.sidebar">
+        <section label="Release Notes">
+            <subtitle>Release Notes for <release/></subtitle>
+
+            <itemizedlist>
+                <listitem>
+                    <link linkend="release-notes.majorupdates">Major Updates</link>
+                </listitem>
+
+                <listitem>
+                    <link linkend="release-notes.minorupdates">Minor Updates</link>
+                </listitem>
+
+                <listitem>
+                    <link linkend="release-notes.bugfixes">Bug Fixes</link>
+                </listitem>
+
+                <listitem>
+                    <link linkend="release-notes.known-issues">Known Issues</link>
+                </listitem>
+            </itemizedlist>
+        </section>
+    </sidebar>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

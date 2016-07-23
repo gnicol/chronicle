@@ -1,0 +1,16 @@
+<?php
+
+// different response data for success/failure cases.
+if (isset($this->errors)) {
+    $data = array(
+        'isValid'       => false,
+        'errors'        => $this->errors,
+        'form'          => $this->form->render()
+    );
+} else {
+    $data = array(
+        'isValid'       => true
+    );
+}
+
+print Zend_Json::encode($data);

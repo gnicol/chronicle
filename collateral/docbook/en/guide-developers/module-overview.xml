@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.anatomy.overview">
+    <title>Overview</title>
+
+    <para>
+        A <emphasis>module</emphasis> is a package that provides or extends functionality in
+        &product.longname;. Most of the features in &product.name; are implemented via modules. By
+        creating your own modules you can add new functionality or modify existing features.
+    </para>
+
+    <para>
+        Modules can contain configuration, controllers, resources, view scripts, and other assets.
+        &product.name; uses the
+        <ulink url="http://framework.zend.com/manual/en/#learning.quickstart.intro.mvc">
+        Model-View-Controller</ulink> (<acronym>MVC</acronym>) design pattern. &product.name;
+        has a built-in <emphasis>auto loader</emphasis>, so there is no need to use
+        <methodname>include()</methodname> or <methodname>require()</methodname>. If your class
+        files are correctly named and located, &product.name; automatically loads and initializes
+        them.
+    </para>
+
+    <section id="modules.overview.recommended">
+        <title>Required and Recommended Knowledge</title>
+
+        <para>
+            To develop modules for &product.name;, you must:
+        </para>
+
+        <itemizedlist>
+            <listitem>
+                Know <acronym>PHP</acronym>, and have a rough idea of how to use
+                <acronym>PHP</acronym> classes and objects. Details:
+                <ulink url="http://ca.php.net/manual/en/language.oop5.php"><acronym>OOP</acronym>
+                in <acronym>PHP</acronym></ulink>.
+            </listitem>
+
+            <listitem>
+                Know the basic idea of the Model-View-Controller design pattern as implemented by
+                the <ulink url="http://framework.zend.com/manual/en/#learning.quickstart.intro.mvc">
+                Zend Framework</ulink>.
+            </listitem>
+
+            <listitem>
+                Have basic experience developing for the Web.
+            </listitem>
+        </itemizedlist>
+
+        <para>
+            We also recommend that you know, or have some familiarity with:
+        </para>
+
+        <itemizedlist>
+            <listitem>
+                <ulink url="http://framework.zend.com/manual/en">Zend Framework</ulink>
+            </listitem>
+
+            <listitem>
+                <ulink url="http://www.dojotoolkit.org/">Dojo Toolkit</ulink>
+            </listitem>
+
+            <listitem>
+                <ulink url="http://www.perforce.com/perforce/doc.current/manuals/intro/index.html">
+                    Perforce concepts
+                </ulink>
+            </listitem>
+        </itemizedlist>
+
+        <para>
+            Finally, the full <ulink url="/docs/api/index.html">source-generated API
+            documentation</ulink> is included with &product.name;, so you can review all of the
+            available classes, including their descriptions, inheritance hierarchy, methods,
+            arguments, and attributes.
+        </para>
+    </section>
+
+    <section id="modules.overview.environment">
+        <title>Configuring the Application Environment for Development</title>
+
+        <para>
+            When developing modules, you generally want to disable caching/aggregation and enable
+            debugging information. You can toggle these aspects of &product.name; by setting the
+            <constant>APPLICATION_ENV</constant> variable. To specify this setting, edit the
+            <filename>.htaccess</filename> file, which is located in the folder where &product.name;
+            is installed. Valid values are as follows:
+        </para>
+
+        <itemizedlist>
+            <listitem>
+                <property>production</property>: (default) Errors are logged but not displayed to
+                end users, and caching and asset aggregation are enabled.
+            </listitem>
+
+            <listitem>
+                <property>development</property>: Errors are displayed, debug information is logged,
+                and caching and asset aggregation are disabled.
+            </listitem>
+        </itemizedlist>
+
+        <para>
+            This setting also determines which section of the <filename>application.ini</filename>
+            file is loaded, as described below.
+        </para>
+
+        <para>
+            To make more finely grained changes to your deployment, edit the
+            <filename>application.ini</filename> file. This file can be configured to run a
+            different <classname>Bootstrap</classname> class, add custom routing rules, change
+            <acronym>PHP</acronym> settings and control many other application options and
+            behaviors. For details, consult the
+            <ulink url="http://framework.zend.com/manual/en/zend.application.html">Zend Application
+            chapter</ulink> of the <ulink url="http://framework.zend.com/manual/en/">Zend Framework
+            Reference Guide</ulink> for additional information. Default settings for the
+            <filename>application.ini</filename> are defined in the <code>getDefaultOptions</code>
+            method of the <classname>Bootstrap</classname> class; this can be a useful reference
+            when trying to determine which properties are available for customization.
+        </para>
+    </section>
+
+    <section id="modules.overview.routing">
+        <title>Request Routing</title>
+
+        <para>
+            &product.name; uses Zend's
+            <ulink url="http://framework.zend.com/manual/en/zend.controller.router.html#zend.controller.router.default-routes">
+            routing mechanism</ulink>. The default route is simply a
+            <classname>Zend_Controller_Router_Route_Module</classname> object stored under the name
+            (index) of 'default' in RewriteRouter. This route that matches <acronym>URI</acronym>s
+            in the shape of module/controller/action. This mechanism also matches any additional
+            parameters appended to the <acronym>URI</acronym> by default; for example:
+        </para>
+        <para>
+            <property>module/controller/action/var1/value1/var2/value2</property>. The index controller and
+            the index action are defaults. If you omit the controller or action, the index versions
+            are used. Variables and values can still be passed with these shorter
+            <acronym>URL</acronym>s, if they do not collide with previously defined controllers and
+            actions.
+        </para>
+        <para>
+            If you wish to define additonal routing rules for your module, you can do so either in
+            your <link linkend="modules.components">module.ini</link> or, as documented by Zend,
+            in <acronym>PHP</acronym> code.
+        </para>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

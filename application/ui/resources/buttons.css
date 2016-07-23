@@ -1,0 +1,348 @@
+/* Buttons */
+
+.p4cms-ui .dijitButton,
+.p4cms-ui .dijitComboButton,
+.p4cms-ui .dijitDropDownButton {
+    margin: 0;
+}
+
+.p4cms-ui .dijitButton .dijitButtonNode,
+.p4cms-ui .dijitComboButton .dijitButtonNode,
+.p4cms-ui .dijitDropDownButton .dijitButtonNode {
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-box-shadow: none;
+    border: 0px;
+    padding: 0;
+    background: transparent;
+    -moz-box-shadow: 0 0 0 transparent;
+    -webkit-box-shadow: 0 0 0 transparent;
+}
+.p4cms-ui .dijitButton .dijitButtonNode img,
+.p4cms-ui .dijitComboButton .dijitButtonNode img,
+.p4cms-ui .dijitDropDownButton .dijitButtonNode img {
+    vertical-align: baseline;
+}
+
+.p4cms-ui .dijitButton .dijitButtonContents,
+.p4cms-ui .dijitComboButton .dijitButtonContents,
+.p4cms-ui .dijitDropDownButton .dijitButtonContents {
+    font-size: 13px;
+    line-height: 1;
+    color: #1a1a1a;
+    padding: 4px 9px 5px 9px;
+    border: 1px solid #a7a7a7;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    background: url('images/button-bg.png') left top repeat-x;
+}
+
+/* button active state */
+.p4cms-ui .dijitButton.dijitButtonActive .dijitButtonNode .dijitButtonContents,
+.p4cms-ui .dijitButton.dijitButtonActive .dijitButtonNode .dijitButtonContents,
+.p4cms-ui .dijitButton.dijitComboButton .dijitButtonNodeActive .dijitButtonContents,
+.p4cms-ui .dijitButton.dijitComboButton .dijitDownArrowButtonActive .dijitButtonContents,
+.p4cms-ui .dijitButton.dijitToggleButtonActive .dijitButtonNode .dijitButtonContents,
+.p4cms-ui .dijitButton.dijitToggleButtonChecked .dijitButtonNode .dijitButtonContents,
+.p4cms-ui .dijitDropDownButton.dijitDropDownButtonHoverFocused .dijitButtonNode .dijitButtonContents {
+    background: #ccc;
+}
+
+.p4cms-ui .dijitDropDownButton .dijitButtonContents {
+    padding-right: 2px;
+}
+
+.p4cms-ui .dijitDropDownButton .dijitArrowButtonInner {
+    height: 13px;
+}
+
+.p4cms-ui .dijitButton .dijitButtonText,
+.p4cms-ui .dijitComboButton .dijitButtonText,
+.p4cms-ui .dijitDropDownButton .dijitButtonText {
+    font-size: 13px;
+    padding: 0;
+    margin: 0;
+}
+
+/* other button presentation styles */
+
+form.p4cms-ui .dijitButton .dijitButtonText,
+.p4cms-ui form .dijitButton .dijitButtonText {
+    font-size: 13px;
+}
+
+form.p4cms-ui fieldset.buttons,
+.p4cms-ui form fieldset.buttons {
+    border: none;
+    margin: 0px;
+    padding: 5px 10px 5px 155px;
+}
+
+form.p4cms-ui fieldset.buttons dd,
+.p4cms-ui form fieldset.buttons dd {
+    min-width: 0;
+    margin-left: 5px;
+}
+
+.p4cms-ui .dijitDropDownButton .dijitArrowButtonInner {
+    background-image: url('images/buttonArrows.png');
+    background-position: -53px 0px;
+    margin-left: 2px;
+}
+
+/* override claro styles */
+.p4cms-ui.dijitDialog .dijitButton,
+.p4cms-ui.dijitDialog .dijitDropDownButton,
+.p4cms-ui.dijitTooltipDialog .dijitButton,
+.p4cms-ui .data-grid .dijitButton {
+    border: 0px;
+    margin: 0 0 0 5px;
+    background: transparent;
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -webkit-box-shadow: none;
+}
+
+/* hovered button styling */
+.p4cms-ui .dijitButtonHover .dijitButtonContents,
+.p4cms-ui .dijitButtonFocused .dijitButtonContents,
+.p4cms-ui .dijitDropDownButtonHover .dijitButtonContents {
+    border-color: #666;
+}
+
+
+/* preferred buttons */
+.p4cms-ui .dijitButton.preferred .dijitButtonContents {
+    -moz-box-shadow: 0 0 6px #a8d1e8;
+    -webkit-box-shadow: 0 0 6px #a8d1e8;
+    box-shadow: 0 0 6px #a8d1e8;
+}
+
+
+/* @todo: add styles for toolbar preferred button glow */
+
+/* Toolbar buttons */
+.p4cms-ui .dijitToolbar .dijitButtonHover .dijitButtonNode,
+.p4cms-ui .dijitToolbar .dijitDropDownButtonHover .dijitButtonNode,
+.p4cms-ui .dijitToolbar .dijitComboButton .dijitButtonNodeHover,
+.p4cms-ui .dijitToolbar .dijitComboButton .dijitDownArrowButtonHover,
+.p4cms-ui .dijitToolbar .dijitToggleButtonHover .dijitButtonNode,
+.p4cms-ui .dijitToolbar .dijitButtonActive .dijitButtonNode,
+.p4cms-ui .dijitToolbar .dijitDropDownButtonActive .dijitButtonNode,
+.p4cms-ui .dijitToolbar .dijitComboButton .dijitButtonNodeActive,
+.p4cms-ui .dijitToolbar .dijitComboButton .dijitDownArrowButtonActive,
+.p4cms-ui .dijitToolbar .dijitToggleButtonActive .dijitButtonNode,
+.p4cms-ui .dijitToolbar .dijitToggleButtonChecked .dijitButtonNode {
+    background-image: none;
+}
+
+
+
+.p4cms-ui  .dijitToolbar .dijitToggleButtonChecked .dijitButtonNode {
+    border: 1px solid #769DC0;
+    background-color: white;
+}
+
+.p4cms-ui .dijitToolbar .dijitButtonDisabled,
+.p4cms-ui .dijitToolbar .dijitDropDownButtonDisabled,
+.p4cms-ui .dijitToolbar .dijitComboButtonDisabled,
+.p4cms-ui .dijitToolbar .dijitToggleButtonDisabled {
+    background-image: none;
+    outline: none;
+}
+
+.p4cms-ui .dijitToolbar .dijitButtonDisabled .dijitButtonNode,
+.p4cms-ui .dijitToolbar .dijitDropDownButtonDisabled .dijitButtonNode,
+.p4cms-ui .dijitToolbar .dijitComboButtonDisabled .dijitButtonNode,
+.p4cms-ui .dijitToolbar .dijitToggleButtonDisabled .dijitButtonNode {
+    background-image: none;
+    background-color: #efefef;
+    border: solid 1px #d3d3d3;
+    color: #818181;
+    -webkit-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    -moz-box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+
+/* buttons with plus sign on the left, aka add buttons */
+.p4cms-ui .dijitButton.add-button .dijitIcon,
+.p4cms-ui .dijitDropDownButton.add-button .dijitIcon {
+    color: #1a1a1a;
+    background: url('images/btn-plus-sign.png') 0 2px no-repeat;
+    width: 14px;
+    height: 12px;
+}
+
+/* Anchor+span buttons */
+
+.p4cms-ui a.button span,
+.p4cms-ui a.button span,
+.p4cms-ui a.add-button span,
+.p4cms-ui a.add-button span {
+    background: url('images/btn-left.png') no-repeat 0 0;
+    display: block;
+    padding: 5px 2px 4px 10px;
+    margin: 0;
+    color: #1a1a1a;
+    font-weight: normal;
+    height: 13px;
+}
+.p4cms-ui a.add-button span,
+.p4cms-ui a.add-button span {
+    background: url('images/btn-add-left.png') no-repeat 0 0;
+    padding-left: 23px;
+}
+.p4cms-ui a.button,
+.p4cms-ui a.button,
+.p4cms-ui a.add-button,
+.p4cms-ui a.add-button {
+    background: url('images/btn-right.png') no-repeat top right;
+    display: block;
+    font-size: 12px;
+    line-height: normal;
+    float: none;
+    margin-top: 0px;
+    padding-right: 8px;
+    height: 22px;
+    text-decoration: none;
+}
+.p4cms-ui a.button:hover span,
+.p4cms-ui a.button:hover span,
+.p4cms-ui a.add-button:hover span,
+.p4cms-ui a.add-button:hover span {
+    background-position: 0 -22px;
+    color: #2a2a2a;
+}
+.p4cms-ui a.button:hover,
+.p4cms-ui a.button:hover,
+.p4cms-ui a.add-button:hover,
+.p4cms-ui a.add-button:hover {
+    background-position: right -22px;
+    color: #2a2a2a;
+}
+
+/* SMALL and LARGE buttons and LEFT and RIGHT and MIDDLE buttons */
+
+.p4cms-ui .dijitButton.button-small .dijitButtonNode,
+.p4cms-ui .dijitDropDownButton.button-small .dijitButtonNode {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+}
+
+.p4cms-ui .dijitButton.button-small .dijitButtonContents,
+.p4cms-ui .dijitDropDownButton.button-small .dijitButtonContents {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+}
+
+.p4cms-ui .dijitButton.button-left .dijitButtonContents {
+    -webkit-border-top-right-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    -moz-border-radius-bottomright: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+.p4cms-ui .dijitButton.button-middle .dijitButtonContents {
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+}
+.p4cms-ui .dijitButton.button-right .dijitButtonContents {
+    -webkit-border-top-left-radius: 0px;
+    -webkit-border-bottom-left-radius: 0px;
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-bottomleft: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
+.p4cms-ui .dijitButton.button-left.button-small .dijitButtonContents {
+    padding-right: 6px;
+}
+.p4cms-ui .dijitButton.button-middle.button-small .dijitButtonContents {
+    padding-right: 6px;
+    padding-left: 6px;
+}
+.p4cms-ui .dijitButton.button-right.button-small .dijitButtonContents {
+    padding-left: 6px;
+}
+
+.p4cms-ui .dijitButton.button-left {
+    border-right: 1px solid #676767;
+}
+.p4cms-ui .dijitButton.button-left.button-toggle {
+    border-right: 1px solid #CCCCCC;
+}
+.p4cms-ui .dijitButton.button-middle {
+    border-right: 1px solid #676767;
+}
+.p4cms-ui .dijitButton.button-middle.button-toggle {
+    border-right: 1px solid #CCCCCC;
+}
+.p4cms-ui .dijitButton.button-right.active {
+    border-left: 1px solid #676767;
+}
+.p4cms-ui .dijitButton.button-left.active {
+    border-right: 1px solid #676767;
+}
+.p4cms-ui .dijitButton.button-middle.active {
+    border-right: 1px solid #676767;
+    border-left: 1px solid #676767;
+}
+
+.p4cms-ui .dijitButton.button-left,
+.p4cms-ui .dijitDropDownButton.button-left,
+.p4cms-ui .dijitButton.button-right,
+.p4cms-ui .dijitDropDownButton.button-right,
+.p4cms-ui .dijitButton.button-middle,
+.p4cms-ui .dijitDropDownButton.button-middle {
+    margin: 0px;
+}
+
+.p4cms-ui .dijitButton.button-left .dijitButtonContents {
+    border-right: none;
+}
+.p4cms-ui .dijitButton.button-right .dijitButtonContents {
+    border-left: none;
+}
+.p4cms-ui .dijitButton.button-middle .dijitButtonContents {
+    border-left: none;
+    border-right: none;
+}
+
+.p4cms-ui .dijitButton.button-small.active .dijitButtonContents,
+.p4cms-ui .dijitButton.button-large.active .dijitButtonContents {
+    background: url('images/button-bg-active.png') repeat-x top right;
+}
+
+.p4cms-ui .dijitButton.button-small .dijitButtonContents,
+.p4cms-ui .dijitDropDownButton.button-small .dijitButtonContents {
+    font-size: 13px;
+    color: #1a1a1a;
+    padding: 2px 9px 3px 9px;
+}
+.p4cms-ui .dijitDropDownButton.button-small .dijitButtonContents {
+    padding-right: 2px;
+}
+
+.p4cms-ui .dijitButton.button-large .dijitButtonContents {
+    color: #1a1a1a;
+    padding: 5px 10px 0 10px;
+    height: 22px;
+}
+
+.p4cms-ui .dijitButton.button-large {
+    margin-left: 5px;
+}
+.p4cms-ui .dijitButton.button-large .dijitButtonText {
+    font-size: 14px;
+    line-height: normal;
+}
+
+.p4cms-ui .dijitButtonDisabled .dijitButtonContents {
+    background: #f3f3f3;
+    color: #555;
+}

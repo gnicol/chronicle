@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="workflows.manage">
+    <title>Managing Workflows</title>
+
+    <para>
+        Hover your mouse over each of the numbered callouts to highlight the associated area of the
+        screen.
+    </para>
+
+    <mediaobjectco role="screen-mwf">
+        <subtitle>The Manage Workflows Screen</subtitle>
+
+        <imageobjectco>
+            <areaspec units="imagemap">
+                <area id="screen-mwf-spot-search" linkends="screen-mwf-co-search" coords="0,91,129,124"/>
+                <area id="screen-mwf-spot-type" linkends="screen-mwf-co-type" coords="0,129,129,225"/>
+                <area id="screen-mwf-spot-sortable" linkends="screen-mwf-co-sortable" coords="147,89,640,107"/>
+                <area id="screen-mwf-spot-actions" linkends="screen-mwf-co-actions" coords="576,108,608,146"/>
+                <area id="screen-mwf-spot-scrollbar" linkends="screen-mwf-co-scrollbar" coords="612,107,640,230"/>
+            </areaspec>
+
+            <imageobject>
+                <imagedata fileref="images/screen-manage_workflows-callouts.png"/>
+            </imageobject>
+
+            <calloutlist>
+                <callout id="screen-mwf-co-search" arearefs="screen-mwf-spot-search">
+                    <para>
+                        <emphasis role="bold">Filter by Text Search</emphasis>: 
+                        Enter text to filter the list of workflows to entries containing the text.
+                    </para>
+                </callout>
+                <callout id="screen-mwf-co-type" arearefs="screen-mwf-spot-type">
+                    <para>
+                        <emphasis role="bold">Filter by Content Type</emphasis>:
+                        Click on one or more checkboxes to filter the list of workflows to items of
+                        the selected content types. When no checkboxes are checked, workflows for
+                        all content types are included.
+                    </para>
+                </callout>
+                <callout id="screen-mwf-co-sortable" arearefs="screen-mwf-spot-sortable">
+                    <para>
+                        <emphasis role="bold">Sort Workflows</emphasis>:
+                        Click on one of the columns to sort the workflows by that column's details,
+                        click again to change the sort direction (an indicator arrow appears). The
+                        <emphasis role="bold">States</emphasis>, <emphasis role="bold">Content
+                        Types</emphasis>, and <emphasis role="bold">Actions</emphasis> columns are
+                        not sortable.
+                    </para>
+                </callout>
+                <callout id="screen-mwf-co-actions" arearefs="screen-mwf-spot-actions">
+                    <para>
+                        <emphasis role="bold">Actions Drop-down Menu</emphasis>:
+                        Click on one of the drop-down menus in the Actions column to see and use
+                        actions available for each workflow, including Edit and Delete.
+                    </para>
+                </callout>
+                <callout id="screen-mwf-co-scrollbar" arearefs="screen-mwf-spot-scrollbar">
+                    <para>
+                        <emphasis role="bold">Lazy-load Scrollbar</emphasis>:
+                        When there are many more workflows than can fit on-screen, only enough
+                        workflows are retrieved to fill the display. When you use the scrollbar,
+                        additional workflows are fetched. This means that scrolling might appear to
+                        be slightly slower than you might expect, but it allows filtering, sorting
+                        and initial display to be much faster when you have hundreds or thousands of
+                        workflows.
+                    </para>
+                </callout>
+            </calloutlist>
+        </imageobjectco>
+    </mediaobjectco>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

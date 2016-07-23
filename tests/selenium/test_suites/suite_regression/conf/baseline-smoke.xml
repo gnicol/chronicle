@@ -1,0 +1,126 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd">
+
+<suite name="Perforce Chronicle Smoke" parallel="tests">
+
+	<!--  Browser & Host parameter -->
+	<parameter name="browser" value="*firefox" /> 
+	<parameter name="hostname" value="localhost" />
+	
+	<!--  Baseurl parameter -->
+	<parameter name="baseurl" value="http://10.5.30.201"/>
+	<parameter name="redirecturl" value="http://10.5.30.150"/>
+	
+	<!--  Firefox profile -->
+	<parameter name="firefox-profile-location" value="C:\Users\perforce\AppData\Roaming\Mozilla\Firefox\Profiles\ovlzipfs.Automation" />
+	
+	<!--  Data parameter -->
+	<parameter name="usergroup" value="qa51" />
+	
+	<!--  Port -->
+	<parameter name="port" value="4444"/>
+	
+	<!--  testType used to distinguish smoke/regression tests -->
+	<parameter name="testType" value="smoke"/> 
+	
+	<!--  Configure to run classes -->
+	<test name="Perforce Chronicle on Firefox" preserve-order="true">
+	    <classes>
+		    <class name="tests.A_ChronicleSetup"/> 
+			<!-- <class name="tests.Add_CodelineInfo"/>  -->
+			<class name="tests.AttackTest_InvalidPassword"/>
+			<class name="tests.AttackTest_InvalidPasswordInFooter"/>
+			<class name="tests.AttackTest_InvalidUsername"/>
+			<class name="tests.AttackTest_InvalidUsernameInFooter"/>
+			<class name="tests.AddBasicPageAllElementsVerify"/>
+			<class name="tests.AddPressReleaseAllElementsVerify"/>
+			<class name="tests.HomePageLoggedInVerify"/>
+			<class name="tests.HomePageNoLoginVerify"/>
+			<class name="tests.Login"/>
+			<class name="tests.LoginUsingFooterLink"/>
+			<class name="tests.Logout"/>
+			<class name="tests.LogoutUsingFooterLink"/>
+			<class name="tests.ManageMenuHeaderTextVerify"/>
+			<class name="tests.UserProfileVerify"/>
+			<class name="tests.WidgetsVerify"/>
+	    </classes>
+ 	 </test>
+ 
+  
+
+	    <!--  SELENIUM GRID -->
+		<!-- <suite name="Perforce Chronicle" parallel="tests">
+		    <test name="Firefox">
+		        <parameter name="host" value="localhost"></parameter>
+		        <parameter name="port" value="5556"></parameter>
+		        <parameter name="browser" value="*firefox"></parameter>
+		        <parameter name="baseurl" value="http://www.google.com"></parameter>
+		        <parameter name="searchCriteria" value="SeleniumGrid"></parameter>
+		        <classes>
+		            <class name="tests.A_ChronicleSetup" />
+		        </classes>
+		    </test>
+		    <test name="Internet Explorer">
+		        <parameter name="host" value="localhost"></parameter>
+		        <parameter name="port" value="5557"></parameter>
+		        <parameter name="browser" value="*iehta"></parameter>
+		        <parameter name="baseurl" value="http://www.google.com"></parameter>
+		        <parameter name="searchCriteria" value="TestNG"></parameter>
+		        <classes>
+		            <class name="tests.Add_CodelineInfo" />
+		        </classes>
+		    </test> </suite> -->
+		<!--  SELENIUM GRID -->
+			 
+ 
+ 
+			<!--  Configure which tests to run in what order -->
+			<!-- <test name="Perforce Regression Test: Create Users">
+		      <classes>
+		         <class name="tests.Create Users"/>
+		      </classes>
+		   </test>
+		
+		   <test name="Perforce Regression Tests">
+		      <groups>
+		         <run><include name="Perforce CMS Regression Suite"/></run>
+		      </groups>
+		      <packages>
+		         <package name="tests.*"/>
+		      </packages>
+		   </test>
+		
+		   <test name="Perforce Regression Test: Delete Users">
+		      <classes>
+		         <class name="tests.Delete Users"/>
+		      </classes>
+		   </test>
+			 -->
+
+	
+	<!-- Configure to execute on multiple browsers using another configuration -->
+		<!-- Configuration to run Java package -->
+	<!-- <test name="Perforce Chronicle on ie">
+		<parameter name="testBrowser" value="Firefox on Windows"/>
+     	<packages>
+			<package name="tests.*" />			
+		</packages>
+	</test>    -->
+	 
+	 
+	 <!--Ability to include other testng files. This is helpful because you can maintain different tests  -->
+	<!--  <suite name="Chronicle Test Suite" verbose="10">
+
+   <suite-files>
+      <suite-file path="chronicle-suite-populate.xml"/>
+      <suite-file path="chronicle-suite-populate-clean.xml"/>
+   </suite-files>
+
+	</suite> -->
+
+	 
+<!-- 	<listeners> -->
+<!-- 		<listener class-name="P4CMSTestListener" /> -->
+<!-- 	</listeners> -->
+
+</suite>
+

@@ -1,0 +1,657 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="themes.example">
+    <title>Image-Free Theme</title>
+
+    <para>
+        This section demonstrates the creation of a theme that is based on a 960-grid, uses no
+        images, yet provides several regions and otherwise participates fully in &product.longname;
+        operations. To create the required components, perform the following steps. For further
+        details about specific topics, refer to the linked documentation.
+    </para>
+
+    <orderedlist>
+        <listitem>
+            <para>
+                Create a skeletal theme structure in the folder
+                <filename>sites/all/themes</filename>:
+            </para>
+
+<programlisting language="text">
+imagefree/
+    layouts/
+    styles/
+    views/
+        content/
+            index/
+</programlisting>
+
+        </listitem>
+
+        <listitem id="themes.example.ini">
+            <para>
+                Create the <filename>imagefree/theme.ini</filename> theme definition file:
+            </para>
+
+<programlisting language="ini"><![CDATA[
+title                       = Image-Free
+version                     = 1.0
+description                 = A theme without images.
+tags                        = example, no-image
+
+[maintainer]
+name                        = Perforce Software
+email                       = support@perforce.com
+url                         = http://www.perforce.com/
+
+[stylesheets]
+all.href                    = styles/styles.css
+
+[menus]
+footer.home.label           = Home
+footer.home.module          = content
+footer.home.controller      = index
+footer.home.action          = index
+footer.home.class           = home
+footer.home.order           = 0
+footer.home.test            = true
+
+footer.login.handler        = user.login-logout
+footer.login.order          = 90
+
+[regions]
+header.1.title              = Site Title
+header.1.type               = widget/text
+header.1.class              = site-title
+header.1.config.text        = The Image-Free Theme
+
+feature.1.title             = Feature Image
+feature.1.type              = widget/image
+feature.1.class             = feature-image
+
+feature.2.title             = Feature
+feature.2.type              = widget/text
+feature.2.class             = feature-text
+feature.2.showTitle         = 1
+feature.2.config.text       = "
+The text for the feature should be added here.<br/><br/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce congue
+nunc a velit fermentum in tempor diam lacinia. Pellentesque tristique
+dui eget nibh lobortis congue. Maecenas eu bibendum erat. Aliquam
+varius tempor fermentum.
+"
+
+important.1.title           = Important #1
+important.1.type            = widget/text
+important.1.class           = three-column
+important.1.showTitle       = 1
+important.1.config.text     = "
+An important item.<br/><br/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce congue
+nunc a velit fermentum in tempor diam lacinia. Pellentesque tristique
+dui eget nibh lobortis congue. Maecenas eu bibendum erat. Aliquam
+varius tempor fermentum.
+"
+
+important.2.title           = Important #2
+important.2.type            = widget/text
+important.2.class           = three-column
+important.2.showTitle       = 1
+important.2.config.text     = "
+An important item.<br/><br/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce congue
+nunc a velit fermentum in tempor diam lacinia. Pellentesque tristique
+dui eget nibh lobortis congue. Maecenas eu bibendum erat. Aliquam
+varius tempor fermentum.
+"
+
+important.3.title           = Important #3
+important.3.type            = widget/text
+important.3.class           = three-column
+important.3.showTitle       = 1
+important.3.config.text     = "
+An important item.<br/><br/>
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce congue
+nunc a velit fermentum in tempor diam lacinia. Pellentesque tristique
+dui eget nibh lobortis congue. Maecenas eu bibendum erat. Aliquam
+varius tempor fermentum.
+"
+]]></programlisting>
+
+            <para>
+                The first eight lines of this file specify the theme's version, provide a
+                description, list the tags used for filtering themes, and identify the maintainer
+                of the theme.
+            </para>
+
+            <para>
+                The <code>[stylesheets]</code> section includes the
+                <acronym>CSS</acronym> stylesheet <filename>styles/styles.css</filename> in the
+                generated <acronym>HTML</acronym> to ensure that the theme is styled correctly.
+            </para>
+
+            <para>
+                The <code>[menus]</code> section specifies the default entries for a menu that is
+                presented in the theme's footer. The footer is identified as
+                <emphasis>footer</emphasis>, and contains two entries: one is a link to the
+                <emphasis>home</emphasis> page and is labelled <emphasis>Home</emphasis>, and the
+                second is a dynamic link that is labelled <emphasis>Login</emphasis> or
+                <emphasis>Logout</emphasis> depending on the user's current authentication state.
+                The <emphasis>Login</emphasis> link specifies an <emphasis>order</emphasis> of
+                <emphasis>90</emphasis> to place the link after any other menu items that may be
+                added in the future.
+            </para>
+
+            <para>
+                The <code>[regions]</code> section specifies three logical areas that can be
+                included on pages, identified as <emphasis>header</emphasis>,
+                <emphasis>feature</emphasis>, and <emphasis>important</emphasis> respectively.
+                The configuration for each of these regions specifies the widgets that should be
+                included by default: a text widget labelled <emphasis>Site Title</emphasis> in
+                the <emphasis>header</emphasis> region, an image widget labelled
+                <emphasis>Feature Image</emphasis> and a text widget labelled
+                <emphasis>Feature</emphasis> in the <emphasis>feature</emphasis> region, and
+                three text widgets in the <emphasis>important</emphasis> region with appropriately
+                numbered labels.
+            </para>
+
+            <para>
+                Note how the text widgets define the default text in each case. This provides
+                default content for the widgets to demonstrate the styles in effect.
+            </para>
+
+            <para>
+                At this point, the theme is listed on the Manage Themes page, although it doesn't do
+                anything yet.
+            </para>
+
+            <para>
+                For details about theme configuration details, see <xref linkend="themes.config"/>.
+            </para>
+
+        </listitem>
+
+        <listitem>
+            <para>
+                Create the <filename>imagefree/layouts/default-layout.phtml</filename> view script:
+            </para>
+
+<programlisting language="php"><![CDATA[
+<?= $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?= $this->headTitle() ?>
+<?= $this->dojo() ?>
+<?= $this->headScript() ?>
+<?= $this->headLink() ?>
+<?= $this->headStyle() ?>
+</head>
+
+<body class="claro
+ <?=$this->layout()->getLayout()?>
+ <?=$this->request()->getModuleName()?>-module
+ <?=$this->request()->getControllerName()?>-controller
+ <?=$this->request()->getActionName()?>-action">
+<?=$this->toolbar()?>
+<?=$this->notifications()?>
+
+<div id="header"><div class="container">
+<?= $this->region('header') ?>
+</div></div>
+
+<div id="nav"><div class="container">
+<?= $this->menu('primary', array('maxDepth' => 0)); ?>
+</div></div>
+
+<div id="main"><div class="container">
+<?= $this->layout()->content ?><br class="clear" />
+</div></div>
+
+<div id="footer"><div class="container">
+<?  if (P4Cms_Menu::exists('footer')):
+        $menu = P4Cms_Menu::fetch('footer');
+        echo $this->menu()->renderMenu(
+            $menu->getExpandedContainer(), array('maxDepth' => 0)
+        );
+    endif;
+?></div></div>
+
+</body></html>
+]]></programlisting>
+
+            <para>
+                <filename>default-layout.phtml</filename> is a view script. It defines the
+                overall structure for pages using this layout.
+            </para>
+
+            <para>
+                Within the layout file are <acronym>PHP</acronym> commands, which are surrounded by
+                <emphasis role="bold">&lt;?</emphasis> and <emphasis role="bold">?&gt;</emphasis>
+                tag markers. The tag marker <emphasis role="bold">&lt;?=</emphasis> is a shortcut
+                that emits the value of the <acronym>PHP</acronym> variable or command within the
+                tag.
+            </para>
+
+            <para>
+                The first 18 lines are common to most themes. They setup the markup to use the
+                correct document type, provide a page title, includes the Dojo Toolkit, any required
+                Javascript and <acronym>CSS</acronym> files, plus any required
+                <emphasis>link</emphasis> tags. The <emphasis>body</emphasis> tag provides a number
+                of <acronym>CSS</acronym> classes to assist in customizing the presentation for any
+                activity. Finally, the &product.name; toolbar and notifications facilities are
+                included.
+            </para>
+
+            <warning>
+                <title>Warning:</title>
+                If lines 17 and 18 are removed or damaged, interaction with the &product.name;
+                management interface could be significantly compromised.
+            </warning>
+
+            <para>
+                The remaining lines are organized into groups which provide the markup respectively
+                for the header, top navigation, page content, and footer. The
+                <emphasis>header</emphasis> region and all of its widgets are generated on line 21.
+                The top navigation is provided by lines 24-31. Note the <acronym>PHP</acronym>
+                commands that test for the existence of the menu, which is an important
+                consideration when menus can be removed through the management interface. The page
+                content is provided by line 34. The footer navigation is provided by lines 37-44,
+                using code similar to the top navigation.
+            </para>
+
+            <para>
+                For more details about layouts, see <xref linkend="themes.layouts"/>, or about
+                view scripts, see <xref linkend="themes.view.scripts"/>.
+            </para>
+
+        </listitem>
+
+        <listitem>
+            <para>
+                Create the <filename>imagefree/views/content/index/index.phtml</filename> view script:
+            </para>
+
+<programlisting language="php"><![CDATA[
+<?= $this->region('feature') ?>
+
+<?= $this->region('important') ?>
+]]></programlisting>
+
+            <para>
+                <filename>index.phtml</filename> is a view script. It provides the default markup
+                for the <emphasis>home</emphasis> page of your site. The <acronym>PHP</acronym>
+                code renders the two regions <emphasis>feature</emphasis> and
+                <emphasis>important</emphasis>, including the widgets defined in the
+                <filename>theme.ini</filename> presented in step
+                <xref linkend="themes.example.ini"/>.
+            </para>
+
+            <para>
+                For more details about view scripts, see <xref linkend="themes.view.scripts"/>.
+            </para>
+
+        </listitem>
+
+        <listitem>
+            <para>
+                Create the <filename>imagefree/views/content/index/view.phtml</filename> view script:
+            </para>
+
+<programlisting language="php"><![CDATA[
+<div class="three-column-2">
+<?= $this->contentEntry($this->entry, $this->entryOptions) ?>
+</div>
+
+<div class="three-column">
+<?= $this->region('sidebar') ?>
+</div>
+]]></programlisting>
+
+            <para>
+                <filename>view.phtml</filename> is a view script. It provides the default markup
+                for content. The first three lines render the content entry. The last three lines
+                render a region named <emphasis>sidebar</emphasis>.
+            </para>
+
+            <para>
+                For more details about view scripts, see <xref linkend="themes.view.scripts"/>.
+            </para>
+
+        </listitem>
+
+        <listitem>
+            <para>
+                Create the <filename>imagefree/styles/styles.css</filename> <acronym>CSS</acronym>
+                file:
+            </para>
+
+<programlisting language="css">
+body {
+    background-color: #f4f2f3;
+    font-family: Arial, Helvetica, sans-serif !important;
+    font-size: 14px;
+    color: #3d3d3d;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    border: none;
+    margin: 0;
+    padding: 0;
+    vertical-align: text-bottom;
+}
+
+a {
+    color: #2753a2;
+}
+a:hover {
+    color: black;
+}
+
+p,
+.content-element-body {
+    font-size: 14px;
+    line-height: 19px;
+    color: #3d3d3d;
+    padding: 4px 0 6px 0;
+}
+
+h1, h2, h3, h4, h5 {
+    padding: 6px 0 5px 0;
+}
+
+.content-element, .content-entry {
+    margin: 0;
+    padding: 0;
+}
+.content-element-title,
+.content-entry-type-basic-page .content-element-title {
+    font-size: 21px;
+    line-height: 19px;
+    padding: 6px 0 9px 0;
+    font-weight: bold;
+    color: #3d3d3d;
+    margin: 0;
+}
+
+.clear {
+    clear: both;
+}
+
+/* Container Styles
+------------------------------------------------*/
+
+#header {
+    background: #4e5661;
+    height: 88px;
+}
+
+#nav {
+    background-color: #404852;
+    height: 31px;
+}
+
+#main {
+    padding: 10px 0;
+}
+
+#footer {
+    clear: both;
+    background: #404852;
+    font-size: 12px;
+    margin-top: 10px;
+    height: 29px;
+}
+
+.container {
+    margin: 0 auto;
+    width: 960px;
+}
+
+/* Styles
+------------------------------------------------*/
+
+.logo {
+    padding: 25px 0 0 10px;
+}
+
+/* Nav */
+
+ul.navigation {
+    list-style: none;
+    padding: 5px 0 0 0;
+}
+
+ul.navigation li {
+    float: left;
+    padding: 0;
+    font-size: 14px;
+}
+#footer ul.navigation li {
+    font-size: 12px;
+}
+
+ul.navigation li a {
+    color: white;
+    text-decoration: none;
+    padding: 7px 10px;
+}
+
+ul.navigation li a:hover {
+    background: #2f353c;
+}
+
+/* Column Styles */
+
+.one-column {
+    float: left;
+    padding: 5px 10px;
+    margin: 5px 0;
+    width: 940px;
+}
+
+.two-column,
+.two-column.dijitContentPane {
+    float: left;
+    padding: 5px 10px;
+    margin: 5px 0;
+    width: 460px;
+}
+
+.three-column,
+.three-column.dijitContentPane {
+    float: left;
+    padding: 5px 10px;
+    margin: 5px 0;
+    width: 300px;
+}
+
+.three-column-2,   /* 2 columns wide - using 3 column measurements */
+.three-column-2.dijitContentPane {
+    float: left;
+    padding: 5px 10px;
+    margin: 5px 0;
+    width: 620px;
+}
+
+.four-column,
+.four-column.dijitContentPane {
+    float: left;
+    padding: 5px 10px;
+    margin: 5px 0;
+    width: 220px;
+}
+
+.four-column-3,   /* 3 columns wide - using 4 column measurements */
+.four-column-3.dijitContentPane {
+    float: left;
+    padding: 5px 10px;
+    margin: 5px 0;
+    width: 700px;
+}
+
+/* Other Page Styles */
+
+hr {
+    clear: both;
+    background: #cfcfd1;
+    border: none;
+    display: block;
+    margin: 0;
+    padding: 15px 0;
+    height: 1px;
+    font-size: inherit;
+}
+
+.callout {
+    background: white;
+}
+
+ul {
+    list-style: outside;
+    padding: 5px 0 7px 15px;
+}
+
+ul.links {
+    list-style: none inside;
+    padding: 5px 0 7px 0;
+}
+
+ul li {
+    padding: 2px 0 4px 0;
+}
+
+/* Regions &amp; Widgets */
+
+#region-feature,
+#region-important {
+    overflow: hidden;
+    float: left;
+    width: 960px;
+}
+#region-feature {
+    border-bottom: 1px solid #cfcfd1;
+    margin-bottom: 10px;
+    padding-bottom: 9px;
+}
+
+#region-header .widget-container {
+    float: left;
+    padding: 25px 0 0 10px;
+    overflow: inherit;
+}
+
+#region-header .site-title {
+    float: left;
+    color: #e4e4e4;
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 30px;
+}
+#region-header .layout-title .widget-content {
+    text-align: right;
+}
+
+#region-feature .feature-image {
+    float: left;
+    min-width: 460px;
+    min-height: 100px;
+}
+#region-feature .feature-image .widget-content {
+    text-align: right;
+}
+
+#region-feature .widget-title,
+#region-important .widget-title {
+    color: #3d3d3d;
+    padding: 4px 0 8px 0;
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 19px;
+}
+
+#region-feature .widget-widget-text,
+#region-important .widget-widget-text,
+#region-sidebar .widget-content {
+    color: #3d3d3d;
+    font-size: 14px;
+    line-height: 19px;
+    padding: 0;
+}
+</programlisting>
+
+            <para>
+                These <acronym>CSS</acronym> classes are inserted into your theme's output by
+                &product.name; due to the <code>[stylesheets]</code> section on lines 10-11 of
+                <filename>imagefree/theme.ini</filename> above.
+            </para>
+
+            <para>
+                These styles make it fairly easy to construct one to four column layouts based
+                on a 960 pixel grid, similar to the <ulink url="http://960.gs/">960 Grid
+                System</ulink>.
+            </para>
+
+            <para>
+                For more details about resources, see <xref linkend="themes.resources"/>.
+            </para>
+
+        </listitem>
+
+        <listitem>
+            <para>
+                Try the new theme!
+            </para>
+
+            <para>
+                You now have a functional theme that you can enable in &product.name; by
+                performing the following steps:
+            </para>
+
+            <orderedlist>
+                <listitem>
+                    Log into your instance of &product.name;.
+                </listitem>
+
+                <listitem>
+                    To enable the <emphasis role="bold">imagefree</emphasis> theme, follow the
+                    instructions in <xref linkend="themes.management.apply"/>.
+                </listitem>
+
+                <listitem>
+                    Click <guibutton>Back to Website</guibutton>.
+                </listitem>
+            </orderedlist>
+
+            <para>
+                 Congratulations! You have successfully created your first theme for
+                 &product.name;.
+            </para>
+        </listitem>
+    </orderedlist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

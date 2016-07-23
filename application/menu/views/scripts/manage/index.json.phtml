@@ -1,0 +1,83 @@
+<?
+// setup paginated user adapter.
+$adapter    = new Zend_Paginator_Adapter_Iterator($this->items);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// serve dojo data to populate the data grid.
+$view     = $this;
+$types    = P4Cms_Navigation_PageTypeHandler::fetchAll();
+$defaults = P4Cms_Menu::getDefaultMenuIds();
+$data     = $this->dataGrid()->dojoData(
+    $paginator,
+    function ($mixed) use ($types, $defaults, $view) {
+        $type      = $mixed->getType();        
+        $typeLabel = isset($types[$type])
+            ? $types[$type]->getLabel()
+            : end(explode('_', $type));
+
+        $item              = $mixed->toArray();
+        $item['typeLabel'] = $typeLabel;
+        
+        // flag default menus so we know they can be reset.
+        if (!$mixed->hasMenuItem() && in_array($mixed->getId(), $defaults)) {
+            $item['isDefaultMenu'] = true;
+        }
+
+        // include URL for any items which have one
+        if ($mixed->hasMenuItem() && $mixed->getMenuItem()->getHref()) {
+            $item['href'] = $mixed->getMenuItem()->getHref();
+        }
+
+        // add tooltip preview for dynamic menu items
+        if ($mixed->hasMenuItem() 
+            && $mixed->getMenuItem() instanceof P4Cms_Navigation_Page_Dynamic
+        ) {
+            // set max-depth and max-items from menu item options if they are set (limit to
+            // max 5 items total) or provide default values otherwise
+            $menuItem   = $mixed->getMenuItem();
+            $maxDepth   = is_numeric($menuItem->get('maxDepth')) ? $menuItem->get('maxDepth') : null;
+            $maxItems   = is_numeric($menuItem->get('maxItems')) ? min($menuItem->get('maxItems'), 5) : 5;
+
+            // get the expanded container for the dynamic menu item
+            // note, we ask for one more item than we want so that we 
+            // can determine if there are any left overs.
+            $menu       = new P4Cms_Menu;
+            $options    = array(
+                P4Cms_Menu::MENU_MAX_ITEMS => $maxItems + 1,
+                P4Cms_Menu::MENU_MAX_DEPTH => $maxDepth
+            );
+            $container  = $menu->addPage($mixed->getMenuItem())
+                               ->getExpandedContainer($options);
+            $totalCount = $menu->recursiveCount($container);
+            $finalCount = $menu->trimContainer($container, $maxDepth, $maxItems);
+            
+            // create the tooltip contents.
+            if ($container->hasPages()) {
+                $tooltip = $view->menu()->renderMenu($container);
+                if ($totalCount > $finalCount) {
+                    $tooltip .= "<p class=more>...</p>";
+                }
+            } else {
+                $tooltip = '<p class=empty>No Items</p>';
+            }
+            
+            $item['tooltip'] = '<h1>Dynamic Item Preview</h1>' . $tooltip;
+        }
+
+        return $item;
+    }
+);
+
+// append number of total obligatory items
+$data->setMetadata(
+    'numObligatoryRows',
+    $this->items->filter(
+        'obligatory',
+        true,
+        array(P4_Model_Iterator::FILTER_COPY)
+    )->count()
+);
+
+print $data;

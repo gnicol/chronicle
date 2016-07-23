@@ -1,0 +1,9 @@
+<?
+// assemble json response
+$response                   = array();
+$response['form']           = $this->render('content/change-state.partial.phtml');
+$response['errors']         = isset($this->errors) ? $this->errors : null;
+$response['failedEntries']  = isset($this->failedIds) ? array_values($this->failedIds) : array();
+$response['changedEntries'] = isset($this->changedIds) ? array_values($this->changedIds) : array();
+
+print $this->json($response);

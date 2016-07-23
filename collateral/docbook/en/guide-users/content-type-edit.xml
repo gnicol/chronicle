@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.type.edit">
+    <title>Editing Content Types</title>
+
+    <bridgehead>
+        To edit a content type:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click <guibutton>Manage</guibutton> in the &product.longname; toolbar.
+            
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-manage.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guimenuitem>Content Types</guimenuitem>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-toolbar_menu-content_types.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The <emphasis role="screen">Manage Content Types</emphasis> screen is displayed.
+        </listitem>
+
+        <listitem>
+            Scroll through the available content types to locate the content type you wish to edit.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-manage_content_types-action.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click the button in the <emphasis role="bold">Actions</emphasis> column in the row
+            containing the content type you wish to edit.
+        </listitem>
+
+        <listitem>
+            Select the <guimenuitem>Edit</guimenuitem> option in the popup menu.
+            
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/popup_menu-content_type_edit.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para></para>
+
+            The <emphasis role="dialog">Edit Content Type</emphasis> dialog is displayed.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-edit_content_type.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Revise the content type as required. Details on content type configuration can be found
+            in <xref linkend="content.type.elements"/>.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton>. The <emphasis role="screen">Manage
+            Content Types</emphasis> screen is redisplayed, listing your updated content type.
+        </listitem>
+    </orderedlist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

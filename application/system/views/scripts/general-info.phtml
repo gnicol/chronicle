@@ -1,0 +1,68 @@
+<div class="status-wrapper">
+<?
+    foreach($this->content as $title => $value) {
+        if ($title == 'Active Site') {
+            echo $this->partial(
+                'indicator.phtml',
+                array(
+                    'label'         => $title,
+                    'status'        => '',
+                    'type'          => 'info',
+                    'class'         => 'good',
+                    'message'       => $this->escape($value['site']->getConfig()->getTitle())
+                                     . '  (' . $this->escape($value['site']->getStream()->getName()) . ')'
+                                     . '<br>'. $this->escape($value['details']),
+                    'htmlMessage'   => true,
+                )
+            );
+        } else if ($title == 'All Sites') {
+            $message = '';
+            foreach ($value as $siteTitle => $siteBranches) {
+                $message .= $this->escape($siteTitle) . ' - '
+                         .  $this->escape(implode($siteBranches, ', '))
+                         .  '<br>';
+            }
+            echo $this->partial(
+                'indicator.phtml',
+                array(
+                    'label'         => $title,
+                    'status'        => '',
+                    'type'          => 'info',
+                    'class'         => 'good',
+                    'message'       => $message,
+                    'htmlMessage'   => true,
+                )
+            );
+        } else if (is_array($value)) {
+            if (array_key_exists('details', $value)) {
+                echo $this->partial('indicator.phtml',
+                    array(
+                        'label'     => $title,
+                        'status'    => '',
+                        'message'   => $value['details'],
+                        'class'     => $value['displayClass']
+                    )
+                );
+            } else { // library list
+                 foreach($value as $label) {
+                    echo $this->partial('indicator.phtml',
+                        array(
+                            'label' => $label,
+                            'type'  => 'library'
+                        )
+                    );
+                }
+            }
+        } else {
+            echo $this->partial('indicator.phtml',
+                array(
+                    'label'     => $title,
+                    'status'    => '',
+                    'class'     => 'good',
+                    'message'   => $value,
+                )
+            );
+        }
+    }
+?>
+</div>

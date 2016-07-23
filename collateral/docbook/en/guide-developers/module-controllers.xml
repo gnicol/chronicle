@@ -1,0 +1,157 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.controllers">
+    <title>Controllers</title>
+
+    <para>
+        A <emphasis>controller</emphasis> responds to requests and provides logic that determines
+        the <emphasis>models</emphasis> and <emphasis>views</emphasis> used to form the response.
+        Put controller classes in the module folder, in the <filename>controllers</filename> folder.
+    </para>
+
+    <para>
+        Here is the skeleton of a controller for the <classname>Foo</classname> module:
+    </para>
+
+<programlisting language="php">
+&lt;?php
+/**
+ * Controller description
+ *
+ * @copyright   copyright info
+ * @license     license info
+ * @version     version info
+ */
+class Foo_IndexController extends Zend_Controller_Action
+{
+    public $contexts = array(
+        'index' =&gt; array('json'),
+    );
+
+    /**
+     * Description
+     */
+    public function indexAction()
+    {
+    }
+}
+</programlisting>
+
+    <section id="modules.controllers.view.scripts">
+        <title>View Scripts</title>
+
+        <para>
+            By default, each <emphasis>action</emphasis> method in a controller needs a
+            corresponding <emphasis>view script</emphasis> to display the results of the action.
+            Each view script contains <acronym>HTML</acronym> and, optionally,
+            <acronym>PHP</acronym> directives. View scripts are organized by controller using the
+            following folder structure:
+        </para>
+
+<programlisting language="text">
+views/
+   scripts/
+      <replaceable>&lt;controller&gt;</replaceable>/
+         <replaceable>&lt;action&gt;</replaceable>.phtml
+</programlisting>
+
+        <para>
+            In the preceding structure, <replaceable>&lt;controller&gt;</replaceable> refers to the
+            name of the controller and <replaceable>&lt;action&gt;</replaceable> refers to the name
+            of the action. For example, the path to the view script for our skeleton controller is:
+            <filename>views/scripts/index/index.phtml</filename>.
+        </para>
+    </section>
+
+    <section id="modules.controllers.request-context">
+        <title>Request Context</title>
+
+        <para>
+            The action can be invoked for a full-page request or an <acronym>AJAX</acronym> request,
+            where the desired output is <acronym>JSON</acronym>, <acronym>XML</acronym>, or partial
+            <acronym>HTML</acronym> (if a specific chunk of markup forms only part of an existing
+            page).
+        </para>
+
+        <para>
+            &product.longname; enhances the use of controllers by providing a simple way to declare
+            contexts. Note the <emphasis role="bold"><property>$contexts</property></emphasis>
+            declaration at the top of the skeleton controller above. It specifies an associative
+            array with action method names as keys, and an array of possible alternative contexts
+            the action may respond with. Valid values include:
+        </para>
+
+        <itemizedlist>
+            <listitem>
+                <property>partial</property>: indicates partial <acronym>HTML</acronym> is
+                available, with no layout markup.
+            </listitem>
+
+            <listitem>
+                <property>json</property>: indicates <emphasis>JavaScript Object Notation</emphasis>
+                (<acronym>JSON</acronym>) is available.
+            </listitem>
+
+            <listitem>
+                <property>xml</property>: indicates that <acronym>XML</acronym> output is available.
+            </listitem>
+
+            <listitem>
+                <property>dojoio</property>: indicates that output tailored for dojo.io.iframe
+                requests is available.
+            </listitem>
+        </itemizedlist>
+
+        <para>
+            Additionally, the contexts specified can be restricted to specific
+            <acronym>HTTP</acronym> methods. For example:
+        </para>
+
+<programlisting language="php">
+public $contexts = array(
+    'foo'   => array('partial' => 'get', 'json' => 'post'),
+    'bar'   => array('dojoio'  => 'get', 'xml'  => 'put'),
+    'baz'   => array('json')
+);
+</programlisting>
+
+        <para>
+            For the "foo" action, the preceding declaration permits partial <acronym>HTML</acronym>
+            responses for <command>GET</command> requests and <acronym>JSON</acronym> responses for
+            <command>POST</command> requests. For the "bar" action, it permits DojoIO or
+            <acronym>XML</acronym> responses to <command>GET</command> or <command>PUT</command>
+            requests respectively. Lastly for the "baz" action, <acronym>JSON</acronym> responses
+            are supported for all request methods.
+        </para>
+
+        <para>
+            Unless an action specifically disables layouts or other view rendering, the default
+            output is standard full-page <acronym>HTML</acronym>. Each context needs its own
+            correspondingly-named view script, using the following format:
+        </para>
+
+<programlisting language="text">
+&lt;action&gt;.&lt;context&gt;.phtml
+</programlisting>
+
+        <para>
+            For details, refer to the
+            <ulink url="http://framework.zend.com/manual/1.11/en/zend.controller.quickstart.html">Zend
+            Framework documentation</ulink>.
+        </para>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

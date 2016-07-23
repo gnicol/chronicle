@@ -1,0 +1,12 @@
+<?= $this->contentEntry()->open() ?>
+<div dojoType="p4cms.mobile.Book" paginate="{sourceNode: '.source', columns: 1, pageOneExtraConfig: {targetNode: '.cover'}}">
+  <div dojoType="p4cms.mobile.Page" selected="true">
+    <div class="mblViewContent cover">
+    </div>
+  </div>
+  <div class="source" style="display: none;">
+    <?= $this->contentEntry()->element('title') ?>
+    <?= $this->contentEntry()->element('images') ?>
+  </div>
+</div>
+<?= $this->contentEntry()->close() ?>

@@ -1,0 +1,22 @@
+#!/bin/sh
+ME=`basename $0`
+
+[ `id -nu` != "root" ] && echo "please run this as root" && exit 1
+
+BACKUP_DIR=/data/chronicle/backups
+WWW_DIR=/data/chronicle/www
+
+[ ! -d $BACKUP_DIR ] && echo "bad backup dir [$BACKUP_DIR]" && exit 1
+[ ! -d $WWW_DIR ] && echo "bad web dir [$WWW_DIR]" && exit 1
+
+BACKUP_NAME="chronicle.backup.`date +%Y%m%d%H%M%S`.tgz"
+
+echo "$ME: `date`: Chronicle backup starting..."
+
+cd `dirname $WWW_DIR` || exit 1
+apachectl graceful-stop || exit 1
+echo "$ME: `date`: Apache stopped; tar'ing $WWW_DIR..."
+tar -zcf $BACKUP_DIR/$BACKUP_NAME `basename $WWW_DIR`
+apachectl start
+
+echo "$ME: `date`: Backup to $BACKUP_NAME complete, Apache started"

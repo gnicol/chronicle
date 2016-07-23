@@ -1,0 +1,7 @@
+<?
+$response = array();
+if ($this->errors)      $response['errors']     = $this->errors;
+if ($this->form)        $response['form']       = $this->render('manage/add.partial.phtml');
+if ($this->message)     $response['message']    = $this->message;
+
+print $this->json($response);

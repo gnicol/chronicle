@@ -1,0 +1,457 @@
+/* ensure scrollbars always appear for esthetic reasons
+    margin-bottom: 1px;
+*/
+html {
+    overflow: -moz-scrollbars-vertical;
+    overflow-y: scroll;
+}
+html.content-editor {
+    overflow: visible;
+    overflow-y: visible;
+}
+
+body {
+    font-size: 14px;
+    line-height: 19px;
+    color: #333333;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body, p, h1, h2, h3, h4, .widget-title, #nav ul {
+    font-family: "Lucida Grande", "Lucida Sans", Verdana, Arial, sans-serif;
+}
+
+img {
+    border: none;
+}
+
+a {
+    color: #115577;
+}
+
+a:hover {
+    color: #000;
+}
+
+p {
+    font-size: 14px;
+    line-height: 22px;
+    padding: 4px 0 7px 0;
+}
+
+h1, .widget-title {
+    font-size: 20px;
+    line-height: 26px;
+    padding-bottom: 6px;
+}
+
+h2 {
+    font-size: 25px;
+    line-height: 30px;
+    font-weight: normal;
+    padding: 4px 0 8px 0;
+}
+
+h3 {
+    font-size: 16px;
+    line-height: 23px;
+    font-weight: normal;
+    padding: 5px 0 6px 0;
+}
+
+h4 {
+    font-size: 14px;
+    padding: 6px 0 4px 0;
+}
+
+.clear {
+    clear: both;
+}
+
+
+/* Container Styles
+------------------------------------------------*/
+
+#header {
+    padding: 22px 0 0 10px;
+    height: 63px;
+}
+
+#nav {
+    background: url("../images/nav-bg.jpg") repeat-x top left;
+    height: 31px;
+}
+
+#intro {
+    background: url("../images/intro-bg.jpg") repeat-x top left;
+    padding-top: 22px;
+    height: 223px;
+}
+
+#intro-short {
+    background: #dfdfdf url("../images/intro-bg-short.jpg") repeat-x bottom left;
+    position: relative;
+}
+
+#main {
+    padding: 30px 0;
+}
+
+#footer {
+    clear: both;
+    background: url("../images/footer-bg.jpg") repeat-x top left;
+    margin-top: 20px;
+    padding-top: 8px;
+    height: 57px;
+}
+
+#intro-short .watermark {
+    margin: 0 auto;
+    width: 960px;
+    background: url("../images/watermark.png") top left no-repeat;
+    min-height: 100px;
+    background-position: 20px 10px;
+    padding: 19px 0 1px 0;
+}
+
+.container {
+    margin: 0 auto;
+    width: 960px;
+}
+
+.container-thin {
+    margin: 0 auto;
+    width: 720px;
+}
+
+.content-module.index-controller .content-entry {
+    padding: 0;
+    margin: 0;
+    color: #333;
+}
+
+.content-entry-type-press-release {
+    width: auto;
+    position: relative;
+}
+
+.comments {
+    margin: 0 auto;
+    width: 720px;
+}
+
+/* Styles
+------------------------------------------------*/
+
+.widget-container.logo {
+    padding: 0;
+    float: left;
+}
+
+.content-module.index-controller .content-element-title {
+    font-size: 25px;
+    color: #333;
+    font-weight: normal;
+    margin: 10px 0 0 0;
+}
+
+.content-element-subtitle {
+    margin: 5px 0 15px 0;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 23px;
+}
+
+.content-module.index-controller .content-element-body {
+    font-size: 14px;
+    color: #333;
+    font-weight: normal;
+    line-height: 22px;
+    margin: 0;
+}
+
+.content-entry-type-blog-post .content-element-date,
+.content-entry-type-blog-post .content-element-author {
+    color: #666;
+    margin: 0 12px 16px 0;
+}
+
+.content-module.index-controller .content-entry-type-image,
+.content-module.index-controller .content-entry-type-file {
+    margin: 20px auto 0 auto;
+}
+
+/* Nav */
+
+.widget-container.mini-nav {
+    float: right;
+    font-size: 12px;
+    padding: 22px 0 0 0;
+    width: 277px;
+    height: 41px;
+}
+.widget-container.mini-nav.widget-content {
+    overflow: hidden;
+}
+
+.mini-nav ul {
+    list-style: none;
+}
+.mini-nav ul li {
+    float: left;
+    padding: 0;
+    height: 41px;
+}
+.mini-nav ul li a {
+    background: url("../images/mininav-bg.jpg") no-repeat top left;
+    display: block;
+    cursor: pointer;
+    color: black;
+    text-align: center;
+    text-decoration: none;
+}
+
+.mini-nav ul li a.left {
+    background-position: top left;
+    padding: 10px 0 0 22px;
+    width: 146px;
+    height: 31px;
+}
+
+.mini-nav ul li a:hover.left {
+    background-position: bottom left;
+}
+
+.mini-nav ul li a.right {
+    background-position: top right;
+    padding: 10px 2px 0 0;
+    width: 107px;
+    height: 31px;
+}
+
+.mini-nav ul li a:hover.right {
+    background-position: bottom right;
+}
+
+#nav ul {
+    font-size: 14px;
+    line-height: 19px;
+    list-style: none;
+}
+
+#nav ul li {
+    float: left;
+    padding: 5px 3px 0px 3px;
+}
+
+#nav ul li a {
+    text-decoration: none;
+    color: #000;
+    padding: 3px 13px 3px 13px;
+}
+
+#nav ul li a:hover,
+#nav ul li.active a {
+    background: #4b7f99;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color: #fff;
+}
+
+/* Home */
+
+#region-features {
+    overflow: hidden;
+}
+
+#region-features .column {
+    float: left;
+    padding: 0 30px;
+    width: 415px;
+    overflow: hidden;
+}
+#region-features .column p {
+    overflow: hidden;
+}
+
+#region-features h1 {
+    margin-top: 0.5em;
+    margin-bottom: 0;
+}
+
+#region-features .cta {
+    float: right;
+    display: block;
+    padding: 2px 8px;
+    border: 1px solid #4b7f99;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    background: url("../images/nav-bg.jpg") repeat-x top left;
+    text-decoration: none;
+    color: #334;
+    -moz-box-shadow: 0 0 12px #999;
+    -webkit-box-shadow: 0 0 12px #999;
+    box-shadow: 0 0 12px #999;
+    margin: 0 0 4px 0;
+    position: relative;
+}
+
+#region-features .cta:hover {
+    -moz-box-shadow: 0 0 6px #333;
+    -webkit-box-shadow: 0 0 6px #333;
+    box-shadow: 0 0 6px #333;
+    color: #000;
+}
+
+.boxed {
+    clear: both;
+    background: #f0f0f0;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fffdf6', endColorstr='#fff2d9'); /* for IE */
+    background: -webkit-gradient(linear, left top, left bottom, from(#fffdf6), to(#fff2d9)); /* for webkit browsers */
+    background: -moz-linear-gradient(top,  #fffdf6, #fff2d9); /* for firefox 3.6+ */ 
+    padding: 6px 18px;
+    border: 3px solid #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: 0px 1px 4px #bbb;
+    -webkit-box-shadow: 0px 1px 4px #bbb;
+    box-shadow: 0px 1px 4px #bbb;
+    margin: 12px 30px;
+}
+
+img.overview {
+    background: #fff;
+    border: 6px solid #fff;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -moz-box-shadow: 0 0 12px #999;
+    -webkit-box-shadow: 0 0 12px #999;
+    box-shadow: 0 0 12px #999;
+    margin-bottom: 12px;
+}
+
+img[align*="left"].overview {
+    margin-left: -18px;
+    margin-right: 18px;
+}
+
+img[align*="right"].overview {
+    margin-left: 18px;
+    margin-right: -18px;
+}
+
+.content-entry ul li {
+    margin: 0 0 0 1.5em;
+}
+
+/* Footer */
+
+#footer a {
+    text-decoration: none;
+    font-size: 12px;
+}
+
+#footer .links {
+    float: left;
+    padding: 16px 0 0 0;
+}
+
+#footer .social {
+    background: #e3e3e3;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 4px 0 0 10px;
+    margin: 0 auto;
+    width: 280px;
+    height: 45px;
+    text-align: center;
+    overflow: hidden;
+}
+
+#footer .links ul,
+#footer .social ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#footer .links ul li,
+#footer .social ul li {
+    float: left;
+    margin: 0;
+}
+
+#footer .links ul li {
+    padding: 0 6px;
+    border-right: 1px solid #333;
+}
+#footer .links ul li:first-child {
+    padding-left: 0;
+}
+#footer .links ul li:last-child {
+    padding-right: 0;
+    border: 0 none;
+}
+
+#footer .social ul li {
+    padding: 0 2px;
+    width: 41px;
+    height: 41px;
+}
+
+#footer .social ul li a {
+    width: 41px;
+    height: 41px;
+    display: block;
+    text-indent: -1999px;
+    text-decoration: none;
+}
+
+#footer .social ul li a.icon-rss {
+    background: url("../images/icon-sprites.png") no-repeat 0 0;
+}
+
+#footer .social ul li a.icon-blog {
+    background: url("../images/icon-sprites.png") no-repeat 0 -41px;
+}
+
+#footer .social ul li a.icon-facebook {
+    background: url("../images/icon-sprites.png") no-repeat 0 -82px;
+}
+
+#footer .social ul li a.icon-twitter {
+    background: url("../images/icon-sprites.png") no-repeat 0 -123px;
+}
+
+#footer .social ul li a.icon-youtube {
+    background: url("../images/icon-sprites.png") no-repeat 0 -164px;
+}
+
+#footer .social ul li a.icon-linkedin {
+    background: url("../images/icon-sprites.png") no-repeat 0 -205px;
+}
+
+#footer .region .powered-by {
+    color: #333;
+    padding: 15px 0 0 0;
+    font-size: 12px;
+    float: right
+}
+
+/* Claro Overrides
+------------------------------------------------*/
+
+#region-splash .widget-container {
+    padding: 0;
+}

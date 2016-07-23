@@ -1,0 +1,104 @@
+
+
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd">
+
+<suite name="Perforce Chronicle Regression">
+
+    <!--  Browser & Host -->
+	<parameter name="browser" value="*firefox" /> 
+	<parameter name="hostname" value="localhost" />
+     
+    <!-- Url's   -->
+    <parameter name="baseurl" value="http://qa-lin-vm51.qa.perforce.com/"/>
+	<parameter name="redirecturl" value="http://qa-lin-vm51.qa.perforce.com/"/>
+     
+    <!-- Firefox Profile -->
+    <parameter name="firefox-profile-location" value="/Users/sorchanian/Library/Application Support/Firefox/Profiles/tlq9729t.Automation" />
+     
+    <!-- Data path -->
+    <parameter name="datapath" value="data/MyPlansCoverage/QA/NCAL_jla" />
+	<parameter name="usergroup" value="qa51" />
+	
+	
+	<!--  Configure to run classes -->
+<!-- 	<test name="Perforce Chronicle on Firefox">
+	    <classes>
+	    <class name="tests.AddPressReleaseFormModeBodyVerify"/>
+	      <class name="tests.AddPressReleaseFormModeButtonVerify"/>
+	      <class name="tests.AddPressReleaseFormModeCancelButtonVerify"/>
+	      <class name="tests.AddPressReleaseFormModeCategoryVerify"/>
+	      
+	      <class name="tests.AddPressReleaseFormModeContactDetailsVerify"/>
+	      <class name="tests.AddPressReleaseFormModeHeaderVerify"/>
+	      <class name="tests.AddPressReleaseFormModeIconVerify"/>
+	      
+	       <class name="tests.EditPressReleaseFormModeBodyVerify"/>
+	      <class name="tests.EditPressReleaseFormModeButtonVerify"/>
+	      <class name="tests.EditPressReleaseFormModeCategoryVerify"/>
+	      
+	    </classes>
+ 	 </test> -->
+
+
+<!-- Configuration to run Java package -->
+	<test name="Perforce Chronicle on Firefox">
+		<!--  parameter name="testBrowser" value="Firefox on Windows"/> -->
+     	<packages>
+			<package name="tests.*" />			
+		</packages>
+	</test>   
+
+
+	
+			<!--  Configure which tests to run in what order -->
+			<!-- <test name="Perforce Regression Test: Create Users">
+		      <classes>
+		         <class name="tests.Create Users"/>
+		      </classes>
+		   </test>
+		
+		   <test name="Perforce Regression Tests">
+		      <groups>
+		         <run><include name="Perforce CMS Regression Suite"/></run>
+		      </groups>
+		      <packages>
+		         <package name="tests.*"/>
+		      </packages>
+		   </test>
+		
+		   <test name="Perforce Regression Test: Delete Users">
+		      <classes>
+		         <class name="tests.Delete Users"/>
+		      </classes>
+		   </test>
+			 -->
+	
+	
+	<!-- Configure to execute on multiple browsers using another configuration -->
+		<!-- Configuration to run Java package -->
+	<!-- <test name="Perforce Chronicle on ie">
+		<parameter name="testBrowser" value="Firefox on Windows"/>
+     	<packages>
+			<package name="tests.*" />			
+		</packages>
+	</test>    -->
+	 
+	 
+	 <!--Ability to include other testng files. This is helpful because you can maintain different tests  -->
+	<!--  <suite name="Chronicle Test Suite" verbose="10">
+
+   <suite-files>
+      <suite-file path="chronicle-suite-populate.xml"/>
+      <suite-file path="chronicle-suite-populate-clean.xml"/>
+   </suite-files>
+
+	</suite> -->
+
+	 
+<!-- 	<listeners> -->
+<!-- 		<listener class-name="P4CMSTestListener" /> -->
+<!-- 	</listeners> -->
+
+
+</suite>
+

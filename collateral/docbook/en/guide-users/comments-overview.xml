@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="comments.overview">
+    <title>Overview</title>
+
+    <para>
+        Comments are an optional &product.longname; feature that allows your web site's audience
+        to provide feedback for the content they see. You can choose to:
+    </para>
+
+    <itemizedlist>
+        <listitem>
+            allow or disallow comments individually for any content entry
+        </listitem>
+
+        <listitem>
+            require users to be logged in to comment
+        </listitem>
+
+        <listitem>
+            display or hide comments when the associated content entry is viewed
+        </listitem>
+
+        <listitem>
+            hide comments unless they are approved, or the user is authenticated
+        </listitem>
+
+        <listitem>
+            allow voting on comments
+        </listitem>
+
+        <listitem>
+            restrict voting to once per user per content entry, if voting is allowed
+        </listitem>
+    </itemizedlist>
+
+    <para>
+        Authenticated users automatically have their userid associated with their comments.
+        Unauthenticated users need to provide a name and optionally an email address, as well as
+        successfully satisfy a <acronym>CAPTCHA</acronym> to prevent automated commenting. For both
+        types of users, if their email address is registered at
+        <ulink url="http://gravatar.com/">gravatar.com</ulink>, their custom
+        <emphasis>avatar</emphasis> graphic is displayed alongside their comment.
+    </para>
+
+    <xi:include href="../standalone/enable-comments.xml" role="module">
+        <xi:fallback>
+            <xi:include href="../../en/standalone/enable-comments.xml" />
+        </xi:fallback>
+    </xi:include>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

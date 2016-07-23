@@ -1,0 +1,6 @@
+/**
+ * Input Elements need to be visible in IE lt 9 in order to fire events
+ */
+.p4cms-ui .content-sub-form .menus-sub-form dd.menu-item-remove input {
+    visibility: visible;
+}

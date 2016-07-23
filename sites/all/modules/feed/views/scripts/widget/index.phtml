@@ -1,0 +1,25 @@
+<? if ($this->feed): ?>
+    <? if ($this->feedUrl): ?>
+        <div class="feed-url">Source: <a href="<?= $this->escapeAttr($this->feedUrl); ?>"><?= $this->escape($this->feedUrl); ?></a></div>
+    <? endif; ?>
+    <ul>
+        <? $filter = new P4Cms_Filter_HtmlToText;
+           foreach ($this->feed as $key => $item):
+               if ($this->maxItems && $key >= $this->maxItems) {
+                   break;
+               }
+        ?>
+            <li>
+                <a href="<?= $this->escapeAttr($item->getLink()) ?>"><?= $this->escape($item->getTitle()) ?></a>
+                <? if ($this->showDate): ?>
+                    <span class="feed-item-date"><?= $item->getDateModified()->toString('MMMM M, yyyy'); ?></span>
+                <? endif; ?>
+                <? if ($this->showDescription && $item->getDescription()): ?>
+                    <span class="feed-item-description"><?= nl2br($filter->filter($item->getDescription())) ?></span>
+                <? endif; ?>
+            </li>
+        <? endforeach; ?>
+    </ul>
+<? else: ?>
+    No feed to display.
+<? endif; ?>

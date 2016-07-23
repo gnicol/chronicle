@@ -1,0 +1,55 @@
+<? $metadata = array(); ?>
+<?= $this->contentEntry()->open() ?>
+<div class="image-container">
+ <div class="image">
+<?
+// modify DisplayImage decorator to set image's maximum width and maximum height
+$entry      = $this->contentEntry()->getEntry();
+$decorators = $entry->getContentType()->getDisplayDecorators('file');
+foreach ($decorators as $decorator) {
+    if ($decorator instanceof Content_Form_Decorator_DisplayImage) {
+        $decorator->setOption('maxWidth',  '256')
+                  ->setOption('maxHeight', '365');
+    }
+}
+print $this->contentEntry()->element('file', array('display' => array('decorators' => $decorators)));
+?>
+ </div>
+<? if ($this->entry->getId() && $this->entry->getFieldMetadata('file')):
+    $metadata = $this->entry->getFieldMetadata('file'); ?>
+ <div class="links">
+  <a href="<?= $this->entry->getUri('image') ?>">View Full Size</a>
+  <a href="<?= $this->entry->getUri('download') ?>">Download</a>
+ </div>
+<? endif; ?>
+</div>
+
+<div class="details-container">
+<?= $this->contentEntry()->element('title') ?>
+<? if (isset($metadata['filename'])) : ?>
+  <div class="filename"><?= $this->escape($metadata['filename']) ?></div>
+<? endif; ?>
+<br/>
+<dl>
+<? if (isset($metadata['dimensions']['width']) && isset($metadata['dimensions']['height'])) : ?>
+  <dt>Dimensions:</dt>
+  <dd class="size content-element">
+    <?= $this->escape($metadata['dimensions']['width']) . ' x ' .
+        $this->escape($metadata['dimensions']['height']) .' pixels'?>
+  </dd>
+<? endif; ?>
+<? if (isset($metadata['fileSize'])) : ?>
+  <dt>File size:</dt>
+  <dd class="size content-element"><?= $this->fileSize($metadata['fileSize']) ?></dd>
+<? endif; ?>
+<dt>Date:</dt>
+<dd><?= $this->contentEntry()->element('date') ?></dd>
+<dt>Created By:</dt>
+<dd><?= $this->contentEntry()->element('creator') ?></dd>
+<dt>Description:</dt>
+<dd><?= $this->contentEntry()->element('description') ?></dd>
+<dt>Alternate Text:</dt>
+<dd><?= $this->contentEntry()->element('alt') ?></dd>
+</dl>
+</div>
+<?= $this->contentEntry()->close() ?>

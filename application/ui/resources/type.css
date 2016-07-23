@@ -1,0 +1,10 @@
+/* Type */
+
+.p4cms-ui h1, .p4cms-ui h2, .p4cms-ui h3, .p4cms-ui h4, .p4cms-ui h5, .p4cms-ui h6 {
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+}
+
+.p4cms-ui, body.p4cms-ui {
+    font-family: "Bitstream Charter Sans", "Arial", "Helvetica", "sans-serif";
+}

@@ -1,0 +1,103 @@
+<!-- the side-by-side diff viewer with toolbar and the scrolling
+     content pane for the inner compare partial -->
+
+<div class="display-group">
+<div dojoType="p4cms.diff.Viewer">
+    <div class="toolbar">
+        <div class="count">
+            Diff
+            <span class="current-diff-chunk">
+              <?= $this->diffResults->hasDiffs() ? '1' : '0'; ?>
+            </span>
+            of
+            <span class="total-diff-chunks">
+              <?= $this->diffResults->getDiffCount(); ?>
+            </span>
+        </div>
+        <div class="controls">
+            <div dojoType="dijit.form.Button" 
+                 class="button-small button-left prev-diff-button"
+                 iconClass="button-prev"
+                 showLabel="false">
+                Previous Difference
+            </div><div dojoType="dijit.form.Button" 
+                 class="button-small button-right next-diff-button"
+                 iconClass="button-next"
+                 showLabel="false">
+                Next Difference
+            </div>
+        </div>
+        <div class="legend">
+            <span class="insert"><b>0</b> additions</span>
+            <span class="delete"><b>0</b> deletions</span>
+            <span class="change"><b>0</b> changes</span>
+        </div>
+        <div class="options">
+            <label>
+                <input type="checkbox" name="hideUnchanged" value="hide"/>
+                <span class="hide-elements">Hide Unchanged Fields</span>
+            </label>
+            <label>
+                <input type="checkbox" name="ignoreWhitespace" value="ignore"/>
+                <span class="ignore-whitespace">Ignore Whitespace</span>
+            </label>
+        </div>
+    </div>
+    <div class="versions-heading">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="left">
+                        <span class="version">Version #<?= $this->leftFile->getStatus('headRev') ?></span>
+                        <span class="action"><?= rtrim($this->leftFile->getStatus('headAction'), 'e') ?>ed</span> by
+                        <span class="user"><?= $this->leftChange->getUser() ?></span>
+                        <span class="date"><?= $this->timeAgo($this->leftChange->getDateTime()) ?></span>
+                    </td>
+                    <td class="gutter"></td>
+                    <td class="right">
+                        <span class="version">Version #<?= $this->rightFile->getStatus('headRev') ?></span>
+                        <span class="action"><?= rtrim($this->rightFile->getStatus('headAction'), 'e') ?>ed</span> by
+                        <span class="user"><?= $this->rightChange->getUser() ?></span>
+                        <span class="date"><?= $this->timeAgo($this->rightChange->getDateTime()) ?></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="diff-comparison-pane">
+
+        <? foreach ($this->diffResults as $fieldName => $diffResult) : 
+            $mimeType = $diffResult->getOption('mimeType'); 
+        ?>
+
+            <div class="element <?
+            print !$diffResult->hasDiffs() ? 'same' : '';
+            print ' ';
+            print $diffResult->isWhitespaceChange() ? 'whitespace-change' : '';
+            ?>">
+                <div class="title">
+                    <?= $diffResult->getOption('label') ? $diffResult->getOption('label') : $fieldName ?>
+                </div>
+                <div class="differences">
+                    <?
+                    $this->diffResult = $diffResult;
+                    $this->fieldName  = $fieldName;
+                    
+                    if (P4Cms_Validate_File_MimeType::groupContainsType('image', $mimeType)) {
+                        print $this->render('image-diff.phtml');
+                    } elseif (P4Cms_Validate_File_MimeType::groupContainsType('text/html', $mimeType)) {
+                        print $this->render('html-diff.phtml');
+                    } elseif (!$diffResult->getOptions()->isBinaryDiff()) {
+                        print $this->render('text-diff.phtml');
+                    } else {
+                        print $this->render('binary-diff.phtml');
+                    }
+                    ?>
+                </div>
+            </div>
+
+        <? endforeach; ?>
+
+    </div>
+</div>
+</div>

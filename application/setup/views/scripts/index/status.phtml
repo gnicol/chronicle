@@ -1,0 +1,8 @@
+<div class="status <?= $this->escapeAttr($this->class) ?>">
+<h3><?= $this->escape($this->label) ?></h3>
+<? foreach ($this->messages as $message) { ?>
+<p>
+    <?= $message ?>
+</p>
+<? } ?>
+</div>

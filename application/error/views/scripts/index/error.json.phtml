@@ -1,0 +1,18 @@
+<?
+// always include error message.
+$response = array(
+    'type'      => 'exception',
+    'message'   => $this->message
+);
+
+// additional info for testing/development environments.
+if (in_array(strtolower($this->env), array('testing', 'development'))) {
+    $response['exception'] = array(
+        'type'      => get_class($this->exception),
+        'message'   => $this->exception->getMessage(),
+        'trace'     => $this->exception->getTraceAsString()
+    );
+}
+
+print Zend_Json::encode($response);
+?>

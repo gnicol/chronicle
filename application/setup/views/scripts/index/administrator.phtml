@@ -1,0 +1,38 @@
+<?= $this->partial('index/steps.phtml', array('step' => '3')); ?>
+
+<div class="info">
+
+<? if ($this->form->getServerType() == Setup_Form_Storage::SERVER_TYPE_NEW): ?>
+
+<h1>Choose a username and password for the Chronicle administrator:</h1>
+
+<p>
+ The Chronicle administrator has full access. This includes the ability
+ to create new sites, manage users and change configuration options.
+</p>
+
+<? else: ?>
+
+<h1>Enter server administrator username and password:</h1>
+
+<p>
+ This user must already exist and have super level privileges on the
+ <?= $this->isRsh ? 'local' : ''; ?> server:
+ <br/>
+ <span class="server"><?= $this->escape($this->port) ?></span>
+</p>
+
+<? endif; ?>
+
+<br/>
+
+<?= $this->form ?>
+
+</div>
+<script type="text/javascript">
+    dojo.addOnLoad(function() {
+        var node = dojo.query('input#user')[0];
+        node.focus();
+        node.select();
+    });
+</script>

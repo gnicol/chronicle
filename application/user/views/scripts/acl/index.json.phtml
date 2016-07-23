@@ -1,0 +1,22 @@
+<?
+// setup paginated user adapter.
+$adapter    = new Zend_Paginator_Adapter_Iterator($this->permissions);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// serve dojo data to populate the data grid.
+// pass per-item callback to craft each entry.
+print $this->dataGrid()->dojoData(
+    $paginator,
+    function($permission, $dataGrid)
+    {
+        $item = $permission->toArray();
+
+        // each item needs a unique id.
+        $item['id'] = bin2hex($permission->resourceId)
+                    . ($permission->privilegeId ? "-" . bin2hex($permission->privilegeId) : null);
+
+        return array_filter($item);
+    }
+);

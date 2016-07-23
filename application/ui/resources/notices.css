@@ -1,0 +1,102 @@
+/* Notices */
+
+#p4cms-ui-notices {
+    position: fixed;
+    top: 35px;
+    right: 0;
+    z-index: 1010;
+    cursor: pointer;
+    font-size: 11px;
+}
+#p4cms-ui-notices .severity-info,
+#p4cms-ui-notices .severity-success,
+#p4cms-ui-notices .severity-warning,
+#p4cms-ui-notices .severity-error {
+    margin: 10px 5px 15px 10px;
+    position: relative;
+    width: 293px;
+    color: black;
+}
+
+#p4cms-ui-notices .severity-info, #p4cms-ui-notices .severity-info .footer {
+    background: transparent url('images/notice-bg-info.png') top left no-repeat scroll;
+}
+#p4cms-ui-notices .severity-success, #p4cms-ui-notices .severity-success .footer {
+    background: transparent url('images/notice-bg-success.png') top left no-repeat scroll;
+}
+#p4cms-ui-notices .severity-warning, #p4cms-ui-notices .severity-warning .footer {
+    background: transparent url('images/notice-bg-warn.png') top left no-repeat scroll;
+}
+#p4cms-ui-notices .severity-error, #p4cms-ui-notices .severity-error .footer {
+    background: transparent url('images/notice-bg-error.png') top left no-repeat scroll;
+}
+
+#p4cms-ui-notices .severity-info:hover, #p4mcs-ui-notices .severity-info.hover,
+#p4cms-ui-notices .severity-success:hover, #p4mcs-ui-notices .severity-success.hover,
+#p4cms-ui-notices .severity-warning:hover, #p4mcs-ui-notices .severity-warning.hover,
+#p4cms-ui-notices .severity-error:hover, #p4mcs-ui-notices .severity-error.hover {
+    background-position: top right;
+}
+
+#p4cms-ui-notices .severity-info:hover .footer, #p4mcs-ui-notices .severity-info.hover .footer,
+#p4cms-ui-notices .severity-success:hover .footer, #p4mcs-ui-notices .severity-success.hover .footer,
+#p4cms-ui-notices .severity-warning:hover .footer, #p4mcs-ui-notices .severity-warning.hover .footer,
+#p4cms-ui-notices .severity-error:hover .footer, #p4mcs-ui-notices .severity-error.hover .footer {
+    background-position: bottom right;
+}
+
+#p4cms-ui-notices .severity-info .footer,
+#p4cms-ui-notices .severity-success .footer,
+#p4cms-ui-notices .severity-warning .footer,
+#p4cms-ui-notices .severity-error .footer {
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    height: 25px;
+    background-position: bottom left;
+}
+
+#p4cms-ui-notices div p.message {
+    padding: 22px 20px 3px 48px;
+    word-wrap: break-word;
+    line-height: 1;
+}
+
+#p4cms-ui-notices span.close {
+    float: right;
+    cursor: pointer;
+    border: 1px solid #555;
+    margin: 5px;
+    padding: 0px 1px 1px 1px;
+    font-size: 10px;
+    line-height: 10px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+}
+
+#p4cms-ui-notices .dijitButtonNode {
+    padding: 0;
+    margin-top: -3px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+#p4cms-ui-notices .dijitButtonContents {
+    font-size: .8em;
+}
+
+#p4cms-ui-notices .dijitButtonText {
+    display: inline-block;
+    margin-top: -3px;
+}
+
+#p4cms-ui-notices ul {
+    margin: 0 0 0 9px;
+    list-style: none;
+}
+
+#p4cms-ui-notices ul li {
+    padding: 0;
+    margin: 0;
+    padding-right: 15px;
+}

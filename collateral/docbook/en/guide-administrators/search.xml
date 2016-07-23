@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="site.search">
+    <title>Search Settings</title>
+
+    <para>
+        &product.longname; ships with a Search module powered by
+        <ulink url="http://framework.zend.com/manual/en/zend.search.lucene.html">Zend Search
+        Lucene</ulink>. &product.name; ships with reasonable defaults for indexing operations,
+        but you may need to adjust the configuration to suit your deployment. Also, you may need
+        to optimize or rebuild the search indexes.
+    </para>
+
+    <bridgehead>
+        To adjust Search Settings:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Choose <command>Manage > Modules</command>. The <emphasis role="screen">Manage
+            Modules</emphasis> screen is displayed, listing available modules.
+        </listitem>
+
+        <listitem>
+            Find the Search module in the list of modules, either by scrolling or typing
+            <emphasis>search</emphasis> into the Search field.
+        </listitem>
+
+        <listitem>
+            Click the Search module's <guibutton>Configure</guibutton> button. The
+            <emphasis role="dialog">Search Configuration</emphasis> dialog is displayed:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-search_configuration.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Enter settings for:
+
+            <itemizedlist>
+                <listitem>
+                    <emphasis role="bold">Buffer Limit</emphasis>: the maximum number of documents
+                    that to be kept in-memory while indexing is performed. This value can be
+                    increased if your content is primarily smaller entries or sufficient memory is
+                    available, or reduced if your content includes large file content, such as
+                    entries of many megabytes, or if memory availability is limited.
+                </listitem>
+
+                <listitem>
+                    <emphasis role="bold">Merge Limit</emphasis>: the maximum number of documents
+                    considered when index segments are merged. Smaller values (less than 10,000) are
+                    best for interactive indexing, as this limits the length of pauses while
+                    indexing to a few seconds. Larger values are best for batched indexing and
+                    speedier searches.
+                </listitem>
+
+                <listitem>
+                    <emphasis role="bold">Merge Factor</emphasis>: determines how index segments are
+                    merged when new documents are indexed. With smaller values, less memory is used
+                    while indexing, and searches on unoptimized indices are faster, but indexing
+                    speed is slower. With larger values, more memory is used during indexing, and
+                    while searches on unoptimized indices are slower, indexing is faster. Thus
+                    larger values (&gt; 10) are best for batch index creation, and smaller values
+                    (&lt; 10) for indices that are interactively maintained.
+                </listitem>
+            </itemizedlist>
+        </listitem>
+
+        <listitem>
+            Click the <guibutton>Optimize</guibutton> button to optimize the search index. This may
+            be necessary after many new documents have been added or removed.
+        </listitem>
+
+        <listitem>
+            Click the <guibutton>Rebuild</guibutton> button to rebuild the search index from
+            existing data. This may be necessary if the indexer ever runs out of memory, or if a
+            search engine gets corrupted in some other way.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton>. Your Search configuration is saved.
+        </listitem>
+    </orderedlist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

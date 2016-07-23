@@ -1,0 +1,68 @@
+/**
+ * CSS styles for menus appearing in widgets
+ */
+.widget-menu-widget ul.menu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+/* Sitemap */
+.sitemap-title {
+    margin: 18px 10px;
+    font-size: 24px;
+}
+
+.sitemap-title img {
+    vertical-align: middle;
+}
+
+.sitemap-content {
+    margin: 22px 0 0 0;
+    border: solid #cccccc 1px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    overflow-x: hidden;
+}
+
+.sitemap-content ul {
+    padding: 0;
+}
+
+.sitemap-content > ul > li {
+    font-size: 14px;
+    margin:  5px 0 15px 0;
+    list-style: none;
+}
+
+.sitemap-content > ul > li > span,
+.sitemap-content > ul > li > a {
+    width: 100%;
+    line-height: 30px;
+    display: block;
+    font-weight: bold;
+    text-decoration: none;
+    padding-left: 20px;
+    background: #efefef url("images/sitemap-header-repeat.png") top left repeat-x;
+    vertical-align: middle;
+}
+
+.sitemap-content > ul > li > ul > li {
+    vertical-align: top;
+    padding-left: 30px;
+    margin:  10px;
+    width: 18%;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.sitemap-content > ul > li > ul ul {
+    padding-left: 20px;
+}
+
+.sitemap-content > ul > li > ul > li li {
+    font-size: 12px;
+    font-weight: normal;
+    padding: 5px 0 4px 0;
+    list-style-image: url('../../menu/resources/images/sitemap-arrow.png');
+}

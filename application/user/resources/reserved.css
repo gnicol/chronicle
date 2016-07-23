@@ -1,0 +1,78 @@
+
+/* Edit User Form */
+
+.p4cms-ui .user-form #passwords-element {
+    border: 0 none;
+}
+.p4cms-ui .user-form fieldset.passwords {
+    padding: 0;
+    margin: 0;
+    border: 0 none;
+}
+
+.p4cms-ui .user-form fieldset.passwords.external-auth {
+    margin: 0 0 0 145px;
+}
+
+.p4cms-ui .user-form fieldset.passwords.external-auth dl {
+    padding-top: 0;
+}
+
+.p4cms-ui .user-form fieldset.passwords.disabled {
+    display: none;
+}
+
+.p4cms-ui .user-form dd#roles-element,
+.p4cms-ui .role-form dd#users-element {
+    overflow-y: scroll;
+    height: 200px;
+    width: 200px;
+    min-width: 0px;
+    border: 1px solid #aaa;
+    padding: 3px;
+    background-color: white;
+}
+
+.p4cms-ui .user-add-form dd.user-note {
+    margin: 0 10px 20px 10px;
+    color: #F80320;
+    font-weight: bold;
+}
+
+/* ACL Grid */
+
+.p4cms-ui .acl-grid .dojoxGridRow.acl-resource .dojoxGridCell .resourceLabel {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.p4cms-ui .acl-grid .dojoxGridRow tr {
+    background: transparent;
+}
+
+.p4cms-ui .acl-grid .dojoxGridRow.acl-resource tr {
+    background-color: #ddd;
+}
+
+.p4cms-ui .acl-grid .dojoxGridRow.acl-privilege .dojoxGridCell .resourceLabel {
+    color: #777;
+    padding-right: 5px;
+    margin-left: -10px;
+}
+
+.p4cms-ui .acl-grid .dojoxGridRow.acl-privilege td.label {
+    padding-left: 20px;
+}
+
+.p4cms-ui .acl-grid .dojoxGridCell.rule,
+.p4cms-ui .acl-grid .dojoxGridCell.rule div {
+    text-align: center;
+}
+
+.p4cms-ui .acl-grid .buttons {
+    margin-top: 25px;
+}
+
+.p4cms-ui .acl-grid .buttons .dijitButton {
+    margin-right: 5px;
+}

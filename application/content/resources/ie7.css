@@ -1,0 +1,58 @@
+/** IE7 has poor support for dl dt dd, need this to position dd on next line after
+ *  non-floated dt */
+.p4cms-ui.content-element-tooltip form dd {
+    display: inline;
+}
+
+.p4cms-ui .display-group .content-type-container ul.content-types li,
+.p4cms-ui .imageForm li {
+    display: inline;
+    zoom: 1;
+}
+
+/* Account for the scrollbar size in case a child is set to width 100% */
+.p4cms-ui.dijitTooltipDialog .content-sub-form {
+    padding-right: 18px;
+}
+
+/* align the details fields for the image and file content type */
+div.content-entry div.details-container dd {
+    float: none;
+}
+
+/* fix alignment of the file options radio button and tooltip error messages */
+.p4cms-ui.content-element-tooltip .dijitTooltipContainer form ul {
+    margin-left: 40px;
+}
+
+form.p4cms-ui .dijitButton.file-upload-clear,
+.p4cms-ui form .dijitButton.file-upload-clear {
+    margin-top: -7px;
+}
+
+/* hide scrollbars and remove extra spacing inside the 'Save' tooltip */
+.p4cms-ui.dijitTooltipDialog form .content-form dd.content-sub-form {
+    overflow: visible;
+    padding: 0;
+}
+
+/* fix for aligning radio button with the label  */
+.p4cms-ui.dijitDialog form .sourceContainer dl dt input[type=radio] {
+    margin-left: 50px;
+}
+
+/* align button with the element its attached to */
+.p4cms-ui.dijitDialog form .sourceContainer dl dd .dijitButton {
+    top: -8px;
+}
+
+/* make a space between content input element and the attached buttons */
+.p4cms-ui.dijitDialog form .sourceContainer dl dd input[name=contentTitle] {
+    margin-right: 5px;
+}
+
+/* Our content editors are using position relative, as a result we have to make sure
+   that their container has layout, which it doesn't in IE7 */
+.content-entry {
+    zoom: 1;
+}

@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="widgets.macros">
+    <title>Using Macros with Widgets</title>
+
+    <para>
+        A <emphasis>macro</emphasis> is a special kind of marker you can enter into a text widget.
+        When the widget is displayed on a web page, any recognized macros in the text are
+        <emphasis>replaced</emphasis> with the text they represent.
+    </para>
+
+    <para>
+        For example, to include the current site title in a text widget, enter
+        <code>{{site:title}}</code> when configuring the widget's Text field.
+    </para>
+
+    <para id="macros.list">
+        The following macros are provided by &product.longname;:
+    </para>
+
+    <variablelist>
+        <varlistentry>
+            <term>{{baseUrl}}</term>
+
+            <listitem>
+                The application base <acronym>URL</acronym>. This is most useful in module
+                configuration files that need to include links. For sub-folder installations this is
+                a relative path; otherwise it is empty.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>{{site:title}}</term>
+
+            <listitem>
+                Your site's title.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>{{site:description}}</term>
+
+            <listitem>
+                Your site's description.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>{{site:branch}}</term>
+
+            <listitem>
+                The current site branch.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>{{site:theme}}</term>
+
+            <listitem>
+                Your site's current theme.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>{{theme:baseUrl}}</term>
+
+            <listitem>
+                The active theme's base URL. This is most useful in theme configuration files
+                that need to refer to specific theme resources.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>{{user:id}}</term>
+
+            <listitem>
+                The current user's id.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>{{user:email}}</term>
+
+            <listitem>
+                The current user's email address.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>{{user:fullName}}</term>
+
+            <listitem>
+                The current user's full name.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>{{version}}</term>
+
+            <listitem>
+                The full release string of the currently running &product.name;.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>{{version:release}}</term>
+
+            <listitem>
+                The release version of the currently running &product.name;.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>{{version:patch}}</term>
+
+            <listitem>
+                The release patchlevel of the currently running &product.name;.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>{{version:date}}</term>
+
+            <listitem>
+                The release date of the currently running &product.name;.
+            </listitem>
+        </varlistentry>
+    </variablelist>
+
+    <para>
+        Additional macros may be provided by modules.
+    </para>
+
+    <note>
+        <title>Macros Also Available in Content</title>
+
+        <para>
+            The macros presented above may also be used in content, provided that a content entry's
+            content type enables them. To use macros in content, ensure that each appropriate content
+            type element's definition includes:
+
+<programlisting language="ini">
+options.macros.enabled = true
+</programlisting>
+        </para>
+
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

@@ -1,0 +1,61 @@
+<?
+/**
+ * Widgets get rendered in a variety of contexts (e.g. in layouts, views,
+ * and via xhr/partial). Consequently, head resources (e.g. scripts, styles,
+ * dojo, etc) may or may not have been emitted already. Therefore, we want
+ * to ensure that only the resources needed by this widget are emitted at
+ * this time.
+ *
+ * To accomplish this, we cache out and clear the original set of head
+ * resources prior to invoking the widget. After running the widget, we
+ * print newly accumulated head resources and restore the original set.
+ */
+
+$originalScripts = clone $this->getHelper('headScript')->getContainer();
+$originalStyles  = clone $this->getHelper('headStyle')->getContainer();
+$originalDojo    = clone $this->getHelper('dojo')->getContainer();
+
+$this->headScript()->getContainer()->set(array());
+$this->headStyle()->getContainer()->set(array());
+$this->dojo()->clearModulePaths()
+             ->clearModules()
+             ->clearJavascript()
+             ->clearOnLoad()
+             ->clearZendLoad();
+
+// execute widget and buffer output.
+$widgetOutput = $this->widget->run();
+
+// include widget requirements.
+echo $this->dojo('extras'),
+     $this->headScript(),
+     $this->headStyle();
+
+// restore original head resources.
+$this->getHelper('headScript')->setContainer($originalScripts);
+$this->getHelper('headStyle')->setContainer($originalStyles);
+$this->getHelper('dojo')->setContainer($originalDojo);
+?>
+
+<div dojoType="p4cms.widget.Widget"
+     id="widget-<?= $this->escapeAttr($this->widget->id) ?>"
+     class="widget widget-<?= $this->escapeAttr(str_replace('/', '-', $this->widget->type)) ?>"
+     widgetType="<?= $this->escapeAttr($this->widget->type) ?>"
+     widgetDialogTitle="<?= $this->escapeAttr($this->widget->getType($this->widget->type)->label) ?>"
+     widgetContext="<?= htmlspecialchars($this->widgetContext) ?: 'null' ?>"
+     containerClass="<?= $this->escapeAttr($this->widget->class) ?>"
+     regionName="<?= $this->escapeAttr($this->widget->region) ?>"
+     addTime="<?= $this->escapeAttr($this->widget->addTime) ?>"
+     order="<?= $this->escapeAttr($this->widget->order) ?>">
+    <?if ($this->widget->showTitle) {?>
+        <div id="widget-<?= $this->escapeAttr($this->widget->id) ?>-title" class="widget-title">
+            <?= $this->escape($this->widget->title) ?>
+        </div>
+    <?}?>
+    <div id="widget-<?= $this->escapeAttr($this->widget->id) ?>-content" class="widget-content">
+        <?= $widgetOutput ?>
+        <? if ($this->widget->hasError()): ?>
+            <p class="widget-error"><?= $this->escape($this->widget->getError()) ?></p>
+        <? endif; ?>
+    </div>
+</div>

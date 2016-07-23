@@ -1,0 +1,19 @@
+<?
+// ensure any explicit errors are in array format
+$errors = (array) $this->errors;
+
+// if a form is present include form and element level errors
+if (isset($this->form)) {
+    $errors += array(
+        'form'      => $this->form->getErrorMessages(),
+        'elements'  => $this->form->getMessages()
+    );
+}
+
+print Zend_Json::encode(
+    array(
+        'step'    => $this->step,
+        'isValid' => $this->isValid,
+        'errors'  => $errors
+    )
+); ?>

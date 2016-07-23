@@ -1,0 +1,9 @@
+<?
+// remove the associated categories widget from the types when adding to grid.
+if ($this->region === 'grid') {
+    unset($this->types['category/content']);
+}
+
+// leverage the original view script to do the heavy lifting
+print $this->renderScript(APPLICATION_PATH . '/widget/views/scripts/index/add.partial.phtml');
+?>

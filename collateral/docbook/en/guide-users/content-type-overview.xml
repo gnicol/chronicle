@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.type.overview">
+    <title>Overview</title>
+
+    <para>
+        A <emphasis>content type</emphasis> provides structure to your content. A simple content
+        entry might have a <emphasis>title</emphasis> and a <emphasis>body</emphasis>. Instead of
+        relying on visual styles or layout to distinguish where the title ends and the
+        body begins, content types use <emphasis>elements</emphasis> to identify the title and
+        body as individual components of content. Such structure helps ensure that your content is
+        composed and displayed consistently.
+    </para>
+
+    <para>
+        &product.longname; provides a set of basic content types for adding pages, files, images and
+        so on. You can create or modify content types to fit your content's requirements from the
+        simple to the complex. Also provided is a library of elements to help you compose new
+        content types. These include text, date, editor, imageFile. Custom modules can provide
+        additional elements. Each element you use in content can be configured with a label and
+        optional features such as:
+    </para>
+
+    <itemizedlist>
+        <listitem>
+            <emphasis>Filters</emphasis>: these can modify user-supplied information to remove
+            undesirable content. For example, a filter could remove surrounding whitespace, remove
+            <acronym>HTML</acronym> tags, or convert special characters into <acronym>HTML</acronym>
+            entities.
+        </listitem>
+
+        <listitem>
+            <emphasis>Validators</emphasis>: these help users to enter information in the format
+            you expect. For example, a phone number element might restrict users to entering
+            numbers, periods, and dashes, where the numbers must be in two groups of three followed
+            by a group of four.
+        </listitem>
+    </itemizedlist>
+
+    <para>
+        Theme designers can create <emphasis>view scripts</emphasis>, which specify how a specific
+        content type is to be displayed. Please see <xref linkend="themes.view.scripts"/> for more
+        details.
+    </para>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

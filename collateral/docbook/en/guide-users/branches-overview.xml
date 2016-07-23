@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="branches.overview">
+    <title>Overview</title>
+
+    <para>
+        A branch is a copy of all of your web site's configuration, content, categories, menus, etc.
+        Initially, &product.longname; installs a <emphasis>Live</emphasis> branch, which your users
+        see when they visit your site. When a new branch is created, it is initially identical to
+        the <emphasis>source</emphasis> branch it was branched from. You can then make changes in
+        the new branch to some or all of your content without exposing your work in progress to your
+        users. When you are ready, you can pull your changes into the source branch.
+    </para>
+
+    <para>
+        You can use branches for small tasks, such as fixing typos, or larger tasks such as updating
+        many content entries at once, or even wholesale restructuring of your content. Branches can
+        be hierarchical. You might create a branch for the task of rolling out a new
+        product line, and then create several child branches dedicated to specific content areas
+        such as product descriptions, press releases, and support.
+    </para>
+
+    <note>
+        <title>The Live Branch is Special</title>
+
+        <para>
+            The Live branch's configuration can be edited, but it cannot have a parent branch, and
+            it cannot be deleted.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

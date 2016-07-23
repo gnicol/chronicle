@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="introduction.welcome" role="sidebar">
+    <title>Welcome!</title>
+
+    <para>
+        Welcome to the 2012.3 release of &product.longname;. This release features the result of our
+        <emphasis>tablet-first</emphasis> initiative, a new theme called
+        <emphasis>Tableau</emphasis> that uses magazine-like styling combined with gesture-based
+        navigation and responsive layouts to resemble native apps for mobile devices.
+    </para>
+
+    <para>
+        &product.name; supports a built-in staging and deployment workflow to quickly get the right
+        content, to the right place, at the right time. Your web team will no longer have to rely on
+        error-prone web publishing tools and time-consuming staging and deployment processes. Using
+        Perforce's Enterprise Version Management technology as its foundation, only a click is
+        required to create new staging and development environments with &product.longname;. With
+        this built-in workflow, taking new content live has never been so simple regardless of the
+        number of users or amount and type of content you are managing.
+    </para>
+
+    <para>
+        &product.name; gives you the creativity you want and the control you need. It combines an
+        easy-to-use <acronym>WYSIWYG</acronym> editor with enterprise-class version management. You
+        can create your own themes and content types, and can extend the product by creating modules
+        and widgets. &product.name; is highly customizable, and we have taken great care to ensure
+        that web developers will be able to do amazing things with it.
+    </para>
+
+    <sidebar id="introduction.program.sidebar">
+        <section label="Unsupported, Open Source Software">
+            <subtitle>
+                <inlinemediaobject>
+                    <imageobject role="inline">
+                        <imagedata width="62" fileref="images/icon-user.jpg" format="JPG"/>
+                    </imageobject>
+                </inlinemediaobject>
+                Unsupported, Open Source Software
+            </subtitle>
+
+            <para>
+                &product.name; is provided as open source software. No support will be provided to
+                you for your use or modification of the code.
+            </para>
+
+            <mediaobject>
+                <textobject>
+                    <link linkend="introduction.opensource"><emphasis>See Our License</emphasis></link>
+                </textobject>
+            </mediaobject>
+        </section>
+    </sidebar>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

@@ -1,0 +1,19 @@
+p4 -p 1111 -u p4cms admin stop
+p4 -p 2222 -u p4cms admin stop
+p4 -p 3333 -u p4cms admin stop
+p4 -p 4444 -u p4cms admin stop
+p4 -p 5555 -u p4cms admin stop
+p4 -p 6666 -u p4cms admin stop
+p4 -p 7777 -u p4cms admin stop
+p4 -p 8888 -u p4cms admin stop
+p4 -p 9999 -u p4cms admin stop
+p4 -p 20111 -u p4cms admin stop
+p4 -p 20112 -u p4cms admin stop
+p4 -p 20121 -u p4cms admin stop
+p4 -p 20122 -u p4cms admin stop
+p4 -p 20123 -u p4cms admin stop
+p4 -p 1173 -u p4cms admin stop
+p4 -p 1174 -u p4cms admin stop
+p4 -p 54321 -u p4cms admin stop
+p4 -p 12345 -u p4cms admin stop
+

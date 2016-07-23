@@ -1,0 +1,36 @@
+<div class="status-wrapper">
+<?  if (is_array($this->content)) {
+        foreach ($this->content as $title => $value) {
+            if (is_array($value)) {
+                if (array_key_exists('status', $value)) {
+                    echo $this->partial('indicator.phtml',
+                        array(
+                            'label'     => $title,
+                            'status'    => $value['status'],
+                            'class'     => $value['displayClass']
+                        )
+                    );
+                }
+            } else if ($title == 'phpinfo') { ?>
+ <div class="status phpinfo"><?
+                // trim off page header/footer markup we don't need
+                $value = preg_replace('/<!DOCTYPE html.+<body><div class="center">/s', '', $value);
+                $value = preg_replace('!</div></body></html>!', '', $value);
+                echo $value;
+?></div>
+<?          } else {
+                echo $this->partial('indicator.phtml',
+                    array(
+                        'label'     => $title,
+                        'status'    => '',
+                        'class'     => 'good',
+                        'message'   => $value
+                    )
+                );
+            }
+        }
+    } else {
+        echo $this->escape($this->content);
+    }
+?>
+</div>

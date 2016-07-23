@@ -1,0 +1,32 @@
+<table>
+  <thead>
+    <tr>
+        <? foreach ($this->columns as $key => $label): ?>
+        <th class="column-<?= $this->escapeAttr($key) ?>">
+            <?= $this->escape($label) ?>
+        </th>
+        <? endforeach ?>
+    </tr>
+  </thead>
+
+  <tbody>
+  <? foreach ($this->details as $detail): ?>
+    <tr class="<?= $detail->conflict ? 'conflict' : '' ?> <?= $this->cycle(array('odd', 'even'))->next() ?>">
+      <? foreach ($this->columns as $key => $label): ?>
+        <td class="column-<?= $this->escapeAttr($key) ?>">
+          <?
+            $value = $detail->getValue($key);
+            // present branch action as add and integrate as edit
+            if ($key == 'action') {
+                $value = $value == 'branch'    ? 'add'  : $value;
+                $value = $value == 'integrate' ? 'edit' : $value;
+                $value = ucfirst($value);
+            }
+          ?>
+          <?= $this->escape($value) ?>
+        </td>
+      <? endforeach ?>
+    </tr>
+  <? endforeach; ?>
+  </tbody>
+</table>

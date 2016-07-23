@@ -1,0 +1,64 @@
+<?= $this->contentEntry()->open() ?>
+<div dojoType="p4cms.mobile.Book"
+    paginate="{sourceNode: '.source', pageOneExtraConfig: {targetNode: '.details-container', columns: 1, outputAllOnFail: false}}">
+  <div dojoType="p4cms.mobile.Page" selected="true">
+    <div class="mblViewContent cover">
+
+      <?
+      // image field: rendered w. max-width/height of 1000px.
+      $entry      = $this->contentEntry()->getEntry();
+      $decorators = $entry->getContentType()->getDisplayDecorators('file');
+      foreach ($decorators as $decorator) {
+          if ($decorator instanceof Content_Form_Decorator_DisplayImage) {
+              $decorator->setOption('maxWidth',  1000)
+                        ->setOption('maxHeight', 1000);
+          }
+      }
+      print $this->contentEntry()->element('file', array('display' => array('decorators' => $decorators)));
+      ?>
+
+      <?
+      // view/download links (if not adding)
+      if ($this->entry->getId() && $this->entry->getFieldMetadata('file')) :
+          $metadata = $this->entry->getFieldMetadata('file');
+      ?>
+        <div class="links">
+          <a href="<?= $this->entry->getUri('image') ?>">View Full Size</a>
+          <a href="<?= $this->entry->getUri('download') ?>">Download</a>
+        </div>
+      <? endif; ?>
+
+      <?= $this->contentEntry()->element('title') ?>
+
+      <div class="details-container"></div>
+    </div>
+  </div>
+  <div class="source" style="display: none;">
+    <dl>
+        <? if (isset($metadata['filename'])) : ?>
+        <dt class="filename">Filename:</dt>
+        <dd class="filename"><?= $this->escape($metadata['filename']) ?></dd>
+        <? endif; ?>
+        <? if (isset($metadata['dimensions']['width']) && isset($metadata['dimensions']['height'])) : ?>
+        <dt class="size">Dimensions:</dt>
+        <dd class="size content-element">
+            <?= $this->escape($metadata['dimensions']['width']) . ' x ' .
+                $this->escape($metadata['dimensions']['height']) .' pixels'?>
+        </dd>
+        <? endif; ?>
+        <? if (isset($metadata['fileSize'])) : ?>
+        <dt class="size">File size:</dt>
+        <dd class="size content-element"><?= $this->fileSize($metadata['fileSize']) ?></dd>
+        <? endif; ?>
+        <dt class="date">Date:</dt>
+        <dd class="date"><?= $this->contentEntry()->element('date') ?></dd>
+        <dt class="creator">Created By:</dt>
+        <dd class="creator"><?= $this->contentEntry()->element('creator') ?></dd>
+        <dt class="description">Description:</dt>
+        <dd class="description"><?= $this->contentEntry()->element('description') ?></dd>
+        <dt class="alt">Alternate Text:</dt>
+        <dd class="alt"><?= $this->contentEntry()->element('alt') ?></dd>
+    </dl>
+  </div>
+</div>
+<?= $this->contentEntry()->close() ?>

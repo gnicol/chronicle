@@ -1,0 +1,69 @@
+#!/bin/bash
+ME=`basename $0`
+
+function usage
+{
+	echo <<! >&2
+Usage: $ME <build>
+	<build> is the path to the build (p4chronicle-1234.5.LIVE-123456.tgz)
+
+!
+	exit 2
+}
+
+[ "$1" == "-h" ] && usage
+[ `id -nu` != "root" ] && echo "please run this as root" && exit 1
+[ -z "$1" ] && echo "specify build to deploy" && usage
+
+BUILD="$1"
+BUILD_NAME_PATTERN='p4chronicle-.*\.tgz'
+basename "$BUILD" | grep -qx "$BUILD_NAME_PATTERN"
+[ $? -ne 0 ] && echo "bad name for build [$BUILD]; expecting [$BUILD_NAME_PATTERN]" && exit 1
+[ ! -r "$BUILD" ] && echo "cannot read [$BUILD]" && exit 1
+
+BUILD_DIR=`cd $(dirname $BUILD); pwd`
+BUILDS_DIR=/data/chronicle/builds
+WWW_DIR=/data/chronicle/www
+WWW_DIR_NAME=`basename $WWW_DIR`
+
+[ ! -d $BUILDS_DIR ] && echo "bad builds dir [$BUILDS_DIR]" && exit 1
+[ ! -d $WWW_DIR ] && echo "bad web dir [$WWW_DIR]" && exit 1
+[ ! -d $WWW_DIR/data ] && echo "cannot find data dir in web dir [$WWW_DIR]" && exit 1
+
+BUILD_TGZ_TLD=`tar -ztf $BUILD 2> /dev/null | head -n1 | awk -F/ '{print $1}'`
+[ -z "$BUILD_TGZ_TLD" ] && echo "cannot get tld of build tarball" && exit 1
+
+BUILD_IN_BUILDS_DIR=$BUILD_DIR/`basename $BUILD`
+
+#for v in BUILD BUILD_NAME_PATTERN BUILD_DIR BUILDS_DIR WWW_DIR WWW_DIR_NAME BUILD_TGZ_TLD BUILD_IN_BUILDS_DIR
+#do
+#	echo -e "$v:\t${!v}"
+#done
+#echo "STOP HERE (pwd is `pwd`)" && exit 0
+
+####################################################################
+echo "$ME: `date`: Chronicle build deploy starting; untar'ing..."
+
+[ "$BUILD_DIR" != "$BUILDS_DIR" ] && echo mv -v $BUILD $BUILDS_DIR/
+cd `dirname $WWW_DIR` || exit 1
+
+tar -zxf $BUILD_IN_BUILDS_DIR
+[ ! -d $BUILD_TGZ_TLD ] && echo "cannot find [$BUILD_TGZ_TLD] in [$PWD]; abort" && exit 1
+
+echo "$ME: `date`: Untar'ing complete; stoping Apache..."
+apachectl graceful-stop || exit 1
+echo "$ME: `date`: Apache stopped; copying data dir to new build dir..."
+
+cp -pr $/data/* $BUILD_TGZ_TLD/data/
+[ ! -d $BUILD_TGZ_TLD/data/resources ] && echo "WARNING: can't find [$BUILD_TGZ_TLD/data/resources]"
+
+echo "$ME: `date`: Copy done; changing permissions..."
+chown www-data $BUILD_TGZ_TLD/data
+
+echo "$ME: `date`: Permissions fixed; moving build into place..."
+mv -v $WWW_DIR_NAME $WWW_DIR_NAME.old.`date +%Y%m%d%H%M%S`
+mv -v $BUILD_TGZ_TLD $WWW_DIR_NAME
+
+apachectl start
+echo "$ME: `date`: Build deployment complete, Apache started"
+

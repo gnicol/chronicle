@@ -1,0 +1,41 @@
+<? $helper = $this->contentEntry(); ?>
+<?= $helper->open() ?>
+<div dojoType="p4cms.mobile.Book"
+    paginate="{sourceNode: '.source', pageOneExtraConfig: {targetNode: '.details-container', columns: 1, outputAllOnFail: false}}">
+ <div dojoType="p4cms.mobile.Page" selected="true">
+  <div class="mblViewContent cover">
+    <?
+    $fields = $helper->getRenderedFields();
+
+    if (in_array('image', $fields)) {
+        print $helper->element('image');
+    }
+    if (in_array('title', $fields)) {
+        print $helper->element('title');
+    }
+    ?>
+    <div class='details-container'></div>
+  </div>
+ </div>
+<div class="source" style="display: none;">
+    <?
+    // show the subheading if its elements are renderable
+    if (in_array('date', $fields) || in_array('author', $fields)) {
+        print "<div class='subhead'>";
+        if (in_array('date', $fields)) {
+            print $helper->element('date');
+        }
+        if (in_array('author', $fields)) {
+            print $helper->element('author');
+        }
+        print "</div>\n";
+    }
+
+    $fields = array_diff($fields, array('image', 'title', 'author', 'date'));
+    foreach ($fields as $field) {
+        print $helper->element($field);
+    }
+    ?>
+</div>
+</div>
+<?= $helper->close() ?>

@@ -1,0 +1,362 @@
+/* Dialogs */
+
+.p4cms-ui.dijitDialog,
+.p4cms-ui.dijitTooltip .dijitTooltipContainer,
+.p4cms-ui.dijitTooltipDialog .dijitTooltipContainer {
+    background: #ededed;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    border: 0px;
+    overflow: visible;
+    color: #1a1a1a;
+    box-shadow: 0px 2px 15px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 2px 15px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 2px 15px rgba(0,0,0,0.5);
+    padding: 0;
+}
+
+.p4cms-ui.dijitDialog.scrolling .scrollNode {
+    padding-right: 5px;
+}
+
+.p4cms-ui.dijitTooltip .dijitTooltipContainer {
+    color: #ededed;
+    background: #1a1a1a;
+    font-size: 13px;
+    padding: 10px;
+}
+
+.p4cms-ui.dijitTooltipDialog .dijitTooltipContainer {
+    border: 1px solid #a7a7a7;
+    margin-top: 0px;
+    margin-bottom: 2px;
+    padding: 10px;
+}
+.p4cms-ui.dijitDialog:focus,
+.p4cms-ui.dijitTooltipDialog:focus {
+    outline: none
+}
+
+.p4cms-ui.dijitTooltip .dijitTooltipConnector {
+    background: url('images/tooltip-connectors.png') no-repeat;
+}
+.p4cms-ui.dijitTooltipDialog .dijitTooltipConnector {
+    background: url('images/dialog-connectors.png') no-repeat;
+}
+.p4cms-ui.dijitTooltipLeft .dijitTooltipConnector {
+    background-position: 0 0;
+    width: 9px;
+    height: 17px;
+    top: 7px;
+    right: 5px;
+}
+.p4cms-ui.dijitTooltipRight .dijitTooltipConnector {
+    background-position: -30px 0;
+    width: 9px;
+    height: 17px;
+    top: 7px;
+    left: 5px;
+}
+.p4cms-ui.dijitTooltipAbove {
+    padding: 0 3px 8px 0;
+}
+.p4cms-ui.dijitTooltipAbove .dijitTooltipConnector {
+    background-position: -11px 0;
+    width: 17px;
+    height: 9px;
+    bottom: 2px;
+    right: 9px;
+}
+.p4cms-ui.dijitTooltipABLeft .dijitTooltipConnector {
+    left: 12px;
+}
+.p4cms-ui.dijitTooltipBelow {
+    padding: 10px 3px 0 0;
+}
+.p4cms-ui.dijitTooltipBelow .dijitTooltipConnector {
+    background-position: -11px -9px;
+    width: 17px;
+    height: 9px;
+    top: 2px;
+    right: 9px;
+}
+
+.p4cms-ui_underlay.dijitDialogUnderlay {
+    background-color: #000;
+}
+.p4cms-ui.dijitDialog .dijitContentPane,
+.p4cms-ui.dijitTooltipDialog .dijitContentPane {
+    padding: 0;
+    background: transparent;
+}
+
+.p4cms-ui .dijitDialogTitleBar {
+    font-size: 17px;
+    font-weight: bold;
+    color: #1a1a1a;
+    padding: 8px 0 0 11px;
+    background: none;
+    border: 0px;
+    margin-bottom: 4px;
+}
+.p4cms-ui .dijitDialogTitle {
+    padding: 0 50px 0 0;
+}
+.p4cms-ui .dijitDialogCloseIcon {
+    background-image: url('images/close.png');
+    background-position: 50% 50%;
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 32px;
+    width: 33px;
+}
+.p4cms-ui .dijitDialogCloseIconHover {
+    background-position: 50% 50%;
+}
+
+.p4cms-ui .dijitDialogPaneContent {
+    background: none;
+    border: 0px;
+    font-size: 13px;
+    padding: 0 8px 8px 8px;
+}
+
+.p4cms-ui.dijitDialog .display-group,
+.p4cms-ui.dijitTooltipDialog .display-group {
+    background: white;
+    border: 1px solid #d7d7d7;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+    border-radius: 7px;
+    color: #1a1a1a;
+    margin-left: 0;
+}
+
+.p4cms-ui.dijitDialog fieldset,
+.p4cms-ui.dijitTooltipDialog fieldset {
+    border: 0px;
+    margin: 10px;
+    padding: 0;
+}
+
+.p4cms-ui.dijitDialog .grid-options form fieldset .display-group {
+    border: none;
+    background-color: transparent;
+}
+
+.p4cms-ui.dijitDialog fieldset legend,
+.p4cms-ui.dijitTooltipDialog fieldset legend {
+    font-size: 15px;
+    font-weight: bold;
+    padding: 3px 0 8px 0;
+}
+
+.p4cms-ui.dijitDialog fieldset dl,
+.p4cms-ui.dijitTooltipDialog fieldset dl {
+    padding-top: 8px;
+}
+.p4cms-ui.dijitDialog dl dt,
+.p4cms-ui.dijitTooltipDialog dl dt {
+    font-size: 13px;
+    padding-right: 5px;
+    width: 140px;
+}
+.p4cms-ui.dijitTooltipDialog dl dt {
+    width: 65px;
+}
+.p4cms-ui.dijitDialog dl dd,
+.p4cms-ui.dijitTooltipDialog dl dd {
+    font-size: 13px;
+    float: none;
+    margin: 0 0 8px 145px;
+    min-width: 200px;
+}
+.p4cms-ui.dijitTooltipDialog dl dd {
+    min-width: 100px;
+    margin-left: 70px;
+}
+
+.p4cms-ui.dijitDialog p.prompt,
+.p4cms-ui.dijitTooltipDialog p {
+    display: block;
+    margin: 20px;
+}
+
+/* Work around a problem where dijitTooltipAbove/Below class is not
+   applied before dijit.popup.open().  As the result, the left or right
+   paddings are not calculated when openning the tooltip the first time.
+   The left/right padding value should be the same as those defined
+   in .p4cms-ui.dijitTooltipAbove/Below
+*/
+.p4cms-ui.confirm-dialog.dijitTooltipDialog {
+    padding-right: 3px;
+}
+.p4cms-ui.confirm-dialog .dijitDialogPaneContent {
+    margin: 20px 20px 0px 20px;
+}
+.p4cms-ui.confirm-dialog .dijitDialogPaneContent .scrollNode {
+    margin: 20px 0;
+}
+.p4cms-ui.confirm-dialog .dijitDialogPaneContent p {
+    margin: 5px 0;
+}
+.p4cms-ui.confirm-dialog .dijitDialogPaneContent #buttons-element {
+    margin: 25px -15px 5px 0;
+}
+.p4cms-ui.confirm-dialog .dijitTooltipContents {
+    margin: 8px;
+    font-size: 13px;
+}
+.p4cms-ui.confirm-dialog .dijitTooltipContents #buttons-element {
+    margin-top: 20px;
+}
+
+.p4cms-ui.dijitDialog fieldset p.description,
+.p4cms-ui.dijitTooltipDialog fieldset p.description {
+    font-size: 12px;
+    color: #474747;
+}
+
+/* TABS (side nav) */
+
+.p4cms-ui.dijitDialog .dijitTabContainerLeft-tabs {
+    width: 166px;
+    margin-right: 8px;
+    border: 0 none;
+}
+.p4cms-ui.dijitDialog .dijitTabContainer,
+.p4cms-ui.dijitDialog .dijitTabContainerLeft-container {
+    padding: 4px 4px 0px 4px;
+}
+
+.p4cms-ui.dijitDialog .dijitTab {
+    margin: 1px 0 5px 0;
+    height: 31px;
+}
+.p4cms-ui.dijitDialog .dijitTabInnerDiv,
+.p4cms-ui.dijitDialog .dijitTabActive .dijitTabInnerDiv,
+.p4cms-ui.dijitDialog .dijitTabContent,
+.p4cms-ui.dijitDialog .dijitTabActive .dijitTabContent {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border: 0 none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+.p4cms-ui.dijitDialog .dijitTabContent div {
+    overflow: hidden;
+}
+
+.p4cms-ui.dijitDialog img.dijitIcon {
+    display: none;
+}
+.p4cms-ui.dijitDialog .dijitTab.dijitTabActive,
+.p4cms-ui.dijitDialog .dijitTab.dijitTabChecked,
+.p4cms-ui.dijitDialog .dijitTab.dijitTabHover {
+    background: url('../../setup/resources/images/step-arrow-cap.png') right top no-repeat;
+}
+
+.p4cms-ui.dijitDialog .dijitTab .tabLabel {
+    float: left;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #1a1a1a;
+    padding: 7px 0px 7px 10px;
+    border: 1px solid #a7a7a7;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    background: url('../../ui/resources/images/button-bg.png') left top repeat-x;
+    width: 144px;
+}
+
+.p4cms-ui.dijitDialog .dijitTab.dijitTabActive .tabLabel,
+.p4cms-ui.dijitDialog .dijitTab.dijitTabChecked .tabLabel,
+.p4cms-ui.dijitDialog .dijitTab.dijitTabHover .tabLabel {
+    background: url('../../ui/resources/images/button-bg-hover.png') left top repeat-x;
+    border-right: 0px;
+    -webkit-border-top-right-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    -moz-border-radius-bottomright: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+/* Button position / container styles */
+
+.p4cms-ui.dijitDialog #buttons-element,
+.p4cms-ui.dijitTooltipDialog #buttons-element {
+    margin: 10px 0px 0px 10px;
+    background: none;
+    clear: both;
+    text-align: right;
+    border: none;
+}
+.p4cms-ui.dijitTooltipDialog #buttons-element {
+    margin: 10px 0px 0px 0px;
+    left: 5px;
+    top: 5px;
+}
+
+.p4cms-ui.dijitDialog #buttons-element fieldset,
+.p4cms-ui.dijitTooltipDialog #buttons-element fieldset {
+    display: inline-block;
+}
+.p4cms-ui.dijitDialog #buttons-element dl,
+.p4cms-ui.dijitTooltipDialog #buttons-element dl {
+    padding-top: 0;
+}
+.p4cms-ui.dijitDialog #buttons-element dl dd,
+.p4cms-ui.dijitTooltipDialog #buttons-element dl dd {
+    min-width: 0;
+    float: left;
+}
+
+.p4cms-ui.dijitDialog .buttons,
+.p4cms-ui.dijitTooltipDialog .buttons {
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+.p4cms-ui.dijitDialog .buttons dl dd,
+.p4cms-ui.dijitTooltipDialog .buttons dl dd {
+    margin: 0;
+}
+
+/* Help Dialogs */
+
+.p4cms-help-dialog div.dijitDialogPaneContent {
+     height: 350px;
+}
+
+.p4cms-help-dialog div iframe#helpFrame {
+    height: 350px;
+    width: 100%;
+}
+
+/* Progress Bar Dialogs */
+.p4cms-ui-progressBarDialog .abstract {
+    margin: 1em 0;
+}
+
+.p4cms-ui-progressBarDialog .p4cms-progressBox {
+    margin: 4px;
+}
+
+/* Loading Indicator */
+
+.p4cms-ui.dijitDialog .dijitContentPaneLoading {
+    background-image: url('images/loading-64x64.gif');
+    background-position: center;
+    padding: 150px 200px;
+    display: block;
+    text-indent:-9999px
+}

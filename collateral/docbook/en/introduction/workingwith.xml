@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="getstarted.workwith">
+    <title>Working with &product.name;</title>
+
+    <para>
+        You perform most &product.longname; tasks by choosing an option from the toolbar, which is
+        displayed after you log in. The following section provides an overview of &product.name;
+        tasks.
+    </para>
+
+    <note>
+        <title>Important</title>
+
+        <para>
+            In order to operate &product.name; properly, you must have javascript and cookies
+            enabled in your browser.
+        </para>
+    </note>
+
+    <section id="getstarted.manage-toolbar">
+        <title>Manage Toolbar</title>
+
+        <para>
+            Once you have successfully logged in, the Manage Toolbar appears, which is the
+            primary interface for working with &product.name;.
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/toolbar-manage.png"/>
+            </imageobject>
+        </mediaobject>
+
+        <para>
+            The toolbar includes, from left to right:
+        </para>
+
+        <variablelist>
+            <varlistentry>
+                <term>Active Branch Indicator</term>
+
+                <listitem>
+                    "Live" indicates the active branch. If you create another branch and view it,
+                    this indicator reports the new branch's name. Clicking the indicator presents a
+                    popup menu of available branches to view and common branch tasks. Please see
+                    <xref linkend="branches.overview"/> for more details.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Manage</term>
+
+                <listitem>
+                    Presents a menu of management operations. Please see the description below.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Content</term>
+
+                <listitem>
+                    Clicking <emphasis role="bold">Content</emphasis> displays the
+                    <emphasis role="screen">Manage Content</emphasis> screen, providing easy access
+                    to all of your site's content and content management features. Please see
+                    <xref linkend="content.manage"/> for more details.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Add</term>
+
+                <listitem>
+                    Clicking <emphasis role="bold">Add</emphasis> begins the process of adding
+                    content. Please see <xref linkend="content.add"/> for more details.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Widgets</term>
+
+                <listitem>
+                    Clicking <emphasis role="bold">Widgets</emphasis> enables widget management
+                    mode that allows widgets to be added, configured, or deleted from regions
+                    specified by the active theme. Please see <xref linkend="widgets"/> for more
+                    details.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Help</term>
+
+                <listitem>
+                    Clicking <emphasis role="bold">Help</emphasis> presents the &product.name;
+                    in-application documentation, so that you can learn about various aspects of
+                    the product while you are using it.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Back to Website</term>
+
+                <listitem>
+                    <emphasis>Not shown</emphasis> is the <emphasis role="bold">Back to
+                    Website</emphasis> item, which only appears when you are viewing management
+                    pages, and when clicked displays the home page of your site.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Hi, <replaceable>username</replaceable></term>
+
+                <listitem>
+                    Clicking the greeting presents a popup menu containing the options
+                    <emphasis role="bold">User Profile</emphasis>, which lets you access your
+                    &product.name; profile page, and <emphasis role="bold">Logout</emphasis>,
+                    which logs you out of &product.name; and ends your management session.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+
+        <para>
+            When a content page is being displayed, the toolbar includes some additional options:
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/toolbar-manage-content.png"/>
+            </imageobject>
+        </mediaobject>
+
+        <variablelist>
+            <varlistentry>
+                <term>Edit</term>
+
+                <listitem>
+                    Clicking <emphasis role="bold">Edit</emphasis> toggles content editing mode.
+                    Please see <xref linkend="content.edit"/> for more details.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>History</term>
+
+                <listitem>
+                    Clicking History opens a sub-toolbar allowing you to explore previous versions
+                    of content. Please see <xref linkend="content.history"/> for more details.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+
+    <section id="getstarted.manage-menu">
+        <title>Manage Menu</title>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-toolbar_menu.png"/>
+            </imageobject>
+        </mediaobject>
+
+        <bridgehead>
+            Content Management Options
+        </bridgehead>
+
+        <itemizedlist>
+            <listitem>
+                <emphasis>Content</emphasis>: enables you to create content using
+                &product.name; content types.
+            </listitem>
+
+            <listitem>
+                <emphasis>Content Types</emphasis>: enables you to create templates for
+                content, to ensure consistency and per-type styling.
+            </listitem>
+
+            <listitem>
+                <emphasis>Categories</emphasis>: enables you to categorize your content, providing
+                additional content navigation opportunities.
+            </listitem>
+
+            <listitem>
+                <emphasis>Workflows</emphasis>: enables you to specify states for your content that
+                can specify conditions that must be met to transition to the next state, and actions
+                to be taken during a state transition.
+            </listitem>
+        </itemizedlist>
+
+        <bridgehead>
+            Site Configuration Options
+        </bridgehead>
+
+        <itemizedlist>
+            <listitem>
+                <emphasis>General Settings</emphasis>: manage your site's name, its description, and
+                <filename>robots.txt</filename> configuration.
+            </listitem>
+
+            <listitem>
+                <emphasis>Menus</emphasis>: manage menus to provide navigation facilities in a web
+                site.
+            </listitem>
+
+            <listitem>
+                <emphasis>Themes</emphasis>: manage themes, which control the overall
+                styling of a web site.
+            </listitem>
+
+            <listitem>
+                <emphasis>Modules</emphasis>: manage extensions that can be added to a web
+                site.
+            </listitem>
+        </itemizedlist>
+
+        <bridgehead>
+            User Management Options
+        </bridgehead>
+
+        <itemizedlist>
+            <listitem>
+                <emphasis>Users</emphasis>: add new users, edit or delete existing users.
+            </listitem>
+
+            <listitem>
+                <emphasis>Roles</emphasis>: define roles, which can be assigned to users to
+                allow them to perform various kinds of management tasks.
+            </listitem>
+            
+            <listitem>
+                <emphasis>Permissions</emphasis>: specify the tasks that each role can
+                perform.
+            </listitem>
+        </itemizedlist>
+
+        <bridgehead>
+            System Options
+        </bridgehead>
+
+        <itemizedlist>
+            <listitem>
+                <emphasis>Site and Branches</emphasis>: manage the sites hosted by this instance
+                of &product.name; and all the branches associated with each site.
+            </listitem>
+
+            <listitem>
+                <emphasis>System Information</emphasis>: reports on the current state of
+                &product.name;, its modules and operating environment.
+            </listitem>
+
+            <listitem>
+                <emphasis>Add Site</emphasis>: add a new web site to your
+                &product.name; installations.
+            </listitem>
+        </itemizedlist>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

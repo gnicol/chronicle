@@ -1,0 +1,57 @@
+<?= $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<?= $this->headMeta() ?>
+<?= $this->headTitle() ?>
+<?= $this->dojo() ?>
+<?= $this->headScript() ?>
+<?= $this->headLink() ?>
+<?= $this->headStyle() ?>
+</head>
+
+<body class='claro
+ <?=$this->layout()->getLayout()?>
+ <?=$this->request()->getModuleName()?>-module
+ <?=$this->request()->getControllerName()?>-controller
+ <?=$this->request()->getActionName()?>-action'>
+<?=$this->toolbar()?>
+<?=$this->notifications()?>
+
+<div id="header">
+ <div class="container">
+<?= $this->region('header') ?>
+ </div>
+</div>
+
+<div id="nav">
+ <div class="container">
+<?= $this->menu('primary', array('maxDepth' => 0)); ?>
+ </div>
+</div>
+
+<?
+    $requestedPage = join('-',
+        array(
+            $this->request()->getModuleName(),
+            $this->request()->getControllerName(),
+            $this->request()->getActionName()
+        )
+    );
+    $targetsNeedingAContainer = array(
+        'category-index-index'  => true,
+        'menu-index-sitemap'    => true
+    );
+    $emitContainer = array_key_exists($requestedPage, $targetsNeedingAContainer) ? true : false;
+?>
+<? if ($emitContainer) { echo '<div class="container">'; } ?>
+<?= $this->layout()->content ?>
+<? if ($emitContainer) { echo '</div>'; } ?>
+
+<div id="footer">
+ <div class="container">
+<?= $this->region('footer') ?>
+ </div>
+</div>
+
+</body>
+</html>

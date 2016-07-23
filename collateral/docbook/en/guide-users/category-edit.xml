@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="navigation.category.edit">
+    <title>Editing Categories</title>
+
+    <bridgehead>
+        To edit an existing category:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click <guibutton>Manage</guibutton> in the &product.longname; toolbar.
+            
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-manage.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guimenuitem>Categories</guimenuitem>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-toolbar_menu-categories.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The <emphasis role="screen">Manage Categories</emphasis> screen is displayed.
+        </listitem>
+
+        <listitem>
+            Scroll through the available categories to locate the menu you wish to edit.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-manage_categories-action.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click the button in the <emphasis role="bold">Actions</emphasis> column in the row
+            containing the category you wish to edit.
+        </listitem>
+
+        <listitem>
+            Select the <guimenuitem>Edit</guimenuitem> option.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/popup_menu-category_edit.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para></para>
+
+            The <emphasis role="dialog">Edit Category</emphasis> dialog is displayed.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-edit_category.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Revise the category as required.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton>. The <emphasis role="screen">Manage
+            Categories</emphasis> screen is redisplayed listing your updated category.
+        </listitem>
+    </orderedlist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

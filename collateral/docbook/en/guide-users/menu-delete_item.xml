@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="navigation.menu.delete.item">
+    <title>Deleting Menu Items</title>
+
+    <bridgehead>
+        To delete a menu item:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click <guibutton>Manage</guibutton> in the &product.longname; toolbar.
+            
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-manage.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guimenuitem>Menus</guimenuitem>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-toolbar_menu-menus.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The <emphasis role="screen">Manage Menus</emphasis> screen is displayed.
+        </listitem>
+
+        <listitem>
+            Scroll through the available menus to locate the menu item you wish to delete.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-manage_menus-action_item.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click the button in the <emphasis role="bold">Actions</emphasis> column in the row
+            containing the menu item you wish to delete.
+        </listitem>
+
+        <listitem>
+            Select the <guimenuitem>Delete</guimenuitem> option.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/popup_menu-menu_item_delete.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para></para>
+
+            The <emphasis role="dialog">Delete Menu Item</emphasis> confirmation dialog is
+            displayed.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-delete_menu_item.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click the <guibutton>Delete</guibutton> button in the dialog to complete the
+            deletion of the menu item. The <emphasis role="screen">Manage Menu</emphasis> screen is
+            redisplayed and no longer lists the deleted menu item.
+        </listitem>
+    </orderedlist>
+
+    <section id="navigation.menu.delete.content.edit">
+        <title>How to Delete a Menu Item for a Content Entry While Editing</title>
+
+        <para>
+            Please refer to <xref linkend="navigation.menu.add.content.edit"/>, specifically the
+            description of the <emphasis role="bold">Remove</emphasis> link.
+        </para>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

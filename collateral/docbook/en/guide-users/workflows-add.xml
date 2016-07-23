@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="workflows.add">
+    <title>Adding Workflows</title>
+
+    <bridgehead>
+        To add a new workflow to a web site:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click <guibutton>Manage</guibutton> in the &product.longname; toolbar.
+            
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-manage.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guimenuitem>Workflows</guimenuitem>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-toolbar_menu-workflows.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The <emphasis role="screen">Manage Workflows</emphasis> screen is displayed.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Add Workflow</guibutton>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-manage_workflows-add.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para></para>
+
+            The <emphasis role="dialog">Add Workflow</emphasis> dialog is displayed.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-add_workflow.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Define the workflow by specifying the following information:
+
+            <variablelist>
+                <varlistentry>
+                    <term>Id</term>
+
+                    <listitem>
+                        An identifier for this workflow that must be unique among workflows. Valid
+                        characters include letters, numbers, dashes, slashes ("/"), underscores,
+                        and periods.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Label</term>
+
+                    <listitem>
+                        A friendly identifier for this workflow.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Description</term>
+
+                    <listitem>
+                        A description of this workflow that is displayed in the
+                        <emphasis role="screen">Manage Workflows</emphasis> screen.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>States</term>
+
+                    <listitem>
+                        Specifies the states that compose the workflow. For more detail, see
+                        <xref linkend="workflows.configure"/>.
+                    </listitem>
+                </varlistentry>
+            </variablelist>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton>. The <emphasis role="screen">Manage
+            Workflows</emphasis> screen is redisplayed, listing your new workflow.
+        </listitem>
+    </orderedlist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

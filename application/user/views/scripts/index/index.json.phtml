@@ -1,0 +1,27 @@
+<?
+// setup paginated user adapter.
+$adapter    = new Zend_Paginator_Adapter_Iterator($this->users);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// serve dojo data to populate the data grid.
+// pass per-item callback to craft each entry.
+print $this->dataGrid()->dojoData(
+    $paginator,
+    function($user, $dataGrid)
+    {
+        return array(
+            'id'            => $user->getId(),
+            'fullName'      => $user->getFullName(),
+            'email'         => $user->getEmail(),
+            'roles'         => json_encode($user->getRoles()->invoke('getId')),
+            'editUri'       => $dataGrid->view->url(
+                array('module' => 'user', 'controller' => 'index', 'action' => 'edit', 'id' => $user->getId())
+            ),
+            'deleteUri'     => $dataGrid->view->url(
+                array('module' => 'user', 'controller' => 'index', 'action' => 'delete', 'id' => $user->getId())
+            ),
+        );
+    }
+);

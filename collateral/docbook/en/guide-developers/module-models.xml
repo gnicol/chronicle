@@ -1,0 +1,78 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.models">
+    <title>Models</title>
+
+    <para>
+        A <emphasis>model</emphasis> is a class that manages the behavior and data of a particular
+        type of data in &product.longname;. The model provides an <acronym>API</acronym> for
+        retrieving, updating, and removing data. Models can vary greatly: a model's data can be
+        read-only (e.g. for an external <acronym>RSS</acronym> feed) or write-only (for a message
+        queue) or combinations that involve storage in files, Perforce, databases and other sources.
+        Place models in the <filename>models</filename> folder under your module's folder.
+    </para>
+
+    <para>
+        &product.name; provides classes which can be extended when creating a model.
+        <classname>P4Cms_Model</classname> provides a base implementation for data models that have
+        key/value pairs (fields) along with useful functionality for, optionally, mapping in
+        accessor/mutator methods for the underlying fields. <classname>P4Cms_Model</classname> does
+        not provide any storage or retrieval allowing you to use an arbitrary backend.
+        The <classname>P4Cms_Record</classname> class adds persistent storage of data models in
+        Perforce and is recommended if that is your intended datastore. Lastly
+        <classname>P4Cms_Record_PubSubRecord</classname> broadcasts events such as
+        <emphasis>preSave</emphasis>, <emphasis>postSave</emphasis>, <emphasis>query</emphasis>,
+        allowing other modules to participate in your model's life-cycle. This subject is covered in
+        greater detail in our <ulink url="../api/class_p4_cms___model.html">API
+        documentation</ulink>.
+    </para>
+
+    <para>
+        Here is the skeleton of a model based on <classname>P4Cms_Model</classname> for the
+        <classname>Foo</classname> module:
+    </para>
+
+<programlisting language="php">
+&lt;?php
+/**
+ * Model description
+ *
+ * @copyright   copyright info
+ * @license     license info
+ * @version     version info
+ */
+class Foo_Model_Bar extends P4Cms_Model
+{
+    // define the fields this model requires
+    protected static $_fields = array(
+        'type',
+        'label',
+    );
+
+    /**
+     * Description
+     *
+     * @return  string  The identifier in the form &lt;type&gt;-&lt;label&gt;
+     */
+    public function getId()
+    {
+        return $this-&gt;getValue('type') . '-' . $this-&gt;getValue('label');
+    }
+}
+</programlisting>
+
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

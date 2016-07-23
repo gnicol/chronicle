@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="introduction.installation">
+    <title>Installation &amp; Configuration</title>
+
+    <para>
+        To run &product.longname; on your local machine, you must install a local web server and
+        <acronym>PHP</acronym>. (A simple solution for Linux is the <acronym>LAMP</acronym>
+        software suite.)
+    </para>
+
+    <section id="introduction.installation.requirements">
+        <title>System requirements</title>
+
+        <itemizedlist>
+            <listitem>
+                Apache web server with mod_rewrite enabled
+            </listitem>
+
+            <listitem>
+                PHP 5.3
+            </listitem>
+        </itemizedlist>
+    </section>
+
+    <para>
+        To install &product.name;, you should already have downloaded the installation archive.
+        Unpack the archive in your local web server root (for example,
+        <filename>/var/www/</filename>). After the files are extracted,
+        follow the steps in the <filename>INSTALL.TXT</filename> file.
+    </para>
+
+    <section id="overview.installation.configure">
+        <title>To run &product.name; and configure your first web site</title>
+
+        <orderedlist>
+            <listitem>
+                Use your browser to visit the location where &product.name; is installed.
+                The <emphasis role="screen">Setup</emphasis> welcome screen is displayed.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-setup-welcome.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                <para>
+                    Click <guibutton>Start Setup</guibutton>. &product.name; performs a series of
+                    checks to verify that your system is properly configured and then displays the
+                    <emphasis role="screen">Setup: Requirements</emphasis> screen.
+                </para>
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-setup-requirements.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                <para>
+                    If any problems are reported, a <guibutton>Check again</guibutton> button
+                    appears; remedy the problems, and then click the button to check your
+                    configuration again. (You might be required to create a data directory, a
+                    writable folder that is required to store &product.name; files and the local
+                    Perforce server.)
+                </para>
+            </listitem>
+
+            <listitem>
+                When all requirements are met, click <guibutton>Continue</guibutton>. &product.name;
+                displays the <emphasis role="screen">Setup: Site Storage</emphasis> screen.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-setup-storage.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                When prompted to choose the Perforce Server options, choose
+                <emphasis role="bold">Automatically create a Perforce depot</emphasis>. This option
+                launches the Perforce server on your web server.
+
+                <note>
+                    <title>If you choose an existing Perforce Server</title>
+
+                    <para>
+                        If you intend to store the site's content into an existing Perforce Server,
+                        please ensure the "chronicle" user does not already exist.
+                    </para>
+                </note>
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Continue</guibutton>. &product.name; displays the
+                <emphasis role="screen">Setup: Administrator</emphasis> screen.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-setup-administrator.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem id="setup.set-admin-password">
+                Specify the user name, email address, and password for the &product.name;
+                administrator and click <guibutton>Continue</guibutton>. &product.name; displays
+                the <emphasis role="screen">Setup: Site</emphasis> screen.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-setup-site.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                <para>
+                    The <emphasis role="bold">Site Name</emphasis> is a label for your site's
+                    configuration. The <emphasis role="bold">Description</emphasis> is an optional
+                    summary of your site. The <emphasis role="bold">Site Address</emphasis> is a
+                    list of host names that &product.name; will respond to for your site. Reasonable
+                    values are presented by default, but you need to ensure that your web server
+                    configuration supports any addresses you supply here.
+                </para>
+
+                <para>
+                    Click <guibutton>Create Site</guibutton>. &product.name; displays the
+                    <emphasis role="screen">Setup: Summary</emphasis> screen, containing a summary of
+                    the site information.
+                </para>
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-setup-summary.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guibutton>View Site</guibutton>. &product.name; displays your freshly created
+                site.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-home_page-default.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Login</guibutton>
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-home_page-login-callout.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                and login as "admin," entering the password you created in step
+                <xref linkend="setup.set-admin-password"/>.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-login.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                &product.name; displays the Management toolbar and a notification indicating a
+                successful login.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-home_page-login_success.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+        </orderedlist>
+
+        <para>
+            Congratulations! You're ready to start creating a web site. The following sections
+            provide an overview of working with &product.name; and tell you how to create content
+            and a few basic web pages that display the content.
+        </para>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

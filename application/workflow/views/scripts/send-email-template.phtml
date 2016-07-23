@@ -1,0 +1,27 @@
+<table cellspacing="5">
+    <tr>
+        <td>Transition: </td>
+        <td><?= $this->escape($this->transition->getLabel()) ?></td>
+    </tr>
+    <tr>
+        <td>From State: </td>
+        <td><?= $this->escape($this->transition->getFromState()->getLabel()) ?></td>
+    </tr>
+    <tr>
+        <td>To State: </td>
+        <td><?= $this->escape($this->transition->getToState()->getLabel()) ?></td>
+    </tr>
+    <?  if ($this->record instanceof P4Cms_Content): ?>
+    <tr>
+        <td>Content Entry: </td>
+        <td>
+            <? $siteUrl = P4Cms_Site::fetchActive()->getConfig()->getUrl();
+            if ($siteUrl): ?>
+              <a href="<?= $this->escape($siteUrl . $this->record->getUri()) ?>"><?= $this->record->getTitle() ?></a>
+            <? else: ?>
+              <?= $this->record->getTitle() ?>
+            <? endif; ?>
+        </td>
+    </tr>
+    <?  endif; ?>
+</table>

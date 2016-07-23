@@ -1,0 +1,75 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.views">
+    <title>Views</title>
+
+    <para>
+        A <emphasis>view</emphasis> is defined by a <emphasis>view script</emphasis>, an
+        <acronym>HTML</acronym> file that can contain <acronym>PHP</acronym> directives. The view
+        script can use <emphasis>view helpers</emphasis>, which are classes that produce markup.
+        View helpers are useful when the required markup is complex or used repeatedly in different
+        locations. Place view helpers in the <filename>views/helpers</filename> folder under your
+        module's folder.
+    </para>
+
+    <para>
+        Here is the skeleton of a view helper <emphasis>bar</emphasis> for the
+        <classname>Foo</classname> module:
+    </para>
+
+<programlisting language="php">
+&lt;?php
+/**
+ * View helper description
+ *
+ * @copyright   copyright info
+ * @license     license info
+ * @version     version info
+ */
+class Foo_View_Helper_Bar extends Zend_View_Helper_Abstract
+{
+    /**
+     * Bar description
+     *
+     * @param   boolean  $capitalize  Whether the output should be in caps.
+     * @return  string   the generated markup.
+     */
+    public function bar($capitalize = false)
+    {
+        return $capitalize ? 'BAR' : 'bar';
+    }
+}
+</programlisting>
+
+    <para>
+        To use this view helper in your view script:
+    </para>
+
+<programlisting language="php">
+The following line outputs bar:
+&lt;?= $this-&gt;bar(); ?&gt;
+
+The following line outputs BAR:
+&lt;?= $this-&gt;bar(true); ?&gt;
+</programlisting>
+
+    <para>
+        For more details, see <xref linkend="modules.controllers.view.scripts"/> and the
+        <ulink url="http://framework.zend.com/manual/1.11/en/zend.view.helpers.html">Zend
+        Framework documentation</ulink>.
+    </para>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

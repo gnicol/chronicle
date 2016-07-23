@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.urls">
+    <title>Content <acronym>URL</acronym>s</title>
+
+    <para>
+        As you create content, &product.longname; automatically generates a unique
+        <acronym>URL</acronym> for each entry based on its title. If the title is subsequently
+        changed, the entry's <acronym>URL</acronym> is also updated; the original
+        <acronym>URL</acronym> continues to work, but becomes available for re-use.
+    </para>
+
+    <para>
+        If the default <acronym>URL</acronym> is undesirable, you can customize it while editing the
+        content entry (see steps <link linkend="content.urls.customize">below</link>). There are no
+        restrictions on the characters used to create a custom <acronym>URL</acronym>, but be aware
+        that some special characters may be encoded.
+    </para>
+
+    <note>
+        <title><acronym>URL</acronym>s Must Be Unique</title>
+
+        <para>
+            &product.name;'s automatically generated <acronym>URL</acronym>s are always unique.
+            When you customize a <acronym>URL</acronym>, you must avoid collisions with other
+            custom <acronym>URL</acronym>s and built-in <acronym>URL</acronym>s such as
+            <filename>/user/login</filename>.
+        </para>
+    </note>
+
+    <bridgehead>
+        To customize a content entry <acronym>URL</acronym>:
+    </bridgehead>
+
+    <orderedlist id="content.urls.customize">
+        <listitem>
+            Navigate to the content entry, and begin editing:
+
+            <orderedlist>
+                <listitem>
+                    Navigate to the content by using links or menus provided by the site.
+                </listitem>
+
+                <listitem>
+                    Click <guibutton>Content</guibutton> in the &product.longname; toolbar.
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/toolbar-manage-content_focus.png"/>
+                        </imageobject>
+                    </mediaobject>
+
+                    <para></para>
+
+                    The <emphasis role="screen">Manage Content</emphasis> screen is displayed.
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/screen-manage_content-title.png"/>
+                        </imageobject>
+                    </mediaobject>
+
+                    Scroll through the available content to locate the content entry you wish to
+                    edit, then click on the entry's title to display it.
+                </listitem>
+            </orderedlist>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Edit</guibutton> in the &product.name; toolbar to begin editing.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-content-edit.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>URL</guibutton>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-edit_content-url.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The <guimenuitem>URL</guimenuitem> tooltip dialog is displayed. The dialog shows your
+            site's primary <acronym>URL</acronym> followed by the portion that represents the
+            current content entry. When <emphasis role="bold">Use Title for URL</emphasis> is
+            selected, the input field is disabled.
+        </listitem>
+
+        <listitem>
+            Click <emphasis role="bold">Custom</emphasis>. The input field becomes active.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-content_edit-url-custom.png"/>
+                </imageobject>
+            </mediaobject>
+
+            Enter the custom <acronym>URL</acronym> that represents the current content entry.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-edit_content-save.png"/>
+                </imageobject>
+            </mediaobject>
+
+            Your revised content is saved, and editing ends.
+        </listitem>
+    </orderedlist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

@@ -1,0 +1,7 @@
+<?
+// assemble json response
+$response            = array();
+$response['form']    = $this->render('configure/index.partial.phtml');
+$response['errors']  = isset($this->errors) ? $this->errors : null;
+
+print $this->json($response);

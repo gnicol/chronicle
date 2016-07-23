@@ -1,0 +1,187 @@
+/* Workflow Form */
+
+.p4cms-ui .workflow-form textarea#description,
+.p4cms-ui .workflow-form textarea#states {
+    width: 500px;
+}
+
+/* Content sub-form styles */
+
+.p4cms-ui .workflow-sub-form #scheduleGroup-element,
+.p4cms-ui .workflow-dialog #scheduleGroup-element {
+    border: 0;
+    background-color: transparent;
+    padding: 0;
+}
+
+.p4cms-ui .workflow-sub-form #workflow-scheduledDate-label,
+.p4cms-ui .workflow-sub-form #workflow-scheduledTime-label,
+.p4cms-ui .workflow-dialog #scheduledDate-label,
+.p4cms-ui .workflow-dialog #scheduledTime-label {
+    display: none;
+}
+
+.p4cms-ui .workflow-sub-form #fieldset-scheduleGroup dd .dijitDateTextBox,
+.p4cms-ui .workflow-dialog #fieldset-scheduleGroup dd .dijitDateTextBox {
+    width: 125px;
+    height: 18px;
+    position: relative;
+    left: 18px;
+}
+
+.p4cms-ui .workflow-sub-form .dijitInputInner,
+.p4cms-ui .workflow-dialog .dijitInputInner {
+    top: 0;
+}
+
+.p4cms-ui .workflow-sub-form #fieldset-scheduleGroup dt#workflow-currentTime-label,
+.p4cms-ui .workflow-dialog #fieldset-scheduleGroup dt#currentTime-label {
+    display: none;
+}
+
+.p4cms-ui .workflow-sub-form #fieldset-scheduleGroup dd#workflow-currentTime-element,
+.p4cms-ui .workflow-dialog #fieldset-scheduleGroup dd#currentTime-element {
+    position: relative;
+    left: 18px;
+    top: -34px;
+    width: 220px;
+}
+
+.p4cms-ui .workflow-sub-form #fieldset-scheduleGroup dd#workflow-scheduledTime-element,
+.p4cms-ui .workflow-dialog #fieldset-scheduleGroup dd#scheduledTime-element {
+    width: 60px;
+    position: relative;
+    left: 150px;
+    top: -30px;
+}
+
+.p4cms-ui .workflow-sub-form #fieldset-scheduleGroup,
+.p4cms-ui .workflow-dialog #fieldset-scheduleGroup {
+    margin-bottom: -30px;
+    padding: 0;
+}
+
+.p4cms-ui .workflow-sub-form #fieldset-scheduleGroup dl,
+.p4cms-ui .workflow-dialog #fieldset-scheduleGroup dl {
+    padding-top: 0;
+}
+
+.p4cms-ui .workflow-sub-form #fieldset-scheduleGroup.hidden,
+.p4cms-ui .workflow-dialog #fieldset-scheduleGroup.hidden {
+    display: none;
+}
+
+.p4cms-ui .workflow-sub-form .current-time ul.errors,
+.p4cms-ui .workflow-dialog .current-time ul.errors {
+    margin: 5px 0;
+}
+
+.p4cms-ui .workflow-sub-form .current-time .wrapper,
+.p4cms-ui .workflow-dialog .current-time .wrapper {
+    color: #474747;
+    font-size: 12px;
+}
+
+.p4cms-ui .workflow-dialog dd#state-element ul.errors {
+    padding-left: 18px;
+    margin: 5px 0;
+}
+
+/* Grid options sub-form styles */
+
+.p4cms-ui .content-grid-options fieldset.workflow-states {
+    min-width: 0px;
+    border: none;
+    margin-left: 15px;
+}
+
+.p4cms-ui .content-grid-options fieldset.workflow-states dd {
+    max-height: 100px;
+    overflow-y: auto;
+    width: 165px;
+}
+
+.p4cms-ui .content-grid-options fieldset.workflow-states.hidden {
+    display: none;
+}
+
+.p4cms-ui .content-grid-options fieldset.workflow-states dt#workflow-states-label,
+.p4cms-ui .content-grid-options dt#workflow-workflow-label {
+    display: none;
+}
+
+.p4cms-ui .content-grid-options #workflow-targetState,
+.p4cms-ui .history-grid-options #workflow-targetState {
+    width: 165px;
+}
+
+.p4cms-ui .history-grid-options #workflow-extraStates-label,
+.p4cms-ui .history-grid-options #workflow-validStates-label {
+    display: none;
+}
+
+.p4cms-ui .history-grid-options #fieldset-extraStatesGroup {
+    font-style: italic;
+}
+
+.p4cms-ui .history-grid-options #extraStatesGroup-element,
+.p4cms-ui .history-grid-options #workflow-extraStates-element {
+    margin-top: 0;
+}
+
+/* Save Tooltip Dialog */
+
+.p4cms-ui.dijitTooltipDialog .content-sub-form .save-sub-form fieldset.workflow-sub-form {
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+}
+
+/* Workflow Batch Dialog */
+
+.p4cms-ui .workflow-dialog form.change-status dl dt {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    width: auto;
+}
+
+.p4cms-ui .workflow-dialog form.change-status dl dd {
+    min-width: 0;
+    clear: left;
+    margin-left: 0px;
+}
+
+.p4cms-ui .workflow-dialog form.change-status dl dd textarea {
+    width: 450px;
+    height: 75px;
+}
+
+.p4cms-ui .workflow-dialog form.change-status fieldset {
+    margin: 0;
+    padding: 0;
+}
+
+.p4cms-ui .workflow-dialog form.change-status fieldset fieldset {
+    margin: 0;
+    padding: 5px;
+}
+
+.p4cms-ui .workflow-dialog form.change-status dd.display-group {
+    border: none;
+}
+
+.p4cms-ui .workflow-dialog form.change-status dt#note-label {
+    display: none;
+}
+
+.p4cms-ui .workflow-dialog form.change-status {
+    padding-top: 15px;
+}
+
+/* Data grid styles */
+
+.p4cms-ui .data-grid .not-existing-state,
+.p4cms-ui .data-grid .unknown-state {
+    font-style: italic;
+}

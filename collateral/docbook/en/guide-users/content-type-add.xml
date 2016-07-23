@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.type.add">
+    <title>Adding Content Types</title>
+
+    <bridgehead>
+        To add a content type:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click <guibutton>Manage</guibutton> in the &product.longname; toolbar.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-manage.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guimenuitem>Content Types</guimenuitem>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-toolbar_menu-content_types.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The <emphasis role="screen">Manage Content Types</emphasis> screen is displayed.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Add Content Type</guibutton>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-manage_content_types-add.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para></para>
+
+            The <emphasis role="dialog">Add Content Type</emphasis> dialog is displayed.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-add_content_type.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Define the content type by specifying the following information:
+
+            <variablelist>
+                <varlistentry>
+                    <term>Id</term>
+
+                    <listitem>
+                        An identifier for this content type that must be unique among content types.
+                        Valid characters include letters, numbers, dashes, underscores, and periods.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Label</term>
+
+                    <listitem>
+                        A friendlier identifier to identify this content type.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Group</term>
+
+                    <listitem>
+                        The content type group this new type should appear under on the
+                        <emphasis role="dialog">Add Content</emphasis> dialog (for example: "Pages"
+                        or "Assets"). You can type in a new group, or click the down arrow to choose
+                        an existing group name.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Icon</term>
+
+                    <listitem>
+                        (optional) Icon for this content type, displayed by &product.name; when
+                        listing content types.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Description</term>
+
+                    <listitem>
+                        A description of the content type that is displayed in the
+                        <emphasis role="dialog">Add Content</emphasis> dialog.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Elements</term>
+
+                    <listitem>
+                        Specifies the fields that compose the content type. For more detail,
+                        please see <xref linkend="content.type.elements"/>.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Workflow</term>
+
+                    <listitem>
+                        Specifies the workflow that should guide the process of creating and
+                        publishing content of this type. For more detail, please see
+                        <xref linkend="workflows"/>.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Layout</term>
+
+                    <listitem>
+                        Specifies the layout to use when viewing entries of this type. For more
+                        details, please see <xref linkend="themes.layouts"/>.
+                    </listitem>
+                </varlistentry>
+            </variablelist>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton>. The <emphasis role="screen">Manage Content
+            Types</emphasis> screen is redisplayed, listing your new content type.
+        </listitem>
+    </orderedlist>
+
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

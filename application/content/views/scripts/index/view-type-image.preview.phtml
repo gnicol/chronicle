@@ -1,0 +1,17 @@
+<?= $this->contentEntry()->getEntry()->getDisplayValue(
+    'file',
+    array(
+        'decorators' => array(
+            array(
+                'decorator' => 'DisplayImage',
+                'options'   => array(
+                    'maxWidth'      => 250,
+                    'maxHeight'     => 250,
+                    'noSize'        => false,
+                    'asBackground'  => false
+                )
+            )
+        )
+    )
+);
+?>

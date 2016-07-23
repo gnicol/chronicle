@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="themes.layouts">
+    <title>Layouts</title>
+
+    <para>
+        A <emphasis>layout</emphasis> is an <acronym>HTML</acronym> file that provides markup that
+        determines the overall look of a page. A layout is used to implement headers and footers,
+        specify stylesheets and scripts to use, and define where content and regions are to exist.
+        Layout files can contain <acronym>PHP</acronym> code. Place layouts in the
+        <filename>layouts</filename> folder, within the theme's folder.
+    </para>
+
+    <para>
+        &product.longname; requires layout files to contain, at a minimum, the following prescribed
+        <acronym>PHP</acronym> code:
+    </para>
+
+<programlisting language="php">
+&lt;?= $this->doctype() ?&gt;
+&lt;!-- Emit the appropriate document type declaration necessary for correct parsing
+     of the page in many browsers --&gt;
+
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+&lt;meta http-equiv="Content-Type" content="text/html; charset=utf-8" /&gt;
+
+&lt;!-- Emit the current page title, which is action or content-specific. --&gt;
+&lt;?= $this-&gt;headTitle() ?&gt;
+
+&lt;!-- Configure the Dojo theme used by &product.name; -- see Note 1 below. --&gt;
+&lt;?= $this-&gt;dojo() ?&gt;
+
+&lt;!-- Emit the JavaScript required by &product.name;, enabled modules, and scripts
+     declared in theme.ini --&gt;
+&lt;?= $this-&gt;headScript() ?&gt;
+
+&lt;!-- Emit any link tags, typically to specify CSS stylesheets required by
+     &product.name; and enabled modules --&gt;
+&lt;?= $this-&gt;headLink() ?&gt;
+
+&lt;!-- Emit any inline blocks of CSS style declarations, required by &product.name;
+     and enabled modules --&gt;
+&lt;?= $this-&gt;headStyle() ?&gt;
+
+&lt;/head&gt;
+
+&lt;!-- Assign Dojo's Claro theme class to body, as well as classes related to
+     the current layout, module, controller, and action. See Note 2 below. --&gt;
+&lt;body class="claro
+ &lt;?= $this-&gt;layout()-&gt;getLayout() ?&gt;
+ &lt;?= $this-&gt;request()-&gt;getModuleName() ?&gt;-module
+ &lt;?= $this-&gt;request()-&gt;getControllerName() ?&gt;-controller
+ &lt;?= $this-&gt;request()-&gt;getActionName() ?&gt;-action"&gt;
+
+&lt;!-- Displays the &product.name; toolbar when a user is logged in --&gt;
+&lt;?= $this-&gt;siteToolbar() ?&gt;
+
+&lt;!-- Displays Growl-style notifications to alert the user to completed actions,
+     warnings, and error messages. --&gt;
+&lt;?= $this-&gt;notifications() ?&gt;
+
+&lt;!-- Emit the markup for the current page, either a content entry or module-specific
+     output produced by a view script. --&gt;
+&lt;?= $this->layout()->content ?&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</programlisting>
+
+    <note>
+        <title>Note 1</title>
+
+        <para>
+            &product.name; uses the Dojo JavaScript Toolkit and its Claro theme for its user
+            interface. If an alternate Dojo theme is desired, edit this line. Be advised that
+            switching to another Dojo theme can affect the &product.name; user interface, because
+            other Dojo themes might make different assumptions about the markup available for
+            styling.
+        </para>
+    </note>
+
+    <note>
+        <title>Note 2</title>
+
+        <para>
+            To facilitate targeted <acronym>CSS</acronym> styling, the body tag must specify the
+            <acronym>CSS</acronym> style name identifying the current layout, module, controller,
+            and action, separated by single spaces.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

@@ -1,0 +1,537 @@
+
+/* Data Grid Options */
+
+.p4cms-ui .grid-options {
+    float: left;
+    width: 190px;
+}
+
+.p4cms-ui .grid-options #query-element input {
+    background: url('images/input-bg-repeat.jpg') repeat-x;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+    width: 170px;
+}
+
+.p4cms-ui .grid-options form dl {
+    padding: 0;
+}
+
+.p4cms-ui .grid-options .search-sub-form dd input {
+    width: 165px;
+    top: 0;
+}
+
+.p4cms-ui .grid-options form dl dt,
+.p4cms-ui .grid-options form dl dd {
+    width: auto;
+    min-width: 0;
+    margin: 0;
+    text-align: left;
+    clear: both;
+    float: none;
+    display: block;
+}
+.p4cms-ui .grid-options form dl dt {
+    margin-top: 5px;
+}
+.p4cms-ui .grid-options form dl dd + dd {
+    margin-top: 15px;
+}
+
+.p4cms-ui .grid-options form dl dl dd {
+    margin-top: 2px;
+    margin-bottom: 0px;
+    max-height: 250px;
+    width: 180px;
+    overflow-y: auto;
+}
+
+.p4cms-ui .grid-options form fieldset {
+    border: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+.p4cms-ui .grid-options form dt label {
+    font-weight: bold;
+    font-size: 16px;
+    color: #1a1a1a;
+}
+
+.p4cms-ui .grid-options form dd#apply-element {
+    clear: both;
+    float: none;
+}
+
+.p4cms-ui .grid-options form #apply-element .dijitButtonText {
+    font-size: 1.1em;
+}
+
+.p4cms-ui .grid-options form dd {
+    font-size: 13px;
+    line-height: 19px;
+    color: #1a1a1a;
+}
+
+.p4cms-ui .grid-options form dd input {
+    margin-right: 3px;
+}
+
+.p4cms-ui.dijitDialog .grid-options {
+    margin-left: 3px;
+    margin-bottom: 20px;
+}
+
+/* Data Grid */
+
+.p4cms-ui .data-grid {
+    color: black;
+}
+
+.p4cms-ui .data-grid .dojoxGridCell div.obligatory {
+    color: #aaa;
+}
+
+.p4cms-ui .data-grid .dojoxGrid,
+.p4cms-ui .data-grid .grid-footer {
+    border: 1px solid #c7c7c7;
+    -moz-border-radius: 5px;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-radius: 5px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 750px;
+    float: right;
+}
+
+.p4cms-ui.dijitDialog .data-grid .dojoxGrid,
+.p4cms-ui.dijitDialog .data-grid .grid-footer {
+    border-color: #aaa;
+}
+
+.p4cms-ui .data-grid .dojoxGridView .dojoxGridScrollbox {
+    overflow-y: scroll;
+}
+
+/* Grid Header */
+
+.p4cms-ui .data-grid .dojoxGridMasterHeader {
+    background: url('images/tableheader-gradient.jpg') repeat-x bottom #f5f5f5;
+    border: 0;
+    -moz-border-radius: 5px;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-radius: 5px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.p4cms-ui .data-grid .dojoxGridHeader {
+    margin-left: 0;
+}
+
+.p4cms-ui .data-grid .dojoxGridHeader .dojoxGridRowTable {
+    font-size: 13px;
+    font-weight: bold;
+    color: #1a1a1a;
+    border-bottom: 1px solid #c7c7c7;
+    border-right-color: transparent;
+    border-right: 0;
+    border-left: 0;
+    -moz-border-radius: 5px;
+    -moz-border-radius-bottomleft: 0px;
+    -moz-border-radius-bottomright: 0px;
+    -webkit-border-radius: 5px;
+    -webkit-border-bottom-left-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.p4cms-ui .data-grid .dojoxGridHeader .dojoxGridRowTable th {
+    background: transparent;
+    border: none;
+    border-left: 1px solid transparent;
+    border-right: 1px solid #c7c7c7;
+    font-weight: bold;
+    font-size: 15px;
+    padding: 4px 5px 5px 5px;
+}
+
+.p4cms-ui .data-grid .dojoxGridHeader .dojoxGridRowTable th:last-child {
+    border-right-color: transparent;
+}
+
+.p4cms-ui .data-grid .dojoxGridHeader .dojoxGridRowTable tr {
+    background: transparent;
+    border: none;
+    height: 25px;
+}
+.p4cms-ui .data-grid .dojoxGridHeader .dojoxGridSortNode {
+    background: transparent;
+    border: none;
+    border-top: none;
+    border-bottom: none;
+    border-left: none;
+}
+
+.p4cms-ui .data-grid .dojoxGridHeader .dojoxGridCellOver {
+    background-color: #d7dfe7;
+}
+
+.p4cms-ui .data-grid .dojoxGridHeader .dojoxGridSortNode h3 {
+    float: left;
+    text-align: left;
+    font-size: 14px;
+    margin: 0 4px 0 6px;
+}
+
+.p4cms-ui .data-grid .dojoxGridHeader .dojoxGridSortNode .arrow {
+    float: left;
+    display: block;
+    background: url('images/icon-grid-arrows.png') no-repeat;
+    text-decoration: none;
+    margin: 4px 0 0 0;
+    width: 7px;
+    height: 8px;
+}
+
+.p4cms-ui .data-grid .dojoxGridHeader .dojoxGridSortNode .arrow-active {
+    float: left;
+    display: block;
+    background: url('images/icon-grid-arrows.png') no-repeat -7px;
+    text-decoration: none;
+    margin: 4px 0 0 0;
+    width: 7px;
+    height: 8px;
+}
+
+.p4cms-ui .data-grid .dojoxGridHeader th.sortable div.dojoxGridSortNode {
+    cursor: pointer;
+}
+
+
+/* Grid Rows */
+
+.p4cms-ui .data-grid .dojoxGridRow td {
+    vertical-align: middle;
+}
+
+.p4cms-ui .data-grid .dojoxGridRow .dojoxGridCell,
+.p4cms-ui .data-grid .dojoxGridRowOver .dojoxGridCell {
+    border: 0 none;
+}
+
+.p4cms-ui .data-grid .dojoxGridView .dojoxGridCell {
+    font-size: 12px;
+    padding: 6px 6px 4px 6px;
+}
+
+.p4cms-ui .data-grid .dojoxGridCell p {
+    margin: 4px 0 6px 0;
+}
+
+.p4cms-ui .data-grid .dojoxGridRow.dojoxGridRowOdd,
+.p4cms-ui .data-grid .dojoxGridRow.dojoxGridRowOdd tr {
+    background: #eef2f5;
+}
+
+.p4cms-ui .data-grid .dojoxGridRowOver .dojoxGridCell {
+    background: transparent;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+.p4cms-ui .data-grid .selectable .dojoxGridRow {
+    cursor: pointer;
+}
+
+.p4cms-ui .data-grid .dojoxGridRowSelected .dojoxGridRowTable tr,
+.p4cms-ui .data-grid td.dojoxGridRowSelected {
+    background-color: #2c59d7;
+    background-image: none;
+    color: #fff;
+}
+
+.p4cms-ui .data-grid .dojoxGridRowSelected .dojoxGridRowTable .dojoxGridCell a {
+    color: #fff;
+}
+
+.p4cms-ui .data-grid .dojoxGridRowSelected .dojoxGridCell {
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+}
+
+/* Actions Column */
+
+.p4cms-ui .data-grid .dojoxGridCell.actions {
+    text-align: center;
+}
+
+.p4cms-ui .data-grid .dojoxGridCell.actions .dijitDropDownButton {
+    position: relative;
+    top: -1px;
+}
+
+.p4cms-ui .data-grid .dojoxGridCell.actions .dijitButtonContents {
+    padding-top: 3px;
+    padding-bottom: 4px;
+}
+
+/* Indented rows */
+
+/* use margins to reflect indentation depth, 4 + (20 * depth) pixels */
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-1 {
+    margin-left: 30px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-2 {
+    margin-left: 60px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-3 {
+    margin-left: 90px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-4 {
+    margin-left: 120px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-5 {
+    margin-left: 150px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-6 {
+    margin-left: 180px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-7 {
+    margin-left: 210px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-8 {
+    margin-left: 240px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-9 {
+    margin-left: 270px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-10 {
+    margin-left: 285px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-11 {
+    margin-left: 300px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-12 {
+    margin-left: 315px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-13 {
+    margin-left: 330px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-14 {
+    margin-left: 345px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-15 {
+    margin-left: 360px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-16 {
+    margin-left: 375px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-17 {
+    margin-left: 390px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-18 {
+    margin-left: 405px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-19 {
+    margin-left: 420px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-20 {
+    margin-left: 435px;
+}
+.p4cms-ui .data-grid .dojoxGrid td:first-child.dojoxGridCell div.indented.depth-deep {
+    margin-left: 450px;
+}
+
+/* Grid Footer */
+
+.p4cms-ui .data-grid .grid-footer {
+    position: relative;
+    background: url('images/tableheader-gradient.jpg') repeat-x bottom #f5f5f5;
+    float: right;
+    display: block;
+    min-height: 16px;
+    padding: 4px 0;
+    font-size: 13px;
+    border: 1px solid #c7c7c7;
+    -moz-border-radius: 5px;
+    -moz-border-radius-topleft: 0px;
+    -moz-border-radius-topright: 0px;
+    -webkit-border-radius: 5px;
+    -webkit-border-top-left-radius: 0px;
+    -webkit-border-top-right-radius: 0px;
+    border-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-top: none;
+}
+
+.p4cms-ui .data-grid .grid-footer .row-count {
+    display: block;
+    float: left;
+    position: absolute;
+    top: 50%;
+    height: 14px;
+    margin: -7px 10px 0 10px;
+    color: #1a1a1a;
+}
+
+.p4cms-ui .data-grid .grid-footer .row-count .count-label {
+    padding-left: 3px;
+}
+
+/* position the buttons. See buttons.css for presentation. */
+.p4cms-ui .data-grid .grid-footer div.button {
+    float: right;
+    margin-right: 4px;
+}
+
+
+/* Loading Indicator */
+
+.p4cms-ui .data-grid .dojoxGridMasterMessages {
+    background-color: transparent;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+}
+
+.p4cms-ui .data-grid .dojoxGridLoading {
+    position: relative;
+    top: -32px;
+    left: -32px;
+    display: block;
+    height: 64px;
+    width: 64px;
+    background-image: url('images/loading-64x64.gif');
+    text-indent: -9999px;
+}
+
+.p4cms-ui .data-grid .dojoxGridError {
+    position: relative;
+    left: -50%;
+}
+
+/* Provide default grid tooltip width limit */
+
+.p4cms-ui.dijitTooltip .grid-tooltip {
+    max-width: 350px;
+}
+
+/* Drag and drop support */
+.p4cms-ui .dojoxGridBorderDIV {
+    width:2px;
+    background-color: #2c59d7;
+    font-size:0em;
+    position:absolute;
+    z-index:988;
+}
+.p4cms-ui .data-grid .dojoxGridCellBorderDIV {
+    position:absolute;
+    background-color: transparent;
+    border: none;
+}
+.p4cms-ui .data-grid .dojoxGridCellBorderLeftTopDIV {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-style: solid;
+    border-width: 2px 0 0 2px;
+    border-color: gray transparent transparent #2c59d7;
+}
+.p4cms-ui .data-grid .dojoxGridCellBorderRightBottomDIV {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    border-color: transparent #2c59d7 #2c59d7 transparent;
+}
+.p4cms-ui .dojoxGridDnDItemIcon {
+    background-image: url("../../dojo/resources/dojox/grid/enhanced/resources/images/sprite_icons.png");
+}
+.p4cms-ui .dojoxGridDnDIconRowSingle {
+    background-position: -256px 5px;
+}
+.p4cms-ui .dojoxGridDnDIconRowMulti {
+    background-position: -256px -16px;
+}
+.p4cms-ui .dojoxGridDnDIconColSingle {
+    background-position: -277px 3px;
+}
+.p4cms-ui .dojoxGridDnDIconColMulti {
+    background-position: -277px -17px;
+}
+.p4cms-ui .dojoxGridDnDIconCellSingle {
+    background-position: -235px 5px;
+}
+.p4cms-ui .dojoxGridDnDIconCellMulti {
+    background-position: -236px -16px;
+}
+.p4cms-ui .dojoxGridDndAvatar {
+    background-color: transparent;
+    padding: 0px;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    z-index: 999;
+}
+
+.p4cms-ui .dojoxGridDndAvatar .dojoxGridRow td.dojoxGridCell {
+    filter: alpha(opacity=40);
+    opacity: 0.4;
+}
+
+.dojoDndMove .dojoxGridDndAvatar.dojoDndAvatarCanDrop .dojoxGridRow td.dojoxGridCell {
+    filter: alpha(opacity=100);
+    opacity: 1;
+}
+
+.p4cms-ui .dojoxGridDndAvatar tr {
+    background-color: transparent;
+}
+
+.p4cms-ui .dojoxGridDndAvatar td {
+    font-size: 12px;
+    padding: 10px 6px 7px 6px;
+    vertical-align: middle;
+}
+
+.p4cms-ui .dojoxGridDnDIcon,
+.p4cms-ui .dojoxGridDnDItemIcon {
+    width: 16px;
+    height: 16px;
+}
+.p4cms-ui .dojoDndMove .dojoxGridDnDIcon {
+    background: url(../../dojo/resources/dojo/resources/images/dndNoMove.png) no-repeat center center;
+}
+.p4cms-ui .dojoDndCopy .dojoxGridDnDIcon {
+    background: url(../../dojo/resources/dojo/resources/images/dndNoCopy.png) no-repeat center center;
+}
+.p4cms-ui .dojoDndMove .dojoDndAvatarCanDrop .dojoxGridDnDIcon {
+    background: url(../../dojo/resources/dojo/resources/images/dndMove.png) no-repeat center center;
+}
+.p4cms-ui .dojoDndCopy .dojoDndAvatarCanDrop .dojoxGridDnDIcon {
+    background: url(../../dojo/resources/dojo/resources/images/dndCopy.png) no-repeat center center;
+}
+
+.p4cms-ui.dojoDndMove .dojoxGrid .p4cms-drop-row-in td.dojoxGridCell {
+    background-color: #2c59d7;
+    color: #fff;
+}
+
+.p4cms-ui .p4cms-drop-anchor-in {
+    display: none;
+}

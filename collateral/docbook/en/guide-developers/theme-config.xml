@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="themes.config">
+    <title>Configuration File - <filename>theme.ini</filename></title>
+
+    <para>
+        The configuration file, <filename>theme.ini</filename>, identifies the theme to
+        &product.longname; and specifies its initial configuration. The following example shows the
+        contents of a typical configuration file:
+    </para>
+
+<programlisting language="ini">
+; Chronicle Theme
+
+title                   = Theme Name
+version                 = 1.0
+description             = A description of the theme.
+icon                    = icon.png
+tags                    = free-form, tags, describing, theme
+
+[maintainer]
+name                    = Maintainer Name
+email                   = maintainer@email.address
+url                     = http://www.maintainer.site
+
+[stylesheets]
+all.href[]              = reset.css
+all.href[]              = text.css
+screen.media            = screen
+screen.href             = layout.css
+print.media             = print
+print.href              = print.css
+
+[scripts]
+javascript[]            = common.js
+
+[regions]
+sidebar.1.title         = Menu Widget
+sidebar.1.type          = menu/widget
+sidebar.1.options.menu  = sidebar
+</programlisting>
+
+    <para>
+        The following section provides details about the elements of the configuration file. All
+        elements are optional unless they are specifically marked as required.
+    </para>
+
+    <table frame="all" id="themes.config.elements.table-1">
+        <title>Theme Configuration Elements</title>
+        <tgroup cols="2">
+            <thead>
+                <row>
+                    <entry>Element</entry>
+
+                    <entry>Description</entry>
+                </row>
+            </thead>
+
+            <tbody>
+                <row>
+                    <entry><property>title</property></entry>
+
+                    <entry>
+                        The title of the theme.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>version</property></entry>
+
+                    <entry>
+                        The revision of the theme.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>description</property></entry>
+
+                    <entry>
+                        Describes the general characteristics of the theme. For example, its
+                        appearance, special features, or intended use.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>tags</property></entry>
+
+                    <entry>
+                        Descriptive terms for ad-hoc categorization of themes. Can be space or comma
+                        separated.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>icon</property></entry>
+
+                    <entry>
+                        A graphic for the theme, specified using an absolute <acronym>URL</acronym>
+                        or a <acronym>URL</acronym> that is relative to the theme folder. The
+                        suggested size is 256&#xa0;x&#xa0;256 pixels.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>maintainer</property></entry>
+
+                    <entry>
+                        The name, email, and web site of the theme maintainer.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>stylesheets</property></entry>
+
+                    <entry>
+                        Defines the <acronym>CSS</acronym> stylesheets that need to be included
+                        during <acronym>HTML</acronym> presentation. Specify each stylesheet using
+                        an absolute <acronym>URL</acronym> or a <acronym>URL</acronym> that is
+                        relative to the theme folder. Stylesheets can target specific media types as
+                        follows:
+
+<programlisting language="ini">
+[stylesheets]
+all.href[]              = reset.css     ; All media types.
+all.href[]              = text.css
+screen.media            = screen        ; Only used when viewed on screen.
+screen.href             = layout.css
+print.media             = print         ; Only used when printing the page.
+print.href              = print.css
+</programlisting>
+
+                        &product.name; also support media queries. Please see
+                        <ulink url="http://www.w3.org/TR/css3-mediaqueries/">the W3C's Media Queries
+                        Recommendation</ulink> for more information. Here is an example:
+
+<programlisting language="ini">
+[stylesheets]
+mobile1.media[] = "screen and (max-width: 320px)"
+mobile2.media[] = "screen and (max-width: 480px)"
+</programlisting>
+
+                        You may also specify conditional stylesheets, which is used primarily to
+                        provide appropriate styling for the various versions of Internet Explorer.
+                        For example:
+
+<programlisting language="ini">
+[stylesheets]
+ie7.href        = ie7.css
+ie7.condition   = lte IE 7
+ie8.href        = ie8.css
+ie8.condition   = IE 8
+ie9.href        = ie9.css
+ie9.condition   = gte IE 9
+</programlisting>
+
+                        <note>
+                            <title>Stylesheet Aggregation</title>
+
+                            <para>
+                                Stylesheets are automatically aggregated and compressed when the
+                                <link linkend="modules.overview.environment">Application
+                                Environment</link> is configured for production use.
+                            </para>
+                        </note>
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>regions</property></entry>
+
+                    <entry>
+                        Defines widgets to be installed in named regions when the theme is applied.
+                        The format of the section is as follows:
+
+<programlisting language="text">
+&lt;<replaceable>region-name</replaceable>&gt;.&lt;<replaceable>widget-id</replaceable>&gt;.&lt;<replaceable>property</replaceable>&gt; = &lt;<replaceable>value</replaceable>&gt;
+</programlisting>
+
+                        Valid properties for widgets in the <option>regions</option> section are as
+                        follows:
+
+<programlisting language="ini">
+[regions]
+sidebar.1.title         = Menu Widget   ; Label displayed with the widget.
+sidebar.1.type          = menu/widget   ; (Required) Widget type identifier.
+                                        ; Widget types are defined by modules
+                                        ; and declared in module.ini files.
+sidebar.1.options.menu  = sidebar       ; Provides default widget configuration.
+sidebar.1.options.foo   = bar
+</programlisting>
+
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>scripts</property></entry>
+
+                    <entry>
+                        A list of client-side script files to include on every page. You must group
+                        scripts by type (e.g. <emphasis>javascript</emphasis>,
+                        <emphasis>vbscript</emphasis>). Specify each script using an absolute
+                        <acronym>URL</acronym> or a <acronym>URL</acronym> that is relative to the
+                        theme folder.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>doctype</property></entry>
+
+                    <entry>
+                        Specifies the version of markup that this theme is written in. The default
+                        is <constant>XHTML1_STRICT</constant>. Valid values are as follows:
+
+                        <itemizedlist>
+                            <listitem>XHTML11</listitem>
+                            <listitem>XHTML1_STRICT</listitem>
+                            <listitem>XHTML1_TRANSITIONAL</listitem>
+                            <listitem>XHTML1_FRAMESET</listitem>
+                            <listitem>XHTML_BASIC1</listitem>
+                            <listitem>HTML4_STRICT</listitem>
+                            <listitem>HTML4_LOOSE</listitem>
+                            <listitem>HTML4_FRAMESET</listitem>
+                            <listitem>HTML5</listitem>
+                        </itemizedlist>
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>menus</property></entry>
+
+                    <entry>
+                        Defines menus and menu items to be installed when the theme is applied.
+                        For example:
+
+<programlisting language="ini">
+[menus]
+some-menu.test.label            = A Test Link
+some-menu.test.uri              = "http://example.com"
+some-menu.test.pages.sub.label  = A Link under Test
+some-menu.test.pages.sub.uri    = "http://example.com/sub"
+</programlisting>
+
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>meta</property></entry>
+
+                    <entry>
+                        Defines document metadata to include on every page. Support is provided for
+                        named meta tags (such as description and keywords) as well as
+                        <emphasis>http-equiv</emphasis> tags (such as content-type). For example:
+
+<programlisting language="ini">
+[meta]
+name['description']         = 'A description to appear on all pages'
+name['keywords']            = 'keywords, to, appear, on, all, pages'
+httpEquiv['Content-Type']   = 'text/html; charset=UTF-8'
+</programlisting>
+
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>types</property></entry>
+
+                    <entry>
+                        Defines content types to be installed when the theme is applied. Content
+                        types control the structure of content entries. For example:
+
+<programlisting language="ini">
+[types]
+some-type.label                             = Custom Page
+some-type.group                             = Pages
+some-type.iconFile                          = images/icon-page.png
+some-type.elements.title.type               = text
+some-type.elements.title.options.label      = Title
+some-type.elements.title.options.required   = true
+some-type.elements.title.display.tagName    = h1
+some-type.elements.title.display.filters[]  = HtmlSpecialChars
+some-type.elements.body.type                = editor
+some-type.elements.body.options.label       = Body
+some-type.elements.body.display.filters[]   = DefaultStripTags
+</programlisting>
+
+                        Valid values for settings in this section are as follows:
+
+                        <variablelist>
+                            <varlistentry>
+                                <term>label</term>
+
+                                <listitem>
+                                    The name of the content type.
+                                </listitem>
+                            </varlistentry>
+
+                            <varlistentry>
+                                <term>group</term>
+
+                                <listitem>
+                                    The category that the content type belongs to.
+                                </listitem>
+                            </varlistentry>
+
+                            <varlistentry>
+                                <term>iconFile</term>
+
+                                <listitem>
+                                    An icon representing the content type, specified as a
+                                    <acronym>URL</acronym> relative to the theme folder.
+                                </listitem>
+                            </varlistentry>
+
+                            <varlistentry>
+                                <term>elements</term>
+
+                                <listitem>
+                                    A list of elements that compose the content type. Each element
+                                    can have multiple properties. For details, please see
+                                    <xref linkend="content.type.elements"/>.
+                                </listitem>
+                            </varlistentry>
+                        </variablelist>
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

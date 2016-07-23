@@ -1,0 +1,68 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.layouts">
+    <title>Layouts</title>
+
+    <para>
+        A <emphasis>layout</emphasis> is an <acronym>HTML</acronym> file that provides the markup
+        for the overall look of a page. A layout is generally used to implement headers and footers,
+        specify which stylesheets and scripts to use, and define the locations for content and
+        regions. Layouts can include <acronym>PHP</acronym> code. Place layouts in the
+        <filename>layouts/scripts</filename> folder under your module's folder. Assign filenames
+        using the format <emphasis>layoutname</emphasis>-layout.phtml.
+    </para>
+
+    <para>
+        For the system to function correctly, your layout needs to output the various scripts,
+        <acronym>CSS</acronym>, metadata, etc. that modules have registered. This is generally
+        accomplished by using the following template:
+    </para>
+
+<programlisting language="php">
+&lt;?= $this-&gt;doctype() ?&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;
+&lt;head&gt;
+    &lt;?= $this-&gt;headMeta() ?&gt;
+    &lt;?= $this-&gt;headTitle() ?&gt;
+    &lt;?= $this-&gt;dojo() ?&gt;
+    &lt;?= $this-&gt;headLink() ?&gt;
+    &lt;?= $this-&gt;headScript() ?&gt;
+    &lt;?= $this-&gt;headStyle() ?&gt;
+&lt;/head&gt;
+&lt;body class='claro
+ &lt;?= $this-&gt;layout()-&gt;getLayout() ?&gt;
+ &lt;?= $this-&gt;request()-&gt;getModuleName() ?&gt;-module
+ &lt;?= $this-&gt;request()-&gt;getControllerName() ?&gt;-controller
+ &lt;?= $this-&gt;request()-&gt;getActionName() ?&gt;-action'&gt;
+
+&lt;div id="content"&gt;
+    &lt;?= $this-&gt;layout()-&gt;content ?&gt;
+&lt;/div&gt;
+
+&lt;?= $this-&gt;toolbar() ?&gt;
+&lt;?= $this-&gt;notifications() ?&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</programlisting>
+
+    <para>
+        For details, see <xref linkend="themes.layouts"/> and the
+        <ulink url="http://framework.zend.com/manual/1.11/en/zend.layout.html">Zend
+        Framework documentation</ulink>.
+    </para>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

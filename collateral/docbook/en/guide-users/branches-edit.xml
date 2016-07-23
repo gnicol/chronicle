@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="branches.edit">
+    <title>Editing a Branch</title>
+
+    <note>
+        <title>Manage Branches Permission Required</title>
+
+        <para>
+            You can edit a branch only if you have the "Manage Sites and Branches" permission.
+        </para>
+    </note>
+
+    <section>
+        <title>Edit the Active Branch</title>
+
+        <orderedlist>
+            <listitem>
+                Click the "active branch" indicator in the &product.longname; toolbar.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-manage-branches.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                The branch popup menu appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-branch_popup-edit.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guimenuitem>Edit <emphasis>Live</emphasis> Branch</guimenuitem>.
+                <emphasis>Note that "Live" is the active branch in this example.</emphasis> The
+                <emphasis role="dialog">Edit Branch</emphasis> dialog appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-edit_branch-simple.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Revise the branch configuration as required. Details on branch configuration can be
+                found in <xref linkend="branches.edit.configuration"/>.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Save</guibutton>. The branch configuration is updated, and the
+                currently displayed page is reloaded.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section>
+        <title>Edit Any Branch</title>
+
+        <orderedlist>
+            <listitem>
+                Click the "active branch" indicator in the &product.longname; toolbar.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-manage-branches.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                The branch popup menu appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-branch_popup-manage.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guimenuitem>Manage Branches</guimenuitem>. The <emphasis role="screen">Sites
+                and Branches</emphasis> screen appears.
+            </listitem>
+
+            <listitem>
+                Scroll through the available branches to locate the branch you wish to edit.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-manage_sites_and_branches-delete_action.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click the button in the <emphasis role="bold">Actions</emphasis> column in the row
+                containing the branch you wish to edit.
+            </listitem>
+
+            <listitem>
+                Select the <guimenuitem>Edit</guimenuitem> option in the popup menu.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/popup_menu-branch-edit.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                The <emphasis role="dialog">Edit Branch</emphasis> dialog is displayed.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-edit_branch-full.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Revise the branch configuration as required. Details on branch configuration can be
+                found in <xref linkend="branches.edit.configuration"/>.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Save</guibutton>. The <emphasis role="screen">Sites and
+                Branches</emphasis> screen is redisplayed, listing your updated branch.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section id="branches.edit.configuration">
+        <title>Branch Configuration Details</title>
+
+        <variablelist>
+            <varlistentry>
+                <term>Name</term>
+
+                <listitem>
+                    An identifier for this branch. We recommend that you try to make these unique
+                    to assist with identification. Valid characters include letters, numbers,
+                    dashes, underscores, spaces, and periods.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Site</term>
+
+                <listitem>
+                    Select the site to which this branch should belong.
+                    <emphasis>Note: This field is only visible when adding a branch via the
+                    management datagrid. Once a branch is created, it cannot be moved into another
+                    site.</emphasis>
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Branch From or Parent Branch</term>
+
+                <listitem>
+                    Select the source or "parent" branch providing the basis for the content in this
+                    branch. <emphasis>Note: This field is only visible for user-created branches.
+                    The Live branch cannot have a parent branch.</emphasis>
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Description</term>
+
+                <listitem>
+                    A description of the branch that can be seen in the
+                    <emphasis role="screen">Sites and Branches</emphasis> screen.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Branch Address</term>
+
+                <listitem>
+                    A list of <acronym>URL</acronym>s for which this branch will be served. This
+                    feature becomes effective with configuration changes in the web server,
+                    and may require <acronym>DNS</acronym> updates.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

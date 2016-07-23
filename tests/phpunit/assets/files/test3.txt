@@ -1,0 +1,404 @@
+Océ White Paper
+
+PDF: supporting document interchange in
+the collaborative engineering environment
+Extending the “lingua franca” of the web to engineering documents
+
+Executive summary
+
+PDF has become the standard file format for convenient,
+reliable electronic document distribution, sharing and
+printing, particularly over the Internet. The key benefit of
+PDF files is that they always retain the original “look and
+feel” when displayed or printed. Originally developed for
+the office environment, PDF is gaining increasing
+acceptance in the wide-format area. At a time when
+teamworking and collaborative engineering are keywords,
+PDF supports working processes by enabling accurate
+document interchange between people in many different
+environments.
+
+Page 1 of 6
+January 2002
+
+PDF: supporting document interchange
+Contents
+
+1. “Electronic paper” and web-enabled document interchange
+2. Document usage needs and trends in the engineering environment
+3. How PDF addresses the unique needs of engineering
+4. Building a PDF-oriented engineering process
+5. How Océ is leading the way with PDF in engineering
+
+1.”Electronic paper” and web-enabled document
+interchanges
+
+Adobe’s Portable Document Format (PDF) is rapidly gaining
+acceptance as a global standard file format for electronic document
+distribution, printing and archiving. Files in the PDF format serve
+as reliable “digital masters”: they are easy to exchange, view and
+print. Key to this acceptance is the fact that Adobe PDF files will
+consistently reproduce in full—both on-screen and when printed.
+The “look and feel” of the original document is maintained,
+including all the formatting, fonts, colours, embedded images and
+graphics of the file created by the original application. But unlike the
+original application file, the PDF document is platformindependent: it can be shared, viewed and printed by anyone using
+the Adobe® Acrobat® reader, which is freely available. To create
+PDF files, Adobe offers the complete Adobe® Acrobat® software
+package.
+“Electronic paper”: a new class of documents
+
+While PDF was becoming widely used, the Internet was also
+gaining worldwide acceptance. Since then, the convergence of the
+web and PDF technologies has led to the widespread adoption of
+PDF as a reliable, universal standard for document display,
+printing and delivery via the Internet.
+Largely as a result of the acceptance of both PDF and the web, a
+new class of documents—“electronic paper”—has emerged.
+These are changing the nature of business communications,
+combining the benefits of the familiar printed page with the
+power of digital technology.
+Initially PDF provided an integrated “view & print” solution for
+the office environment. This has now evolved and broadened in
+scope to “view & distribute”. Documents from any source can be
+
+converted and “captured” in PDF form, and can be viewed and
+reproduced correctly by anyone, anywhere, with any mainstream
+systems and printers. Throughout their use, PDF document files
+retain all the knowledge and content embedded in the original
+document, which is why they are ideal for enterprise-wide use.
+Universal medium for document interchange
+
+In this way Adobe PDF provides a universal medium for
+document interchange which is truly independent of location,
+platform, application, distribution medium and output device.
+By overcoming the complexities and incompatibilities imposed
+by all these variables, PDF has gained rapidly increasing
+acceptance and popularity. The impact of PDF is underlined by
+the fact that it has become the standard for web-based document
+delivery, with over 300 million downloads of the freely available
+Acrobat® reader.
+
+2. Document usage needs and trends in the
+engineering environment
+
+PDF was initially developed as a solution for document
+interchange in the office and corporate environment. However
+the benefits of convenient and consistent interchangeability are
+just as relevant in the engineering environment. Here, too,
+documents are generated using many different applications and
+platforms. These documents later have to be shared with and
+used by people in other departments and functional areas, for
+example, project planning, purchasing, manufacturing and many
+others.
+
+Page 2 of 6
+January 2002
+
+PDF: supporting document interchange
+Sharing information is mission-critical
+
+Today, sharing engineering information is mission-critical, yet at
+the same time it has become more challenging because of trends
+like globalisation, collaborative design, flexible and virtual project
+teams, supplier partnerships, extended enterprises etc. Also, the
+ever-increasing pressures on costs, turnaround time and time-tomarket are constant drivers for cost-effective and virtually instant
+ways to share information.
+Technology changes and challenges
+
+In today’s business environment, enterprises are faced with major
+technology changes and challenges across several fronts. These
+have a far-reaching impact on their document processes and the
+way they share information, for example:
+• The transition from analogue documents (hard copy) to digital
+documents (electronic files)
+• Implementing new, enterprise-wide concepts in document
+management, archiving and sharing
+• Addressing new organisational forms and business models that
+shape the way people work together in the design & engineering
+environment
+Against this background, key enablers are today’s web-enabled
+working methods and corporate ITC infrastructures: global
+networks are now a reality, not only at corporate level but also at
+project and workgroup level.
+Fast, consistent access to information
+
+Whatever the working environment and IT infrastructure, the
+essential requirements of users are the same: fast document
+retrieval, quick and convenient delivery to the point of use
+(whether by “push” or “pull”), and fast, consistent access to
+stored information. But today there are more users than ever
+before, all working in different departments, areas, disciplines
+and corporate frameworks. Not all these users need or have access
+to the native applications with which documents were created
+(e.g. MCAD). In most cases all they need is to “view &
+distribute” already released documents, and sometimes to
+annotate them. Access by all these users has to be facilitated, but
+also needs to be controlled. Who is allowed to view a document?
+To print it? To edit it? Questions like these need to be addressed
+and the appropriate levels of authorisation defined and allocated.
+
+The chosen archiving system and file format must also be “webfriendly”, so that documents can be accessed and viewed via the
+Internet using a normal web browser, and can then be
+downloaded if required for local printing and distribution.
+Future-proof document accessibility
+
+Such an archiving system must ensure consistent document
+accessibility in the future—not just next month or next year, but
+possibly ten or even fifty years from now, depending on
+organisational needs, service commitments and legal
+requirements. This cannot be achieved simply by storing
+application files. To achieve this demands a durable, platform
+and application-independent document format that will remain
+accessible regardless of changes in systems, applications and
+environments.
+Future-proof also means having a format that is designed to
+accomodate evolving technology changes in security, workflow
+and multi-media.
+Documents as “electronic paper”
+
+In other words, documents are stored as “electronic paper” that is
+always accurately and consistently reproducible in every working
+environment. This document format will offer all the same
+functionalities in the digital environment as microfilm aperture
+cards in the analogue environment. But at the same time a
+number of functional enhancements can be provided. For
+example, the time-consuming searching and retrieval of
+information in a hard-copy environment can be eliminated by
+electronic searching of digital documents, in which documents
+can be searched on text or a wide range of other attributes.
+This capability can play a key role in meeting today’s knowledge
+management needs which call for effective sharing and re-use of
+information.
+
+Secure, long-term archiving
+
+Another key issue is secure, long-term archiving. As enterprises
+move towards all-digital working methods, this will increasingly
+be dealt with by electronic solutions. Creating an effective and
+stable archiving system also demands a universal format that is
+independent of changing IT platforms and applications.
+Page 3 of 6
+January 2002
+
+PDF: supporting document interchange
+3. How to address these changing needs in the
+design & engineering environment
+
+As already discussed, selection of the most appropriate document
+format is crucial to ensure optimal support for the changing
+needs and working processes in the design & engineering
+environment. This is a choice that will have significant long-term
+consequences because of the need for a universal and stable
+format around which enterprises can build their document
+management, archiving and distribution systems and processes.
+Selecting the right file format
+
+A number of so-called “universal” file formats have been
+proposed at various times, e.g. TIFF and HPGL, as well as PDF.
+All these formats meet some of the needs for document
+interchange, but PDF best meets the needs of the engineering
+environment in the following ways.
+• Mixed content capability: PDF provides a “final form” page
+fidelity standard that retains all the layout, fonts, colours and
+other content attributes of complex documents, containing
+graphics, images, text and tables. In other words, PDF provides
+not only “WYSIWYG” but also “WYSIWYP” (“What You See
+Is What You Print”)
+• PDF handles both vector and raster information. Vector data
+(e.g. text and other detailed information) is preserved during
+conversion into PDF (using the Adobe® Distiller® program),
+so it retains full detail sharpness and information content when
+zoomed
+• Of all the proposed formats, only PDF makes text and other
+document attributes searchable. This is a primary need in digital
+archiving situations, and underlines the fact that just capturing a
+drawing by scanning is not enough! Searching can be by full text
+search, by document attributes or manually by viewing
+thumbnails, as well as the creation of searchable indices of PDF
+
+files using backend asset management tools.
+• PDF can handle physical document sizes up to 200 x 200
+inches. (more than 5 x 5 m). This is large enough for most
+engineering drawing and display graphics applications
+• PDF is a structured and controlled format, with no proprietary
+implementations which can vary over time, and can lead to
+viewing and printing errors. This contrasts with the TIFF and
+HPGL standard
+• PDF documents can be generated in different ways to fit in
+with specific situations and processes: for example by direct
+export from the CAD application, conversion from other formats
+(e.g. TIFF), scanned hard-copy documents via TIFF and
+scanning of hard-copy documents direct to an archive or
+network, including OCR
+• PDF files can be secured with encrypted passwords, ensuring
+that confidential information can only be viewed or printed by
+authorised users. Also digital signatures can be incorporated,
+allowing PDF documents to meet legal requirements
+• Although PDF does not allow editing, just as with hard-copy
+documents, annotations can be made by adding comments in the
+form of “sticky notes”. These annotations can be tracked,
+supporting collaborative engineering projects without the need to
+share and distribute native files
+• PDF documents can be viewed and printed by all, using the
+freely available Acrobat reader
+• PDF files are in general smaller than equivalent native files,
+saving on storage space and network communication load
+• Only PDF is designed for the Internet – Of all the storage
+formats available, PDF is optimized for the web. Multi-page PDF
+files can be downloaded over the network concurrently with their
+display
+
+Page 4 of 6
+January 2002
+
+PDF: supporting document interchange
+4. Building a PDF-oriented engineering process
+
+PDF is not only an ideal format for document interchange and
+archiving, it is also an excellent fit for every stage of the
+engineering document process: from creation through document
+management to document output. In addition, as an open
+standard PDF is subject to both in-house and third-party
+developments to add functionalities needed for trade-specific
+workflows and applications.
+PDF brings numerous benefits to the engineering process:
+• PDF files are small and self-contained
+• They can be viewed, printed and archived readily at any location
+• They are page and device-independent
+• The ability to secure the contents of PDF files meets the need
+to protect confidential information
+• The ability to add comments supports the review process
+
+a single PDF file
+Document management and archival
+
+How does PDF fit into the various stages of the engineering
+process? In fact PDF is an excellent fit at every stage:
+
+• All printable files can be stored in PDF form, including both
+small-format documents and engineering drawings
+• Access to stored PDF files can be controlled, for example, view
+only or print only
+• Files in the archive can be searched by full-text search, search
+on attributes or browsing thumbnails or searching an entire index
+of PDF files
+• Comments or “sticky notes” can be added to PDF files. All
+comments on a document can be hosted on a central server,
+meeting ISO requirements for document integrity by ensuring
+that no changes have been made to the original document file
+• The latest Acrobat® 5 version supports a collaborative
+reviewing process
+• Digital signatures can be used to make PDF files into legal
+documents
+
+Document input/capture
+
+Document distribution and output
+
+• PDF files can be created within the CAD application
+• Other electronic file formats can be converted to PDF
+• Hard-copy documents can be scanned to TIFF files and then
+converted to PDF (including OCR)
+• Original hard-copy documents can be scanned directly into
+PDF files where the systems used allow this to be done
+• Indexing data, hyperlinks, content tables, thumbnails, XML
+data, security features etc. can be added to PDF files
+• Multiple documents (e.g. PDF plot files, scanned PDF files,
+small-format PDF files, TIFF files etc.) can all be combined into
+
+• PDF files in an archive can be viewed and/or printed on any
+device and at any location, either on a network or via the Internet
+• PDF files can be distributed for review and/or approval with
+the assurance of consistent, correct display and printing
+• Documents can be distributed in the form of PDF files to
+multiple users using predefined mailing lists, for example,
+as e-mail attachments
+• Multiple document sets can be created, including PDF files,
+when using job submission software that supports this function
+and printers with direct PDF support
+
+PDF at every stage of the engineering process
+
+Page 5 of 6
+January 2002
+
+PDF: supporting document interchange
+5. How Océ is leading the way with Adobe PDF in
+engineering
+
+Océ has committed itself to support Adobe PDF as the universal
+document interchange format for the engineering environment.
+By doing so, Océ recognises the need for both:
+a) High consistency and integrity of output documents
+b) The far-reaching impact of web-enabled working processes
+and enterprise models
+In this way Océ intends to offer its engineering customers the
+same benefits of standardisation, consistency and
+interchangeability that are already widely accepted in the printing
+and graphic arts industries.
+As a strategic partner of Adobe Systems, Océ can give its
+customers the assurance of state-of-the-art and future-proof
+document solutions with the highest standards of compatibility,
+consistency and reliability. This is ensured by direct access to
+Adobe’s proprietary software technology, with the support of a
+dedicated implementation team at the Océ R&D headquarters.
+Broadly-based PDF implementation
+
+Océ’s commitment to a broadly-based implementation of PDF
+technology is already reflected in a number of significant product
+developments. For example, new printer generations such as the
+latest Océ TDS-series of multifunctional wide-format systems
+incorporate on-board Adobe PDF support in the printer
+controller, which greatly enhances printing speed and reliability.
+Meeting the need for convenient conversion of documents from
+hard-copy to digital form, Océ scanners in the Océ TDS series
+have a direct scan-to-PDF capability. This allows scanned
+documents to be sent directly to the archive or to any other
+destination on the network, as PDF files.
+
+During this process, tasks like scanning, format conversion,
+compression and generation of file information are all handled in
+a single, automated process. This is performed transparently and
+requires no special operator skills. Ensuring that all document
+information is preserved, the Océ Image Logic® technology for
+real-time image processing provides the highest possible scan
+quality every time, with a range of selectable copy modes to
+match the quality of the original document. Full PDF support is
+also incorporated in Océ’s latest Océ Engineering Exec®
+archiving and document management software, making PDF
+an integral part of the engineering document process, ensuring
+you that the full document fidelity of PDF is consistently
+represented for all your document archival and management
+needs.
+Advice and support for optimum implementation
+
+Like any part of the engineering process, successful PDF
+implementation is not achieved simply by purchasing hardware
+and software. It requires a careful analysis of users’ needs and
+working processes, resulting in individual recommendations for a
+cost-effective implementation that will deliver optimum results.
+Océ document consultants possess extensive knowledge and
+expertise on the engineering document process. This enables
+them to advise and support enterprises in implementing PDFbased document flows and gaining the full benefits that these
+offer.
+
+For Adobe information,
+visit www.adobe.com
+
+Océ-Technologies B.V.
+Venlo, the Netherlands
+
+Page 6 of 6
+
+Printing for
+Professionals
+
+For Océ information
+and services, visit us
+at www.oce.com
+
+© 2002 Océ-Technologies B.V. Illustrations and specifications do not necessarily apply to products and services offered in each local market.
+Technical specifications are subject to change without prior notice. All trademarks are the property of their respective owners.
+
+

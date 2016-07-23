@@ -1,0 +1,45 @@
+<div class="status-wrapper">
+<?
+    foreach ($this->content as $model):
+        // build status for module
+        if ($model instanceOf P4Cms_Module) {
+            $status = $model->isCoreModule()
+                ? 'Core Module'
+                : (
+                    $model->isEnabled()
+                    ? 'External Module, Enabled'
+                    : 'External Module, Disabled'
+                );
+            $type = 'module';
+        }
+        else {
+            $activeThemeId  = P4Cms_Theme::fetchActive()->getId();
+            $defaultThemeId = P4Cms_Theme::fetchDefault()->getId();
+
+            $status = ($model->getId() == $activeThemeId)
+                ? 'Active'
+                : 'Available';
+
+            $default = ($model->getId() == $activeThemeId)
+                ? 'Default'
+                : '';
+
+            $connector      = ($default && $status)
+                ? ', '
+                : '';
+
+            $status = $status . $connector . $default;
+            $type = 'theme';
+        }
+
+        echo $this->partial('indicator.phtml',
+            array(
+                'id'        => $model->getId(),
+                'label'     => $model->getLabel(),
+                'type'      => $type,
+                'message'   => $status . ', v' . $model->getVersion()
+            )
+        );
+    endforeach;
+?>
+</div>

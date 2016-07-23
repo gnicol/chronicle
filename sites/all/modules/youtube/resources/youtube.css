@@ -1,0 +1,11 @@
+/* Video Widget Config Form */
+.p4cms-ui #config-element #videoCustomSize-element,
+.p4cms-ui #config-element #videoCustomSize-element fieldset {
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+div.widget-youtube-youtubevideo div.widget-content {
+    text-align: center;
+}

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="themes.view.scripts">
+    <title>View Scripts</title>
+
+    <para>
+        A <emphasis>view script</emphasis> is a file containing <acronym>HTML</acronym> markup and,
+        optionally, <acronym>PHP</acronym> code. The markup produced by a view script is included
+        within the current layout, so the view script usually represents only a portion of a page.
+        &product.longname; uses view scripts for almost all markup generation, so an understanding
+        of how a view script is selected during request processing helps theme designers to
+        customize the markup selectively. For detailed information, please see the
+        <ulink url="http://framework.zend.com/manual/1.11/en/zend.controller.html">Zend
+        Framework Programmer's Reference Guide</ulink>.
+    </para>
+
+    <para>
+        All non-resource requests made to &product.name; are dispatched through modules. A module is
+        a collection of configuration, controllers, resources, view scripts, and other assets that
+        can embody a significant amount of functionality in &product.name;. A controller is a
+        specific collection of programmed logic that is divided into actions. An action is
+        programmed logic contained in a <emphasis>method</emphasis>, designed to service a specific
+        request.
+    </para>
+
+    <para>
+        For example, when a request is made to &product.name; to display a particular piece of
+        content, via a <acronym>URL</acronym> such as
+        <code>http://cms-host/content/index/view/id/123</code>, &product.name; dispatches execution
+        of code to the <methodname>viewAction()</methodname> method in the
+        <classname>IndexController</classname> that exists in the <emphasis>content</emphasis>
+        module, which attempts to retrieve the content entry with the <emphasis>id</emphasis>
+        <emphasis>123</emphasis>.
+    </para>
+
+    <para>
+        When markup is to be generated, &product.name; first checks the current theme for a view
+        script matching the current module, controller, and action, and if one is found, it is used.
+        Otherwise, &product.name; uses the module's view script for markup generation. For a theme
+        to customize the markup for the example request, it needs to provide a view script in the
+        following folder structure:
+    </para>
+
+<programlisting language="text">
+views/
+   content/          - represents the <emphasis>content</emphasis> module.
+      index/         - represents the <classname>IndexController</classname> in the <emphasis>content</emphasis> module.
+         view.phtml  - represents the <methodname>viewAction()</methodname> method in the <emphasis>index</emphasis> controller.
+</programlisting>
+
+    <note>
+        <title>View Scripts Should Not Include Business Logic</title>
+
+        <para>
+            Any available <acronym>PHP</acronym> capabilities can be used in a view script. However
+            it is strongly recommended that business logic not be located in the view; business
+            logic ideally exists in a model, but may also be included in the controller/action.
+        </para>
+    </note>
+
+    <section id="themes.view.scripts.partial">
+        <title>Partial View Scripts</title>
+
+        <para>
+            Sometimes the same markup needs to be used multiple times. For example, you might need
+            to display contact information for multiple content types. To generate markup
+            independent of model, controller and method, you create a <emphasis>partial view
+            script</emphasis> in the views folder; for example:
+        </para>
+
+<programlisting language="text">
+views/
+   contact_info.phtml
+</programlisting>
+
+        <para>
+            To generate the markup in the partial view script, use the following
+            <acronym>PHP</acronym> code in the view script where you want the output to appear:
+        </para>
+
+<programlisting language="php">
+&lt;?= $this->partial('contact_info') ?&gt;
+</programlisting>
+
+        <para>
+            For more information about partial view scripts, refer to the
+            <ulink url="http://framework.zend.com/manual/1.11/en/zend.view.helpers.html#zend.view.helpers.initial.partial">Zend
+            Framework documentation.</ulink>
+        </para>
+    </section>
+
+    <section id="themes.view.scripts.entry">
+        <title>Content Entry View Scripts</title>
+
+        <para>
+            A specific content entry can have its own view script, enabling you to override the
+            presentation. Entry-specific view scripts must be named and located as follows. Note
+            that the identifier specific for a content entry must be included in the filename of
+            the view script.
+        </para>
+
+<programlisting language="text">
+views/
+   content/                         - represents the <emphasis>content</emphasis> module.
+      index/                        - represents the <classname>IndexController</classname> in the <emphasis>content</emphasis> module.
+         view-entry-example.phtml   - represents the view script for the <emphasis>example</emphasis> content entry.
+</programlisting>
+    </section>
+
+    <section id="themes.view.scripts.content.type">
+        <title>Content Type View Scripts</title>
+
+        <para>
+            A &product.name; <link linkend="content.type.overview">content type</link> can have its
+            own view script, enabling you to override the default presentation. Content type view
+            scripts must be named and located as follows. Note that the identifier specified for a
+            content type must be included in the filename of the view script.
+        </para>
+
+<programlisting language="text">
+views/
+   content/                       - represents the <emphasis>content</emphasis> module.
+      index/                      - represents the <classname>IndexController</classname> in the <emphasis>content</emphasis> module.
+         view-type-example.phtml  - represents the view script for the <emphasis>example</emphasis> content type.
+</programlisting>
+    </section>
+
+    <section id="themes.view.scripts.default">
+        <title>The Default Content View Script</title>
+
+        <para>
+            When a content entry is to be displayed and it does not match an entry-specific or
+            content type-specific view script, the default <filename>view.phtml</filename> view
+            script is used.
+        </para>
+    </section>
+
+    <section id="themes.view.scripts.notes">
+        <title>View Script Notes</title>
+
+        <para>
+            A content view script must produce the desired markup for presentation, as well as
+            suitable markup so that the content can be edited by users in the web browser.
+            &product.name; uses <link linkend="themes.view.helpers">view helpers</link> to
+            produce editor-specific markup.
+        </para>
+
+        <para>
+            If per-element markup is not required, the view script can enclose the entire content
+            entry in markup as follows:
+        </para>
+
+<programlisting language="php">
+... surrounding markup ...
+&lt;?= $this-&gt;contentEntry() ?&gt;
+... surrounding markup ...
+</programlisting>
+
+        <para>
+            If individual elements in a content entry require custom markup, use the approach
+            illustrated in the following example:
+        </para>
+
+<programlisting language="php">
+... markup ...
+&lt;?= $this-&gt;contentEntry()-&gt;open() ?&gt;
+... markup ...
+&lt;?= $this-&gt;contentEntry()-&gt;element('title') ?&gt;
+... markup ...
+&lt;?= $this-&gt;contentEntry()-&gt;element('sidebar') ?&gt;
+... markup ...
+&lt;?= $this-&gt;contentEntry()-&gt;element('body') ?&gt;
+... markup ...
+&lt;?= $this-&gt;contentEntry()-&gt;close() ?&gt;
+... markup ...
+</programlisting>
+
+        <para>
+            The <methodname>open()</methodname> call retrieves the content entry and returns markup
+            that is suitable for making the content editable. The <methodname>element()</methodname>
+            calls retrieve the specified element from the content entry and returns the markup
+            suitable for making that specific element editable. The <methodname>close()</methodname>
+            call closes the content entry, freeing resources, and returns markup to complete any
+            block-level markup to complete the editable context.
+        </para>
+
+        <para>
+            To ensure that a displayed element cannot be edited by users, use the following
+            approach:
+        </para>
+
+<programlisting language="php">
+&lt;?= $this-&gt;entry-&gt;getDisplayValue('title') ?&gt;
+</programlisting>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

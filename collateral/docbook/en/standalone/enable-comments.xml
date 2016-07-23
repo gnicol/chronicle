@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE note
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<note>
+    <title>The Comment Module Must Be Enabled</title> 
+
+    <para>
+        The Comments module must be enabled to use the commenting features. Please refer
+        to <xref linkend="modules.management.enable-disable"/>.
+    </para>
+</note>
+<!--
+vim:se ts=4 sw=4 et:
+-->

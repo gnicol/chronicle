@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="image.manipulation.classes">
+    <title>Image Classes</title>
+
+    <para>
+        &product.longname; comes with set of image driver classes for each of the supported
+        extensions and a wrapping class that provides image manipulation by using a given image
+        driver.
+    </para>
+
+    <section id="image.manipulation.classes.drivers">
+        <title>Image Drivers</title>
+
+        <para>
+            Image drivers do the actual work in terms of processing supported image transformations.
+            Each image driver must implement <classname>P4Cms_Image_Driver_Interface</classname>.
+        </para>
+
+        <para>
+            &product.name; ships with the following image drivers, one for each of the supported
+            library:
+
+            <itemizedlist>
+                <listitem>
+                    <classname>P4Cms_Image_Driver_Imagick</classname> for the
+                    <emphasis>imagick</emphasis> extension.
+                </listitem>
+
+                <listitem>
+                    <classname>P4Cms_Image_Driver_Gd</classname> for the
+                    <emphasis>gd</emphasis> extension.
+                </listitem>
+            </itemizedlist>
+        </para>
+
+        <warning>
+            <title>Ensure Desired Extension is Installed</title>
+
+            <para>
+                The desired image drive class can only be instantiated if the associated
+                extension is installed.
+            </para>
+        </warning>
+    </section>
+
+    <section id="image.manipulation.classes.factory">
+        <title>Factory</title>
+
+        <para>
+            An image driver object can be obtained from the
+            <classname>P4Cms_Image_Driver_Factory</classname> class:
+        </para>
+
+<programlisting language="php">
+&lt;?php
+// get image driver using the gd library
+try {
+    $driver = P4Cms_Image_Driver_Factory::create('P4Cms_Image_Driver_Gd');
+} catch (P4Cms_Image_Exception $e) {
+    // gd image driver cannot be instantiated - perhaps because the gd extension is not installed
+}
+</programlisting>
+
+        <para>
+            The factory class also provides a way to create a default image driver. It returns the
+            first driver whose class can be instantiated:
+        </para>
+
+<programlisting language="php">
+&lt;?php
+// get some image driver
+try {
+    $driver = P4Cms_Image_Driver_Factory::create();
+} catch (P4Cms_Image_Exception $e) {
+    // factory is unable to find any image driver that can be instantiated
+}
+</programlisting>
+    </section>
+
+    <section id="image.manipulation.classes.image">
+        <title>Image</title>
+
+        <para>
+            The <classname>P4Cms_Image</classname> component provides a general
+            <acronym>API</acronym> for manipulating with images. It allows setting and retrieving
+            image data, setting image driver, and performing image transformations (the available
+            transformations are driver dependent). Multiple transformations may be invoked, which
+            are processed in order when image data is requested.
+        </para>
+
+        <para>
+            Here is an example of printing an image resized to 200x100 pixels and sharpened
+            via the <emphasis>imagick</emphasis> driver:
+
+<programlisting language="php">
+&lt;?php
+    try{
+        // assuming $data contains original image data
+        $image = new P4Cms_Image;
+        $image->setData($data);
+
+        // set imagick driver
+        $driver = P4Cms_Image_Driver_Factory::create('P4Cms_Image_Driver_Imagick');
+        $image->setDriver($driver);
+
+        // resize and sharpen image
+        $image->transform('resize', array(200, 100))
+              ->transform('sharpen');
+
+        // print the image
+        header('Content-type: image/jpeg');
+        echo $image->getData('jpeg');
+    } catch (P4Cms_Image_Exception $e) {
+        echo 'Cannot process image.';
+    }
+</programlisting>
+
+        </para>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

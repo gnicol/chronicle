@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="social.disqus">
+    <title>Disqus Conversations</title>
+
+    <para>
+        The optional Disqus module connects the <ulink src="http://www.disqus.com/">Disqus
+        conversation service</ulink> to your content entries, allowing your site's users to provide
+        feedback and discuss the content you provide. This is an alternative to the Comment module
+        provided with &product.longname;. The most significant advantage of using the Disqus module
+        is that there are no storage requirements; all conversations are stored in the Disqus
+        service.
+    </para>
+
+    <note>
+        <title>&product.name; Comments and Disqus Conversations Together?</title>
+
+        <para>
+            It is possible to use &product.name;'s Comments module and the Disqus module together.
+            However, we recommend that you use whichever module you prefer to avoid confusing your
+            site's users.
+        </para>
+    </note>
+
+    <para>
+        Features available through Disqus powered conversations include:
+    </para>
+
+    <itemizedlist>
+        <listitem>
+            live discussions
+        </listitem>
+
+        <listitem>
+            activity indicators
+        </listitem>
+
+        <listitem>
+            social sharing of comment threads
+        </listitem>
+
+        <listitem>
+            <acronym>RSS</acronym> or email subscription to comment threads
+        </listitem>
+
+        <listitem>
+            voting
+        </listitem>
+
+        <listitem>
+            comment filtering and sorting options
+        </listitem>
+
+        <listitem>
+            file attachments
+        </listitem>
+
+        <listitem>
+            community tools such as following
+        </listitem>
+
+        <listitem>
+            <acronym>SEO</acronym> optimized
+        </listitem>
+    </itemizedlist>
+
+    <section>
+        <title>Configuring the Disqus Module</title>
+
+        <orderedlist>
+            <listitem>
+                Ensure that the Disqus module is enabled. Please refer to
+                <xref linkend="modules.management.enable-disable"/>.
+            </listitem>
+
+            <listitem>
+                Choose <command>Manage > Modules</command>. The <emphasis role="screen">Manage
+                Modules</emphasis> screen is displayed, listing available modules.
+            </listitem>
+
+            <listitem>
+                Scroll down to Disqus.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Configure</guibutton>. A dialog appears presenting the Disqus
+                module configuration:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-disqus_configuration.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Enter the Disqus Short Name you received when you signed up to use the Disqus
+                service.
+            </listitem>
+
+            <listitem>
+                Select the content types that should show Disqus conversations by default. This
+                affects new content entries; existing content entries need to be edited and saved
+                before Disqus conversations appear.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Save</guibutton>. The Disqus module is now ready to use.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section>
+        <title>Adding Disqus Conversations to Content</title>
+
+        <orderedlist>
+            <listitem>
+                Navigate to the content entry for which you wish to add Disqus conversations.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Edit</guibutton> in the &product.name; toolbar to begin
+                editing.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-content-edit.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click the <guibutton>Disqus</guibutton> button in the toolbar.
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/toolbar-edit_content-disqus-focus.png"/>
+                    </imageobject>
+                </mediaobject>
+
+                <para></para>
+
+                The Disqus conversation dialog appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-content_edit-disqus.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Make the <emphasis>Show Conversations</emphasis> checkbox checked.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Save</guibutton> to save your content and the updated Disqus
+                configuration.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <note>
+        <title>Using the Tableau theme?</title>
+
+        <para>
+            Please review <link linkend="tableau.social">the adjustments to Disqus
+            conversations</link> when the Tableau theme is active.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

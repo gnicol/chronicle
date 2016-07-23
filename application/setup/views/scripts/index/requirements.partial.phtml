@@ -1,0 +1,210 @@
+<div class="requirements">
+<?
+    $messages = array();
+    if ($this->isPhpValid) {
+        $class = 'good';
+        $messages[] = "You have PHP version " . $this->escape($this->phpVersion) . ".";
+    } else {
+        $class = 'bad';
+        if (!$this->isPhpVersionValid) {
+            $messages[] = "You have PHP version ". $this->escape($this->phpVersion)
+                . ". Version ". $this->escape($this->minPhpVersion) . " or greater is"
+                . " required. Please upgrade your installation of PHP and try again.";
+        }
+        if ($this->isMagicQuotesOn) {
+            $messages[] = "Magic quotes are enabled and must be disabled. Please check your"
+                . " <tt>magic_quotes_gpc</tt> and <tt>magic_quotes_runtime</tt> settings and"
+                . " ensure that they are both disabled.";
+        }
+    }
+    echo $this->partial(
+        'index/status.phtml',
+        array(
+            'label'     => 'PHP',
+            'class'     => $class,
+            'messages'  => $messages
+        )
+    );
+
+    $messages = array();
+    if ($this->isRewriteWorking) {
+        $class = 'good';
+        $messages[] = "Request rewriting appears to be working correctly.";
+    } else {
+        $class = 'bad';
+        $messages[] = "Request rewriting does not appear to be working correctly."
+            . " Please verify your web server's request rewriting configuration and try again."
+            . " For Apache, ensure the mod_rewrite module is enabled.";
+    }
+    echo $this->partial(
+        'index/status.phtml',
+        array(
+            'label'     => 'Clean URLs',
+            'class'     => $class,
+            'messages'  => $messages
+        )
+    );
+
+    $messages = array();
+    if ($this->isP4Valid) {
+        $class = 'good';
+        $messages[] = "You have version " . $this->escape($this->p4Version)
+            . " of the " . $this->escape($this->p4ClientType) . ".";
+    } else {
+        $class = 'bad';
+        if (!$this->isP4Installed) {
+            $messages[] = "No Perforce client could be found."
+                . " Please ensure that version " . $this->escape($this->minP4Version)
+                . " (or greater) of either the Perforce PHP extension (P4PHP) is installed, or"
+                . " the P4 command-line client is installed in a path that is executable by"
+                . " the web server (" . getenv('PATH') . ").";
+        } else {
+            $messages[] = "You have version " . $this->escape($this->p4Version)
+                . " of the " . $this->escape($this->p4ClientType) . "."
+                . " Version " . $this->escape($this->minP4Version) . " or greater is required."
+                . " Please upgrade your Perforce client and try again.";
+        }
+    }
+    echo $this->partial(
+        'index/status.phtml',
+        array(
+            'label'     => 'Perforce Client',
+            'class'     => $class,
+            'messages'  => $messages
+        )
+    );
+
+    $messages = array();
+    if ($this->isDataPathValid) {
+        $class = 'good';
+        $messages[] = "Your data directory (" . $this->escape($this->dataPath) . ") exists"
+            . " and is writable by the web server" . $this->escape($this->webServerDetails) . ".";
+    } else {
+        $class = 'bad';
+        if (!$this->isDataPathPresent) {
+            $messages[] = "Your data directory (" . $this->escape($this->dataPath) . ") could not be found."
+                . " Please create a data directory and ensure that it is"
+                . " writable by the web server" . $this->escape($this->webServerDetails) . ".";
+        } else {
+            $messages[] = "Your data directory (" . $this->escape($this->dataPath) . ") is not writable."
+                . " Please make the data directory and its contents writable by the"
+                . " web server" . $this->escape($this->webServerDetails) .".";
+        }
+    }
+    echo $this->partial(
+        'index/status.phtml',
+        array(
+            'label'     => 'Data Directory',
+            'class'     => $class,
+            'messages'  => $messages
+        )
+    );
+
+    if (!$this->isP4PHPInstalled) {
+        $class = 'warn';
+        echo $this->partial(
+            'index/status.phtml',
+            array(
+                'label'     => 'P4PHP Extension',
+                'class'     => 'warn',
+                'messages'  => array(
+                    'The P4PHP extension does not appear to be installed. Installing P4PHP'
+                    . ' can provide a significant performance boost, and is recommended for'
+                    . ' production Chronicle sites.',
+                    'Please see the INSTALL.txt file in your Chronicle directory for'
+                    . ' information about installing P4PHP.'
+                )
+            )
+        );
+    }
+
+    if ($this->isWinCacheInstalled) {
+        echo $this->partial(
+            'index/status.phtml',
+            array(
+                'label'     => 'Opcode Cache',
+                'class'     => 'good',
+                'messages'  => array('The WinCache extension is installed.')
+            )
+        );
+    } else if ($this->isApcInstalled) {
+        echo $this->partial(
+            'index/status.phtml',
+            array(
+                'label'     => 'Opcode Cache',
+                'class'     => 'good',
+                'messages'  => array('The APC extension is installed.')
+            )
+        );
+    } else if ($this->isWebServerIis) {
+        echo $this->partial(
+            'index/status.phtml',
+            array(
+                'label'     => 'Opcode Cache',
+                'class'     => 'warn',
+                'messages'  => array(
+                    'The WinCache extension does not appear to be installed. Installing WinCache'
+                    . ' can provide a significant performance boost, and is recommended for'
+                    . ' production Chronicle sites.',
+                    'To install WinCache, please follow the instructions here:',
+                    '<a href="http://www.php.net/manual/en/wincache.installation.php">'
+                    . 'http://www.php.net/manual/en/wincache.installation.php</a>'
+                )
+            )
+        );
+    } else {
+        echo $this->partial(
+            'index/status.phtml',
+            array(
+                'label'     => 'Opcode Cache',
+                'class'     => 'warn',
+                'messages'  => array(
+                    'The APC extension does not appear to be installed. Installing APC'
+                    . ' can provide a significant performance boost, and is recommended for'
+                    . ' production Chronicle sites.',
+                    'You can typically install APC by running the command-line command:',
+                    '<tt>pecl install APC</tt>'
+                )
+            )
+        );
+    }
+
+    $messages = array();
+    if (count($this->imageExtensionsEnabled)) {
+        $class      = 'good';
+        $messages[] = "The following PHP extensions for image manipulation were detected: "
+            . implode(', ', $this->imageExtensionsEnabled) . '.'
+            . (count($this->imageExtensionsEnabled) > 1
+                ? ' The ' . $this->defaultImageDriver->getRequiredExtension()
+                    . ' extension will be used by default.'
+                : ''
+            );
+    } else {
+        $class      = 'warn';
+        $messages[] = "No PHP extensions for image manipulation were detected. For"
+            . " best results and performance, it is recommended that one of the"
+            . " following PHP extensions be installed and enabled: "
+            . implode(', ', $this->imageExtensions) . '.';
+    }
+
+    // add a warning message if some of the common image types are not supported
+    if (count($this->imageExtensionsEnabled) && count($this->missingCommonImageTypes)) {
+        $class      = 'warn';
+        array_unshift(
+            $messages,
+            "The following common web image formats are not supported: "
+                . implode(', ', $this->missingCommonImageTypes) . "."
+                . "<br>Please install support for these common formats."
+        );
+    }
+
+    echo $this->partial(
+        'index/status.phtml',
+        array(
+            'label'     => 'Image Manipulation',
+            'class'     => $class,
+            'messages'  => $messages
+        )
+    );
+?>
+</div>

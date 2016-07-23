@@ -1,0 +1,28 @@
+<?
+/**
+ * Displays a color-coded status indicator.  If status is empty, attempts to get
+ * md5 data from system/index/md5 action based on the target and the type of the
+ * target (library, module, theme).
+ *
+ * target and type are required if status is not provided
+ * status, details, extra are optional if target and type are provided
+ */
+    $id = isset($this->id) ? $this->id : preg_replace('/[^a-zA-Z0-9]*/', '', $this->label);
+    $classes = array('status');
+    $classes[] = $this->class ? $this->class : 'loading';
+?>
+<div class="<?= implode(' ', $classes) ?>" id="<?= $id ?>-status">
+ <div class="label"><?= $this->escape(ucfirst($this->label)) ?></div>
+ <div class="value">
+<?
+if ($this->message) {
+    echo '  <p class="message">'. ($this->htmlMessage ? $this->message : $this->escape($this->message)) ."</p>\n";
+} ?>
+  <p class="response"><?= isset($this->status) ? $this->escape($this->status) : '&nbsp;' ?></p>
+ </div>
+<?  if (!isset($this->status)) { ?>
+<script type="text/javascript">
+    p4cms.system.addItem({ type: '<?= $this->type ?>', target: '<?= $id ?>' });
+</script>
+<?  } ?>
+</div>

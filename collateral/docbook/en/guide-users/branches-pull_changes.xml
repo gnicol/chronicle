@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="branches.pull">
+    <title>Pulling Changes</title>
+
+    <bridgehead>
+        To pull changed items from a branch into the active branch:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click the "active branch" indicator in the &product.longname; toolbar.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-branches.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The branch popup menu appears:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-branch_popup-with_branch.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Hover or click the mouse over <guimenuitem>Pull From</guimenuitem> to display a
+            secondary popup-menu displaying a list of branches from which changes may be
+            pulled:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-branch_popup-pull_from-focus.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            In the secondary popup menu, click the branch from which you to wish pull. The
+            <emphasis role="dialog">Pull</emphasis> dialog appears:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-pull.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Choose the branch to pull from, the mode to use, and check the items you wish to pull.
+            See <xref linkend="branches.pull.modes"/> for more details.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Pull</guibutton> to pull the selected items from the specified branch
+            into the active branch.
+        </listitem>
+    </orderedlist>
+
+    <section id="branches.pull.conflicts">
+        <title>Pull Conflicts</title>
+
+        <para>
+            If an item has been modified, both in the branch you are pulling from and the branch you
+            are pulling into, this is a conflict. &product.name; identifies conflicting items, so
+            you can investigate them prior to pulling changes. Click on the linked number in the
+            "quantity" column to display a tooltip identifying the conflicting items.
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/dialog-pull-detail_tooltip.png"/>
+            </imageobject>
+        </mediaobject>
+
+        <para>
+            If you choose to pull items that are in conflict, those items in the active branch
+            will be overwritten.
+        </para>
+
+        <para>
+            Menus receive some special treatment: if the same menu is modified in both branches, the
+            changes are combined automatically. However, if the same menu item is modified in both
+            branches, the menu item in the branch you are pulling from will overwrite the menu item
+            in the branch you are pulling into.
+        </para>
+    </section>
+
+    <section id="branches.pull.modes">
+        <title>Pull Modes</title>
+
+        <para>
+            Changes can be pulled from a branch in one of two modes:
+        </para>
+
+        <variablelist>
+            <varlistentry>
+                <term>Update</term>
+
+                <listitem>
+                    This mode identifies changes in the <emphasis>source</emphasis> branch that
+                    need to be copied into the active branch. Items in the active branch that
+                    conflict with the source branch will be overwritten, but non-conflicting items
+                    remain intact.
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/dialog-pull.png"/>
+                        </imageobject>
+                    </mediaobject>
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Clone</term>
+
+                <listitem>
+                    This mode makes the active branch identical to the <emphasis>source</emphasis> branch.
+
+                    <mediaobject>
+                        <imageobject>
+                            <imagedata fileref="images/dialog-pull-clone.png"/>
+                        </imageobject>
+                    </mediaobject>
+
+                    As you can see, more items are flagged as conflicting in clone mode.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

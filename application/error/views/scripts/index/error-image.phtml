@@ -1,0 +1,43 @@
+<?
+    $images = array(
+        array(
+            "src"       => $this->module('error')->getBaseUrl() . "/images/crying-baby.png",
+            "alt"       => "Crying Baby",
+            "heading"   => ""
+        ),
+        array(
+            "src"       => $this->module('error')->getBaseUrl() . "/images/oh-no.png",
+            "alt"       => "Oh No",
+            "heading"   => ""
+        ),
+        array(
+            "src"       => $this->module('error')->getBaseUrl() . "/images/pencil.png",
+            "alt"       => "Broken Pencil",
+            "heading"   => ""
+        ),
+        array(
+            "src"       => $this->module('error')->getBaseUrl() . "/images/woman.png",
+            "alt"       => "Vintage Woman",
+            "heading"   => ""
+        ),
+        array(
+            "src"       => $this->module('error')->getBaseUrl() . "/images/woman2.png",
+            "alt"       => "Vintage Woman, Oh No!",
+            "heading"   => ""
+        ),
+    );
+
+    // pick one at random
+    $image      = $images[array_rand($images)];
+    $src        = $this->noimage ? null : $image['src'];
+    $alt        = $image['alt'];
+    $heading    = $this->heading ? $this->heading : $image['heading'];
+
+    if ($src):
+?>
+<img src="<?= $src ?>" alt="<?= $alt ?>"/>
+<?  endif; ?>
+
+<? if ($heading): ?>
+<h2><span><?= $this->escape($heading) ?></span></h2>
+<?  endif; ?>

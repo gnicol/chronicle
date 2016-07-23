@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+    "@DOCBOOK_DTD@"
+[
+    <!ENTITY % xinclude SYSTEM "../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<book id="manual" lang="&lang;">
+    <bookinfo>
+        <title>&book.title;</title>
+        <subtitle>&book.subtitle;</subtitle>
+        <edition>&book.edition;</edition>
+        <pubdate><?dbtimestamp?></pubdate>
+        <copyright>
+            <year>2011-<?dbtimestamp format="Y"?></year>
+            <holder>
+                Perforce Software
+                (<ulink url="http://www.perforce.com/" />)
+            </holder>
+        </copyright>
+        <!--
+        A Title page graphic can be included like this
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="../web/images/foo.jpg" />
+              </imageobject>
+            </mediaobject>
+        -->
+    </bookinfo>
+
+    <part id="introduction">
+        <title>&part.introduction;</title>
+
+        <chapter id="introduction.overview">
+            <title>&chapter.introduction;</title>
+
+            <xi:include href="introduction/welcome.xml">
+                <xi:fallback>
+                    <xi:include href="../en/introduction/welcome.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="introduction/release-notes.xml">
+                <xi:fallback>
+                    <xi:include href="../en/introduction/release-notes.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="introduction/open-source.xml">
+                <xi:fallback>
+                    <xi:include href="../en/introduction/open-source.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="introduction.getstarted">
+            <title>&chapter.getstarted;</title>
+
+            <xi:include href="introduction/installation.xml">
+                <xi:fallback>
+                    <xi:include href="../en/introduction/installation.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="introduction/workingwith.xml">
+                <xi:fallback>
+                    <xi:include href="../en/introduction/workingwith.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="introduction/tableau.xml">
+                <xi:fallback>
+                    <xi:include href="../en/introduction/tableau.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+    </part>
+
+    <part id="userguide">
+        <title>&part.userguide;</title>
+
+        <chapter id="content">
+            <title>&chapter.content;</title>
+
+            <xi:include href="guide-users/overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-manage.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-manage.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-add.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-add.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-edit.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-edit.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-wysiwyg.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-wysiwyg.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-delete.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-delete.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-history.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-history.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-conflicts.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-conflicts.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-urls.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-urls.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="content-types">
+            <title>&chapter.content-types;</title>
+
+            <xi:include href="guide-users/content-type-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-type-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-type-manage.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-type-manage.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-type-add.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-type-add.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-type-edit.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-type-edit.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-type-delete.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-type-delete.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-type-elements.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-type-elements.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/content-type-image_gallery.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/content-type-image_gallery.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="workflows">
+            <title>&chapter.workflows;</title>
+
+            <xi:include href="guide-users/workflows-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/workflows-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/workflows-manage.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/workflows-manage.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/workflows-add.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/workflows-add.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/workflows-edit.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/workflows-edit.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/workflows-delete.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/workflows-delete.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/workflows-configure.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/workflows-configure.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/workflows-scheduled-transitions.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/workflows-scheduled-transitions.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="navigation">
+            <title>&chapter.navigation;</title>
+
+            <xi:include href="guide-users/menu-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/menu-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/menu-manage.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/menu-manage.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/menu-add.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/menu-add.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/menu-edit.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/menu-edit.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/menu-delete.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/menu-delete.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/menu-add_item.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/menu-add_item.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/menu-edit_item.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/menu-edit_item.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/menu-delete_item.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/menu-delete_item.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/category-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/category-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/category-manage.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/category-manage.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/category-add.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/category-add.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/category-edit.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/category-edit.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/category-delete.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/category-delete.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="widgets">
+            <title>&chapter.widgets;</title>
+
+            <xi:include href="guide-users/widgets-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/widgets-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/widgets-add.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/widgets-add.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/widgets-configure.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/widgets-configure.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/widgets-remove.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/widgets-remove.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/widgets-macros.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/widgets-macros.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="comments">
+            <title>&chapter.comments;</title>
+
+            <xi:include href="guide-users/comments-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/comments-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/comments-manage.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/comments-manage.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/comments-configure.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/comments-configure.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/comments-add.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/comments-add.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/comments-voting.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/comments-voting.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/comments-approve-reject-pend.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/comments-approve-reject-pend.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/comments-delete.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/comments-delete.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="social">
+            <title>&chapter.social;</title>
+
+            <xi:include href="guide-users/social-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/social-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/social-disqus.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/social-disqus.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/social-sharethis.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/social-sharethis.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="branches">
+            <title>&chapter.branches;</title>
+
+            <xi:include href="guide-users/branches-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/branches-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/branches-manage.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/branches-manage.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/branches-add.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/branches-add.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/branches-edit.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/branches-edit.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/branches-delete.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/branches-delete.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/branches-view.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/branches-view.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-users/branches-pull_changes.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-users/branches-pull_changes.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+    </part>
+
+    <part id="devguide">
+        <title>&part.devguide;</title>
+
+        <xi:include href="guide-developers/devguide.xml"
+            xpointer="xpointer(//section[@id='devguide.wrapper']/node() )">
+            <xi:fallback>
+                <xi:include href="../en/guide-developers/devguide.xml"
+                    xpointer="xpointer(//section[@id='devguide.wrapper']/node() )"/>
+            </xi:fallback>
+        </xi:include>
+
+        <chapter id="themes.anatomy">
+            <title>&chapter.themes.anatomy;</title>
+
+            <xi:include href="guide-developers/theme-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/theme-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/theme-paths.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/theme-paths.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/theme-components.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/theme-components.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="themes.components">
+            <title>&chapter.themes.components;</title>
+
+            <xi:include href="guide-developers/theme-config.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/theme-config.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/theme-resources.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/theme-resources.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/theme-layouts.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/theme-layouts.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/theme-view-scripts.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/theme-view-scripts.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/theme-view-helpers.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/theme-view-helpers.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="chapter.themes.examples">
+            <title>&chapter.themes.examples;</title>
+
+            <xi:include href="guide-developers/theme-example.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/theme-example.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="modules.anatomy">
+            <title>&chapter.modules.anatomy;</title>
+
+            <xi:include href="guide-developers/module-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-structure.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-structure.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-anatomy-components.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-anatomy-components.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="modules.components">
+            <title>&chapter.modules.components;</title>
+
+            <xi:include href="guide-developers/module-config.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-config.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-integration.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-integration.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-acl-assert.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-acl-assert.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-controllers.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-controllers.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-filters.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-filters.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-forms.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-forms.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-layouts.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-layouts.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-models.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-models.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-resources.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-resources.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-tests.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-tests.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-validators.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-validators.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-views.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-views.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/module-workflows.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-workflows.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="chapter.modules.examples">
+            <title>&chapter.modules.examples;</title>
+
+            <xi:include href="guide-developers/module-example.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/module-example.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="chapter.image.manipulation">
+            <title>&chapter.image.manipulation;</title>
+
+            <xi:include href="guide-developers/images-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/images-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/images-classes.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/images-classes.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-developers/images-creating-driver.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-developers/images-creating-driver.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+    </part>
+
+    <part id="adminguide">
+        <title>&part.adminguide;</title>
+
+        <chapter id="users.management">
+            <title>&chapter.users.management;</title>
+
+            <xi:include href="guide-administrators/users-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/users-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/users-manage.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/users-manage.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/roles-manage.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/roles-manage.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/permissions-manage.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/permissions-manage.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/users-external_auth.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/users-external_auth.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="sites.management">
+            <title>&chapter.sites.management;</title>
+
+            <xi:include href="guide-administrators/site-settings.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/site-settings.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/newsite.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/newsite.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/analytics.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/analytics.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/search.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/search.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/site-time_based_tasks.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/site-time_based_tasks.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="installation.management">
+            <title>&chapter.installation.management;</title>
+
+            <xi:include href="guide-administrators/installation-management-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/installation-management-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/theme-management.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/theme-management.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/module-management.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/module-management.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/ide-module.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/ide-module.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/backup.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/backup.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/restore.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/restore.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/wordpress-import.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/wordpress-import.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/system_information.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/system_information.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+
+        <chapter id="performance">
+            <title>&chapter.performance;</title>
+
+            <xi:include href="guide-administrators/performance-overview.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/performance-overview.xml" />
+                </xi:fallback>
+            </xi:include>
+
+            <xi:include href="guide-administrators/performance-recommendations.xml">
+                <xi:fallback>
+                    <xi:include href="../en/guide-administrators/performance-recommendations.xml" />
+                </xi:fallback>
+            </xi:include>
+        </chapter>
+    </part>
+
+    <xi:include href="standalone/copyrights.xml">
+        <xi:fallback>
+                <xi:include href="../en/standalone/copyrights.xml" />
+            </xi:fallback>
+    </xi:include>
+
+    <xi:include href="standalone/glossary.xml">
+        <xi:fallback>
+                <xi:include href="../en/standalone/glossary.xml" />
+            </xi:fallback>
+    </xi:include>
+
+    <index id="the.index" />
+</book>

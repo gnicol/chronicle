@@ -1,0 +1,9 @@
+<?
+// render the form to collect dojo requires
+$form = $this->render('manage/index.phtml');
+
+// include necessary dojo requires
+print $this->dojo(array('extras', 'layers'));
+
+// display form
+print $form;

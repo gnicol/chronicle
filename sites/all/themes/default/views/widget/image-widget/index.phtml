@@ -1,0 +1,9 @@
+<?
+// if the image widget lives in the grid region force on 'render as background'.
+if ($this->widget->region == 'grid') {
+    $this->widget->getConfig()->asBackground = true;
+}
+
+// leverage the original view script to do the heavy lifting
+print $this->renderScript(APPLICATION_PATH . '/widget/views/scripts/image-widget/index.phtml');
+?>

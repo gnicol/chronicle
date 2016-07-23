@@ -1,0 +1,51 @@
+<div class="display-group">
+<div dojoType="dijit.layout.TabContainer" class="content-type-container" tabPosition="left-h">
+
+ <?
+ foreach ($this->typeGroups as $group => $types):
+    // don't show handlers with no types.
+    if (!count($types)) {
+        continue;
+    }
+ ?>
+
+  <div dojoType="dijit.layout.ContentPane" title="<?= $group ?: 'Un-Grouped' ?>">
+   <ul class="content-types">
+    <? foreach ($types as $type): ?>
+     <li>
+      <span class='content-type-icon' title="<?= $this->escapeAttr($type->getDescription()) ?>">
+        <a href="<?= $type->getAddUri() ?>"><img src="<?= $this->url(array(
+            'module'        => 'content',
+            'controller'    => 'type',
+            'action'        => 'icon',
+            'id'            => $type->getId()
+        )) ?>" /></a>
+      </span>
+
+      <span class="content-type-label" title="<?= $this->escapeAttr($type->getDescription()) ?>">
+        <a href="<?= $type->getAddUri() ?>"><?= $this->escape($type->getLabel()) ?></a>
+      </span>
+
+     </li>
+    <? endforeach; ?>
+   </ul>
+  </div>
+
+ <? endforeach; ?>
+
+</div>
+</div>
+<div id="buttons-element" style="text-align: left; margin: 6px 0 0 -5px;">
+ <fieldset class="buttons">
+  <div dojoType="dijit.form.Button" class="add-button">
+      Add Content Type
+      <script type="dojo/method" event="onClick">
+        window.location.href = p4cms.url({
+            module:      'content',
+            controller:  'type',
+            action:      'add'
+        });
+      </script>
+  </div>
+ </fieldset>
+</div>

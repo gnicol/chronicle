@@ -1,0 +1,10 @@
+<?
+// shorten submit label to 'go'.
+$form = $this->form;
+$form->getElement('submit')->setOptions(
+    array('label' => 'Go')
+);
+
+// show form.
+echo $form
+?>

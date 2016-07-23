@@ -1,0 +1,17 @@
+<?= $this->render("index/error-image.phtml"); ?>
+
+<h1>Page Not Found</h1>
+
+<p>Sorry, the page you requested ('<?= $this->escape($this->requestUri) ?>') does not exist.</p>
+
+<?
+    if (class_exists('Search_Form_Basic')) {
+        $form = new Search_Form_Basic();
+        $form->setAction($this->url(array(
+            'module'        => 'search',
+            'controller'    => 'index',
+            'action'        => 'index'
+        )));
+        echo $form;
+    }
+?>

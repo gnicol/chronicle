@@ -1,0 +1,452 @@
+
+C4PZF
+-----
+
+N pbagrag znantrzrag flfgrz ohvyg ba Cresbepr.
+
+
+ERDHVERZRAGF
+------------
+
+ Gur sbyybjvat pbzcbaragf ner erdhverq:
+
+ 1. Ncnpur jvgu zbq-erjevgr
+    uggc://uggcq.ncnpur.bet
+
+ 2. CUC 5.3 be arjre
+    uggc://cuc.arg
+
+ 3. Cresbepr 2010.1 be arjre:
+    uggc://cresbepr.pbz
+
+     - C4Q (vapyhqrq sbe Znp naq Yvahk)
+     - C4  (vapyhqrq sbe Znp naq Yvahk)
+
+
+ERPBZZRAQRQ
+-----------
+
+ Gur sbyybjvat pbzcbaragf ner abg erdhverq, ohg ner erpbzzrqrq
+ sbe vzcebirq cresbeznapr:
+
+ 1. NCP   (gur Nygreangvir CUC Pnpur)
+    uggc://cuc.arg/ncp
+
+ 2. C4CUC (gur Cresbepr CUC Rkgrafvba)
+    sgc://sgc.cresbepr.pbz/e10.1/ova.gbbyf/c4cuc.gtm
+
+
+VAFGNYYNGVBA
+------------
+
+ 1. Znxr qngn sbyqre jevgnoyr ol gur jrofreire.
+ 2. Bcra lbhe jro oebjfre gb gur hey lbh unir
+    qrfvtangrq sbe guvf vafgnyyngvba.
+ 3. Sbyybj gur ba-fperra vafgehpgvbaf.
+
+
+FVGRF
+-----
+
+ Gb nqq n fvgr gb guvf vafgnyyngvba, eha gur frghc cebtenz
+ (npprffrq ivn '/frghc') be znahnyyl hcqngr gur fvgrf svyr
+ (qngn/fvgrf/fvgrf.vav) jvgu lbhe arj fvgr ragel.
+
+Gur Fvgrf Svyr
+
+ Gur fvgrf svyr qrsvarf gur fvgrf freirq ol guvf vafgnyyngvba.
+ Gur ybpngvba bs gur svyr vf: choyvp/fvgrf/fvgrf.vav
+ 
+ Rnpu fvgr ragel zhfg or xrlrq ba gur fvgr anzr. Gur fvgr ragel
+ zhfg pbagnva n yvfg bs heyf sbe juvpu sbe juvpu gur fvgr vf gb
+ or freirq. Vs gur fnzr hey vf yvfgrq sbe zber guna bar fvgr gur
+ svefg fvgr jvgu gung hey jvyy gnxr cerprqrapr.
+
+ Rnpu fvgr ragel zhfg nyfb qrsvar Cresbepr pbaarpgvba cnenzrgref.
+ Gur erdhverq svryqf ner: cbeg, hfre naq cnffjbeq (be gvpxrg).
+
+ Sbe rknzcyr:
+
+  [rknzcyr.pbz]
+  anzr                  = "rknzcyr"
+  heyf.0                = "rknzcyr.pbz"
+  heyf.1                = "jjj.rknzcyr.pbz"
+  cresbepr.cbeg         = "cresbepr:1666"
+  cresbepr.hfre         = "rknzcyr.pbz"
+  cresbepr.pyvrag       = "rknzcyr.pbz"
+  cresbepr.cnffjbeq     = "rqloRJljr3"
+
+
+GURZRF
+------
+
+ Gb nqq n gurzr gung vf ninvynoyr sbe nyy fvgrf gb hfr, cynpr vg 
+ va gur gurzrf fho-sbyqre bs gur "fvgrf/nyy" qverpgbel.
+
+ Gb nqq n gurzr gb n fcrpvsvp fvgr, perngr n qverpgbel haqre fvgrf 
+ jvgu gur fnzr anzr nf gur fvgr. Vafvqr guvf qverpgbel perngr n 
+ "gurzrf" sbyqre naq cynpr gur gurzr vafvqr gur arj "gurzrf" sbyqre.
+
+Gurzr Svyrf
+
+ Rnpu gurzr znl pbagnva n gurzr.vav svyr gung qrfpevorf gur gurzr
+ naq vasyhraprf vgf orunivbe. Gur gurzr.vav svyr vf bcgvbany, ohg
+ erpbzzraqrq. Jvgubhg bar, gur flfgrz jvyy unir irel yvzvgrq
+ vasbezngvba nobhg gur gurzr. Urer vf na rknzcyr gurzr svyr:
+  
+    gvgyr               = "Rknzcyr Gurzr"
+    irefvba             = "1.0"
+    qrfpevcgvba         = "Na rknzcyr bs n gurzr."
+    
+    [znvagnvare]
+    anzr                = "Cresbepr Fbsgjner"
+    rznvy               = "fhccbeg@cresbepr.pbz"
+    hey                 = "uggc://jjj.cresbepr.pbz"
+    
+    [fglyrfurrgf]
+    nyy[]               = "erfrg.pff"
+    fperra[]            = "ynlbhg.pff"
+    fperra[]            = "glcr.pff"
+    cevag[]             = "cevag.pff"
+    
+    [fpevcgf]
+    wninfpevcg[]        = "pbzzba.wf"
+    
+    [ertvbaf]
+    fvqrone.1.gvgyr     = "Jrypbzr"
+    fvqrone.1.glcr      = "jvqtrg/grkg"
+
+ Gur gurzr svyr vf va gur VAV sbezng. Gurzr svyrf znl pbagnva 
+ frireny svryqf naq frpgvbaf:
+ 
+  anzr
+   Gur anzr svryq ubyqf n sevraqyl anzr sbe gur gurzr.
+
+  irefvba
+   Gur irefvba svryq vaqvpngrf gur erivfvba bs gur gurzr.
+
+  qrfpevcgvba
+   Gur qrfpevcgvba svryq qrfpevorf gur trareny punenpgrevfgvpf
+   bs gur gurzr. Sbe rknzcyr, vgf nccrnenapr, fcrpvny srngherf 
+   be vagraqrq hfr.
+
+  vpba
+   Gur vpba svryq znl pbagnva n eryngvir hey gb n vzntr svyr
+   qrcvpgvat gur gurzr. Gur hey zhfg or eryngvir gb gur gurzr'f onfr
+   hey. Gur fhttrfgrq fvmr bs gur vpba vf 256k256 cvkryf.
+
+  znvagnvare
+   Gur znvagnvare frpgvba znl pbagnva gur anzr, rznvy naq jrofvgr bs 
+   gur gurzr znvagnvare. Gur sbezng bs guvf frpgvba vf:
+
+    [znvagnvare]
+    anzr            = "Wbua Qbr"
+    rznvy           = "wqbr@qbznva.pbz"
+    hey             = "uggc://jjj.qbznva.pbz"
+
+  fglyrfurrgf
+   Gur fglyrfurrgf frpgvba znl yvfg PFF svyrf gb vapyhqr ba rirel cntr. 
+   Tebhc fglyrfurrgf ol zrqvn glcr (r.t. nyy, fperra, cevag):
+
+    [fglyrfurrgf]
+    nyy[]           = "erfrg.pff"
+    nyy[]           = "glcr.pff"
+    fperra[]        = "ynlbhg.pff"
+    fperra[]        = "fglyr.pff"
+    cevag[]         = "cevag.pff"
+    
+   Gur inyhr bs rnpu ragel vf gur uers bs gur fglyrfurrg. Gur uers vf 
+   eryngvir gb gur ebbg bs gur gurzr sbyqre. Nofbyhgr uersf ner 
+   crezvggrq.
+
+  fpevcgf
+   Gur fpevcgf frpgvba znl yvfg pyvrag-fvqr fpevcg svyrf gb vapyhqr ba
+   rirel cntr. Tebhc fpevcgf ol ynathntr (r.t. wninfpevcg, iofpevcg):
+   
+    [fpevcgf]
+    wninfpevcg[]    = "wdhrel.zva.wf"
+    wninfpevcg[]    = "phfgbz.wf"
+
+   Gur inyhr bs rnpu ragel vf gur fep bs gur fpevcg. Gur fep vf 
+   eryngvir gb gur ebbg bs gur gurzr sbyqre. Nofbyhgr fep inyhrf ner 
+   crezvggrq.
+   
+  qbwb
+   Gur qbwb frpgvba znl yvfg qbwb zbqhyrf gung ner cebivqrq ol, be
+   erdhverq ol gur gurzr. Sbe rknzcyr:
+   
+    [qbwb]
+    cebivqrZbqhyr['qbwb.sbb']   = 'qbwb/sbb'
+    erdhverZbqhyr[]             = 'one'
+    
+   Jura yvfgvat qbwb zbqhyrf cebivqrq ol gur gurzr, gur xrl bs rnpu
+   ragel pbeerfcbaqf gb gur anzr bs gur zbqhyr naq gur inyhr vf gur
+   hey bs gur zbqhyr (eryngvir gb gur ebbg bs gur gurzr sbyqre). 
+ 
+  ertvbaf
+   Gur vavgvny frg bs jvqtrgf gb qvfcynl va rnpu ertvba pna or qrsvarq
+   urer. Sbe n ertvba gb nccrne va n cntr, vg zhfg or pnyyrq sebz n 
+   ivrj fpevcg. Gur sbezng bs gur ertvbaf frpgvba vf:
+   
+    <ertvba>.<jvqtrg-vq>.<cebcregl> = <inyhr>
+
+   Sbe rknzcyr:
+   
+    [ertvbaf]
+    fvqrone.1.gvgyr         = "Sbb Jvqtrg"
+    fvqrone.1.glcr          = "sbb/jvqtrg"
+    fvqrone.1.bcgvbaf.mvt   = "mnt"
+    fvqrone.1.bcgvbaf.juvm  = "onat"
+    
+   Gur gvgyr svryq vf bcgvbany. Vg ubyqf n sevraqyl ynory sbe gur 
+   jvqtrg gung pna or qvfcynlrq gb gur hfre. Gur glcr svryq vf
+   erdhverq. Vg pbagnvaf gur vq bs gur glcr bs gur jvqtrg. Jvqtrg
+   glcrf ner cebivqrq ol zbqhyrf naq qrpynerq va gur zbqhyr.vav svyr.
+   Gur bcgvbaf svryq vf ninvynoyr gb cebivqr qrsnhyg pbasvthengvba
+   cnenzrgref gb gur jvqtrg. Vg vf abg erdhverq.
+
+  qbpglcr
+   Gur qbpglcr svryq vaqvpngrf jung irefvba bs znexhc guvf gurzr
+   vf jevggra va. Gur qrsnhyg vf KUGZY1_FGEVPG. Gur sbyybjvat glcrf
+   ner inyvq:
+
+    KUGZY11
+    KUGZY1_FGEVPG
+    KUGZY1_GENAFVGVBANY
+    KUGZY1_SENZRFRG
+    KUGZY_ONFVP1
+    UGZY4_FGEVPG
+    UGZY4_YBBFR
+    UGZY4_SENZRFRG
+    UGZY5
+
+  zrahf
+   Gur zrahf frpgvba vf hfrq gb qrsvar qrsnhyg zrahf naq gur vgrzf gurl
+   pbagnva.
+
+    [zrahf]
+    fbzr-zrah.fbzrRagel.ynory    = "n grfg yvax"
+    fbzr-zrah.fbzrRagel.hev      = "uggc://rknzcyr.pbz"
+
+    fbzr-zrah.bgureRagel.unaqyre = "fbzrZbqhyr/sbbUnaqyre"
+
+
+ZBQHYRF
+-------
+
+ Gb nqq n zbqhyr gung vf ninvynoyr sbe nyy fvgrf gb hfr, cynpr vg 
+ va gur zbqhyrf fho-sbyqre bs gur "fvgrf/nyy" qverpgbel.
+
+ Gb nqq n zbqhyr gb n fcrpvsvp fvgr, perngr n qverpgbel haqre fvgrf 
+ jvgu gur fnzr anzr nf gur fvgr. Vafvqr guvf qverpgbel perngr n 
+ "zbqhyrf" sbyqre naq cynpr gur zbqhyr vafvqr gur arj "zbqhyrf" 
+ sbyqre.
+
+Zbqhyr Svyrf
+
+ Rnpu zbqhyr znl pbagnva n zbqhyr.vav svyr gung qrfpevorf gur 
+ zbqhyr. Gur zbqhyr.vav svyr vf bcgvbany, ohg erpbzzraqrq. Jvgubhg 
+ guvf svyr, gur flfgrz jvyy unir yvzvgrq vasbezngvba nobhg gur zbqhyr. 
+ Urer vf na rknzcyr zbqhyr svyr:
+  
+    irefvba         = "1.0"
+    qrfpevcgvba     = "Na rknzcyr zbqhyr."
+    vpba            = "vpba.cat"
+
+    [znvagnvare]
+    anzr            = "Cresbepr Fbsgjner"
+    rznvy           = "fhccbeg@cresbepr.pbz"
+    hey             = "uggc://jjj.cresbepr.pbz"
+
+    [qrcraqrapvrf]
+    zbqhyr.Sbb      = "1.*"
+    yvoenel.Mraq    = "1.10.*"
+
+    [fglyrfurrgf]
+    fperra[]        = "rknzcyr.pff"
+    
+    [fpevcgf]
+    wninfpevcg[]    = "rknzcyr.wf"
+
+ Gur zbqhyr svyr vf va gur VAV sbezng. Zbqhyr svyrf znl pbagnva 
+ frireny svryqf naq frpgvbaf:
+
+  irefvba
+   Gur irefvba svryq vaqvpngrf gur eryrnfr bs gur zbqhyr. Gur 
+   irefvba fubhyq or va gur sbez bs n "CUC-fgnaqneqvmrq" irefvba 
+   ahzore fgevat.
+
+  qrfpevcgvba
+   Gur qrfpevcgvba svryq qrfpevorf gur trareny checbfr bs gur
+   zbqhyr.
+
+  vpba
+   Gur vpba svryq znl pbagnva n eryngvir hey gb na vzntr svyr
+   ercerfragvat gur zbqhyr. Gur hey zhfg or eryngvir gb gur zbqhyr'f
+   erfbheprf sbyqre. Gur fhttrfgrq fvmr bs gur vpba vf 256k256 cvkryf.
+
+  znvagnvare
+   Gur znvagnvare frpgvba znl pbagnva gur anzr, rznvy naq jrofvgr bs 
+   gur zbqhyr znvagnvare. Gur sbezng bs guvf frpgvba vf:
+
+    [znvagnvare]
+    anzr            = "Wbua Qbr"
+    rznvy           = "wqbr@qbznva.pbz"
+    hey             = "uggc://jjj.qbznva.pbz"
+
+  qrcraqrapvrf
+   Gur qrcraqrapvrf frpgvba yvfgf bgure zbqhyrf naq yvoenevrf gung
+   guvf zbqhyr arrqf gb jbex. Gur sbezng bs guvf yvfg vf:
+
+    zbqhyr.<zbqhyr-anzr> = <fhvgnoyr-irefvbaf>
+
+   Be:
+
+    yvoenel.<yvoenel-anzr> = <fhvgnoyr-irefvbaf>
+ 
+   Sbe rknzcyr:
+   
+    [qrcraqrapvrf]
+    zbqhyr.FbzrZbqhyr  = "*"
+    zbqhyr.BgureZbqhyr = "1.5, 1.6, 2.*"
+    yvoenel.Mraq       = "1.10.*"
+
+   Vs nal irefvba jvyy qb, fvzcyl fcrpvsl "*" sbe gur inyhr. Vs gurer
+   ner frireny fhvgnoyr irefvbaf, frcnengr gurz jvgu n pbzzn. Lbh pna
+   nyfb hfr jvyqpneqf (fhpu nf "*" naq "?") gb zngpu frireny irefvbaf
+   ng bapr.
+
+  fglyrfurrgf
+   Gur fglyrfurrgf frpgvba znl yvfg PFF svyrf gb vapyhqr ba rirel cntr. 
+   Tebhc fglyrfurrgf ol zrqvn glcr (r.t. nyy, fperra, cevag):
+   
+    [fglyrfurrgf]
+    nyy[]           = "erfrg.pff"
+    nyy[]           = "glcr.pff"
+    fperra[]        = "ynlbhg.pff"
+    fperra[]        = "fglyr.pff"
+    cevag[]         = "cevag.pff"
+    
+   Gur inyhr bs rnpu ragel vf gur uers bs gur fglyrfurrg. Gur uers vf 
+   eryngvir gb gur zbqhyr'f erfbheprf sbyqre. Nofbyhgr uersf ner 
+   crezvggrq.
+
+  fpevcgf
+   Gur fpevcgf frpgvba znl yvfg pyvrag-fvqr fpevcg svyrf gb vapyhqr ba
+   rirel cntr. Tebhc fpevcgf ol ynathntr (r.t. wninfpevcg, iofpevcg):
+   
+    [fpevcgf]
+    wninfpevcg[]    = "wdhrel.zva.wf"
+    wninfpevcg[]    = "phfgbz.wf"
+
+   Gur inyhr bs rnpu ragel vf gur fep bs gur fpevcg. Gur fep vf 
+   eryngvir gb gur zbqhyr'f erfbheprf sbyqre. Nofbyhgr fep inyhrf ner 
+   crezvggrq.
+   
+  qbwb
+   Gur qbwb frpgvba znl yvfg qbwb zbqhyrf gung ner cebivqrq ol, be
+   erdhverq ol gur zbqhyr. Sbe rknzcyr:
+   
+    [qbwb]
+    cebivqrZbqhyr['qbwb.sbb']   = 'qbwb/sbb'
+    erdhverZbqhyr[]             = 'one'
+    
+   Jura yvfgvat qbwb zbqhyrf cebivqrq ol gur zbqhyr, gur xrl bs rnpu
+   ragel pbeerfcbaqf gb gur anzr bs gur zbqhyr naq gur inyhr vf gur
+   hey bs gur zbqhyr (eryngvir gb gur zbqhyr'f erfbheprf sbyqre).
+   
+  pbasvther
+   Gur pbasvther frpgvba vaqvpngrf gung gur zbqhyr vf pbasvthenoyr
+   naq fcrpvsvrf gur zbqhyr/pbagebyyre/npgvba ebhgr cnenzrgref gb hfr
+   gb pbasvther gur zbqhyr. Sbe rknzcyr:
+   
+    [pbasvther]
+    zbqhyr                      = 'rknzcyr'
+    pbagebyyre                  = 'pbasvther'
+    npgvba                      = 'vaqrk'
+
+   Lbh zhfg fcrpvsl gur pbagebyyre, ohg zbqhyr naq npgvba ner bcgvbany. 
+   Zbqhyr jvyy qrsnhyg gb gur zbqhyr gung vf orvat qrfpevorq naq npgvba
+   jvyy qrsnhyg gb gur 'vaqrk' npgvba. Abgr: lbh znl fcrpvsl nqqvgvbany 
+   cnenzrgref naq gurl jvyy or vapbecbengrq vagb gur nffrzoyrq HEV.
+   
+  ebhgrf
+   Gur ebhgrf frpgvba vf hfrq gb cebivqr phfgbz ebhgvat ehyrf sbe gur 
+   zbqhyr. Sbe rknzcyr:
+   
+    [ebhgrf]
+    ebhgr1.glcr                 = 'Mraq_Pbagebyyre_Ebhgre_Ebhgr'
+    ebhgr1.ebhgr                = 'sbb/:one'
+    ebhgr1.qrsnhygf.zbqhyr      = 'rknzcyr'
+    ebhgr1.qrsnhygf.pbagebyyre  = 'sbb'
+    ebhgr1.qrsnhygf.npgvba      = 'one'
+
+  zrahf
+   Gur zrahf frpgvba vf hfrq gb qrsvar qrsnhyg zrahf naq gur vgrzf gurl
+   pbagnva.
+
+    [zrahf]
+    fbzr-zrah.fbzrRagel.ynory    = "n grfg yvax"
+    fbzr-zrah.fbzrRagel.hev      = "uggc://rknzcyr.pbz"
+    
+    fbzr-zrah.bgureRagel.unaqyre = "fbzrZbqhyr/sbbUnaqyre"
+
+  jvqtrgf
+   Gur jvqtrgf frpgvba vf hfrq gb qrpyner jvqtrg glcrf cebivqrq ol gur
+   zbqhyr. Jvqtrgf ner whfg pbasvthenoyr npgvba pbagebyyref. Gb nqq n
+   jvqtrg glcr, lbh zhfg fcrpvsl gur pbagebyyre. Lbh fubhyq nyfb cebivqr
+   n ynory naq qrfpevcgvba. Nqqvgvbanyyl, lbh znl cebivqr na vpba naq nal
+   qrsnhyg bcgvbaf sbe gur jvqtrg pbasvthengvba.
+
+    [jvqtrgf]
+    pybpx.ynory                 = 'Pybpx Jvqtrg'
+    pybpx.qrfpevcgvba           = 'N jvqtrg gung qvfcynlf gur pheerag gvzr.'
+    pybpx.vpba                  = 'pybpx-jvqtrg.cat'
+    pybpx.pbagebyyre            = 'pybpx-jvqtrg'
+    pybpx.qrsnhygf.sbezng       = '12u'
+
+
+NQINAPRQ PBASVTHENGVBA
+----------------------
+
+Raivebazrag Inevnoyrf
+
+ Gurer ner guerr raivebazrag inevnoyrf gung pna or frg gb pbasvther 
+ lbhe C4PZF vafgnyyngvba. Lbh pna frg gurfr inevnoyrf va gur .ugnpprff 
+ svyr be va lbhe iubfg pbasvthengvba.
+ 
+ C4PZF_ONFR_CNGU
+  Gur onfr cngu vf gur C4PZF vafgnyyngvba cngu. Ol pbairagvba guvf vf 
+  gur cnerag qverpgbel bs gur choyvp sbyqre. Vs lbhe vafgnyyngvba 
+  erdhverf n qvssrerag ybpngvba sbe gur choyvp sbyqre, frg gur 
+  C4PZF_ONFR_CNGU inevnoyr gb gur shyy cngu gb lbhe vafgnyyngvba 
+  sbyqre.
+  
+ C4PZF_QNGN_CNGU
+  Gur qngn cngu vf gur sbyqre gung C4PZF jevgrf gb. Ol pbairagvba guvf 
+  vf gur 'qngn' sbyqre haqre gur onfr cngu. Frg guvf inevnoyr gb jevgr 
+  qngn gb na nygreangr ybpngvba.
+ 
+ C4PZF_NCCYVPNGVBA_RAI
+  Gur NCCYVPNGVBA_RAI inevnoyr vaqvpngrf gur glcr bs raivebazrag gung 
+  gur nccyvpngvba vf ehaavat va. Sbe rknzcyr: 'cebqhpgvba' be 
+  'qrirybczrag'. Gur nccyvpngvba raivebazrag qrsnhygf gb 'cebqhpgvba'. 
+  Reebef ner fhccerffrq jura ehaavat va gur cebqhpgvba raivebazrag. 
+  Frg gur raivebazrag gb 'qrirybczrag' gb ranoyr reebe bhgchg.
+
+  Gur nccyvpngvba raivebazrag nyfb nssrpgf juvpu frpgvba bs gur 
+  nccyvpngvba.vav svyr vf ybnqrq.   
+  
+nccyvpngvba.vav
+
+ Gur nccyvpngvba.vav svyr vf n cbjreshy jnl gb punatr nccyvpngvba 
+ frggvatf naq orunivbe. Vg pna or hfrq gb eha n qvssrerag Obbgfgenc 
+ pynff, nqq phfgbz ebhgvat ehyrf, punatr CUC frggvatf naq pbasvther n 
+ qngnonfr pbaarpgvba nzbat znal bgure nccyvpngvba bcgvbaf naq 
+ orunivbef.
+  
+ Pbafhyg gur Mraq Nccyvpngvba puncgre bs gur Mraq Senzrjbex Ersrerapr 
+ Thvqr sbe nqqvgvbany vasbezngvba:
+  
+ uggc://senzrjbex.mraq.pbz/znahny/ra/mraq.nccyvpngvba.ugzy 
+  

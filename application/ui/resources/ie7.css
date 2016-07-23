@@ -1,0 +1,142 @@
+.p4cms-ui .dijitButton.preferred .dijitButtonContents {
+    background: url('images/button-bg-preferred.png') left top repeat-x;
+}
+
+.p4cms-ui #footer {
+    margin: 0;
+}
+
+form.p4cms-ui dl dd, .p4cms-ui form dl dd {
+    width: auto;
+    float: none;
+    display: block;
+}
+
+.p4cms-ui form .required {
+    background: url('images/required-asterisk.png') right 2px no-repeat;
+}
+
+.dj_ie7 body .p4cms-ui.dijitTooltipAbove .dijitTooltipConnector {
+    bottom: 2px;
+}
+
+/* IE7 fix for applying margins on left floats */
+.p4cms-ui.dijitDialog dl dt + dd,
+.p4cms-ui.dijitTooltipDialog dl dt + dd {
+    margin-left: 0px;
+}
+
+/* fix for having any other relative content in the gridRowTable */
+.p4cms-ui .data-grid .dojoxGridRow .dojoxGridRowTable,
+.p4cms-ui .data-grid .dojoxGridRow .dojoxGridRowTable tr {
+    position:relative;
+}
+
+/* fix for some dijit form elements occupying 100% width */
+.p4cms-ui .dijitTextBox,
+.p4cms-ui .dijitSpinner,
+.p4cms-ui .dijitComboBox,
+.p4cms-ui .dijitDateTextBox {
+    width: 200px;
+}
+
+/* fix buttons alignment in the help dialog */
+.p4cms-ui.help-dialog #buttons-element {
+    position: relative;
+    padding-top: 30px;
+}
+.p4cms-ui.help-dialog .buttons {
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+/* Workaround hasLayout bug for form elements in dialogs */
+.p4cms-ui.dijitDialog form,
+.p4cms-ui.dijitDialog form dl dd,
+.p4cms-ui.dijitDialog form .display-group {
+    position: relative;
+}
+
+/* Workaround for some strange IE7 padding issue, causing scrollbars */
+.p4cms-ui.manage-toolbar .toolbar-drawer .toolbar-pane .content-toolbar {
+    overflow: visible;
+}
+
+/* file upload field styles */
+.p4cms-ui form input[type=file],
+form.p4cms-ui input[type=file] {
+    border: 1px solid #a7a7a7;
+    background: url('images/input-bg-repeat.jpg') repeat-x white;
+    padding: 2px 4px 3px 4px;
+}
+
+/* IE7 does it's own focus border, so turn ours off for the toolbar */
+.p4cms-ui .manage-toolbar-container .menu-button.menu-button.keyboard-focus,
+.p4cms-ui.manage-toolbar .toolbar-drawer .toolbar-pane li a.keyboard-focus {
+    border: 1px solid transparent;
+}
+
+/** IE7 inline-block workaround */
+.p4cms-ui.dijitDialog #buttons-element fieldset,
+.p4cms-ui.dijitTooltipDialog #buttons-element fieldset,
+.p4cms-ui .pull-form ul.nested-checkbox li .count-placeholder {
+    display: inline;
+    zoom: 1;
+    position: relative;
+}
+
+/**
+ * IE7 sucks at line-height and isn't using what we have set anyways,
+ * change elements that are listening to match the elements that are not
+ */
+.p4cms-ui form label.required {
+    line-height: 1.5em;
+}
+
+/**
+ * 22px should have been the correct size, but there seems to be an error
+ * in the size calculations with the border. Setting height to 20 in IE7
+ * removes the scrollbar, but as a result the dropdowns appear 2px higher.
+ */
+.p4cms-ui.manage-toolbar .menu-handle {
+    padding-top: 8px;
+}
+
+/**
+ * Add inline-block support for ie7 to the toolbar
+ */
+.p4cms-ui.manage-toolbar .menu-node .menu-button,
+.p4cms-ui.manage-toolbar .menu-handle {
+    display: inline;
+    zoom: 1;
+}
+
+/**
+ * fix url growl confict message line-up problem in IE7.
+ */
+#p4cms-ui-notices ul {
+    margin-left: 49px;
+}
+
+/**
+ * lightbox navigation areas need to have a background image in order for
+ * IE to detect hover and onmouseover events on them. See: http://stackoverflow.com/a/2159004
+ */
+.p4cms-ui.lightbox-prev,
+.p4cms-ui.lightbox-next {
+    background-image: url('images/lightbox-icons-ie.png');
+    background-position: -120px 0;
+    background-repeat: no-repeat;
+}
+
+.p4cms-ui.lightbox-close,
+.p4cms-ui.lightbox-prev .icon,
+.p4cms-ui.lightbox-next .icon {
+    background-image: url('images/lightbox-icons-ie.png');
+}
+
+/* Turn off the gradient filter for IE in grids */
+.p4cms-ui .data-grid .dojoxGridMasterHeader {
+    filter: none;
+}

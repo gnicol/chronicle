@@ -1,0 +1,29 @@
+/**
+ * menu-form uses a weightier css selector to set the left-margin, so in addition to having
+ * it reset to 0 in the ui ie7.css, we also need to do it here.
+ */
+.p4cms-ui .dijitDialog .menu-form dd {
+    margin-left: 0px;
+}
+
+/**
+ * This element includes a hidden label, so our reset of margin-left caused unwanted results
+ * set back to default.
+ */
+.p4cms-ui .menu-item-form dt.menu-item-location + dd {
+    margin-left: 145px;
+}
+
+/**
+ * Override our previous rule if in the a content-sub-form
+ */
+.p4cms-ui .content-sub-form .menu-item-form dt.menu-item-location + dd {
+    margin-left: 0px;
+}
+
+/**
+ * Input Elements need to be visible in IE lt 9 in order to fire events
+ */
+.p4cms-ui .content-sub-form .menus-sub-form dd.menu-item-remove input {
+    visibility: visible;
+}

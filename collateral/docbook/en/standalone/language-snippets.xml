@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- links -->
+<!ENTITY lang                               'en'>
+<!ENTITY zf.manual.link                     'http://www.perforce.com/cms/manual/en'>
+<!ENTITY php.manual.link                    'http://www.php.net/manual/en'>
+
+<!-- manual.xml.in -->
+<!ENTITY book.title                         'Perforce Chronicle Reference Guide'>
+<!ENTITY book.pdf.userguide.title           'Chronicle User Guide'>
+<!ENTITY book.pdf.devguide.title            'Chronicle Developer Guide'>
+<!ENTITY book.subtitle                      'Chronicle'>
+<!ENTITY book.edition                       'Perforce Chronicle Reference Guide'>
+<!ENTITY product.longname                   'Perforce Chronicle'>
+<!ENTITY product.name                       'Chronicle'>
+
+<!ENTITY part.introduction                  'Introduction'>
+<!ENTITY chapter.introduction               'Welcome to Perforce Chronicle'>
+<!ENTITY chapter.getstarted                 'Getting Started'>
+<!ENTITY chapter.createsite                 'Creating a Simple Web Site'>
+
+<!ENTITY part.userguide                     'User&#xA0;Guide'>
+<!ENTITY chapter.branches                   'Branches'>
+<!ENTITY chapter.content                    'Content'>
+<!ENTITY chapter.content-types              'Content Types'>
+<!ENTITY chapter.widgets                    'Widgets'>
+<!ENTITY chapter.navigation                 'Navigation'>
+<!ENTITY chapter.workflows                  'Workflows'>
+<!ENTITY chapter.comments                   'Comments'>
+<!ENTITY chapter.social                     'Social Features'>
+
+<!ENTITY part.devguide                      'Developer&#xA0;Guide'>
+
+<!ENTITY chapter.themes.anatomy             'Anatomy of a Theme'>
+<!ENTITY chapter.themes.components          'Theme Components'>
+<!ENTITY chapter.themes.examples            'An Example Theme'>
+
+<!ENTITY part.modules                       'Module&#xA0;Guide'>
+<!ENTITY chapter.modules.anatomy            'Anatomy of a Module'>
+<!ENTITY chapter.modules.components         'Module Components'>
+<!ENTITY chapter.modules.examples           'An Example Module'>
+<!ENTITY chapter.image.manipulation         'Image Manipulation'>
+
+<!ENTITY part.adminguide                    'Admin&#xA0;Guide'>
+<!ENTITY chapter.adminguide.title           'Managing Perforce Chronicle'>
+<!ENTITY chapter.users.management           'User Management'>
+<!ENTITY chapter.sites.management           'Site Management'>
+<!ENTITY chapter.installation.management    'Installation Management'>
+<!ENTITY chapter.performance                'Performance'>
+
+<!ENTITY mdash                              '&#x2014;'>
+<!ENTITY copy                               '&#x00A9;'>

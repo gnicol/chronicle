@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.conflicts">
+    <title>Conflict Notifications</title>
+
+    <para>
+        If you are editing a content entry and someone else saves a change to the same entry, or
+        deletes the entry, a <emphasis>conflict</emphasis> could occur. If you then save your
+        changes, you could be undoing important changes made by the other user. &product.longname;
+        provides basic conflict notification when these situations occur.
+    </para>
+
+    <para>
+        If you begin editing a content entry that another user is already editing, a
+        <emphasis role="dialog">Conflict</emphasis> dialog appears:
+    </para>
+
+    <mediaobject>
+        <imageobject>
+            <imagedata fileref="images/dialog-edit-conflict.png"/>
+        </imageobject>
+    </mediaobject>
+
+    <para>
+        &product.name; checks periodically to see if any changes have been made to the content entry
+        you are editing. If a change has been made, a notification appears informing you which user
+        made the change:
+    </para>
+
+    <mediaobject>
+        <imageobject>
+            <imagedata fileref="images/notification-other_user_edit.png"/>
+        </imageobject>
+    </mediaobject>
+
+    <para>
+        If you click the link, a <emphasis role="dialog">Diff</emphasis> dialog appears so you can
+        see what changes were made. Please refer to <xref linkend="content.history.view.diff"/> for
+        more details.
+    </para>
+
+    <para>
+        Sometimes the interval between changes being saved amongst users is so small that you may
+        not see the conflict notification. When this occurs, a <emphasis role="dialog">Save
+        Conflict</emphasis> dialog appears.
+    </para>
+
+    <mediaobject>
+        <imageobject>
+            <imagedata fileref="images/dialog-save_conflict.png"/>
+        </imageobject>
+    </mediaobject>
+
+    <para>
+        The dialog reports which user made the change, and also allows you to see what changes were
+        made. You can click <guibutton>Overwrite</guibutton> to replace the other user's changes
+        with your own, or <guibutton>Cancel</guibutton> to continue editing.
+    </para>
+
+    <para>
+        How you deal with such conflicts is up to you. You may wish to:
+
+        <itemizedlist>
+            <listitem>
+                overwrite the other user's changes
+            </listitem>
+
+            <listitem>
+                cancel your own changes
+            </listitem>
+
+            <listitem>
+                reproduce the same changes the other user made and then overwrite.
+            </listitem>
+        </itemizedlist>
+    </para>
+
+    <para>
+        Since &product.name; keeps track of every change, even if you overwrite another user's
+        changes, they are not lost.
+    </para>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

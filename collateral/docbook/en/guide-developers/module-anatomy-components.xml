@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.anatomy.components">
+    <title>Components</title>
+
+    <para>
+        Modules are composed of the following components. The only required file is
+        <filename>module.ini</filename>. All other files are optional.
+    </para>
+
+    <table frame="all" id="modules.anatomy.components.table-1">
+        <title>Module Components</title>
+        <tgroup cols="2">
+            <thead>
+                <row>
+                    <entry>File(s)</entry>
+                    <entry>Description</entry>
+                </row>
+            </thead>
+
+            <tbody>
+                <row>
+                    <entry>
+                        <link linkend="modules.config"><filename>module.ini</filename></link>
+                    </entry>
+
+                    <entry>
+                        Identifies the module to &product.longname; and provides its default entry
+                        configuration.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="modules.integration"><filename>Module.php</filename></link>
+                    </entry>
+
+                    <entry>
+                        The integration point that enables a module to participate in existing
+                        facilities provided by &product.name;. Modules can participate in
+                        initialization, subscribing to <acronym>pub/sub</acronym> topics, and
+                        other actions.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="modules.acl-assert">ACLs/Asserts</link>
+                    </entry>
+
+                    <entry>
+                        Access control lists (<acronym>ACL</acronym>s) declare resources, privileges
+                        and default "allow" rules that are relevant to the module.
+                        <emphasis>Asserts</emphasis> enable developers to define logic that
+                        determines whether the conditions required to obtain access have been met.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="modules.controllers">Controllers</link>
+                    </entry>
+
+                    <entry>
+                        Contains action(s) which respond to requests and provides logic that
+                        determine the model(s) and view(s) to be used to form the response.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="modules.filters">Filters</link>
+                    </entry>
+
+                    <entry>
+                        Filters modify data, and the filter infrastructure provides a simple
+                        chaining mechanism so that filters can be applied in a specified order.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="modules.forms">Forms</link>
+                    </entry>
+
+                    <entry>
+                        The primary mechanism for accepting information from users, and can be
+                        composed of elements, decorators, validators, filters, and sub-forms.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="modules.layouts">Layouts</link>
+                    </entry>
+
+                    <entry>
+                        An <acronym>HTML</acronym> file that provides the markup for the overall
+                        look of a page. A layout can implement headers/footers/sidebars, output
+                        the stylesheets and scripts to use, and define the locations for content and
+                        regions. Layouts can include <acronym>PHP</acronym> code.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="modules.models">Models</link>
+                    </entry>
+
+                    <entry>
+                        A class that manages the behavior and structure for a particular type of
+                        data in &product.name;. Models provide an <acronym>API</acronym> for
+                        retrieving, updating, and removing data.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="modules.resources">Resources</link>
+                    </entry>
+
+                    <entry>
+                        Any file that assists with presentation, such as <acronym>CSS</acronym>
+                        stylesheets, images, applets, movies, <acronym>MP3</acronym>s, etc.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="modules.tests">Tests</link>
+                    </entry>
+
+                    <entry>
+                        Unit tests that ensure that your module is working as intended.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="modules.validators">Validators</link>
+                    </entry>
+
+                    <entry>
+                        Examine data by comparing it to a set of requirements, and returns a
+                        Boolean value indicating whether the data is valid.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="modules.views">Views&#xA0;Scripts&#xA0;/ View&#xA0;Helpers</link>
+                    </entry>
+
+                    <entry>
+                        A <emphasis>view script</emphasis> is composed of <acronym>HTML</acronym>
+                        with embedded <acronym>PHP</acronym> directives, and controls the markup for
+                        a particular action. The view script is wrapped by the
+                        <emphasis>Layout</emphasis> if one is enabled. <emphasis>View
+                        helpers</emphasis> are <acronym>PHP</acronym> classes that can reduce
+                        code/<acronym>HTML</acronym> duplication when producing repetitive or
+                        complex markup.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="modules.workflows">Workflows</link>
+                    </entry>
+
+                    <entry>
+                        Workflows are collections of <emphasis>states</emphasis> that help guide
+                        content from creation to publication. Before content can
+                        <emphasis>transition</emphasis> from one state to another, any specified
+                        <emphasis>conditions</emphasis> must be met. If all conditions have been
+                        met, any specified <emphasis>actions</emphasis> are executed. Modules can
+                        provide conditions and actions to any workflow.
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

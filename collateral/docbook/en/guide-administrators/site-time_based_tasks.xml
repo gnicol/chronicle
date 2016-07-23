@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="site.time-based-tasks">
+    <title>Time-Based Tasks</title>
+
+    <para>
+        The <classname>Cron</classname> module provides infrastructure for executing periodic,
+        time-based tasks within &product.longname;. In addition to built-in time-based tasks, such
+        as scheduling workflow transitions (see <xref linkend="workflows.scheduled.transitions"/>),
+        developers may subscribe to one or more periodic <acronym>pub/sub</acronym> topics to
+        execute their own tasks. The topic template is
+        <code>p4cms.cron.<replaceable>frequency</replaceable></code>, where
+        <replaceable>frequency</replaceable> is one of <emphasis role="bold">hourly</emphasis>,
+        <emphasis role="bold">daily</emphasis>, <emphasis role="bold">weekly</emphasis>, or
+        <emphasis role="bold">monthly</emphasis>. Please see
+        <xref linkend="modules.integration.pubsub"/> for additional topic details.
+    </para>
+
+    <para>
+        The <classname>Cron</classname> module only guarantees that topics described above are not
+        published too often. For example, the <code>p4cms.cron.hourly</code> is executed, at most,
+        once per hour. By itself, &product.name; cannot guarantee topic publication at appropriate
+        times because it normally only executes when fielding a request, and only for long enough to
+        provide a response. To ensure that topics are published regularly and often enough, a
+        request to the <classname>Cron</classname> module must be made at least once per hour.
+        Unix-like systems can use a <emphasis>cron</emphasis> job to make this happen.
+        Alternatively, you can use the optional <classname>Easy Cron</classname> module
+        provided with &product.name; (see <link linkend="site.time-based-tasks.easy">below</link>).
+    </para>
+
+    <section id="site.time-based-tasks.cronjob">
+        <title>Setting Up a Cron Job</title>
+
+        <para>
+            On a UNIX-compatible system, the following line needs to be added to the system
+            <code>crontab</code> file (its usual path is <code>/etc/crontab</code>, but may be
+            located elsewhere depending on the distribution you use):
+
+<programlisting language="text">
+  0 * * * *     wget -O - -q -t 1 http://<replaceable>example.com</replaceable>/cron
+</programlisting>
+
+            where <replaceable>http://example.com</replaceable> needs to be replaced by your
+            site <acronym>URL</acronym>.
+        </para>
+
+        <para>
+            The above line executes the <filename>wget</filename> utility at the top of each hour,
+            making a web request to the <classname>Cron</classname> each time.
+        </para>
+
+        <para>
+            The "<option>-O -</option>" options tell <filename>wget</filename> to write its output
+            to standard out, "<option>-q</option>" runs quietly and "<option>-t 1</option>" limits
+            the number of retries to one. If you do not have <filename>wget</filename>, try
+            <filename>curl</filename> with comparable options.
+        </para>
+
+        <para>
+            The response to cron requests is a <acronym>JSON</acronym> encoded report for each
+            topic:
+        </para>
+
+<programlisting language="javascript">
+  {"hourly":"executed","daily":"failed","weekly":"skipped","monthly":"skipped"}
+</programlisting>
+
+        <para>
+            The example report above says that:
+
+            <itemizedlist>
+                <listitem>
+                    <code>p4cms.cron.hourly</code> topic was successfully published
+                </listitem>
+
+                <listitem>
+                    there were errors during publishing <code>p4cms.cron.daily</code> topic
+                </listitem>
+
+                <listitem>
+                    <code>p4cms.cron.weekly</code> topic was not published (i.e. previously
+                    executed)
+                </listitem>
+
+                <listitem>
+                    <code>p4cms.cron.monthly</code> topic was not published (i.e. previously
+                    executed)
+                </listitem>
+            </itemizedlist>
+        </para>
+    </section>
+
+    <section id="site.time-based-tasks.easy">
+        <title>Easy Cron</title>
+
+        <para>
+            <classname>Easy Cron</classname> is an optional module shipped with &product.name;.
+            When this module is enabled, a small piece of javascript is added to each page to
+            send an <acronym>AJAX</acronym> request to
+            <code><replaceable>site-url</replaceable>/cron</code>. No additional system-level
+            privileges or services are required. Please see
+            <xref linkend="modules.management.enable-disable"/> for further details.
+        </para>
+
+        <para>
+            Users should not notice any kind of delay or disruption when viewing the site.
+            However, it does have a performance impact as every page view causes one additional
+            request to the <classname>Cron</classname> module; for busy sites, the
+            <classname>Easy Cron</classname> module should be disabled and the
+            <emphasis>cron job</emphasis> approach described 
+            <link linkend="site.time-based-tasks.cronjob">above</link> should be followed.
+        </para>
+
+        <warning>
+            <para>
+                If you use <classname>Easy Cron</classname>, be aware that <emphasis role="bold">no
+                time-based tasks are executed until a request to your site is made</emphasis>.
+                Pending tasks are only be executed once a request is made.
+            </para>
+        </warning>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

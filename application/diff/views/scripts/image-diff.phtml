@@ -1,0 +1,81 @@
+<?
+// should only be one chunk for binary diffs.
+$chunk      = current($this->diffResult->getChunks());
+
+$leftMeta   = $this->leftRecord->getFieldMetadata($this->fieldName);
+$rightMeta  = $this->rightRecord->getFieldMetadata($this->fieldName);
+?>
+<div dojoType="p4cms.diff.DiffElement" plugins="['p4cms.diff.plugins.SideBySideDiff', 'p4cms.diff.plugins.OverlayDiff']">
+  <div class="side-by-side diff-mode diff-mode-active">
+    <table class="diff-table binary image">
+      <tbody class="diff <?= $chunk->getChunkType() ?>">
+        <tr class="image-container side-by-side-container">
+          <td class="left">
+            <div class="wrapper"><? 
+                $params = array(
+                    'field'     => $this->fieldName,
+                    'version'   => $this->leftFile->getStatus('headRev'),
+                );
+                $alt = isset($leftMeta['filename']) 
+                     ? 'alt="' . htmlentities($leftMeta['filename']) . '"' 
+                     : null;
+                print '<img src="' . htmlentities($this->leftRecord->getUri('image', $params))
+                    . '" ' .$alt . '"  />';
+            ?></div>
+          </td>
+          <td class="gutter"></td>
+          <td class="right">
+            <div class="wrapper"><? 
+                $params = array(
+                    'field'     => $this->fieldName,
+                    'version'   => $this->rightFile->getStatus('headRev'),
+                );
+                $alt = isset($rightMeta['filename']) 
+                     ? 'alt="' . htmlentities($rightMeta['filename']) . '"' 
+                     : null;
+                print '<img src="' . htmlentities($this->rightRecord->getUri('image', $params))
+                    . '" ' . $alt . '"  />';
+            ?></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="meta-container">
+      <div class="left wrapper">
+<?
+            if (isset($leftMeta['filename'])) {
+                print '<span class="metafield">' . $this->escape($leftMeta['filename']) . '</span>';
+            }
+            if (isset($leftMeta['mimeType'])) {
+                print '<span class="metafield">' . $this->escape($leftMeta['mimeType']) . '</span>';
+            }
+            if (isset($leftMeta['dimensions']['width']) && isset($leftMeta['dimensions']['height'])) {
+                print '<span class="metafield">' . $this->escape($leftMeta['dimensions']['width']) . 
+                      'x' . $this->escape($leftMeta['dimensions']['height']) .' px</span>';
+            }
+            if (isset($leftMeta['fileSize'])) {
+                print '<span class="metafield">' . $this->escape($this->fileSize($leftMeta['fileSize'])) . '</span>';
+            }
+?>
+      </div>
+      <div class="gutter"></div>
+      <div class="right wrapper">
+<?
+            if (isset($rightMeta['filename'])) {
+                print '<span class="metafield">' . $this->escape($rightMeta['filename']) . '</span>';
+            }
+            if (isset($rightMeta['mimeType'])) {
+                print '<span class="metafield">' . $this->escape($rightMeta['mimeType']) . '</span>';
+            }
+            if (isset($rightMeta['dimensions']['width']) && isset($rightMeta['dimensions']['height'])) {
+                print '<span class="metafield">' . $this->escape($rightMeta['dimensions']['width']) . 
+                      'x' . $this->escape($rightMeta['dimensions']['height']) .' px</span>';
+            }
+            if (isset($rightMeta['fileSize'])) {
+                print '<span class="metafield">' . $this->escape($this->fileSize($rightMeta['fileSize'])) . '</span>';
+            }
+?>
+      </div>
+    </div>
+  </div>
+</div>

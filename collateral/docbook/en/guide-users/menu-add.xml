@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="navigation.menu.add.menu">
+    <title>Adding Menus</title>
+
+    <bridgehead>
+        To add a new menu:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click <guibutton>Manage</guibutton> in the &product.longname; toolbar.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-manage.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guimenuitem>Menus</guimenuitem>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-toolbar_menu-menus.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para></para>
+
+            The <emphasis role="screen">Manage Menus</emphasis> screen is displayed.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-manage_menus-add_menu.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Add Menu</guibutton>. The <emphasis role="dialog">Add
+            Menu</emphasis> dialog is displayed.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-add_menu.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Define the menu by specifying the following information:
+
+            <variablelist>
+                <varlistentry>
+                    <term>Id</term>
+
+                    <listitem>
+                        An identifier for this menu that must be unique among menus.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Label</term>
+
+                    <listitem>
+                        A friendly label to identify this menu.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Order</term>
+
+                    <listitem>
+                        A number that influences the order of this menu while managing menus.
+                        Higher numbers cause menus to appear later in the list; lower or
+                        negative numbers cause menus to appear earlier in the list. The default
+                        is zero.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Show in Content Form</term>
+
+                    <listitem>
+                        This toggle influences whether this menu is available for adding menu items
+                        while editing content.
+                    </listitem>
+                </varlistentry>
+            </variablelist>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton>. The <emphasis role="screen">Manage
+            Menus</emphasis> is redisplayed, listing your new menu.
+        </listitem>
+    </orderedlist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

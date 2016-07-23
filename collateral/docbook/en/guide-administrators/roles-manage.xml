@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="roles.manage">
+    <title>Managing Roles</title>
+
+    <para>
+        To control the tasks that &product.longname; users can perform, you assign
+        <emphasis>roles</emphasis> to them. For each role, you can configure the
+        <emphasis>privileges</emphasis> that are permitted. For example, an editor might be able to
+        create and edit content but not change your site's theme. Role permissions give you fine
+        control over what can be done to &product.name; resources.
+    </para>
+
+    <para>
+        The <emphasis role="screen">Manage Roles</emphasis> screen is where role management tasks
+        are performed. Hover your mouse over each of the numbered callouts to highlight the
+        associated area of the screen.
+    </para>
+
+    <mediaobjectco role="screen-mr">
+        <subtitle>The Manage Roles Screen</subtitle>
+
+        <imageobjectco>
+            <areaspec units="imagemap">
+                <area id="screen-mr-spot-search" linkends="screen-mr-co-search" coords="0,91,129,125"/>
+                <area id="screen-mr-spot-type" linkends="screen-mr-co-type" coords="0,129,129,171"/>
+                <area id="screen-mr-spot-sortable" linkends="screen-mr-co-sortable" coords="147,89,640,107"/>
+                <area id="screen-mr-spot-actions" linkends="screen-mr-co-actions" coords="559,109,607,216"/>
+                <area id="screen-mr-spot-scrollbar" linkends="screen-mr-co-scrollbar" coords="612,107,640,229"/>
+            </areaspec>
+
+            <imageobject>
+                <imagedata fileref="images/screen-manage_roles-callouts.png"/>
+            </imageobject>
+
+            <calloutlist>
+                <callout id="screen-mr-co-search" arearefs="screen-mr-spot-search">
+                    <para>
+                        <emphasis role="bold">Filter by Text Search</emphasis>: 
+                        Enter text to filter the list of roles to entries containing the text.
+                    </para>
+                </callout>
+                <callout id="screen-mr-co-type" arearefs="screen-mr-spot-type">
+                    <para>
+                        <emphasis role="bold">Filter by Role Type</emphasis>:
+                        Click on one or more checkboxes to filter the list of roles to entries of
+                        the selected types. When no checkboxes are checked, roles of all types are
+                        included.
+                    </para>
+                </callout>
+                <callout id="screen-mr-co-sortable" arearefs="screen-mr-spot-sortable">
+                    <para>
+                        <emphasis role="bold">Sort Roles</emphasis>:
+                        Click on one of the columns to sort the roles by that column's details,
+                        click again to change the sort direction (an indicator arrow appears). The
+                        <emphasis role="bold">Users</emphasis> and
+                        <emphasis role="bold">Actions</emphasis> columns are not sortable.
+                    </para>
+                </callout>
+                <callout id="screen-mr-co-actions" arearefs="screen-mr-spot-actions">
+                    <para>
+                        <emphasis role="bold">Actions Drop-down Menu</emphasis>:
+                        Click on one of the drop-down menus in the Actions column to see and use
+                        actions available for each entry, including Edit and Delete.
+                    </para>
+                </callout>
+                <callout id="screen-mr-co-scrollbar" arearefs="screen-mr-spot-scrollbar">
+                    <para>
+                        <emphasis role="bold">Lazy-load Scrollbar</emphasis>:
+                        When there are many more role entries than can fit on-screen, only enough
+                        entries are retrieved to fill the display. When you use the scrollbar,
+                        additional entries are fetched. This means that scrolling might appear to be
+                        slightly slower than you might expect, but it allows filtering, sorting and
+                        initial display to be much faster when you have hundreds or thousands of
+                        roles.
+                    </para>
+                </callout>
+            </calloutlist>
+        </imageobjectco>
+    </mediaobjectco>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

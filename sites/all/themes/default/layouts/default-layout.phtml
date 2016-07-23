@@ -1,0 +1,23 @@
+<?= $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <?= $this->headMeta() ?>
+ <?= $this->headTitle() ?>
+ <?= $this->headLink() ?>
+ <?= $this->headStyle() ?>
+ <?= $this->dojo() ?>
+ <?= $this->headScript() ?>
+</head>
+<body class='claro
+ <?=$this->layout()->getLayout()?>
+ <?=$this->request()->getModuleName()?>-module
+ <?=$this->request()->getControllerName()?>-controller
+ <?=$this->request()->getActionName()?>-action'>
+
+<?=$this->toolbar(null, array('dockConfig' => array('displayMethod' => 'overlay', 'showCloseButton' => true)))?>
+<?=$this->notifications()?>
+
+<?=$this->layout()->content ?>
+
+</body>
+</html>

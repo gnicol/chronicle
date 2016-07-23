@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="themes.anatomy.overview">
+    <title>Overview</title>
+
+    <para>
+        Themes are files containing <acronym>HTML</acronym>, <acronym>CSS</acronym>,
+        javascript, plus images or other multimedia resources that work together to provide the
+        design and functionality of your &product.longname; site(s). Multiple themes may be
+        available so that you may quickly change the look of a site. Themes may adjust the
+        presentation in small and large ways, from adjusting font sizes to providing custom markup
+        for all &product.name; operations.
+    </para>
+
+    <para>
+        The primary benefit of using themes is that it separates the presentation of your content
+        from the code that manages content. This separation allows modules to be added/removed, or
+        &product.name; to be upgraded without losing your customization work or requiring
+        significant updates to maintain the visual design of your site.
+    </para>
+
+    <para>
+        The secondary benefit of themes, particularly when a large number of themes are available,
+        is that you do not need to know or learn <acronym>HTML</acronym>, <acronym>CSS</acronym>,
+        JavaScript, or even <acronym>PHP</acronym> in order to have a good-looking site, nor to
+        change the visual design or layout.
+    </para>
+
+    <para>
+        This guide helps theme designers, or those wishing to customize a theme, to understand how
+        themes work with &product.name;, where a theme's files and resources must be placed, and
+        describe a theme's components to create a unique look for your site.
+
+        This guide helps theme designers (or those wishing to customize a theme) to understand how
+        themes work with &product.name;, where a theme's files and resources must be placed, and
+        also describe how a theme's components can be changed in order to create a unique look for
+        your site.
+    </para>
+
+    <para>
+        &product.name; does not use a <emphasis>one-file-per-web-page</emphasis> approach.
+        Generally, there is no single file that can be edited to adjust the presentation for a
+        single page. Instead, &product.name; generates web pages by combining several components
+        such as content entry values, a view script and a layout. Default view scripts and layouts
+        are provided but the theme has the option of providing customized versions. This approach
+        makes web content management more powerful and sophisticated, but it requires you to
+        understand how the various theme components work together.
+    </para>
+
+    <note>
+        <title>Multiple Sites</title>
+
+        <para>
+            &product.name; can host multiple sites and each site can share a theme with other sites
+            or use its own theme. For a specific site, only one theme can be active at a time.
+        </para>
+    </note>
+
+    <section id="themes.overview.layout">
+        <title>Specifying Page Layout</title>
+
+        <para>
+            Configure common aspects of a theme, relative to the theme's folder (represented as
+            <constant>THEMEDIR</constant> below) as follows:
+        </para>
+
+        <itemizedlist>
+            <listitem>
+                <emphasis>Page header and footer</emphasis>: Put markup into
+                <filename>THEMEDIR/layouts/default-layout.phtml</filename>
+            </listitem>
+
+            <listitem>
+                <emphasis>Home page body</emphasis>: For the content that is displayed between the
+                header and footer on the web site home page, put the markup in
+                <filename>THEMEDIR/views/content/index/index.phtml</filename>
+            </listitem>
+
+            <listitem>
+                <emphasis>Content on other pages</emphasis>: Define a content type that contains
+                layout elements (title, body text, sidebar text, etc.), and create a view script
+                for this content type that contains the markup. The view script name must correspond
+                to the content type:
+                <filename>THEMEDIR/views/content/index/view-type-<emphasis>&lt;content-type-id&gt;</emphasis>.phtml</filename>.
+            </listitem>
+        </itemizedlist>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

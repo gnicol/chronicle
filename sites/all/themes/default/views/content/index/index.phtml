@@ -1,0 +1,11 @@
+<div dojoType="p4cms.mobile.Book" class="cover-book" isCover="true">
+    <div id="cover" dojoType="p4cms.mobile.Page" class="p4cms-dontcount-view" selected="true">
+        <?= $this->region('cover') ?>
+        <?= $this->region('cover-sidebar') ?>
+    </div>
+
+    <div id="more" dojoType="p4cms.mobile.Page" pageLayout="{type: 'widget-grid', sourceNode: '#region-grid'}">
+        <?= $this->region('grid-header'); ?>
+        <?= $this->region('grid') ?>
+    </div>
+</div>

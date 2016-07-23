@@ -1,0 +1,12 @@
+#header {
+    height: auto;
+}
+.container.header, span.prev-next-nav {
+    display: none;
+}
+
+.container.main,
+div.section, div.book, div.part, div.chapter, div.appendix, div.index, div.glossary {
+    border: 0 none;
+    padding: 0;
+}

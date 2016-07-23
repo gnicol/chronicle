@@ -1,0 +1,50 @@
+<?
+// setup paginated user adapter.
+$adapter    = new Zend_Paginator_Adapter_Iterator($this->categories);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// get dojo data to populate the data grid.
+// pass per-item callback to craft each entry.
+$data = $this->dataGrid()->dojoData(
+    $paginator,
+    function($category, $dataGrid)
+    {
+        return array(
+            'id'            => $category->getId(),
+            'title'         => $category->getTitle(),
+            'description'   => $category->getDescription(),
+            'parentId'      => $category->getParentId(),
+            'depth'         => $category->getDepth(),
+            'entries'       => count($category->getEntries()),
+            'uri'           => $category->getUri(),
+            'editUri'       => $dataGrid->view->url(
+                array(
+                    'module'        => 'category',
+                    'controller'    => 'manage',
+                    'action'        => 'edit',
+                    'category'      => $category->getId()
+                ),
+               'category-manage',
+                null,
+                false
+            ),
+            'obligatory'    => $category->hasField('obligatory')
+                ? $category->getValue('obligatory')
+                : false
+        );
+    }
+);
+
+// append number of total obligatory items
+$data->setMetadata(
+    'numObligatoryRows',
+    $this->categories->filter(
+        'obligatory',
+        true,
+        array(P4_Model_Iterator::FILTER_COPY)
+    )->count()
+);
+
+print $data;

@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="workflows.configure">
+    <title>Specifying Workflows</title>
+
+    <para>
+        To specify a workflow state, use the following syntax:
+    </para>
+
+<programlisting language="text">
+[stateName]
+label                                                                 = "stateLabel"
+transitions.targetStateName.label                                     = "transitionLabel"
+transitions.targetStateName.conditions[]                              = "conditionClass"
+transitions.targetStateName.conditions.conditionId.condition          = "conditionClass"
+transitions.targetStateName.conditions.conditionId.conditionOption    = "optionValue"
+transitions.targetStateName.conditions.conditionClass.conditionOption = "optionValue"
+transitions.targetStateName.actions[]                                 = "actionClass"
+transitions.targetStateName.actions.actionId.action                   = "actionClass"
+transitions.targetStateName.actions.actionId.actionOption             = "optionValue"
+...
+</programlisting>
+
+    <para>
+        The <property>stateName</property> is required. Each state can specify zero or more
+        transitions with zero or more conditions, and zero or more actions.
+    </para>
+
+    <variablelist>
+        <varlistentry>
+            <term>stateName</term>
+
+            <listitem>
+                An identifier for the state that must be unique among the states in this workflow.
+                Valid characters include letters and numbers.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>targetStateName</term>
+
+            <listitem>
+                The identifier for the target state, the destination of the transition.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>label</term>
+
+            <listitem>
+                 A friendlier name for the state (example: "Draft").
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>transitionLabel</term>
+
+            <listitem>
+                A friendlier name for the transition, which may include the target transition's
+                name (example: "Demote to Draft").
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>conditionClass</term>
+
+            <listitem>
+                The class name of the condition to be evaluated for this transition. (example:
+                "False").
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>conditionId</term>
+
+            <listitem>
+                An identifier for the condition that must be unique among the conditions for this
+                state. This identifier is used when a specific condition class needs be used more
+                than once per transition. Valid characters include letters and numbers.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>conditionOption</term>
+
+            <listitem>
+                The name of an option to be used during the condition's evaluation.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>actionClass</term>
+
+            <listitem>
+                The class name of the action to be invoked for this transition. (example:
+                "SendEmail").
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>actionID</term>
+
+            <listitem>
+                An identifier for the action that must be unique among the actions for this state.
+                This identifier is used when a specific action class needs to be used more than
+                once per transition. Valid characters include letters and numbers.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>actionOption</term>
+
+            <listitem>
+                The name of an option to be used during the action's invocation.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>optionValue</term>
+
+            <listitem>
+                The value of an option provided to a condition or action.
+            </listitem>
+        </varlistentry>
+    </variablelist>
+
+    <para>
+        For example, the following is a specification of an example workflow:
+    </para>
+
+<programlisting language="ini">
+[draft]
+label                                   = "Draft"
+transitions.review.label                = "Promote to Review"
+transitions.review.actions.email.action = "SendEmail"
+transitions.review.actions.email.toRole = "reviewers"
+transitions.published.label             = "Publish"
+
+[review]
+label                                   = "Review"
+transitions.draft.label                 = "Demote to Draft"
+transitions.published.label             = "Publish"
+transitions.published.conditions[]      = "False"
+
+[published]
+label                                   = "Published"
+transitions.review.label                = "Demote to Review"
+transitions.draft.label                 = "Demote to Draft"
+</programlisting>
+
+    <warning>
+        <title>Dead End States</title>
+
+        <para>
+            If a state has no defined transitions, then it is considered to be a dead end. If a
+            content entry enters this workflow state, it is not possible to transition it to another
+            state until the workflow is modified to include a valid transition. This could affect
+            your ability to publish content, or take published content through your workflow for
+            further editing.
+        </para>
+    </warning>
+
+    <note>
+        <title>Condition and Action Class Short Names</title>
+
+        <para>
+            Conditions and actions are typically expressed by their short name, such as
+            <emphasis>False</emphasis> or <emphasis>SendEmail</emphasis> respectively. This
+            may lead to a name conflict if multiple modules provide conditions with the same short
+            name. In this case, the most recently loaded module's definition (which can vary) is
+            used during workflow processing.
+        </para>
+    </note>
+
+    <section id="workflows.configure.conditions">
+        <title>Provided Conditions</title>
+
+        <para>
+            You can use the following condition classes to control transitions:
+        </para>
+
+        <table frame="all" id="workflows.configure.conditions.table-1">
+            <title>Conditions</title>
+            <tgroup cols="2">
+                <thead>
+                    <row>
+                        <entry>Condition Class</entry>
+                        <entry>Description, Example, Options</entry>
+                    </row>
+                </thead>
+
+                <tbody>
+                    <row>
+                        <entry>
+                            <property>Contains</property>
+                        </entry>
+
+                        <entry>
+                            Checks whether the content entry contains the specified text in at least
+                            one element. The available options are:
+
+                            <variablelist>
+                                <varlistentry>
+                                    <term>fields</term>
+
+                                    <listitem>
+                                        Specify which content elements to include in the search (by
+                                        default, all elements are searched). All non-text elements
+                                        are automatically excluded.
+                                    </listitem>
+                                </varlistentry>
+
+                                <varlistentry>
+                                    <term>string</term>
+
+                                    <listitem>
+                                        Specify a search string for a literal match (case
+                                        insensitive).
+                                    </listitem>
+                                </varlistentry>
+
+                                <varlistentry>
+                                    <term>pattern</term>
+
+                                    <listitem>
+                                        Specify a Perl-compatible regular expression for a pattern
+                                        expression match.
+                                    </listitem>
+                                </varlistentry>
+                            </variablelist>
+
+                            The following example specifies that the string "example" must be exist
+                            in the title or body elements:
+
+<programlisting language="ini">
+transitions.example.conditions.Contains.fields = "title"
+transitions.example.conditions.Contains.fields = "body"
+transitions.example.conditions.Contains.string = "example"
+</programlisting>
+                        </entry>
+                    </row>
+
+                    <row>
+                        <entry>
+                            <property>False</property>
+                        </entry>
+
+                        <entry>
+                            A condition that always returns false. This is useful if you need to
+                            disable a transition for a period of time. Simple remove the condition
+                            or replace it with another condition that can succeed to re-enable
+                            transitions.
+
+<programlisting language="ini">
+transitions.example.conditions[] = "False"
+</programlisting>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+
+        <note>
+            <title>Negative Conditions</title>
+
+            <para>
+                Any condition may be negated by providing the <emphasis>negate</emphasis> option.
+                For example:
+            </para>
+
+<programlisting language="ini">
+transitions.example.conditions.Contains.string = "dangerous"
+transitions.example.conditions.Contains.negate = true
+</programlisting>
+        </note>
+    </section>
+
+    <section id="workflows.configure.actions">
+        <title>Provided Actions</title>
+
+        <para>
+            You can use the following action classes to invoke during transitions:
+        </para>
+
+        <table frame="all" id="workflows.configure.actions.table-1">
+            <title>Actions</title>
+            <tgroup cols="2">
+                <thead>
+                    <row>
+                        <entry>Action Class</entry>
+                        <entry>Description, Example, Options</entry>
+                    </row>
+                </thead>
+
+                <tbody>
+                    <row>
+                        <entry>
+                            <property>SendEmail</property>
+                        </entry>
+
+                        <entry>
+                            Sends an email message regarding the transition. The available options
+                            are:
+
+                            <variablelist>
+                                <varlistentry>
+                                    <term>to</term>
+
+                                    <listitem>
+                                        A list of site usernames and/or email addresses. Can be a
+                                        comma-separated string, or one entry per line.
+                                    </listitem>
+                                </varlistentry>
+
+                                <varlistentry>
+                                    <term>toRole</term>
+
+                                    <listitem>
+                                        A list of roles that is expanded to a list of email
+                                        addresses of the member users. Can be a comma-separated
+                                        string, or one entry per line.
+                                    </listitem>
+                                </varlistentry>
+
+                                <varlistentry>
+                                    <term>subject</term>
+
+                                    <listitem>
+                                        The subject for the email message. A default subject is
+                                        generated if one is not provided.
+                                    </listitem>
+                                </varlistentry>
+
+                                <varlistentry>
+                                    <term>template</term>
+
+                                    <listitem>
+                                        The name of a view script template that is rendered into the
+                                        <acronym>HTML</acronym> body of the email. If not
+                                        specified, the template
+                                        <filename>send-email-template.phtml</filename> provided by
+                                        the Workflow module is used.
+                                    </listitem>
+                                </varlistentry>
+
+                                <varlistentry>
+                                    <term>message</term>
+
+                                    <listitem>
+                                        A string that gets prepended to the email message body.
+                                    </listitem>
+                                </varlistentry>
+                            </variablelist>
+
+                            The following example would cause an email message having the subject
+                            "Subject" and beginning with "Check it out." followed by the body
+                            rendered from the template
+                            <filename>custom-email-template.phtml</filename>, would be sent to the
+                            users, administrator, editor, and to the email address
+                            reviewer@another.site, as well as any users within the reviewers,
+                            editors, and members roles.
+
+<programlisting language="ini">
+transitions.example.actions.SendEmail.to[]     = "administrator"
+transitions.example.actions.SendEmail.to[]     = "editor, reviewer@another.site"
+transitions.example.actions.SendEmail.toRole[] = "reviewers"
+transitions.example.actions.SendEmail.toRole[] = "editors, members"
+transitions.example.actions.SendEmail.subject  = "Subject"
+transitions.example.actions.SendEmail.template = "custom-email-template.phtml"
+transitions.example.actions.SendEmail.message  = "Check it out."
+</programlisting>
+
+                            <note>
+                                <title>Sending E-Mail</title>
+
+                                <para>
+                                    In order to send email messages with this action, one or both
+                                    of <emphasis role="bold">to</emphasis> or
+                                    <emphasis role="bold">toRole</emphasis> must be specified. Also,
+                                    <command>sendmail</command> or a compatible sendmail wrapper
+                                    must be installed on the server.
+                                </para>
+                            </note>
+
+                            <note>
+                                <title>Where to Place the Email Template</title>
+
+                                <para>
+                                    The email template can be placed in a few places:
+                                </para>
+
+                                <itemizedlist>
+                                    <listitem>
+                                        <para>
+                                            in the current theme's <filename>views</filename>
+                                            folder.
+                                        </para>
+
+                                        <para>
+                                            Be aware that if a different theme is subsequently used,
+                                            your template will not be found and the default Workflow
+                                            template is used instead. Copy/move your template to the
+                                            now-current theme's <filename>views</filename> folder to
+                                            re-instate it.
+                                        </para>
+                                    </listitem>
+
+                                    <listitem>
+                                        <para>
+                                            in the Workflow module's
+                                            <filename>views/scripts</filename> folder.
+                                        </para>
+                                    </listitem>
+                                 </itemizedlist>
+                            </note>
+                        </entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

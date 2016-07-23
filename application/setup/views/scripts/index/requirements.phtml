@@ -1,0 +1,39 @@
+<?= $this->partial('index/steps.phtml', array('step' => '1')); ?>
+<div class="info">
+<h1>Check Requirements</h1>
+
+<? if ($this->isValidEnvironment) { ?>
+<h2 class="status good">
+    Your environment meets all of the application requirements.
+</h2>
+<? } else { ?>
+<h2 class="status bad">
+    Your environment does not meet some of the application requirements.
+</h2>
+<? } ?>
+
+<?= $this->render('index/requirements.partial.phtml'); ?>
+
+<div id="buttons-element">
+ <fieldset id="fieldset-buttons">
+<? if ($this->isValidEnvironment) { ?>
+  <div dojoType="dijit.form.Button" class="button-large preferred"
+       onClick="window.location=p4cms.url({ module: 'setup', controller: 'index', action: 'storage'});">Continue</div>
+<? } else { ?>
+  <div dojoType="dijit.form.Button" class="button-large preferred"
+       onClick="window.location.reload();">Check Again</div>
+<? } ?>
+ </fieldset>
+</div>
+</div>
+<script type="text/javascript">
+    dojo.addOnLoad(function() {
+        dojo.connect(dojo.body(), 'onkeydown', function(e) {
+            var event = e ? e : event;
+            var key = event.keyCode;
+            if (key == 13) {
+                dijit.getEnclosingWidget(dojo.query('.button-large.preferred')[0]).onClick();
+            }
+        });
+    });
+</script>

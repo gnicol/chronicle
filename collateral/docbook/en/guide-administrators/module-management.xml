@@ -1,0 +1,115 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.management">
+    <title>Module Management</title>
+
+    <section id="modules.management.enable-disable">
+        <title>Enabling and Disabling Modules</title>
+
+        <para>
+            Modules extend the features and capabilities of your web site. Modules can be enabled or
+            disabled for each web site as required.
+        </para>
+
+        <section id="modules.management.enable-disable.enable">
+            <title>To enable a module for the web site you are editing:</title>
+
+            <orderedlist>
+                <listitem>
+                    Choose <command>Manage > Modules</command>. The <emphasis role="screen">Manage
+                    Modules</emphasis> screen is displayed, listing available modules.
+                </listitem>
+
+                <listitem>
+                    To enable a module, click <guibutton>Enable</guibutton> and then
+                    <guibutton>Enable Module</guibutton>. The selected module is enabled.
+                </listitem>
+            </orderedlist>
+        </section>
+
+        <section id="modules.management.enable-disable.disable">
+            <title>To disable a module for the web site you are editing:</title>
+
+            <orderedlist>
+                <listitem>
+                    Choose <command>Manage > Modules</command>. The <command>Manage
+                    Modules</command> screen is displayed, listing available modules.
+                </listitem>
+
+                <listitem>
+                    To disable a module, click <command>Disable</command> and then <command>Disable
+                    Module</command>. The selected module is disabled.
+                </listitem>
+            </orderedlist>
+
+        </section>
+    </section>
+
+    <section id="modules.management.addremove">
+        <title>Adding and Removing Modules</title>
+
+        <para>
+            Modules contain files in the hierarchy described in
+            <xref linkend="modules.anatomy.structure"/>. To add and remove modules, you must have
+            access to the filesystem where &product.longname; is installed (represented as
+            <constant>CMSDIR</constant> in the following instructions).
+        </para>
+
+        <section>
+            <title>To add a module:</title>
+
+            <orderedlist>
+                <listitem>
+                    Move the module folder to the following location:
+                    <filename><constant>CMSDIR</constant>/sites/all/modules/</filename>
+                </listitem>
+                
+                <listitem>
+                    To verify that the new module is detected, choose <command>Manage >
+                    Modules</command>. If the module is correctly defined and located, it is
+                    displayed in the list of modules.
+                </listitem>
+            </orderedlist>
+        </section>
+
+        <section>
+            <title>To remove a module:</title>
+
+            <orderedlist>
+                <listitem>
+                    Disable the module that you intend to remove
+                    (<link linkend="modules.management.enable-disable.disable">see above</link>).
+                </listitem>
+
+                <listitem>
+                    In the filesystem, navigate to
+                    <filename><constant>CMSDIR</constant>/sites/all/modules/</filename>
+                </listitem>
+
+                <listitem>
+                    Delete the folder that contains the module.
+                </listitem>
+
+                <listitem>
+                    To verify that the module is deleted, choose <command>Manage &gt;
+                    Modules</command> and note that the module is no longer displayed in the list of
+                    modules.
+                </listitem>
+            </orderedlist>
+        </section>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

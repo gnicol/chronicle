@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="branches.delete">
+    <title>Deleting a Branch</title>
+
+    <note>
+        <title>Manage Branches Permission Required</title>
+
+        <para>
+            You can delete a branch only if you have the "Manage Sites and Branches" permission.
+        </para>
+    </note>
+
+    <bridgehead>
+        To delete a branch:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click the "active branch" indicator in the &product.longname; toolbar.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-branches.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The branch popup menu appears:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-branch_popup-manage.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guimenuitem>Manage Branches</guimenuitem>. The <emphasis role="screen">Sites
+            and Branches</emphasis> screen appears.
+        </listitem>
+
+        <listitem>
+            Scroll through the available branches to locate the branch you wish to delete.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-manage_sites_and_branches-delete_action.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click the button in the <emphasis role="bold">Actions</emphasis> column in the row
+            containing the branch you wish to delete.
+        </listitem>
+
+        <listitem>
+            Select the <guimenuitem>Delete</guimenuitem> option in the popup menu.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/popup_menu-branch-delete.png"/>
+                </imageobject>
+            </mediaobject>
+
+            A <emphasis role="dialog">Delete Branch</emphasis> confirmation dialog is displayed.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-delete_branch.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Delete Branch</guibutton>. The <emphasis role="screen">Sites and
+            Branches</emphasis> screen is redisplayed, no longer listing your deleted branch.
+        </listitem>
+    </orderedlist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

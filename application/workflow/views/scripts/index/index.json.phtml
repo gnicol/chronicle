@@ -1,0 +1,33 @@
+<?
+// setup paginated workflow adapter
+$adapter    = new Zend_Paginator_Adapter_Iterator($this->workflows);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// fetch all content types once now so we can pick
+// out the associated ones for each workflow below.
+$contentTypes = P4Cms_Content_Type::fetchAll();
+
+// serve dojo data to populate the data grid.
+// pass per-item callback to craft each entry.
+print $this->dataGrid()->dojoData(
+    $paginator,
+    function($workflow) use ($contentTypes)
+    {
+        // get the types that use this workflow.
+        $types = $contentTypes->filter(
+            'workflow',
+            $workflow->getId(),
+            P4Cms_Model_Iterator::FILTER_COPY
+        );
+
+        return array(
+            'id'            => $workflow->getId(),
+            'label'         => $workflow->getValue('label'),
+            'description'   => $workflow->getValue('description'),
+            'states'        => $workflow->getStateModels()->invoke('getLabel'),
+            'contentTypes'  => $types->invoke('getLabel')
+        );        
+    }
+);

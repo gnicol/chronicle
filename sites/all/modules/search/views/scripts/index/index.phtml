@@ -1,0 +1,75 @@
+<h1>Search</h1>
+
+<?= $this->form ?>
+
+<?php if (isset($this->error)): ?>
+ <p class="search-error">
+   There was a problem with your search: <?= $this->error; ?>
+ </p>
+<?php elseif (isset($this->paginator)): ?>
+ <p class="search-info">
+   About <?= $this->paginator->getTotalItemCount(); ?> results (<?= round($this->time, 2) ?>s)
+ </p>
+<?php endif; ?>
+
+<?php if (isset($this->paginator)): ?>
+<div class=search-results>
+ <h1>Results</h1>
+
+  <?php if ($this->paginator->count() == 0): ?>
+   <p class=no-matches>No matching documents.</p>
+  <?php endif; ?>
+
+  <ul>
+   <?php foreach ($this->paginator as $result): ?>
+    <?php
+
+    $document = $result->getDocument();
+    if (!in_array('title', $document->getFieldNames())) {
+        $content = P4Cms_Content::fetch($document->contentId);
+        $title = $content->getTitle();
+    } else {
+        $title = $document->title;
+    }
+
+    // skip results without a title.
+    if (!$title) {
+        continue;
+    }
+    // attempt to get excerpt.
+    $excerpt = null;
+    if (in_array('excerpt', $document->getFieldNames())) {
+        $excerpt = $document->excerpt;
+    }
+    ?>
+
+    <li>
+     <p class="title">
+     <?php if (in_array('uri', $document->getFieldNames())): ?>
+      <a href="<?=$document->uri?>"><?=$title?></a>
+     <?php else: ?>
+      <?=$title?>
+     <?php endif; ?>
+     </p>
+
+     <?php if ($excerpt): ?>
+      <p class=excerpt>
+       <?=$excerpt?>
+      </p>
+     <?php endif; ?>
+
+     <p class="uri"><?=$document->uri?></p>
+
+    </li>
+   <?php endforeach; ?>
+  </ul>
+
+  <?= $this->paginationControl(
+        $this->paginator,
+        'Elastic',
+        'index/paginate.phtml',
+        array('query' => $this->query)
+      ); ?>
+
+</div>
+<?php endif; ?>

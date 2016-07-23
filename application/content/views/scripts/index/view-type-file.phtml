@@ -1,0 +1,43 @@
+<?
+    $metadata = array();
+    $iconUrl = $this->url(array(
+        'module'        => 'content',
+        'controller'    => 'type',
+        'action'        => 'icon',
+        'id'            => 'file'
+    ));
+?>
+<?= $this->contentEntry()->open() ?>
+<div class="file-container">
+<? if ($this->entry->getId() && $this->entry->getFieldMetadata('file')):
+    $metadata = $this->entry->getFieldMetadata('file'); ?>
+ <a href="<?= $this->entry->getUri('download') ?>"><img src="<?= $iconUrl ?>"/></a><br/>
+ <div class="links">
+  <a href="<?= $this->entry->getUri('download') ?>">Download</a>
+ </div>
+<? else: ?>
+ <img src="<?= $iconUrl ?>"/><br/>
+<? endif; ?>
+</div>
+
+<div class="details-container">
+<?= $this->contentEntry()->element('title') ?>
+<?= $this->contentEntry()->element('file') ?>
+<br/>
+<dl>
+<? if (isset($metadata['fileSize'])) : ?>
+  <dt>File size:</dt>
+  <dd class="size content-element"><?= $this->fileSize($metadata['fileSize']) ?></dd>
+<? endif; ?>
+<dt>Date Uploaded:</dt>
+<dd><?= $this->contentEntry()->element('date') ?></dd>
+<? if (isset($metadata['fileSize'])) : ?>
+  <dt>MIME Type:</dt>
+  <dd class="mimetype content-element"><?= $this->escape($metadata['mimeType']) ?></dd>
+<? endif; ?>
+<dt>&nbsp;</dt><dd>&nbsp;</dd>
+<dt>Description:</dt>
+<dd><?= $this->contentEntry()->element('description') ?></dd>
+</dl>
+</div>
+<?= $this->contentEntry()->close() ?>

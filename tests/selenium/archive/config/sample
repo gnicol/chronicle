@@ -1,0 +1,12 @@
+URL=http://qa-lin-vm51.qa.perforce.com
+BROWSERS=firefox
+SELENIUMHOST=localhost
+SELENIUMPORT=4444
+CLIENTOS=LINUX26X86
+SERVEROS=LINUX26X86
+REFRESHP4CHRONICLE=N
+INSERTRESULTS=Y
+
+TESTS:
+t_login/test_Login_P4CMS.py
+t_login/test_Logout.py

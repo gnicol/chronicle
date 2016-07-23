@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="navigation.category.delete">
+    <title>Deleting Categories</title>
+
+    <bridgehead>
+        To delete a category:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click <guibutton>Manage</guibutton> in the &product.longname; toolbar.
+            
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-manage.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click <guimenuitem>Categories</guimenuitem>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-toolbar_menu-categories.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The <emphasis role="screen">Manage Categories</emphasis> screen is displayed.
+        </listitem>
+
+        <listitem>
+            Scroll through the available menus to locate the category you wish to delete.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-manage_categories-action.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click the button in the <emphasis role="bold">Actions</emphasis> column in the row
+            containing the category you wish to delete.
+        </listitem>
+
+        <listitem>
+            Select the <guimenuitem>Delete</guimenuitem> option.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/popup_menu-category_delete.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para></para>
+
+            The <emphasis role="dialog">Delete Category</emphasis> confirmation dialog is displayed.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-delete_category.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click the <guibutton>Delete</guibutton> button in the dialog to complete the
+            deletion of the category. The <emphasis role="screen">Manage Categories</emphasis>
+            screen is redisplayed and no longer lists the deleted category.
+        </listitem>
+    </orderedlist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

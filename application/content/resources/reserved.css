@@ -1,0 +1,903 @@
+/* Choose Type */
+
+.p4cms-ui.p4cms-add-content .display-group .content-type-container {
+    width:  546px;
+    height: 230px;
+    margin: 0px;
+    margin-bottom: 4px;
+    overflow: hidden;
+}
+
+.p4cms-ui.p4cms-add-content.dijitDialog .display-group {
+    background: transparent;
+    border: 0 none;
+}
+.p4cms-ui.p4cms-add-content .display-group .dijitTabContainer {
+    padding: 0;
+}
+
+.p4cms-ui.p4cms-add-content .display-group .dijitTabPaneWrapper {
+    border: 1px solid #d7d7d7;
+    background: #fff;
+    border-radius: 7px;
+    -webkit-border-radius: 7px;
+    -moz-border-radius: 7px;
+}
+
+.p4cms-ui .display-group .content-type-container ul.content-types {
+    list-style-type: none;
+    -webkit-padding-start: 0;
+    margin: 0;
+    padding: 0 0 0 7px;
+}
+
+.p4cms-ui .display-group .content-type-container ul.content-types li {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin: 0;
+    width: 110px;
+    padding: 0px;
+}
+
+.p4cms-ui .display-group .content-type-container .content-type-icon {
+    display: inline-block;
+    border: 0px;
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    padding: 5px;
+    margin: 0;
+    text-align: center;
+    clear: right;
+}
+
+.p4cms-ui .display-group .content-type-container .content-type-icon img {
+    vertical-align: middle;
+    max-height: 64px;
+    max-width: 64px;
+}
+
+.p4cms-ui .display-group .content-type-container .content-type-label {
+    display: block;
+    clear: both;
+    font-size: 13px;
+    line-height: 17px;
+    padding: 0px 0 5px 0;
+}
+.p4cms-ui .display-group .content-type-container .content-type-label a {
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.p4cms-ui .display-group .content-type-container .content-type-description {
+    display: block;
+    clear: both;
+    font-size: .9em;
+    color: #1a1a1a;
+}
+
+.p4cms-ui.dijitDialog a.add-type,
+.p4cms-ui.dijitTooltipDialog a.add-type {
+    display: inline-block;
+    margin: 0 4px 4px 4px;
+    padding: 2px 11px 2px 7px;
+    background: #a8a8a8;
+    border: 0px;
+    text-decoration: none;
+    color: #00649d;
+}
+
+
+/* Edit Content Form */
+
+.p4cms-ui.content-form-container {
+    background: url('images/bg-form_mode.png') top left repeat-y;
+    padding: 0 0 15px 0;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.63);
+    -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.63);
+    -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.63);
+    margin: 0 auto;
+}
+
+.p4cms-ui.content-form-container .content-type-heading {
+    float: left;
+    width: 630px;
+    clear: left;
+    padding: 60px 0 10px 20px;
+}
+.p4cms-ui.content-form-container .content-type-heading img {
+    vertical-align: bottom;
+}
+.p4cms-ui.content-form-container .content-type-heading span {
+    font-size: 28px;
+    font-weight: normal;
+    display: inline-block;
+    margin-left: 15px;
+    padding-bottom: 14px;
+}
+
+.p4cms-ui .content-form {
+    margin: 0 auto;
+    padding-top: 50px;
+    width: 935px;
+}
+.p4cms-ui.content-form-container .content-form {
+    padding-left: 25px;
+    font-size: 13px;
+}
+
+.p4cms-ui .content-form dd#contentformelements-element {
+    float: left;
+    clear: left;
+}
+
+.p4cms-ui.content-form-container .content-form dd#contentformelements-element {
+    width: 630px;
+}
+
+.p4cms-ui fieldset.content-form-elements {
+    border: none;
+    margin: 10px 0 0 0;
+    padding: 0;
+}
+
+.p4cms-ui.content-form-container .content-form-elements dl dt,
+.p4cms-ui.content-form-container .content-form-elements dl dd {
+    float: none;
+    text-align: left;
+    width: auto;
+}
+
+.p4cms-ui.content-form-container .content-form-elements dl dt {
+    padding-bottom: 5px;
+    font-weight: bold;
+}
+
+.p4cms-ui.content-form-container .content-form-elements input[type="text"],
+.p4cms-ui.content-form-container .content-form-elements input[type="password"],
+.p4cms-ui.content-form-container .content-form-elements textarea {
+    top: 0;
+    padding: 3px;
+}
+
+.p4cms-ui.content-form-container .content-form-elements .dijitDateTextBox {
+    height: 21px;
+}
+
+.p4cms-ui.content-form-container .content-form-elements .dijitDateTextBox input {
+    padding: 0;
+}
+
+/* Content Sub Forms */
+
+.p4cms-ui.content-form-container dd#save-sub-form {
+    display: none;
+}
+
+.p4cms-ui #save-sub-form dl dd textarea {
+    width: 234px;
+}
+
+.p4cms-ui .content-sub-form {
+    margin-bottom: 10px;
+}
+
+.p4cms-ui .content-sub-form fieldset {
+    margin: 10px 0;
+}
+
+.p4cms-ui .content-sub-form fieldset legend {
+    padding: 4px 0 25px 0;
+}
+
+.p4cms-ui.content-form-container .content-sub-form fieldset {
+    border: 0 none;
+    margin: 0;
+    padding: 0;
+}
+
+.p4cms-ui.content-form-container .content-sub-form dd {
+    margin-bottom: 5px;
+}
+
+.p4cms-ui .content-sub-form {
+    width: 250px;
+    min-width: 0;
+    float: right;
+    clear: right;
+}
+
+.p4cms-ui.content-form-container .content-sub-form {
+    background: url('../../content/resources/images/bg-subform_header.png') top left repeat-x;
+    width: 235px;
+    padding: 8px 24px 0 20px;
+    line-height: normal;
+    position: relative;
+    top: -75px;
+}
+
+.p4cms-ui .content-sub-form dl dt,
+.p4cms-ui.dijitTooltipDialog .content-sub-form dl dt {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    width: auto;
+}
+
+.p4cms-ui .content-sub-form dl dd,
+.p4cms-ui.dijitTooltipDialog .content-sub-form dl dd {
+    min-width: 0;
+    clear: left;
+    margin-left: 0px;
+}
+
+.p4cms-ui.dijitTooltipDialog .content-sub-form {
+    position: relative;
+    margin-left: 0px;
+}
+
+.p4cms-ui .content-sub-form dl dd input[type=text] {
+    width: 230px;
+}
+
+.p4cms-ui .content-sub-form dl dd .dijitDateTextBox input[type=text] {
+    width: 16px;
+}
+
+/* Content Sub Forms in Dialogs */
+
+.p4cms-ui.dijitTooltipDialog dd.content-sub-form  {
+    float: none;
+    margin: 0;
+}
+
+.p4cms-ui.dijitTooltipDialog.content-sub-form-dialog .dijitTooltipContainer {
+    padding: 5px 10px;
+}
+
+.p4cms-ui.dijitTooltipDialog.content-sub-form-dialog .dijitTooltipContents {
+    margin: 0;
+    padding: 0;
+}
+
+.p4cms-ui.content-sub-form-dialog form legend {
+    display: none;
+}
+
+.p4cms-ui.content-sub-form-dialog .content-form {
+    padding-top: 0;
+    width: auto;
+}
+
+.p4cms-ui.dijitTooltipDialog.content-sub-form-dialog form {
+    margin: 0;
+    padding: 0;
+}
+
+.p4cms-ui.dijitTooltipDialog.content-sub-form-dialog fieldset {
+    margin: 0 3px 0 3px;
+}
+
+.p4cms-ui.dijitTooltipDialog.content-sub-form-dialog fieldset fieldset {
+    margin: 0;
+    padding: 5px;
+}
+
+.p4cms-ui.dijitTooltipDialog.content-sub-form-dialog fieldset fieldset dl {
+    padding: 0;
+}
+
+/* Edit Content Form in Add Dialog */
+
+.p4cms-ui.content-add-dialog.form-dialog form.content-form {
+    padding: 0;
+    width: auto;
+}
+
+.p4cms-ui.content-add-dialog dd.content-sub-form {
+    display: none;
+}
+
+.p4cms-ui.content-add-dialog dd.display-group {
+    border: none;
+}
+
+/* Manage Content */
+
+.p4cms-ui .content-grid .dojoxGridView .type.dojoxGridCell {
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 0px;
+}
+
+.p4cms-ui .content-grid .deleted .delete-banner {
+    color: red;
+    font-weight: bold;
+}
+.p4cms-ui .content-grid .deleted .deleted {
+    color: #777;
+}
+
+.p4cms-ui .grid-options.content-grid-options form dl dl dd {
+    max-height: 150px;
+}
+
+/* Image Preview Tooltip */
+
+.p4cms-ui.dijitTooltip .content-grid-title-tooltip img {
+    max-width: 250px;
+    max-height: 250px;
+    display: block;
+    background-color: white;
+}
+
+/* Content Type tooltip */
+
+.p4cms-ui .dijitTooltip .grid-tooltip.content-type {
+    padding: 5px 0;
+}
+
+.p4cms-ui .dijitTooltip .grid-tooltip.content-type dt {
+    display: block;
+    float: left;
+    width: 75px;
+    text-align: right;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.p4cms-ui .dijitTooltip .grid-tooltip.content-type dd {
+    display: block;
+    margin-left: 82px;
+    padding-right: 15px;
+}
+
+/* Content Select */
+
+.p4cms-ui .content-select .dijitButton {
+    margin-left: 4px;
+    position: relative;
+    top: -4px;
+}
+
+.p4cms-ui .content-select .content-select-row {
+    margin-bottom: 2px;
+}
+
+.p4cms-ui .content-select .content-select-row input[type=text] {
+    width: 200px;
+}
+
+.p4cms-ui .content-select .content-select-row.invalid input[type=text] {
+    color: #f80320;
+}
+
+.p4cms-ui.content-form-container .content-select .dijitButton {
+    top: -2px;
+}
+
+/* Content Multiple Select */
+
+.p4cms-ui .content-select.multiple-select {
+    max-height: 150px;
+    overflow-y: scroll;
+    padding: 3px 0 0 3px;
+    width: 350px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    position: relative;
+}
+
+.p4cms-ui .content-select.multiple-select .content-select-row input[type=text] {
+    top: 0;
+}
+
+.p4cms-ui .content-select.multiple-select .dijitButton {
+    top: -2px;
+}
+
+/* Content Select - Extra Fields */
+
+.p4cms-ui .content-select .extra-fields {
+    font-size: 11px;
+    margin: 5px 5px 10px 5px;
+}
+
+.p4cms-ui .content-select .extra-fields label {
+    display: inline-block;
+    width: 50px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.p4cms-ui .content-select .extra-fields input[type="text"] {
+    font-size: 11px;
+    margin-bottom: 2px;
+    width: 250px;
+}
+
+
+/* Inline Edit */
+
+.p4cms-ui.required-asterisk {
+    position: absolute;
+    background: url('../../ui/resources/images/required-asterisk.png') no-repeat top center;
+    width: 11px;
+    height: 12px;
+}
+
+.content-element .dijitEditor {
+    border: none;
+}
+
+.content-element .dijitEditor .dijitEditorIFrameContainer,
+.content-element .dijitEditor .dijitEditorIFrameContainer .dijitEditorIFrame {
+    background-image: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.content-element-type-editor {
+    position: relative;
+}
+
+/* Content Type Form */
+
+.p4cms-ui .content-type-form textarea#description,
+.p4cms-ui .content-type-form textarea#elements {
+    width: 500px;
+}
+
+/* link dialog */
+
+.p4cms-ui .linkForm input[type=radio],
+.p4cms-ui .linkForm input[type=checkbox]{
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.p4cms-ui .linkForm .check-label {
+    vertical-align: middle;
+    line-height: 12px;
+    font-size: 12px;
+}
+
+/* image upload dialog layout */
+
+.p4cms-ui .imageForm ul {
+    padding: 0px;
+    margin: 0px;
+}
+
+.p4cms-ui .imageForm li {
+    display: inline-block;
+    list-style-type: none;
+    padding-right: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.p4cms-ui .imageForm span.units {
+    top: -3px;
+    position: relative;
+    padding-left: 3px;
+}
+
+.p4cms-ui .imageForm span.check-label {
+    vertical-align: middle;
+    line-height: 12px;
+    font-size: 12px;
+}
+
+.p4cms-ui .imageForm select {
+    width: 151px;
+}
+
+.p4cms-ui .imageForm input[type=radio],
+.p4cms-ui .imageForm input[type=checkbox]{
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.p4cms-ui .sourceContainer dl dt input[type=radio] {
+    float: left;
+    margin-left: 60px;
+}
+
+.p4cms-ui .sourceContainer dl dd .dijitButton {
+    position: relative;
+    top: -4px;
+}
+
+
+/* Content Editor */
+
+.p4cms-ui.content-editor .dijitEditorIFrameContainer {
+    padding: 0;
+    margin: 0;
+    line-height: 0;
+}
+
+.p4cms-ui.content-editor.dijitEditorHover .dijitEditorIFrameContainer,
+.p4cms-ui.content-editor.dijitEditorHover .dijitEditorIFrameContainer .dijitEditorIFrame {
+    background-color: #ffffff;
+}
+
+body.content-editor,
+html.content-editor {
+    background: transparent;
+    overflow: visible;
+}
+
+
+/* Editor Toolbar */
+
+.p4cms-ui .content-editor.dijitToolbar {
+    padding: 2px;
+    white-space: nowrap;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitToolbarSeparator {
+    width: 10px;
+}
+
+.p4cms-ui .content-editor.dijitToolbar label {
+    display: none;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitDropDownButton .dijitButtonContents {
+    border: none;
+    padding: 0;
+    background-image: none;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitButton,
+.p4cms-ui .content-editor.dijitToolbar .dijitDropDownButton,
+.p4cms-ui .content-editor.dijitToolbar .dijitToggleButton {
+    padding: 2px;
+    margin: 0;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitButtonNode {
+    padding: 1px;
+    border: 1px solid #888;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    background-color: transparent;
+    background-image: url('../../ui/resources/images/button-bg-toolbar.png');
+    background-position: 0 0;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitButtonContents {
+    margin: 0;
+    padding: 0;
+    border: none;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    background: none;
+}
+.p4cms-ui .content-editor.dijitToolbar .toolbarDropdown {
+    padding: 2px;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitComboBox {
+    padding: 1px 0 2px 0;
+    border: 1px solid #888;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    background-color: transparent;
+    background-image: url('../../ui/resources/images/button-bg-toolbar.png');
+    background-position: 0 0;
+    width: 120px;
+    line-height: 14px;
+    font-size: 14px;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitComboBox input {
+    position: relative;
+    top: -2px;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitComboBox .dijitPlaceHolder {
+    font-size: 11px;
+    padding: 2px 3px;
+    font-style: normal;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitComboBox .dijitInputContainer {
+    padding: 0 3px;
+    background: transparent;
+    line-height: 14px;
+    font-size: 14px;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitComboBox .dijitInputInner {
+    background: transparent;
+    font-size: 11px;
+    top: 0px;
+    padding: 1px;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitComboBox .dijitValidationContainer {
+    display:none;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitComboButton {
+    border: 1px solid transparent;
+}
+.p4cms-ui .content-editor.dijitToolbar .dijitComboBox .dijitButtonNode {
+    font-size: 11px;
+    line-height: 1;
+    border: none;
+    background: transparent;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitComboBox .dijitArrowButtonInner {
+    background-color: transparent;
+    background-position: -53px 3px;
+    border: none;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitDropDownButton .dijitArrowButtonInner {
+    background-position: -53px -1px;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitTextBoxDisabled,
+.p4cms-ui .content-editor.dijitToolbar .dijitTextBoxDisabled .dijitButtonNode {
+    border-color: #d3d3d3;
+}
+
+.p4cms-ui .content-editor.dijitToolbar .dijitTextBoxDisabled,
+.p4cms-ui .content-editor.dijitToolbar .dijitTextBoxDisabled .dijitInputContainer {
+    background-color: #efefef;
+    background-image: none;
+    color: #818181;
+}
+
+/* Editor toolbar -- Image button icon */
+.p4cms-ui .editorIconImage {
+    background-image: url('../../dojo/resources/dijit/icons/images/editorIconsEnabled.png');
+    background-position: -216px 50%;
+    width: 18px;
+    height: 18px;
+}
+
+/* Editor toolbar -- Paste Mode dropdown button and menu */
+.p4cms-ui .editorIconPaste,
+.p4cms-ui .dijitCheckedMenuItemChecked .editorIconPaste {
+    background-image: url('images/editor-toolbar-icons.png');
+    background-repeat: no-repeat;
+    background-position: 2px 50%;
+    width: 18px;
+    height: 18px;
+}
+
+.p4cms-ui .editorIconPaste.editorIconPlainPaste,
+.p4cms-ui .dijitCheckedMenuItemChecked .editorIconPaste.editorIconPlainPaste {
+    background-position: -15px 50%;
+}
+
+.p4cms-ui .dijitDisabled .editorIconPaste {
+    background-position: -32px 50%;
+}
+
+.p4cms-ui .dijitDisabled .editorIconPaste.editorIconPlainPaste {
+    background-position: -49px 50%;
+}
+
+.p4cms-ui.dijitMenuPopup .editor-menu .dijitMenuItem  .dijitMenuItemLabel {
+    padding: 0px 7px;
+    vertical-align: middle;
+}
+
+.p4cms-ui.dijitMenuPopup .editor-menu .dijitCheckedMenuItemChecked td {
+    background-color: #C0C0C0;
+}
+
+/* Editor toolbar in tooltip dialog */
+
+.p4cms-ui.dijitTooltipDialog .content-editor.dijitToolbar {
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.p4cms-ui.dijitTooltipDialog .editor-element-info {
+    border-bottom: 1px solid #aaa;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.p4cms-ui.dijitTooltipDialog .editor-element-info p.description,
+.p4cms-ui.dijitDialog .editor-element-info p.description {
+    margin: 0;
+    padding: 0;
+}
+
+/* Management Toolbar */
+
+.p4cms-ui .toolbar-drawer .dijitButton.content-button.button-right {
+    margin-right: 20px;
+}
+
+.p4cms-ui .toolbar-drawer .dijitButton.content-sub-form-button.inactive {
+    display: none;
+}
+
+.p4cms-ui .content-toolbar .content-right-button {
+    float: right;
+}
+
+/* File Inputs */
+
+.p4cms-ui.file-upload .existing-file {
+    padding-bottom: 5px;
+}
+
+.p4cms-ui.file-upload .existing-file-icon {
+    display: inline-block;
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    width: 64px;
+    height: 64px;
+    line-height: 64px;
+    padding: 5px;
+    margin: 0 5px 0 0;
+    text-align: center;
+}
+
+.p4cms-ui.file-upload .existing-file-name {
+    display: block;
+    border: 0;
+}
+
+.p4cms-ui.file-upload .existing-file-icon img {
+    vertical-align: middle;
+    max-height: 64px;
+    max-width: 64px;
+}
+
+.p4cms-ui.file-upload .existing-file-options {
+    display: inline-block;
+    vertical-align: middle;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: .8em;
+    clear: right;
+}
+
+.p4cms-ui.file-upload .existing-file-options li {
+    padding: 3px;
+}
+
+.p4cms-ui.file-upload .existing-file-options label {
+    padding: 0 5px;
+}
+
+form.p4cms-ui .dijitButton.file-upload-clear,
+.p4cms-ui form .dijitButton.file-upload-clear {
+    margin-top: -3px;
+}
+
+.p4cms-ui.content-element-tooltip form {
+    font-size: 14px;
+}
+
+.p4cms-ui.content-element-tooltip form ul.errors {
+    margin-bottom: 0;
+}
+
+.p4cms-ui.content-element-tooltip form dt {
+    padding-bottom: 3px;
+}
+
+.p4cms-ui.content-element-tooltip form dt label {
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-top: 5px;
+}
+
+.p4cms-ui.content-element-tooltip form dd input[type=text] {
+    width: 300px;
+}
+
+.p4cms-ui.content-element-tooltip form dd .dijitArrowButton input {
+    width: 16px;
+}
+
+.p4cms-ui.content-element-tooltip form dd .dijitTextBoxError .dijitValidationIcon {
+    width: 0;
+}
+
+/* Select Content Dialog */
+
+.p4cms-ui.select-content {
+    width: 755px;
+}
+
+.p4cms-ui.select-content .data-grid {
+    margin-bottom: 10px;
+    overflow: auto;
+}
+
+.p4cms-ui.select-content .data-grid .dojoxGrid,
+.p4cms-ui.select-content .data-grid .grid-footer {
+    width: 535px;
+}
+
+.p4cms-ui.select-content .content-grid-options .deleted-sub-form {
+    display: none;
+}
+
+/* Delete Content Dialog */
+
+.p4cms-ui.content-delete-dialog .content-delete-form dl dt {
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+    width: auto;
+}
+
+.p4cms-ui.content-delete-dialog .content-delete-form dl dd {
+    min-width: 0;
+    clear: left;
+    margin-left: 0px;
+}
+
+.p4cms-ui.content-delete-dialog .content-delete-form dl dd textarea {
+    width: 450px;
+}
+
+.p4cms-ui form.content-delete-form dt#note-label {
+    display: none;
+}
+
+.p4cms-ui form.content-delete-form .delete-confirmation {
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.p4cms-ui.content-delete-dialog.form-dialog form.content-delete-form {
+    padding-top: 10px;
+}
+
+/* Manage Content Types */
+
+.p4cms-ui .type-grid .dojoxGridView .icon.dojoxGridCell {
+    text-align: center;
+    padding-top: 4px;
+    padding-bottom: 0px;
+}
+
+/* Content List widget config */
+
+.p4cms-ui.config-widget dl dd.content-list-config-sort-order {
+    display: none;
+}
+
+.p4cms-ui.config-widget dl dd.content-list-config-sort-field {
+    margin-bottom: 0px;
+}
+
+.p4cms-ui.config-widget dl dd.display-group #feedDetails-element {
+    border: none;
+}
+
+.p4cms-ui.config-widget dl dd.display-group #feedDetails-element fieldset.feed-details {
+    margin: 0px;
+}
+
+.p4cms-ui.config-widget dl dd.display-group #feedDetails-element fieldset.hidden {
+    display: none;
+}
+
+/* Upload Dialog */
+
+.p4cms-ui.content-upload .progress {
+    min-width: 300px;
+}

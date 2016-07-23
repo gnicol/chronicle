@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="performance.recommendations">
+    <title>Performance Recommendations for Horizontal Scaling</title>
+
+    <section id="performance.recommendations.search">
+        <title>Search</title>
+
+        <para>
+            &product.longname; ships with a Search module powered by
+            <ulink url="http://framework.zend.com/manual/en/zend.search.lucene.html">Zend Search
+            Lucene</ulink>. Lucene stores its search index under
+            "<filename><replaceable>chronicle root</replaceable>/data/sites/<replaceable>site name</replaceable>/search-index/</filename>".
+        </para>
+
+        <para>
+            If Lucene is used when horizontal scaling is employed, the search index becomes
+            fragmented across your various web servers causing it to function incorrectly.
+        </para>
+
+        <para>
+            We recommend disabling the Search module as detailed in
+            <xref linkend="modules.management.enable-disable"/>. Alternatively, the Lucene search
+            index could be placed on shared network storage (e.g. using NFS).
+        </para>
+    </section>
+
+    <section id="performance.recommendations.sessions">
+        <title>Sessions</title>
+
+        <para>
+            &product.name; session data is stored using
+            <ulink url="http://framework.zend.com/manual/en/zend.session.html">Zend Session</ulink>.
+            By default, session data is stored on the filesystem of the web server that responded to
+            the request.
+        </para>
+
+        <para>
+            This configuration can still function when horizontal scaling is employed provided your
+            load balancer is configured to always send users to the same web server once they
+            establish a session. In Amazon's <emphasis role="bold">Elastic Load Balancer</emphasis>
+            this is referred to as <emphasis>sticky user sessions</emphasis>. Using sticky sessions
+            can lead to a less even load distribution across your web servers. Additionally, if a
+            web-server goes down or is taken out of the cluster, users accessing that server become
+            logged out.
+        </para>
+
+        <para>
+            Instead of utilizing session fixation, &product.name; can be configured to store session
+            data in <emphasis role="bold">memcached</emphasis>, allowing requests to be serviced by
+            any web server in the cluster. Sessions may be stored in the same memcached pool used
+            for the default/page cache if sufficient space is available. Should your memcached pool
+            run out of memory, less active records get purged, which could result in users being
+            logged out. If you anticipate your existing memcached pool may become full during normal
+            usage, it is recommend to use a dedicated pool for session storage.
+        </para>
+
+        <para>
+            To enable memcached based session storage, add the following to your application.ini:
+        </para>
+
+<programlisting language="ini">
+[production]
+resources.session.savehandler.class                                = P4Cms_Session_SaveHandler_Cache
+resources.session.savehandler.options.backend.name                 = P4Cms_Cache_Backend_MemcachedTagged
+resources.session.savehandler.options.backend.customBackendNaming  = 1
+resources.session.savehandler.options.backend.options.servers.host = &lt;memcached address&gt;
+</programlisting>
+    </section>
+
+    <section id="performance.recommendations.cache">
+        <title>Cache</title>
+
+        <para>
+            &product.name; utilizes a default cache to accelerate common operations (e.g. parsing
+            all <filename>module.ini</filename> and <filename>theme.ini</filename> contents).
+            Additionally, a page cache is utilized to improve performance for common requests.
+        </para>
+
+        <para>
+            By default these caches are stored using the
+            <ulink url="http://framework.zend.com/manual/en/zend.cache.backends.html">File-based
+            Zend Cache Backend</ulink>. When employing horizontal scaling, this configuration would
+            result in numerous copies of each cache entry being stored. More importantly the cache
+            would not be properly cleared across web servers, resulting in unstable operation or
+            stale data being shown to end users.
+        </para>
+
+        <para>
+            To correct this we recommend using <emphasis role="bold">memcached</emphasis> as a
+            shared cache backend. To enable the memcached cache backend, add the following to your
+            application.ini:
+        </para>
+
+<programlisting language="ini">
+[production]
+resources.cachemanager.default.backend.name                 = P4Cms_Cache_Backend_MemcachedTagged
+resources.cachemanager.default.backend.customBackendNaming  = 1
+resources.cachemanager.default.backend.options.servers.host = &lt;memcached address&gt;
+resources.cachemanager.page.backend.name                    = P4Cms_Cache_Backend_MemcachedTagged
+resources.cachemanager.page.backend.customBackendNaming     = 1
+resources.cachemanager.page.backend.options.servers.host    = &lt;memcached address&gt;
+</programlisting>
+    </section>
+
+    <section id="performance.recommendations.aggregated-assets">
+        <title>Aggregated Assets</title>
+
+        <para>
+            To minimize web requests, &product.name; automatically aggregates the
+            <acronym>CSS</acronym> and javascript assets used on your site.
+        </para>
+
+        <para>
+            By default, these aggregated assets are stored on the filesystem of the web server that
+            responded to the request. When employing horizontal scaling, the aggregated assets need
+            to be stored in a shared location. We recommend using Amazon's
+            <emphasis role="bold">S3</emphasis> asset handler to store the aggregated assets in a
+            shared location. Alternatively, the folder
+            "<filename><replaceable>chronicle root</replaceable>/data/resources/</filename>" can be
+            placed on network storage (e.g. using NFS) to provide all of the web servers access.
+        </para>
+
+        <para>
+            To enable the S3 asset handler, add the following to your application.ini:
+        </para>
+
+<programlisting language="ini">
+[production]
+resources.assethandler.class             = P4Cms_AssetHandler_S3
+resources.assethandler.options.bucket    = &lt;s3 bucket name&gt;
+resources.assethandler.options.accessKey = &lt;key&gt;
+resources.assethandler.options.secretKey = &lt;secret&gt;
+</programlisting>
+
+        <para>
+            The S3 asset handler does not create the bucket, it must be manually created prior to
+            configuring the asset handler.
+        </para>
+    </section>
+
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

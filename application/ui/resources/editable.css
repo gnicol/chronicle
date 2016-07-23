@@ -1,0 +1,28 @@
+/* Editable elements */
+
+.p4cms-ui.editable-element-border {
+    z-index: 100;
+    background-image: url('images/editable-border-grey-bg.gif');
+}
+
+.p4cms-ui.editable-element-border-hover {
+    background-image: url('images/editable-border-blue-bg.gif');
+}
+
+.p4cms-ui.editable-element-border-focus {
+    background-image: url('images/editable-border-black-bg.gif');
+}
+
+.p4cms-ui.editable-element-border-error {
+    background-image: url('images/editable-border-red-bg.gif');
+}
+
+.p4cms-ui.editable-element-border-top,
+.p4cms-ui.editable-element-border-bottom {
+    height: 2px;
+}
+
+.p4cms-ui.editable-element-border-left,
+.p4cms-ui.editable-element-border-right {
+    width: 2px;
+}

@@ -1,0 +1,88 @@
+<?
+// get data grid namespace
+$namespace  = $this->dataGrid()->getNamespace();
+
+// data store url
+$url        = $this->url(
+    array(
+        'module'        => 'menu',
+        'controller'    => 'manage',
+        'action'        => 'index',
+        'format'        => 'json'
+    )
+);
+
+// set up columns
+$columns = array(
+    'label'             => array(
+        'width'         => '71%',
+        'formatter'     => $namespace . '.Formatters.label'
+    ),
+    'typeLabel'         => array(
+        'label'         => 'Type',
+        'width'         => '20%',
+        'formatter'     => $namespace . '.Formatters.type'
+    )
+);
+if (count($this->actions)) {
+    $columns[] = $this->dataGrid()->getDefaultActionsColumn();
+}
+
+// set up footer buttons
+$buttons = array(
+    'Add Menu'          => array(
+        'attribs'       => array(
+            'class'     => 'add-button',
+            'onclick'   => $namespace . '.Utility.openFormDialog("add");'
+        )
+    ),
+    'Add Menu Item'     => array(
+        'attribs'       => array(
+            'class'     => 'add-button',
+            'onclick'   => $namespace . '.Utility.openFormDialog("add-item", "", " Item");'
+        )
+    ),
+    'Reset to Defaults' => array(
+        'attribs'       => array(
+            'onclick'   => $namespace . '.Utility.confirmReset();'
+        )
+    )
+);
+
+// show a preview of dynamic menu items in a tooltip.
+$tooltips = array(
+    array(
+        'sourceField'   => 'tooltip',
+        'attachField'   => 'label',
+        'aroundNode'    => 'span.title',
+        'tooltipClass'  => 'menu-grid-dynamic-tooltip',
+    )
+);
+
+print $this->dataGrid(
+    $namespace,
+    array(
+        'gridLabel'     => 'menus',
+        'form'          => $this->form,
+        'url'           => $url,
+        'pageSize'      => $this->pageSize,
+        'actions'       => $this->actions,
+        'columns'       => $columns,
+        'footer'        => array(
+            'buttons'       => $buttons
+        ),
+        'plugins'       => array(
+            'p4cms-dnd'     => array(
+                'module'    => 'p4cms.ui.grid.plugins.DnD',
+                'options'   => array()
+            )
+        ),
+        'attribs'       => array(
+            'fieldTooltips'         => $tooltips,
+            'disableSort'           => "true",
+            'selectionMode'         => "single",
+            'onMoveRows'            => $namespace . '.Actions.onMoveRows.apply(this, arguments); return false;',
+            'selectionValidating'   => 'return ' . $namespace . '.Actions.isSelectionValid.apply(this, arguments);'
+        )
+    )
+);

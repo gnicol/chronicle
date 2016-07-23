@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="comments.manage">
+    <title>Managing Comments</title>
+
+    <para>
+        Hover your mouse over each of the numbered callouts to highlight the associated area of the
+        screen.
+    </para>
+
+    <mediaobjectco role="screen-mcc">
+        <subtitle>The Manage Comments Screen</subtitle>
+
+        <imageobjectco>
+            <areaspec units="imagemap">
+                <area id="screen-mcc-spot-search" linkends="screen-mcc-co-search" coords="0,91,129,124"/>
+                <area id="screen-mcc-spot-status" linkends="screen-mcc-co-status" coords="0,130,129,195"/>
+                <area id="screen-mcc-spot-sortable" linkends="screen-mcc-co-sortable" coords="147,89,640,107"/>
+                <area id="screen-mcc-spot-actions" linkends="screen-mcc-co-actions" coords="576,109,607,147"/>
+                <area id="screen-mcc-spot-scrollbar" linkends="screen-mcc-co-scrollbar" coords="613,107,640,224"/>
+            </areaspec>
+
+            <imageobject>
+                <imagedata fileref="images/screen-moderate_comments-callouts.png"/>
+            </imageobject>
+
+            <calloutlist>
+                <callout id="screen-mcc-co-search" arearefs="screen-mcc-spot-search">
+                    <para>
+                        <emphasis role="bold">Filter by Text Search</emphasis>: 
+                        Enter text to filter the list of comments to entries containing the text.
+                    </para>
+                </callout>
+                <callout id="screen-mcc-co-status" arearefs="screen-mcc-spot-status">
+                    <para>
+                        <emphasis role="bold">Filter by Status</emphasis>:
+                        Click on a radio button to filter the list of comments to items of
+                        the selected status. By default, comments of any status are shown.
+                    </para>
+                </callout>
+                <callout id="screen-mcc-co-sortable" arearefs="screen-mcc-spot-sortable">
+                    <para>
+                        <emphasis role="bold">Sort Comments</emphasis>:
+                        Click on one of the columns to sort the comments by that column's details,
+                        click again to change the sort direction (an indicator arrow appears). The
+                        <emphasis role="bold">Actions</emphasis> columns is not sortable.
+                    </para>
+                </callout>
+                <callout id="screen-mcc-co-actions" arearefs="screen-mcc-spot-actions">
+                    <para>
+                        <emphasis role="bold">Actions Drop-down Menu</emphasis>:
+                        Click on one of the drop-down menus in the Actions column to see and use
+                        actions available for each comment, including Reject, Pend, Delete, and 
+                        View Content Entry.
+                    </para>
+                </callout>
+                <callout id="screen-mcc-co-scrollbar" arearefs="screen-mcc-spot-scrollbar">
+                    <para>
+                        <emphasis role="bold">Lazy-load Scrollbar</emphasis>:
+                        When there are many more comments than can fit on-screen, only enough
+                        comments are retrieved to fill the display. When you use the scrollbar,
+                        additional comments are fetched. This means that scrolling might appear
+                        to be slightly slower than you might expect, but it allows filtering,
+                        sorting and initial display to be much faster when you have hundreds or
+                        thousands of comments.
+                    </para>
+                </callout>
+            </calloutlist>
+        </imageobjectco>
+    </mediaobjectco>
+
+    <xi:include href="../standalone/enable-comments.xml" role="module">
+        <xi:fallback>
+            <xi:include href="../../en/standalone/enable-comments.xml" />
+        </xi:fallback>
+    </xi:include>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

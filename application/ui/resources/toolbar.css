@@ -1,0 +1,391 @@
+/* Management Toolbar */
+
+.p4cms-ui.manage-toolbar {
+    background: url('images/manage-toolbar-sprites.png') 0 -37px repeat-x;
+    background-color: #454545;
+    width: 100%;
+    min-width: 500px;
+    height: 36px;
+    position: relative;
+}
+
+.p4cms-ui.manage-toolbar.toolbar-disabled ul {
+    display: none;
+}
+
+.p4cms-ui.manage-toolbar ul {
+    margin: 0;
+    padding: 0;
+    -webkit-padding-start: 0;
+}
+
+.p4cms-ui.manage-toolbar .right-group {
+    float: right;
+}
+
+.p4cms-ui.manage-toolbar .left-group {
+    float: left;
+}
+
+.p4cms-ui .manage-toolbar-container {
+    margin: 0 auto;
+    max-width: 934px;
+    background: url('images/manage-toolbar-sprites.png') 0 6px no-repeat;
+    padding-left: 24px;
+    overflow: auto;
+}
+
+.p4cms-ui .manage-toolbar-container ul.navigation {
+    background: url('images/manage-toolbar-sprites.png') 0 -111px repeat-x;
+    list-style: none;
+    height: 35px;
+}
+
+.p4cms-ui.manage-toolbar a {
+    color: white;
+    text-decoration: none;
+}
+
+.p4cms-ui .manage-toolbar-container .dijit {
+    margin: 0;
+    padding: 0;
+}
+
+/* Toolbar Top Menu Items */
+.p4cms-ui.manage-toolbar .menu-node {
+    float: left;
+    color: white;
+}
+
+.p4cms-ui.manage-toolbar .menu-node .menu-button {
+    padding: 0px 2px 2px 0;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+
+.p4cms-ui .manage-toolbar-container .menu-button.menu-button.keyboard-focus {
+    border: 1px dotted #fff;
+}
+
+.p4cms-ui .toolbar-drawer .toolbar-pane .menu-button.menu-buttonActive,
+.p4cms-ui .toolbar-drawer .toolbar-pane .menu-button.menu-buttonHover {
+    background-color: transparent;
+}
+
+.p4cms-ui .manage-toolbar .menu-node .menu-button,
+.p4cms-ui .manage-toolbar .menu-node .menu-button * {
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.p4cms-ui.manage-toolbar .menu-icon {
+    width: 0px;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+}
+
+.p4cms-ui.manage-toolbar .menu-handle {
+    padding: 10px 12px 0 12px;
+    font: 13px "Arial", "Helvetica", "sans-serif";
+    display: inline-block;
+    height: 22px;
+    opacity: 0.85;
+    -moz-opacity: 0.85;
+    filter: alpha(opacity=85);
+}
+
+.p4cms-ui.manage-toolbar .menu-button.dijitDownArrowButton,
+.p4cms-ui.manage-toolbar .right-group .menu-node .menu-button.dijitDownArrowButton {
+    padding-right: 9px;
+}
+
+.p4cms-ui.manage-toolbar .menu-button.dijitDownArrowButton .menu-handle {
+    padding-right: 16px;
+    background: url('images/manage-toolbar-sprites.png') right -186px no-repeat;
+}
+
+.p4cms-ui.manage-toolbar .right-group .menu-node .menu-button {
+    padding: 0 5px 2px 0;
+}
+
+.p4cms-ui.manage-toolbar .right-group .menu-handle {
+    overflow: hidden;
+}
+
+/* Toolbar button styles */
+.pow.p4cms-ui.manage-toolbar .dijitIcon {
+    width: 0px;
+    height: 32px;
+    margin: 0;
+    padding: 0;
+}
+
+/* left-hand, top-level toolbar buttons */
+.p4cms-ui .manage-toolbar-container ul.navigation span.left-group li:first-child.menu-node {
+    background: url('images/manage-toolbar-sprites.png') 0 -37px repeat-x;
+}
+
+.p4cms-ui ul.navigation span.left-group li:first-child.menu-node .menu-handle {
+    opacity: 1;
+    -moz-opacity: 1;
+    filter: none;
+}
+
+.p4cms-ui .manage-toolbar-container .menu-button.menu-buttonActive,
+.p4cms-ui .manage-toolbar-container .menu-button.menu-buttonHover,
+.p4cms-ui .manage-toolbar-container .menu-button.menu-buttonChecked {
+    background-color: #0d0d0d;
+}
+
+.p4cms-ui .manage-toolbar-container .menu-button.menu-buttonActive .menu-handle,
+.p4cms-ui .manage-toolbar-container .menu-button.menu-buttonHover .menu-handle,
+.p4cms-ui .manage-toolbar-container .menu-button.menu-buttonChecked .menu-handle {
+    opacity: 1;
+    -moz-opacity: 1;
+    filter: none;
+}
+
+.p4cms-ui .manage-toolbar-container ul.navigation span.left-group li:first-child .menu-button.menu-buttonActive,
+.p4cms-ui .manage-toolbar-container ul.navigation span.left-group li:first-child .menu-button.menu-buttonHover,
+.p4cms-ui .manage-toolbar-container ul.navigation span.left-group li:first-child .menu-button.menu-buttonChecked {
+    background: transparent;
+}
+
+.p4cms-ui .manage-toolbar-container ul.navigation span.left-group li:first-child +li .menu-button {
+    background: url('images/manage-toolbar-sprites.png') 0 -75px no-repeat;
+    margin-left: -1px;
+    padding-left: 10px;
+}
+
+.p4cms-ui .manage-toolbar-container ul.navigation span.left-group li:first-child +li .menu-button.menu-buttonActive,
+.p4cms-ui .manage-toolbar-container ul.navigation span.left-group li:first-child +li .menu-button.menu-buttonHover,
+.p4cms-ui .manage-toolbar-container ul.navigation span.left-group li:first-child +li .menu-button.menu-buttonChecked {
+    background: url('images/manage-toolbar-sprites.png') 0 -149px no-repeat;
+}
+
+
+/* styles for the user menu on the right side of the toolbar */
+.p4cms-ui.manage-toolbar .right-group .manage-toolbar-user-menu-node {
+    border-left: 1px solid #000;
+    border-right: 1px solid #5f5f5f;
+}
+
+.p4cms-ui.manage-toolbar .right-group .manage-toolbar-user-menu-node .menu-button {
+    border-left: 1px solid #424242;
+    border-right: 1px solid #000;
+}
+
+.p4cms-ui.manage-toolbar .right-group .manage-toolbar-user-menu-node .menu-button.keyboard-focus {
+    border: 1px dotted #FFFFFF;
+}
+
+.p4cms-ui .manage-toolbar-container .right-group .menu-button.menu-buttonActive,
+.p4cms-ui .manage-toolbar-container .right-group .menu-button.menu-buttonHover,
+.p4cms-ui .manage-toolbar-container .right-group .menu-button.menu-buttonChecked {
+    border-left: 1px solid #333;
+}
+
+/* styles for toolbar popup menus */
+.p4cms-ui.dijitMenuPopup.toolbar-popup-menu,
+.p4cms-ui.dijitPopup.toolbar-popup-menu,
+.p4cms-ui.dijitMenuPopup.toolbar-popup-menu table {
+    background: #000;
+    border: 0 none;
+}
+
+.p4cms-ui.dijitMenuPopup.toolbar-popup-menu,
+.p4cms-ui.dijitPopup.toolbar-popup-menu {
+    background: #000;
+    background-color: rgba(0, 0, 0, 0.90);
+    color: white;
+    border: 1px solid #aaa;
+}
+
+.p4cms-ui.toolbar-popup-menu .dijitMenuSeparatorTop {
+    border-color: #aaa;
+}
+
+.p4cms-ui.dijitMenuPopup.toolbar-popup-menu table {
+    padding: 0;
+}
+
+.p4cms-ui.toolbar-popup-menu.dijitMenuPopup .dijitMenu,
+.p4cms-ui.toolbar-popup-menu.dijitPopup .dijitMenu,
+.p4cms-ui.toolbar-popup-menu td {
+    background: transparent;
+}
+
+.p4cms-ui.toolbar-popup-menu.level-0 {
+    border-top: 0 none;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    -moz-border-radius-topleft: 0;
+    -moz-border-radius-topright: 0;
+    -webkit-border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+}
+
+.p4cms-ui.toolbar-popup-menu .dijitMenuItem {
+    background: transparent;
+    color: white;
+    opacity: 0.85;
+    filter: alpha(opacity=85);
+    -moz-opacity: 0.85;
+}
+
+.p4cms-ui.toolbar-popup-menu.dijitMenuPopup .dijitHover.dijitMenuItem,
+.p4cms-ui.toolbar-popup-menu.dijitMenuPopup .dijitHover.dijitMenuItem td,
+.p4cms-ui.toolbar-popup-menu.dijitPopup .dijitHover.dijitMenuItem,
+.p4cms-ui.toolbar-popup-menu.dijitPopup .dijitHover.dijitMenuItem td {
+    background: #373737;
+    background: rgba(55, 55, 55, 0.75);
+    opacity: 1;
+    filter: none;
+    -moz-opacity: 1;
+}
+
+/* disable the claro theme's graphical arrow; it's the wrong colour */
+.p4cms-ui.toolbar-popup-menu .dijitMenuItem .dijitMenuExpand {
+    background: none;
+}
+
+/* change arrow graphic */
+.p4cms-ui.toolbar-popup-menu .dijitMenuItem .dijitMenuArrowCell div {
+    background: url('images/manage-toolbar-sprites.png');
+    background-position: 0 -196px;
+    background-repeat: no-repeat;
+}
+
+/* Toolbar drawer pane styles */
+.p4cms-ui.manage-toolbar .toolbar-drawer {
+    background: black;
+    filter: alpha(opacity=90);
+    opacity: 0.90;
+    -moz-opacity:0.90;
+    overflow: hidden;
+    color: white;
+    position: absolute;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.p4cms-ui.manage-toolbar .toolbar-drawer .toolbar-pane {
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 960px;
+    padding: 7px 0;
+    position: relative;
+}
+
+.p4cms-ui.manage-toolbar .toolbar-drawer .toolbar-pane.toolbar-sub-menu {
+    padding-bottom: 14px;
+}
+
+.p4cms-ui.manage-toolbar .toolbar-drawer .toolbar-pane .dijitContentPane {
+    padding: 0;
+}
+
+.p4cms-ui.manage-toolbar .toolbar-drawer .toolbar-pane li {
+    margin: 0;
+    padding: 0;
+    font-size: 13px;
+    list-style: none;
+    width: 170px;
+    float: left;
+}
+
+.p4cms-ui.manage-toolbar .toolbar-drawer .toolbar-pane li li {
+    margin: 0;
+    padding: 2px 0 0px 0;
+    float: none;
+}
+
+.p4cms-ui.manage-toolbar .toolbar-drawer .toolbar-pane li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    border: 1px solid transparent;
+    opacity: 0.85;
+    -moz-opacity: 0.85;
+    filter: alpha(opacity=85);
+}
+
+.p4cms-ui.manage-toolbar .toolbar-drawer .toolbar-pane li a:hover {
+    opacity: 1;
+    -moz-opacity: 1;
+    filter: none;
+}
+
+.p4cms-ui.manage-toolbar .toolbar-drawer .toolbar-pane li a.keyboard-focus {
+    border: 1px dotted #FFFFFF;
+}
+
+.p4cms-ui.manage-toolbar .toolbar-drawer .toolbar-pane ul li span.type-heading {
+    font-size: 15px;
+    font-weight: normal;
+    color: #6d6d6d;
+    display: block;
+    padding: 5px 0 1px 0;
+    cursor: default;
+}
+
+/* Sub-toolbar button styles */
+.p4cms-ui .toolbar-drawer .dijitButton,
+.p4cms-ui .toolbar-drawer .dijitDropDownButton {
+    margin: 0 2px;
+}
+
+.p4cms-ui .toolbar-drawer .dijitButton.button-left,
+.p4cms-ui .toolbar-drawer .dijitDropDownButton.button-left,
+.p4cms-ui .toolbar-drawer .dijitButton.button-right,
+.p4cms-ui .toolbar-drawer .dijitDropDownButton.button-right {
+    margin: 0px;
+}
+
+.p4cms-ui .toolbar-drawer .dijitButton .dijitButtonContents,
+.p4cms-ui .toolbar-drawer .dijitDropDownButton .dijitButtonContents {
+    border: none;
+}
+
+.p4cms-ui .toolbar-drawer .dijitButtonHover .dijitButtonContents,
+.p4cms-ui .toolbar-drawer .dijitDropDownButtonHover .dijitButtonContents {
+    background: url('images/button-bg-light-hover.png') repeat-x top right;
+}
+
+.p4cms-ui .toolbar-drawer .dijitButton.button-right {
+    border-left: 1px solid white;
+}
+
+.p4cms-ui .toolbar-drawer .dijitButtonHover.button-right {
+    border-left: 1px solid #ddd;
+}
+
+.p4cms-ui .toolbar-drawer .dijitButton.button-right.active {
+    border-left: 1px solid #676767;
+}
+
+.p4cms-ui .toolbar-drawer .dijitButton.button-left.active {
+    border-right: 1px solid #676767;
+}
+
+/* Dock Toggle Button */
+.p4cms-ui.p4cms-dock-collapsible .manage-toolbar .manage-toolbar-container {
+    padding-right: 36px;
+}
+
+.p4cms-ui.p4cms-dock .p4cms-dock-close-button {
+    top: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 38px;
+    z-index: 1;
+}

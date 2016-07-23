@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="widgets.configure">
+    <title>Configuring Widgets</title>
+
+    <bridgehead>
+        To configure a widget:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click <guibutton>Widgets</guibutton> in the &product.longname; toolbar.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-widgets.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            &product.name; displays highlighted regions indicating existing widgets that can be
+            configured.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/widget-detail-configure.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click the configure icon for the widget you wish to configure. The
+            <emphasis role="dialog">Configure Widget</emphasis> dialog appears.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-configure_widget.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Adjust the configuration for the widget. Please see
+            <xref linkend="widgets.configure.options"/> for more details.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton> to finish adding the new widget.
+        </listitem>
+    </orderedlist>
+
+    <section id="widgets.configure.options">
+        <title>Widget Configuration Options</title>
+
+        <para>
+            All widgets have a set of general options that enable you to configure them as follows:
+        </para>
+
+        <variablelist>
+            <varlistentry>
+                <term>Title</term>
+
+                <listitem>
+                    The title for this widget.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Show Title</term>
+
+                <listitem>
+                    Toggles the display of the widget's title in the region.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Order</term>
+
+                <listitem>
+                    Influences the order of the widget in the region; higher numbers cause
+                    widgets to be displayed later in the region, lower or negative numbers
+                    cause widgets to be displayed earlier in the region.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>CSS Class</term>
+
+                <listitem>
+                    Enter a <acronym>CSS</acronym> class name to distinguish this widget
+                    from other widgets of the same type, to provide custom styling. You
+                    may need access to the current theme's stylesheet file to make full
+                    use of this feature.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Load Asynchronously</term>
+
+                <listitem>
+                    Skips execution of the widget on the initial page view and loads its display
+                    via a separate request using <acronym>AJAX</acronym>. This is ideal for
+                    widgets that take a noticeable amount of time to run and that might slow down
+                    page loading, for example any widget that calls an external service such as
+                    Twitter.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+
+        <para>
+            Each type of widget has its own custom options. The following sections detail the custom
+            options provided by the built in widgets.
+        </para>
+    </section>
+
+    <section id="widgets.configure.associatedcategories">
+        <title>Associated Categories Widget</title>
+
+        <para>
+            This widget lists any categories that have been assigned to the content being
+            displayed.
+        </para>
+
+        <variablelist>
+            <varlistentry>
+                <term>Preamble</term>
+
+                <listitem>
+                    (optional) Text to be displayed before the category list.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+
+    <section id="widgets.configure.contentlistwidget">
+        <title>Content List Widget</title>
+
+        <para>
+            This widget displays a list of content entries, and provides an RSS feed of the listing.
+        </para>
+
+        <variablelist>
+            <varlistentry>
+                <term>Maximum Items</term>
+
+                <listitem>
+                    Specifies the maximum number of content entries to be displayed.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Show Icons</term>
+
+                <listitem>
+                    When checked, icons indicating each content entry's content type is included in
+                    the listing.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Content Types</term>
+
+                <listitem>
+                    Select the content type(s) to include in the listing.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Primary Sort</term>
+
+                <listitem>
+                    Specify which field within the content entries should be used to sort the
+                    listing, and the sort direction.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Secondary Sort</term>
+
+                <listitem>
+                    Specify which field within the content entries should be used to sort the
+                    listing when the Primary Sort encounters identical values, and the sort
+                    direction.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Show RSS Link</term>
+
+                <listitem>
+                    When checked, a link to the listing's feed is included in the top-right of
+                    the listing. Note that the feed for the widget is available whether the link
+                    is included or not.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Feed Title (only visible when Show RSS Link is checked)</term>
+
+                <listitem>
+                    (optional) Specify the title of the RSS feed. When empty, the widget's Title
+                    value is used as the feed's title.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Feed Description (only visible when Show RSS Link is checked)</term>
+
+                <listitem>
+                    (optional) Specify the description of the RSS feed. When empty, the widget's
+                    Title value is used as the feed's description.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+
+    <section id="widgets.configure.feedwidget">
+        <title>Feed Widget</title>
+
+        <para>
+            This widget displays an RSS or Atom feed. The Feed module is optional and must be
+            enabled to make the Feed widget available. Please refer to
+            <xref linkend="modules.management.enable-disable"/>.
+        </para>
+
+        <variablelist>
+            <varlistentry>
+                <term>Feed <acronym>URL</acronym></term>
+
+                <listitem>
+                    Specifies the <acronym>URL</acronym> of the feed source. Both RSS and Atom feeds
+                    are supported, and are automatically recognized.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Show Source <acronym>URL</acronym></term>
+
+                <listitem>
+                    When checked, an extra line displaying the feed source <acronym>URL</acronym>
+                    is included in the feed presentation.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Show Dates</term>
+
+                <listitem>
+                    When checked, each feed item includes its publication date.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Show Descriptions</term>
+
+                <listitem>
+                    When checked, each feed item includes its description (when available).
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Maximum Items</term>
+
+                <listitem>
+                    Specifies the maximum number of feed items to be displayed.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+
+    <section id="widgets.configure.image">
+        <title>Image Widget</title>
+
+        <para>
+            This widget displays an image.
+        </para>
+
+        <variablelist>
+            <varlistentry>
+                <term>Local image file / Remote image address</term>
+
+                <listitem>
+                    Specify if we are selecting an image content entry or providing a
+                    <acronym>URL</acronym>.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Image File</term>
+
+                <listitem>
+                    If using local image file, this field is used to select the image.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Image Address</term>
+
+                <listitem>
+                    If using remote image file, this field is used to specify the
+                    <acronym>URL</acronym>.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Alt Text</term>
+
+                <listitem>
+                    Specify the Alternate Text to be used if images are not shown.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Width</term>
+
+                <listitem>
+                    Specify a width that the browser should scale the image to.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Height</term>
+
+                <listitem>
+                    Specify a height that the browser should scale the image to.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Link</term>
+
+                <listitem>
+                    Provide a <acronym>URL</acronym> which should be visited when the image is
+                    clicked.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Link Target</term>
+
+                <listitem>
+                    If using a link, specifies which window to open in.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+
+        <note>
+            <title>Server-Side Image Resizing</title>
+
+            <para>
+                If the web server hosting &product.name; has a supported <acronym>PHP</acronym>
+                image library installed (see <xref linkend="chapter.image.manipulation"/> for
+                more details), local images with a specified width/height are resized on the
+                server to minimize data transfer and improve page load time.
+            </para>
+        </note>
+    </section>
+
+    <section id="widgets.configure.image-rotator">
+        <title>Image Rotator Widget</title>
+
+        <para>
+            This widget displays a sequence of images, with cross-fading. Depending on browser
+            capabilities, scaling, panning, and cross-fading effects may also be applied for a more
+            interesting presentation.
+        </para>
+
+        <variablelist>
+            <varlistentry>
+                <term>Images</term>
+
+                <listitem>
+                    Displays the list of images to be rotated. The <guibutton>Browse</guibutton>
+                    button beside each entry allows you to choose the image for that position in
+                    the list. The <guibutton>Clear</guibutton> button removes the image from that
+                    position in the list. Use the <emphasis>Caption</emphasis> field to enter
+                    descriptive text that displays at the bottom of the image. Use the
+                    <emphasis>Link</emphasis> field to specify a <acronym>URL</acronym> to visit
+                    when the image is clicked.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Width</term>
+
+                <listitem>
+                    Specify a width for the widget to rotate images within.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Height</term>
+
+                <listitem>
+                    Specify a height for the widget to rotate images within.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+
+        <note>
+            <title>Default Size</title>
+
+            <para>
+                Unless specified, images displayed by the rotator occupy the full width of the
+                widget. Normally, only the height needs to be provided to achieve the desired
+                presentation.
+            </para>
+        </note>
+    </section>
+
+    <section id="widgets.configure.menuwidget">
+        <title>Menu Widget</title>
+
+        <para>
+            This widget displays a menu of links to categories, content items, or the
+            &product.longname; toolbar.
+        </para>
+
+        <variablelist>
+            <varlistentry>
+                <term>Menu</term>
+
+                <listitem>
+                    Specifies the name of the menu to display.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Display Root</term>
+
+                <listitem>
+                    Limits display to only entries contained under a given path.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Include Content</term>
+
+                <listitem>
+                    When using the categories menu, specifies whether links to the associated
+                    content entries are listed below each category's link.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Maximum Depth</term>
+
+                <listitem>
+                    Specifies how many levels of subitems (indentation) are displayed.
+                </listitem>
+            </varlistentry>
+
+            <varlistentry>
+                <term>Maximum Items</term>
+
+                <listitem>
+                    Specifies the maximum number of menu items to be displayed.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+
+    <section id="widgets.configure.search">
+        <title>Search Widgets</title>
+
+        <para>
+            The search widget provides a method of looking for content entries based on
+            keyword(s). It provides no custom configuration options. To specify advanced
+            searches, use
+            <ulink url="http://framework.zend.com/manual/en/zend.search.lucene.query-language.html">
+            Lucene Query Language</ulink>.
+        </para>
+    </section>
+
+    <section id="widgets.configure.text">
+        <title>Text Widget</title>
+
+        <para>
+            This widget provides a <acronym>WYSIWYG</acronym> interface to display arbitrary
+            text.
+        </para>
+
+        <variablelist>
+            <varlistentry>
+                <term>Text</term>
+
+                <listitem>
+                    (optional) <acronym>HTML</acronym> formatted text to be displayed.
+                </listitem>
+            </varlistentry>
+        </variablelist>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

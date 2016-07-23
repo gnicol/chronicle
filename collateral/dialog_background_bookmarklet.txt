@@ -1,0 +1,10 @@
+When a dialog is presented, a translucent black underlay is created to
+provide prominence to the dialog.
+
+When screenshots of dialogs are made for documentation, the underlay
+provides an undesirable dark border around the dialog.
+
+The following bookmarklet locates the underlay and makes it opaque
+white so that dialog screenshots will present nicely in documentation.
+
+javascript:var%20underlay%20=%20dojo.query(%27.dijitDialogUnderlayWrapper%20.dijitDialogUnderlay%27)[0];if%20(underlay)%20{dojo.style(underlay,%20{%20background:%20%27white%27,%20opacity:%201%20});}

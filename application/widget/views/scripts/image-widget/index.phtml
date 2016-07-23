@@ -1,0 +1,67 @@
+<?
+
+// show the image if we have one.
+if ($this->imageSrc) {
+
+    $widget = $this->widget;
+
+    // optionally construct link tag.
+    $openLink = $closeLink = "";
+    if ($widget->getConfig('link')) {
+        $href      = $this->escape($widget->getConfig('link'));
+        $target    = $this->escapeAttr($widget->getConfig('linkTarget'));
+        if ($target == '_lightbox') {
+            $target = "";
+            $click  = "new p4cms.ui.LightBox({href:this.href}).startup(); return false;";
+            $openLink  = "<a href=\"$href\" target=\"$target\" onclick=\"$click\">";
+        } else {
+            $openLink  = "<a href=\"$href\" target=\"$target\">";
+        }
+
+        // ensure the link we crafted points at the active branch
+        $branchify = new P4Cms_Filter_BranchifyUrls;
+        $openLink  = $branchify->filter($openLink);
+
+        $closeLink = '</a>';
+    }
+
+    // build image markup (div or img)
+    $src    = $this->escape($this->imageSrc);
+    $alt    = $this->escapeAttr($widget->getConfig('imageAlt'));
+    $title  = $this->escapeAttr($widget->getValue('title'));
+    $width  = $this->escapeAttr($widget->getConfig('imageWidth'));
+    $height = $this->escapeAttr($widget->getConfig('imageHeight'));
+    $margin = (int) $widget->getConfig('margin');
+    $margin = $margin ? "margin: " . $margin . "px;" : "";
+    if ($widget->getConfig('asBackground')) {
+        $title = $alt ?: $title;
+        $image = "<div"
+               . " class=\"image\""
+               . " title=\"$title\""
+               . " style=\"background-image: url('$src'); "
+               . ($width  ? " width: "  . $width  . "px; " : "")
+               . ($height ? " height: " . $height . "px; " : "")
+               . $margin
+               . "\"></div>";
+    } else {
+        $image = "<img onload=\"dojo.publish('p4cms.ui.refreshEditMode');\""
+               . " src=\"$src\" alt=\"$alt\" style=\"$margin\" title=\"$title\""
+               . " width=\"$width\" height=\"$height\">";
+    }
+
+    // if image alignment is specified, wrap the image with a div and set the text-align attribute
+    $align        = $widget->getConfig('alignment', '');
+    $align        = $align === 'none' ? '' : $align;
+    $openWrapper  = $align
+        ? '<div style="text-align: ' . $this->escapeAttr($align) . ';">'
+        : '';
+    $closeWrapper = $align
+        ? '</div>'
+        : '';
+
+    print $openWrapper . $openLink . $image . $closeLink . $closeWrapper;
+
+} else {
+    print "No image to display.";
+}
+?>

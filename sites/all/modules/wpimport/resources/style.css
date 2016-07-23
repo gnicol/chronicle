@@ -1,0 +1,16 @@
+/* Progress dialog style for final display of imported users. */
+.wpimport .imported-users li {
+    list-style-type: none;
+}
+
+.wpimport .imported-users span.username {
+    float: left;
+    clear: left;
+    width: 150px;
+}
+
+.wpimport .imported-users span.password {
+    float: none;
+    clear: right;
+    margin-left: 10px;
+}

@@ -1,0 +1,33 @@
+<?
+// setup paginated changes adapter.
+$adapter    = new Zend_Paginator_Adapter_Iterator($this->changes);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// get the underlying file for this record and ensure it is at head
+$headFile = $this->record->toP4File();
+if (P4_File::hasRevspec($headFile->getFilespec())) {
+    $headFile = P4_File::fetch(P4_File::stripRevspec($headFile->getFilespec()));
+}
+
+// serve dojo data to populate the data grid.
+// pass per-item callback to craft each entry.
+print $this->dataGrid()->dojoData(
+    $paginator,
+    function($change, $dataGrid) use ($headFile)
+    {
+        $changeFile = $change->getFileObject($dataGrid->view->record->toP4File());
+        return array(
+            'id'            => $change->getId(),
+            'version'       => $changeFile->getStatus('headRev'),
+            'user'          => $change->getUser(),
+            'description'   => $change->getDescription(),
+            'date'          => $dataGrid->view->timeAgo($change->getDateTime()),
+            'rawDate'       => $change->getDateTime(),
+            'recordType'    => $dataGrid->view->type,
+            'recordId'      => $dataGrid->view->id,
+            'headVersion'   => $headFile->getStatus('headRev')
+        );    
+    }
+);

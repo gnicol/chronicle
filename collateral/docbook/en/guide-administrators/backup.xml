@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="installation.management.backup">
+    <title>Backup</title>
+
+    <para>
+        Backing up your &product.longname; installation at regular intervals is an excellent way to
+        reduce the damage from system failure, or other scenario that could result in data loss.
+    </para>
+
+    <para>
+        The following recipes assume that:
+    </para>
+
+    <itemizedlist>
+        <listitem>
+            You have read through 
+            <ulink url="http://www.perforce.com/perforce/doc.current/manuals/p4sag/02_backup.html">Supporting
+            Perforce: Backup and Recovery</ulink> in the 
+            <ulink url="http://www.perforce.com/perforce/doc.current/manuals/p4sag/">Perforce
+            System Administrator's Guide</ulink>.
+        </listitem>
+
+        <listitem>
+            You have the <command>p4</command> command in your path.
+        </listitem>
+
+        <listitem>
+            You have the <command>p4d</command> command in your path.
+        </listitem>
+
+        <listitem>
+            You are logged in as the system's administrator, or <emphasis>root</emphasis> user.
+        </listitem>
+    </itemizedlist>
+
+    <para>
+        It is also helpful to date your backups; in the following recipes,
+        <constant>YYYY-MM-DD</constant> refers to the date the backup is performed.
+    </para>
+
+    <section>
+        <title>Back up &product.name; with Perforce Server on Same Machine</title>
+
+        <para>
+            Please use the following instructions if you chose "In a new Perforce Server on the
+            same machine as &product.name;" when you set up your first site.
+        </para>
+
+        <para>
+            Before you begin, it is helpful to pick the path where the backup will be stored; this
+            path is referred to as <constant>BACKUPDIR</constant> below. <constant>CMSDIR</constant>
+            refers to the root directory of your &product.name; installation.
+            <constant>ADMINUSER</constant> and <constant>ADMINPW</constant> refer, respectively, to
+            the administrator username and password specified when you set up your first site.
+            <constant>WEBUSER</constant> refers the userid that Apache uses to serve &product.name;.
+        </para>
+
+        <orderedlist>
+            <listitem>
+                <para>
+                    Verify the integrity of your server:
+                </para>
+
+                <para>
+                    <command>p4 -p "rsh:p4d -ir <constant>CMSDIR</constant>/data/perforce" -u
+                    <constant>ADMINUSER</constant> -P <constant>ADMINPW</constant> verify -q
+                    //...</command>
+                </para>
+
+                <para>
+                    If you encounter errors from this step, please refer to
+                    <ulink url="http://kb.perforce.com/article/693">MISSING! errors from p4
+                    verify</ulink>, or <ulink url="http://kb.perforce.com/article/961">How to Handle
+                    p4 verify BAD Errors</ulink>, from the
+                    <ulink url="http://kb.perforce.com/">Perforce Knowledge Base</ulink>.
+                </para>
+            </listitem>
+
+            <listitem>
+                <para>
+                    Create a checkpoint of the Perforce versioning metadata:
+                </para>
+
+                <para>
+                    <command>p4d -r <constant>CMSDIR</constant>/data/perforce -jc</command>
+                </para>
+            </listitem>
+
+            <listitem>
+                <para>
+                    Ensure that the journal is writable by the web server user:
+                </para>
+
+                <para>
+                    <command>
+                        chmod u+w <constant>CMSDIR</constant>/data/perforce/journal*
+                    </command><?linebreak?>
+
+                    <command>
+                        chown <constant>WEBUSER</constant>
+                        <constant>CMSDIR</constant>/data/perforce/journal*
+                    </command>
+                </para>
+            </listitem>
+
+            <listitem>
+                <para>
+                    Change the current working directory:
+                </para>
+
+                <para>
+                    <command>cd <constant>CMSDIR</constant></command><?linebreak?>
+                    <command>cd <constant>..</constant></command><?linebreak?>
+                </para>
+            </listitem>
+
+            <listitem>
+                <para>
+                    Create a compressed TAR archive of all of &product.name;'s files
+                </para>
+
+                <para>
+                    <command>
+                        tar -czf
+                        <constant>BACKUPDIR</constant>/chronicle.backup-<constant>YYYY-MM-DD</constant>.tgz
+                        `basename <constant>CMSDIR</constant>`
+                    </command>
+                </para>
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section>
+        <title>Back up &product.name; with an existing Perforce Server</title>
+
+        <para>
+            Please use the following instructions if you chose "In a new depot on an existing
+            Perforce server" when you set up your first site. Note that there are two backups that
+            need to be performed: the Perforce server and the &product.name; installation.
+        </para>
+
+        <section>
+            <title>On the Perforce Server</title>
+
+            <para>
+                Please follow the backup steps presented in
+                <ulink url="http://www.perforce.com/perforce/doc.current/manuals/p4sag/02_backup.html">Supporting
+                Perforce: Backup and Recovery</ulink>.
+            </para>
+        </section>
+
+        <section>
+            <title>On the &product.name; Server</title>
+
+            <para>
+                Before you begin, it is helpful to pick the path where the backup will be stored;
+                this path is referred to as <constant>BACKUPDIR</constant> below.
+                <constant>CMSDIR</constant> refers to the root directory of your &product.name;
+                installation.
+            </para>
+
+            <orderedlist>
+                <listitem>
+                    <para>
+                        Change the current working directory:
+                    </para>
+
+                    <para>
+                        <command>cd <constant>CMSDIR</constant></command><?linebreak?>
+                        <command>cd <constant>..</constant></command><?linebreak?>
+                    </para>
+                </listitem>
+
+                <listitem>
+                    <para>
+                        Create a compressed TAR archive of all of &product.name;'s files
+                    </para>
+
+                    <para>
+                        <command>
+                            tar -czf
+                            <constant>BACKUPDIR</constant>/chronicle.backup-<constant>YYYY-MM-DD</constant>.tgz
+                            `basename <constant>CMSDIR</constant>`
+                        </command>
+                    </para>
+                </listitem>
+            </orderedlist>
+        </section>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

@@ -1,0 +1,80 @@
+<?
+// get data grid namespace
+$namespace  = $this->dataGrid()->getNamespace();
+
+// data store url
+$url        = $this->url(
+    array(
+        'module'        => 'content',
+        'controller'    => 'type',
+        'action'        => 'index',
+        'format'        => 'json'
+    )
+);
+
+// set up data grid columns
+$columns = array(
+    'icon'              => array(
+        'fixedWidth'    => '8%',
+        'classes'       => 'icon',
+        'formatter'     => $namespace . '.Formatters.icon'
+    ),
+    'label'             => array(
+        'width'         => '20%'
+    ),
+    'group'             => array(
+        'width'         => '15%'
+    ),
+    'elements'          => array(
+        'width'         => '48%',
+        'formatter'     => 'p4cms.ui.grid.formatters.CommaJoin'
+    ),
+);
+if (count($this->actions)) {
+    $columns[] = $this->dataGrid()->getDefaultActionsColumn();
+}
+
+// set up footer buttons
+$buttons = array(
+    'Add Content Type'  => array(
+        'attribs'       => array(
+            'class'     => 'add-button',
+            'onclick'   => $namespace . '.Utility.openFormDialog("add");'
+        )
+    ),
+    'Reset to Defaults' => array(
+        'attribs'       => array(
+            'onclick'   => $namespace . '.Utility.confirmReset();'
+        )
+    )
+);
+
+// array with tooltip dialogs attached to the grid columns
+$fieldTooltips  = array(
+    array(
+        'sourceField'   => 'description',
+        'attachField'   => 'icon'
+    ),
+    array(
+        'sourceField'   => 'description',
+        'attachField'   => 'label'
+    )
+);
+
+print $this->dataGrid(
+    $namespace,
+    array(
+        'form'          => $this->form,
+        'url'           => $url,
+        'pageSize'      => $this->pageSize,
+        'actions'       => $this->actions,
+        'columns'       => $columns,
+        'footer'        => array(
+            'buttons'       => $buttons
+        ),
+        'attribs'       => array(
+            'disableSort'   => array('_item', 'icon', 'elements'),
+            'fieldTooltips' => $fieldTooltips
+        )
+    )
+);

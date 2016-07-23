@@ -1,0 +1,188 @@
+body.claro .widget-toolbar {
+    z-index: 150;
+    background: transparent;
+    width: 46px;
+    height: 22px;
+    position: absolute;
+    margin: 0 2px 0 0;
+    padding: 0;
+}
+
+body.claro .add-widget {
+    z-index: 150;
+    margin-top: 6px;
+    margin-left: 6px;
+}
+
+body.claro .widget-toolbar .add-widget,
+body.claro .widget-toolbar .config-widget,
+body.claro .widget-toolbar .delete-widget {
+    margin: 0;
+    padding: 0;
+}
+body.claro .widget-toolbar .delete-widget {
+    margin-left: 2px;
+}
+
+body.claro .add-widget .dijitButtonNode,
+body.claro .widget-toolbar .dijitButtonNode {
+    border: 0 none;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    -box-shadow: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-transition-duration: 0s;
+}
+
+body.claro .add-widget .plusIcon {
+    background: transparent url('../../ui/resources/images/small-round-buttons.png') 0 0 no-repeat;
+    width: 22px;
+    height: 22px;
+}
+
+body.claro .widget-toolbar .delete-widget .deleteIcon {
+    background: transparent url('../../ui/resources/images/small-round-buttons.png') -44px 0 no-repeat;
+    width: 22px;
+    height: 22px;
+}
+
+body.claro .widget-toolbar .config-widget .configIcon {
+    background: transparent url('../../ui/resources/images/small-round-buttons.png') -22px 0 no-repeat;
+    width: 22px;
+    height: 22px;
+}
+
+body.claro .widget-toolbar .delete-widget .dijitArrowButtonInner {
+    display: none;
+}
+
+.dijitDialog.delete-widget div.buttons {
+    margin-top: 10px;
+}
+
+.dijitDialog.config-widget .buttons dl {
+    text-align: right;
+}
+
+.dijitDialog.config-widget .buttons dt,
+.dijitDialog.config-widget .buttons dd {
+    display: inline;
+}
+
+.widget-types {
+    margin: 0px;
+    padding: 0 0 10px 0;
+}
+
+.widget-types li {
+    list-style: none;
+    clear: both;
+    padding: 25px 30px 10px 30px;
+    min-height: 56px;
+}
+
+.widget-types li+li {
+    padding-top: 10px;
+}
+
+.widget-types li .widget-type-icon {
+    float: left;
+    padding-right: 16px;
+    margin-top: -5px;
+}
+
+.widget-types li .widget-type-description {
+    font-size: 13px;
+    margin: 3px;
+    line-height: 1.2;
+}
+
+.widget-types a {
+    color: #00649d;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.widget-types a.add-widget {
+    margin-left: 0;
+}
+
+.region .widget ul.clean {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Image Widget Config Form */
+
+.p4cms-ui #config-element .content-source-button {
+    margin-top: -10px;
+}
+
+.p4cms-ui #config-element input.image-source-radio {
+    float: left;
+    margin-left: 60px;
+}
+
+.p4cms-ui #config-element dd .units-label {
+    padding-left: 3px;
+    position: relative;
+    top: -3px;
+}
+
+.p4cms-ui #config-element dd.alignment-radio label {
+    float: left;
+    width: 70px;
+    padding-top: 65px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.p4cms-ui #config-element dd.lock-ratio-radio {
+    margin-top: -5px;
+}
+.p4cms-ui #config-element dd.as-background-radio {
+    margin-top: -5px;
+    margin-bottom: 13px;
+}
+
+.p4cms-ui #config-element dd.alignment-radio label.align-none {
+    background: transparent url('../../content/resources/images/icon-align-none.png') top center no-repeat;
+}
+
+.p4cms-ui #config-element dd.alignment-radio label.align-left {
+    background: transparent url('../../content/resources/images/icon-align-left.png') top center no-repeat;
+}
+
+.p4cms-ui #config-element dd.alignment-radio label.align-right {
+    background: transparent url('../../content/resources/images/icon-align-right.png') top center no-repeat;
+}
+
+.p4cms-ui #config-element dd.alignment-radio label.align-center {
+    background: transparent url('../../content/resources/images/icon-align-center.png') top center no-repeat;
+}
+
+/* Reset ContentPane Styles */
+.dijitContentPane.widget-container {
+    overflow: visible;
+    padding: 0;
+}
+
+.widget-widget-image-rotator,
+.widget-widget-image-rotator ul {
+    position: relative;
+    overflow: hidden;
+}
+
+.widget-widget-image-rotator .image-caption {
+    position: absolute;
+    bottom: 0%;
+    left: 0;
+    text-shadow: 1px 1px 2px #000;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    padding: 10px;
+}

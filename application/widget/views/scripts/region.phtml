@@ -1,0 +1,16 @@
+<div dojoType="p4cms.widget.Region"
+     id="region-<?= $this->escapeAttr($this->region) ?>"
+     class="region region-<?= $this->escapeAttr($this->region) ?>"
+     regionName="<?= $this->escapeAttr($this->region) ?>"
+     widgetContext="<?= htmlspecialchars($this->widgetContext) ?: 'null' ?>">
+
+<?
+// the widget counter is used by the widget view script in our loop
+$this->widgetCounter = 0;
+foreach ($this->widgets as $widget) {
+    $this->widgetCounter++;
+    print $this->widget($widget);
+}
+?>
+
+</div>

@@ -1,0 +1,8 @@
+<?
+if ($this->menuItems && count($this->menuItems)) {
+    $menu = $this->navigation()->findHelper('menu');
+    print $menu->renderMenu($this->menuItems);
+} else {
+    print "No items to display.";
+}
+?>

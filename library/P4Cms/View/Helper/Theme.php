@@ -1,0 +1,18 @@
+<?php
+/**
+ * View helper that returns an instance of the current theme.
+ *
+ * @copyright   2011 Perforce Software. All rights reserved.
+ * @license     Please see LICENSE.txt in top-level folder of this distribution.
+ * @version     <release>/<patch>
+ */
+class P4Cms_View_Helper_Theme
+{
+    /**
+     * Get the current theme.
+     */
+    public function theme()
+    {
+        return P4Cms_Theme::fetchActive();
+    }
+}

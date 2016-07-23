@@ -1,0 +1,326 @@
+/* View Content */
+
+.content-entry {
+    padding: 10px;
+    margin-top: 13px;
+}
+
+/* Content Elements */
+
+.content-element .value-placeholder {
+    color: #999;
+}
+
+.content-element {
+    margin: 10px;
+}
+
+/* set overflow hidden so our element will clear any floated children (e.g. images) */
+.content-element-type-editor {
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+/* make the editor's value node a block element so that it is likely full-width */
+.content-element-type-editor .value-node {
+    display: block;
+}
+
+
+/* List Content */
+
+ul.content-list {
+    margin: 0px;
+}
+
+ul.content-list li {
+    list-style: none;
+    padding-bottom: 10px;
+}
+
+ul.content-list p.content-excerpt {
+    margin: 0px;
+}
+
+ul.content-list img.content-type-icon {
+    height: 28px;
+    width: 28px;
+    padding: 0 5px;
+    vertical-align: middle;
+}
+
+
+/* Content List Widget */
+
+.widget-content-list {
+    position: relative;
+}
+
+.widget-content-list .rss-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.rss-link .rss-link-icon {
+    background-image: url('images/icon-rss.png');
+    width: 39px;
+    height: 20px;
+    display: block;
+}
+
+.rss-link .rss-link-label {
+    display: none;
+}
+
+
+/* Basic Page styles */
+
+.content-entry-type-basic-page {
+    font-size: 13px;
+}
+
+.content-entry-type-basic-page .content-element-title {
+    font-size: 24px;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+
+/* Press Release styles */
+
+.content-entry-type-press-release {
+    margin: 2em auto;
+    width: 615px;
+    font-size: 13px;
+}
+
+.content-entry-type-press-release .content-element-title {
+    font-size: 24px;
+    padding: 0;
+    margin: 0 0 8px 0;
+}
+
+.content-entry-type-press-release .content-element-subtitle {
+    font-size: 18px;
+    font-style: italic;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.content-entry-type-press-release .content-element-date {
+    display: inline-block;
+    margin: 0;
+    margin-right: 10px;
+    padding: 0;
+}
+
+.content-entry-type-press-release .element-separator {
+    display: inline-block;
+    padding: 0 12px 0 2px;
+}
+
+.content-entry-type-press-release .content-element-location {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.content-entry-type-press-release .content-element-body {
+    padding: 0;
+    margin: 8px 0 12px 0;
+    clear: both;
+}
+
+.content-entry-type-press-release .separator {
+    border-top: 1px solid #c7c7c7;
+    margin: 16px 0;
+}
+
+.content-entry-type-press-release .content-element-contact {
+    padding: 0;
+    font-size: 12px;
+}
+
+/* Blog Post styles */
+
+.content-entry-type-blog-post {
+    font-size: 13px;
+}
+
+.content-entry-type-blog-post .content-element-title {
+    font-size: 24px;
+    padding: 0;
+    margin: 0 0 12px 0;
+}
+
+.content-entry-type-blog-post .content-element-date {
+    display: inline-block;
+    margin: 0;
+    margin-right: 10px;
+    padding: 0;
+}
+
+.content-entry-type-blog-post .element-separator {
+    display: inline-block;
+    padding: 0 12px 0 2px;
+}
+
+.content-entry-type-blog-post .content-element-author {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.content-entry-type-blog-post .content-element-body {
+    padding: 0;
+    margin: 12px 0;
+    clear: both;
+}
+
+/* File (content type) styles */
+
+.content-entry-type-file {
+    margin: 2em auto;
+    width: 615px;
+    min-height: 400px;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.content-entry-type-file .file-container {
+    float: left;
+    width: 80px;
+    text-align: center;
+}
+.content-entry-type-file .file-container .links {
+    text-align: center;
+    margin-top: 6px;
+}
+
+.content-entry-type-file .details-container {
+    float: right;
+    width: 522px;
+}
+.content-entry-type-file .details-container dl {
+    margin: 0;
+    padding: 0;
+}
+.content-entry-type-file .details-container dt {
+    float: left;
+    clear: left;
+    width: 90px;
+    text-align: right;
+    padding-right: 5px;
+}
+.content-entry-type-file .details-container dl dd {
+    float: left;
+    clear: right;
+    -webkit-margin-start: 0;
+    margin: 0;
+    max-width: 410px;
+}
+.content-entry-type-file .details-container dl dd .content-element {
+    margin: 0;
+}
+
+.content-entry-type-file .content-element.content-element-title {
+    font-size: 24px;
+    padding: 0;
+    margin: 0 0 9px 0;
+}
+
+/* Image (content type) styles */
+
+.content-entry-type-image {
+    margin: 2em auto;
+    width: 615px;
+    min-height: 400px;
+    font-size: 13px;
+    overflow: hidden;
+}
+
+.content-entry-type-image .image-container {
+    float: left;
+    width: 256px;
+}
+.content-entry-type-image .image-container .image {
+    text-align: center;
+    max-width: 256px;
+    max-height: 365px;
+}
+.content-entry-type-image .image-container .image img {
+    max-width: 256px;
+    max-height: 365px;
+}
+.content-entry-type-image .image-container .links {
+    text-align: center;
+    margin-top: 12px;
+}
+
+.content-entry-type-image .details-container {
+    float: right;
+    width: 311px;
+}
+.content-entry-type-image .details-container dl {
+    margin: 0;
+    padding: 0;
+}
+.content-entry-type-image .details-container dt {
+    float: left;
+    clear: left;
+    width: 90px;
+    text-align: right;
+    padding-right: 5px;
+}
+
+.content-entry-type-image .details-container dl dd {
+    float: left;
+    clear: right;
+    -webkit-margin-start: 0;
+    margin: 0;
+    max-width: 210px;
+}
+.content-entry-type-image .details-container dl dd .content-element {
+    margin: 0;
+}
+
+.content-entry-type-image .content-element.content-element-title {
+    font-size: 24px;
+    padding: 0;
+    margin: 0 0 9px 0;
+}
+
+/* Image Gallery Styles */
+
+.content-entry-type-gallery .content-element-title {
+    font-size: 24px;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+.content-entry-type-gallery .content-element-images {
+    margin-bottom: 30px;
+}
+
+.content-entry-type-gallery .content-element-images .value-placeholder {
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    padding: 125px 0;
+
+}
+
+.content-entry-type-gallery .content-element-images ul.content-list {
+    padding: 0;
+    text-align: justify;
+}
+
+.content-entry-type-gallery .content-element-images li {
+    display: inline;
+}
+
+.content-entry-type-gallery .content-element-images li img {
+    margin: 5px 3px;
+    box-shadow: 0 1px 5px #aaa;
+}

@@ -1,0 +1,84 @@
+<div dojoType="p4cms.mobile.Book" class="article-book">
+  <div dojoType="p4cms.mobile.Page" selected="true">
+<?
+    // consolidate subcategories and entries into a single list for sorting
+    $consolidated    = array();
+    $categoryBaseUrl = $this->module('category')->getBaseUrl();
+    $contentBaseUrl  = $this->module('content')->getBaseUrl();
+    foreach ($this->categories as $category) {
+        $iconUrl = "$categoryBaseUrl/images/folder"
+                 . ($category->hasEntries() || $category->hasChildren() ? '-content' : '')
+                 . '-64x64.png';
+        
+        $consolidated[] = array(
+            'title'         => $category->getTitle(),
+            'description'   => $category->getDescription(),
+            'url'           => $category->getUri(),
+            'icon'          => $iconUrl
+        );
+    }
+    if (count($this->entries)) {
+        foreach ($this->entries as $entry) {
+            $iconUrl = $this->url(array(
+                'module'        => 'content',
+                'controller'    => 'type',
+                'action'        => 'icon',
+                'id'            => $entry->getContentTypeId()
+            ));
+            
+            $contentUrl = $entry->getUri();
+
+            $consolidated[] = array(
+                'title'         => $entry->getTitle(),
+                'description'   => $entry->getExcerpt(),
+                'url'           => $contentUrl,
+                'icon'          => $iconUrl
+            );
+        }
+    }
+?>
+<? if ($this->category) : ?>
+    <div class="category-breadcrumbs">
+      <?= $this->categoryBreadcrumbs($this->category) ?>
+   </div>
+<? endif ?>
+
+    <h1 class="category-title">
+<? $src = $this->module('category')->getBaseUrl()
+        . '/images/folder'
+        . (count($consolidated) > 0 ? '-content' : '')
+        . "-64x64.png";
+?>
+      <img class="category-icon" src="<?= $src ?>" width="64" height="64" alt="icon"/>
+      <span><?= $this->escape($this->category ? $this->category->getTitle() : 'Categories') ?></span>
+    </h1>
+<? if ($this->category) : ?>
+    <p class="category-description"><?= $this->escape($this->category->getDescription()) ?></p>
+<? endif ?>
+
+    <div class="category-members">
+<?  // present consolidated entries
+    uasort(
+        $consolidated,
+        function ($a, $b)
+        {
+            return strnatcmp($a['title'], $b['title']);
+        }
+    );
+    foreach ($consolidated as $item) : ?>
+      <div class="category-member">
+        <a href="<?= $item['url'] ?>">
+          <img class="icon" src="<?= $this->escapeAttr($item['icon']) ?>" width="64" height="64" alt="icon"/>
+          <p class="title"><?= $this->escape($item['title']) ?></p>
+          <p class="description"><?= $item['description'] ?></p>
+        </a>
+      </div>
+<?
+    endforeach;
+    if (!count($consolidated)):
+?>
+      <p class="no-members">No items to display.</p>
+<?  endif; ?>
+    </div>
+  </div>
+</div>

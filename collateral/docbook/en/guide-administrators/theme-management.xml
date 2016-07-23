@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="themes.management">
+    <title>Theme Management</title>
+
+    <section id="themes.management.apply">
+        <title>Applying Themes</title>
+
+        <para>
+            Themes enable you to change the appearance of your web site. For each web site, one
+            theme can be in effect. If you are managing multiple sites using &product.longname;,
+            each site can use its own theme.
+        </para>
+
+        <bridgehead>
+            To apply a theme to the web site you are editing:
+        </bridgehead>
+
+        <orderedlist>
+            <listitem>
+                Choose <command>Manage > Themes</command>. The <emphasis role="screen">Manage
+                Themes</emphasis> screen is displayed, listing available themes.
+            </listitem>
+
+            <listitem>
+                To apply a theme to the site, click <guibutton>Apply</guibutton> and confirm. The
+                selected theme is applied.
+            </listitem>
+
+            <listitem>
+                To view your web site's appearance with the new theme, click <guibutton>Back to
+                Website</guibutton>.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section id="themes.management,add-remove">
+        <title>Adding and Removing Themes</title>
+
+        <para>
+            Themes are distributed as compressed archive files that contain files in the hierarchy
+            described in <xref linkend="themes.anatomy.overview"/>. To add and remove themes, you
+            must have access to the filesystem where &product.longname; is installed (represented as
+            <constant>CMSDIR</constant> in the following instructions).
+        </para>
+
+        <section>
+            <title>Adding a Theme</title>
+
+            <orderedlist>
+                <listitem>
+                    Extract the theme archive file. The result is a top-level folder containing the
+                    file hierarchy that is required to define a theme.
+                </listitem>
+
+                <listitem>
+                    Move the theme folder to one of the following locations:
+
+                    <itemizedlist>
+                        <listitem>
+                            <filename><constant>CMSDIR</constant>/sites/all/themes/</filename>
+                        </listitem>
+
+                        <listitem>
+                            <filename><constant>CMSDIR</constant>/sites/<emphasis>siteid</emphasis>/themes/</filename>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+
+                <listitem>
+                    To verify that the new theme is detected, choose <command>Manage &gt;
+                    Themes</command>. If the theme is correctly defined and located, it is displayed
+                    in the list of themes.
+                </listitem>
+            </orderedlist>
+        </section>
+
+        <section>
+            <title>Removing a Theme</title>
+
+            <orderedlist>
+                <listitem>
+                    In the filesystem, check for the theme in the following locations:
+
+                    <itemizedlist>
+                        <listitem>
+                            <filename><constant>CMSDIR</constant>/sites/all/themes/</filename>
+                        </listitem>
+
+                        <listitem>
+                            <filename><constant>CMSDIR</constant>/sites/<emphasis>siteid</emphasis>/themes/</filename>
+                        </listitem>
+                    </itemizedlist>
+                </listitem>
+
+                <listitem>
+                    Delete the sub-folder containing the theme that you no longer want
+                    &product.name; to use.
+                </listitem>
+
+                <listitem>
+                    To verify that the theme is deleted, choose <command>Manage &gt;
+                    Themes</command> and note that the theme is no longer displayed in the list of
+                    themes.
+                </listitem>
+            </orderedlist>
+
+            <warning>
+                <title>Important</title>
+                Do not delete the <filename>default</filename> theme folder. If you delete this
+                folder, &product.name; stops working!
+            </warning>
+        </section>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

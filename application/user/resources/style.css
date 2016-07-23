@@ -1,0 +1,23 @@
+
+/* Login Form */
+
+.dijitTooltipDialog.p4cms-user-login form {
+    margin: 15px 10px 5px 10px;
+}
+
+.dijitTooltipDialog.p4cms-user-login dd p.description {
+    display: none;
+}
+
+.dijitTooltipDialog.p4cms-user-login input {
+    width: 150px;
+}
+
+.dijitTooltipDialog.p4cms-user-login label.required {
+    background: none;
+}
+
+.dijitTooltipDialog.p4cms-user-login #buttons-element {
+    text-align: left;
+    margin: 10px 0 0 65px;
+}

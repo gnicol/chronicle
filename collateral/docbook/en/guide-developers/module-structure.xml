@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.anatomy.structure">
+    <title>Folder Structure</title>
+
+    <para>
+        The files that make up an optional module are stored in a folder under the
+        &product.longname; installation (<constant>CMSDIR</constant>), as follows:
+    </para>
+
+    <itemizedlist>
+        <listitem>
+            Modules available to all sites:
+            <filename><constant>CMSDIR</constant>/sites/all/modules</filename>
+        </listitem>
+
+        <listitem>
+            Site-specific modules:
+            <filename><constant>CMSDIR</constant>/sites/<emphasis>siteid</emphasis>/modules</filename>
+        </listitem>
+    </itemizedlist>
+
+    <para>
+        A module has the following internal structure with all but the
+        <filename>module.ini</filename> being optional.
+    </para>
+
+<programlisting language="text">
+acls/
+   asserts/             - contains ACL assertion methods
+controllers/
+filters/
+forms/
+   decorators/          - contains form element decorator methods
+   elements/            - contains custom form element classes
+layouts/
+   helpers/             - contains view helper methods
+   scripts/             - contains layout scripts
+models/
+resources/
+   dojo/                - for Dojo-specific javascript
+   images/
+   <emphasis>styles</emphasis>.css
+tests/
+   phpunit.xml          - configures test execution via PHPunit
+validators/
+views/
+   helpers/             - contains view helper methods
+   scripts/
+      <emphasis>controller</emphasis>/       - contains view scripts for a specific controller
+         <emphasis>action</emphasis>.phtml   - a view script for a specific action
+workflows/
+   actions/             - contains workflow action classes
+   conditions/          - contains workflow condition classes
+icon.png                - icon displayed on the <emphasis role="screen">Manage > Modules</emphasis> screen
+Module.php              - &product.name; integration file
+module.ini              - configuration file
+</programlisting>
+
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

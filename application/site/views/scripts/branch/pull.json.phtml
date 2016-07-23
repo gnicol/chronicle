@@ -1,0 +1,9 @@
+<?
+// assemble json response
+$response             = array();
+$response['form']     = $this->render('branch/pull.partial.phtml');
+$response['errors']   = isset($this->errors)   ? $this->errors   : null;
+$response['message']  = isset($this->message)  ? $this->message  : '';
+$response['severity'] = isset($this->severity) ? $this->severity : null;
+
+print $this->json($response);

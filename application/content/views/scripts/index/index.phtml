@@ -1,0 +1,31 @@
+<? if (!isset($this->recent) || !count($this->recent)): ?>
+
+    <p>
+        This site does not contain any content.
+        <?  if ($this->canAdd): ?>
+            Would you like to <a href="javascript://"
+                onclick="p4cms.content.grid.Utility.openAddDialog();">create some</a>?
+        <?  endif; ?>
+    </p>
+
+<? else: ?>
+
+    <ul class=content-list>
+     <? foreach ($this->recent as $entry): ?>
+      <li>
+       <?= $this->contentEntry($entry)->open() ?>
+          <h2><a href="<?= $entry->getUri() ?>"><?= $this->escape($entry->getTitle()) ?></a></h2>
+       <p class=content-excerpt>
+        <?
+        if ($entry->hasField('body')):
+           $filter = new P4Cms_Filter_HtmlToText(array('keepEntities' => true));
+           print $this->truncate($filter->filter($entry->getValue('body')), 250, '...', false);
+        endif;
+        ?>
+       </p>
+       <?= $this->contentEntry($entry)->close() ?>
+      </li>
+     <? endforeach; ?>
+    </ul>
+
+<? endif; ?>

@@ -1,0 +1,8 @@
+<?
+// change the button label back to "Search" if the widget is in grid
+if ($this->region === 'grid') {
+    echo $this->form;
+} else {
+    print $this->renderScript(SITES_PATH . '/all/modules/search/views/scripts/widget/index.phtml');
+}
+?>

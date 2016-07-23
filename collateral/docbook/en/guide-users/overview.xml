@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="userguide.overview">
+    <title>Overview of &product.longname; Web Site Editing</title>
+
+    <para>
+        &product.name; is a web content management system that enables you to manage your web
+        content in a simple, easy, and efficient manner. You can make quick edits to your content or
+        dig into the raw <acronym>HTML</acronym> and make more in-depth changes. This chapter
+        covers the basics of creating and managing web content, and reviewing the history of your
+        content as it changes over time.
+    </para>
+
+    <section id="content.edit.features">
+        <title>Notable Editing Features</title>
+
+        <itemizedlist>
+            <listitem>
+                <para>
+                    <emphasis role="bold">In-Place Mode and Form Mode</emphasis>
+                </para>
+
+                <para>
+                    In-Place Mode allows editing content within the page layout, with the position
+                    and appearance maintained. This makes it significantly easier to make changes
+                    to suit the presentation.
+                </para>
+
+                <para>
+                    Form Mode provides more traditional editing of content where each element in the
+                    content, including those hidden from normal presentation, is displayed in a
+                    form.
+                </para>
+            </listitem>
+
+            <listitem>
+                <para>
+                    <emphasis role="bold">Change Notifications</emphasis>
+                </para>
+
+                <para>
+                    While you are editing a content entry, if another user edits or deletes the same
+                    content entry, a notification appears so you can decide how to proceed.
+                </para>
+            </listitem>
+
+            <listitem>
+                <para>
+                    <emphasis role="bold">Style Controls</emphasis>
+                </para>
+
+                <para>
+                    The &product.name; editor provides commonplace style controls, such as typeface
+                    selection, type size, tag selection, color, alignment, indentation, bullets,
+                    link creation, and image inclusion. There is a "source" mode when custom markup
+                    is required.
+                </para>
+            </listitem>
+
+            <listitem>
+                <para>
+                    <emphasis role="bold">Content Types</emphasis>
+                </para>
+
+                <para>
+                    Content types allow you to define the structure of your content. A content entry
+                    might be as simple as a <emphasis>title</emphasis> and a
+                    <emphasis>body</emphasis>, or require many more elements such as
+                    <emphasis>dates</emphasis>, <emphasis>images</emphasis>,
+                    <emphasis>selections</emphasis>.
+                </para>
+            </listitem>
+
+            <listitem>
+                <para>
+                    <emphasis role="bold">Menus &amp; Categories</emphasis>
+                </para>
+
+                <para>
+                    &product.name; provides menus and categories which provide the tools so you can
+                    organize your content both for logical and navigational purposes.
+                </para>
+            </listitem>
+
+            <listitem>
+                <para>
+                    <emphasis role="bold">Workflows</emphasis>
+                </para>
+
+                <para>
+                    Workflows are processes you can create and use to help guide your content from
+                    creation to publication. A simple workflow might include the states
+                    <emphasis>draft</emphasis> and <emphasis>published</emphasis>, but content for
+                    more technically-oriented audiences may require review states such as
+                    <emphasis>technical</emphasis>, <emphasis>language</emphasis>,
+                    <emphasis>legal</emphasis>, and <emphasis>marketing</emphasis>. Workflows can
+                    restrict <emphasis>transitions</emphasis> between states by
+                    <emphasis>conditions</emphasis>, such as which user is making changes.
+                    Successful transitions can invoke <emphasis>actions</emphasis>, such as
+                    notifying reviewers when transitions occur.
+                </para>
+            </listitem>
+
+            <listitem>
+                <para>
+                    <emphasis role="bold">Widgets</emphasis>
+                </para>
+
+                <para>
+                    Widgets allow you to customize the appearance of pages with features such as
+                    additional text, images, menus and more without requiring any knowledge of
+                    <acronym>HTML</acronym>. You might use widgets to provide contact information
+                    throughout your site, or to highlight new product images.
+                </para>
+            </listitem>
+        </itemizedlist>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

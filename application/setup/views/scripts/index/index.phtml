@@ -1,0 +1,14 @@
+<div class="splash">
+ <a href="<?=$this->startUrl?>"><img src="<?=$this->module('setup')->getBaseUrl()?>/images/splash.png"></a>
+</div>
+<script type="text/javascript">
+    dojo.addOnLoad(function() {
+        dojo.connect(dojo.body(), 'onkeydown', function(e) {
+            var event = e ? e : event;
+            var key = event.keyCode;
+            if (key == 13) {
+                window.location = dojo.query('div.splash a')[0].href;
+            }
+        });
+    });
+</script>

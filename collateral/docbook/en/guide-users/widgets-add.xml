@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="widgets.add">
+    <title>Adding Widgets to Regions</title>
+
+    <bridgehead>
+        To add a widget to a region:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click <guibutton>Widgets</guibutton> in the &product.longname; toolbar.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-widgets.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            &product.name; displays highlighted regions indicating existing widgets that can be
+            configured, along with a "+" button for adding widgets.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/widget-detail-add.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click the "+" button. &product.name; displays the <emphasis role="dialog">Add
+            Widget</emphasis> dialog, listing the available widgets.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-add_widget.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click the widget you wish to add. At this point, the widget has been added to the region,
+            but is not yet configured. A <emphasis role="dialog">Configure
+            Widget</emphasis> dialog appears; its title indicates the type you selected.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-configure_widget_new.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Fill in the configuration for the widget. Please see
+            <xref linkend="widgets.configure.options"/> for more details.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton> to use the configuration for the new widget.
+        </listitem>
+    </orderedlist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

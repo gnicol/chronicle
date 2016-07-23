@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="users.manage">
+    <title>Managing Users</title>
+
+    <para>
+        The <emphasis role="screen">Manage Users</emphasis> screen is where user management tasks
+        are performed. Hover your mouse over each of the numbered callouts to highlight the
+        associated area of the screen.
+    </para>
+
+    <mediaobjectco role="screen-mu">
+        <subtitle>The Manage Users Screen</subtitle>
+
+        <imageobjectco>
+            <areaspec units="imagemap">
+                <area id="screen-mu-spot-search" linkends="screen-mu-co-search" coords="0,91,129,124"/>
+                <area id="screen-mu-spot-filter" linkends="screen-mu-co-filter" coords="0,128,129,206"/>
+                <area id="screen-mu-spot-sortable" linkends="screen-mu-co-sortable" coords="147,89,640,107"/>
+                <area id="screen-mu-spot-actions" linkends="screen-mu-co-actions" coords="577,109,607,169"/>
+                <area id="screen-mu-spot-scrollbar" linkends="screen-mu-co-scrollbar" coords="612,107,640,229"/>
+            </areaspec>
+
+            <imageobject>
+                <imagedata fileref="images/screen-manage_users-callouts.png"/>
+            </imageobject>
+
+            <calloutlist>
+                <callout id="screen-mu-co-search" arearefs="screen-mu-spot-search">
+                    <para>
+                        <emphasis role="bold">Filter by Text Search</emphasis>: 
+                        Enter text to filter the list of users to entries containing the text.
+                    </para>
+                </callout>
+                <callout id="screen-mu-co-filter" arearefs="screen-mu-spot-filter">
+                    <para>
+                        <emphasis role="bold">Filter by Role</emphasis>:
+                        Click on one or more checkboxes to filter the list of users to entries in
+                        the selected roles. When no checkboxes are checked, users in any role are
+                        included.
+                    </para>
+                </callout>
+                <callout id="screen-mu-co-sortable" arearefs="screen-mu-spot-sortable">
+                    <para>
+                        <emphasis role="bold">Sort Users</emphasis>:
+                        Click on one of the columns to sort the content by that column's details,
+                        click again to change the sort direction (an indicator arrow appears).
+                        The <emphasis role="bold">Roles</emphasis> and
+                        <emphasis role="bold">Actions</emphasis> columns are not sortable.
+                    </para>
+                </callout>
+                <callout id="screen-mu-co-actions" arearefs="screen-mu-spot-actions">
+                    <para>
+                        <emphasis role="bold">Actions Drop-down Menu</emphasis>:
+                        Click on one of the drop-down menus in the Actions column to see and use
+                        actions available for each entry, including Edit and Delete.
+                    </para>
+                </callout>
+                <callout id="screen-mu-co-scrollbar" arearefs="screen-mu-spot-scrollbar">
+                    <para>
+                        <emphasis role="bold">Lazy-load Scrollbar</emphasis>:
+                        When there are many more users than can fit on-screen, only enough users
+                        are retrieved to fill the display. When you use the scrollbar, additional
+                        users are fetched. This means that scrolling might appear to be slightly
+                        slower than you might expect, but it allows filtering, sorting and initial
+                        display to be much faster when you have hundreds or thousands of users.
+                    </para>
+                </callout>
+            </calloutlist>
+        </imageobjectco>
+    </mediaobjectco>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

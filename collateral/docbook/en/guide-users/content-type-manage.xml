@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.type.manage">
+    <title>Managing Content Types</title>
+
+    <para>
+        Hover your mouse over each of the numbered callouts to highlight the associated area of the
+        screen.
+    </para>
+
+    <mediaobjectco role="screen-mct">
+        <subtitle>The Manage Content Type Screen</subtitle>
+
+        <imageobjectco>
+            <areaspec units="imagemap">
+                <area id="screen-mct-spot-search" linkends="screen-mct-co-search" coords="0,91,129,124"/>
+                <area id="screen-mct-spot-type" linkends="screen-mct-co-type" coords="0,129,129,170"/>
+                <area id="screen-mct-spot-sortable" linkends="screen-mct-co-sortable" coords="147,89,640,107"/>
+                <area id="screen-mct-spot-actions" linkends="screen-mct-co-actions" coords="559,109,608,237"/>
+                <area id="screen-mct-spot-scrollbar" linkends="screen-mct-co-scrollbar" coords="612,107,640,240"/>
+            </areaspec>
+
+            <imageobject>
+                <imagedata fileref="images/screen-manage_content_types-callouts.png"/>
+            </imageobject>
+
+            <calloutlist>
+                <callout id="screen-mct-co-search" arearefs="screen-mct-spot-search">
+                    <para>
+                        <emphasis role="bold">Filter by Text Search</emphasis>: 
+                        Enter text to filter the list of content type to entries containing the
+                        text.
+                    </para>
+                </callout>
+                <callout id="screen-mct-co-type" arearefs="screen-mct-spot-type">
+                    <para>
+                        <emphasis role="bold">Filter by Group</emphasis>:
+                        Click on one or more checkboxes to filter the list of content types to
+                        entries from the selected groups. When no checkboxes are checked, content
+                        types in all groups are included.
+                    </para>
+                </callout>
+                <callout id="screen-mct-co-sortable" arearefs="screen-mct-spot-sortable">
+                    <para>
+                        <emphasis role="bold">Sort Content Types</emphasis>:
+                        Click on one of the columns to sort the content types by that column's
+                        details, click again to change the sort direction (an indicator arrow
+                        appears). The <emphasis role="bold">Icon</emphasis>,
+                        <emphasis role="bold">Elements</emphasis> and
+                        <emphasis role="bold">Actions</emphasis> columns are not sortable.
+                    </para>
+                </callout>
+                <callout id="screen-mct-co-actions" arearefs="screen-mct-spot-actions">
+                    <para>
+                        <emphasis role="bold">Actions Drop-down Menu</emphasis>:
+                        Click on one of the drop-down menus in the Actions column to see and use
+                        actions available for each content type, including Edit, Delete, and
+                        New Entry.
+                    </para>
+                </callout>
+                <callout id="screen-mct-co-scrollbar" arearefs="screen-mct-spot-scrollbar">
+                    <para>
+                        <emphasis role="bold">Lazy-load Scrollbar</emphasis>:
+                        When there are many more content types than can fit on-screen, only enough
+                        content types are retrieved to fill the display. When you use the scrollbar,
+                        additional content types are fetched. This means that scrolling might appear
+                        to be slightly slower than you might expect, but it allows filtering,
+                        sorting and initial display to be much faster when you have hundreds or
+                        thousands of content types.
+                    </para>
+                </callout>
+            </calloutlist>
+        </imageobjectco>
+    </mediaobjectco>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

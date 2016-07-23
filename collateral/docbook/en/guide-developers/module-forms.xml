@@ -1,0 +1,95 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.forms">
+    <title>Forms</title>
+
+    <para>
+        <emphasis>Forms</emphasis> are the primary mechanism for accepting information from users. A
+        form can use decorators, elements, validators, filters, and sub-forms. Place form classes in
+        the module folder, in the <filename>forms</filename> folder. Place decorator classes in the
+        <filename>forms/decorators</filename> folder. Place element classes in the
+        <filename>forms/elements</filename> folder.
+    </para>
+
+    <para>
+        Here is the skeleton of a form for the <classname>Foo</classname> module:
+    </para>
+
+<programlisting language="php">
+&lt;?php
+/**
+ * Form description
+ *
+ * @copyright   copyright info
+ * @license     license info
+ * @version     version info
+ */
+class Foo_Form_Example extends P4Cms_Form
+{
+    /**
+     * Defines the elements that make up the example form.
+     */
+    public function init()
+    {
+        // set the method for the form to POST
+        $this->setMethod('post');
+
+        $this->addElement(
+            'text',             // the element type
+            'identifier',
+            array(
+                'label'         => 'Example',
+                'required'      => true,
+                'description'   => 'Enter some text for this example.',
+            )
+        );
+    }
+}
+</programlisting>
+
+    <para>
+        For details, see the
+        <ulink url="http://framework.zend.com/manual/1.11/en/zend.form.html">Zend Form
+        documentation</ulink>.
+    </para>
+
+    <section id="modules.forms.decorators">
+        <title>Decorators</title>
+
+        <para>
+            The forms in &product.longname; use the decorator pattern to render elements and forms
+            by means of the strategy pattern, which allows decorators to create, modify, and wrap
+            markup, using a chaining mechanism to apply decorators in a specified order. For
+            details, see the
+            <ulink url="http://framework.zend.com/manual/1.11/en/zend.form.decorators.html">Zend
+            Form Decorators</ulink> documentation.
+        </para>
+    </section>
+
+    <section id="modules.elements">
+        <title>Elements</title>
+
+        <para>
+            <emphasis>Elements</emphasis> implement the fields in forms that correspond to
+            <acronym>HTML</acronym> form fields. To handle specialized input scenarios that cannot
+            be handled using simple <acronym>HTML</acronym> form fields, you can create custom
+            elements. For details, see the
+            <ulink url="http://framework.zend.com/manual/1.11/en/zend.form.elements.html">Zend
+            Form Elements</ulink> documentation.
+        </para>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

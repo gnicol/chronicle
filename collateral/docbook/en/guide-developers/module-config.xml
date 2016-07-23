@@ -1,0 +1,397 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.config">
+    <title>Configuration File - <filename>module.ini</filename></title>
+
+    <para>
+        The configuration file, <filename>module.ini</filename>, identifies the module to
+        &product.longname; and specifies its initial configuration. The following example shows the
+        contents of a typical configuration file:
+    </para>
+
+<programlisting language="ini">
+; Perforce Module
+
+version          = 1.0
+description      = A description of the module.
+icon             = icon.png
+tags             = comma-separated, free-form, tags, describing, module, attributes
+enabledByDefault = true
+
+[maintainer]
+name        = Maintainer Name
+email       = "maintainer@email.address"
+url         = http://www.maintainer.site
+
+[dependencies]
+module.Foo      = "1.*"
+library.Zend    = "1.10.*"
+
+[stylesheets]
+all.href        = reset.css
+screen.media    = screen
+screen.href[]   = layout.css
+screen.href[]   = layout.css
+print.media     = print
+print.href      = print.css
+
+[scripts]
+javascript[] = common.js
+</programlisting>
+
+    <para>
+        The following sections provide details about the contents of the configuration file.
+        Note that all fields are optional.
+    </para>
+
+    <table frame="all" id="modules.config.elements.table-1">
+        <title>Module Configuration Elements</title>
+        <tgroup cols="2">
+            <thead>
+                <row>
+                    <entry>Element</entry>
+                    <entry>Description</entry>
+                </row>
+            </thead>
+
+            <tbody>
+                <row>
+                    <entry><property>version</property></entry>
+                    <entry>
+                        The revision of the module.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>description</property></entry>
+                    <entry>
+                        Describes the general characteristics of the module, for example, special
+                        features or intended use.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>tags</property></entry>
+                    <entry>
+                        Descriptive terms used for ad-hoc categorization of modules.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>icon</property></entry>
+                    <entry>
+                        A graphic for the module, specified using a <acronym>URL</acronym> relative
+                        to an image file in the module's folder. The suggested size is 128x128
+                        pixels. The icon is displayed in the list of modules on the <command>Manage
+                        Modules</command> page.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>enabledByDefault</property></entry>
+                    <entry>
+                        When creating a web site, enable the module by default.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>[maintainer]</property></entry>
+                    <entry>
+                        The name, email, and web site of the person who maintains the module.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>[dependencies]</property></entry>
+                    <entry>
+                        Lists other modules and libraries that this module requires.
+                        The format of this list is:
+
+<programlisting language="ini">
+module.&lt;module-name&gt; = &lt;suitable-versions&gt;
+</programlisting>
+
+                        Or:
+
+<programlisting language="ini">
+library.&lt;library-name&gt; = &lt;suitable-versions&gt;
+</programlisting>
+
+                        For example:
+
+<programlisting language="ini">
+[dependencies]
+module.SomeModule  = "*"
+module.OtherModule = "1.5, 1.6, 2.*"
+library.Zend       = "1.10.*"
+</programlisting>
+
+                        If version does not matter, specify "*". If there are several suitable
+                        versions, specify them as a comma-separated list. You can also use wildcards
+                        (such as "*" and "?") to match versions, as shown in the preceding example.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>[stylesheets]</property></entry>
+
+                    <entry>
+                        Defines the <acronym>CSS</acronym> stylesheets that must be included during
+                        <acronym>HTML</acronym> generation. Specify the stylesheet paths relative to
+                        the module's <filename>resources</filename> folder. The media may be
+                        specified as <emphasis>all</emphasis>, <emphasis>screen</emphasis> or
+                        <emphasis>print</emphasis>; additionally conditions can be appended as dash
+                        separated values following the media type:
+
+<programlisting language="ini">
+[stylesheets]
+all.href[]       = file1.css
+all.href[]       = file2.css
+lt-ie8.href      = ie-rules.css
+lt-ie8.condition = lt IE 8
+screen.media     = screen
+screen.href      = screen.css
+print.media      = print
+print.href       = print.css
+</programlisting>
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>[scripts]</property></entry>
+                    <entry>
+                        A list of client-side script files to include on every page. Group scripts
+                        by programming language (for example, <emphasis>javascript</emphasis>,
+                        <emphasis>vbscript</emphasis>). Specify scripts using an
+                        <acronym>URL</acronym> that is relative to the module's
+                        <filename>resources</filename> folder, or use an absolute
+                        <acronym>URL</acronym>.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>[dojo]</property></entry>
+                    <entry>
+                        Lists Dojo modules that are provided by the module. For example:
+
+<programlisting language="ini">
+[dojo]
+base.namespace              = dojo.foo.base
+base.path                   = dojo/foo/base
+full.namespace              = dojo.foo
+full.path                   = dojo/foo
+full.acl.users              = add
+</programlisting>
+
+                        The example declares that the module provides the
+                        <classname>dojo.foo.base</classname> Dojo module, in the
+                        <filename>dojo/foo</filename> folder with the name <filename>base</filename> (the
+                        <filename>.js</filename> JavaScript extension is automatically appended).
+                        The example also declares that the module provides the
+                        <classname>dojo.foo</classname> Dojo module to users that have the <classname>add</classname> privilege for the <classname>users</classname> resource.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>[configure]</property></entry>
+                    <entry>
+                        Specifies that the module is configurable and specifies the
+                        <filename>module/controller/action</filename> route parameters to use to
+                        configure the module. For example:
+
+<programlisting language="ini">
+[configure]
+module      = example
+controller  = configure
+action      = index
+</programlisting>
+
+                        You must specify the <code>controller</code>, but <code>module</code> and
+                        <code>action</code> are optional. <code>module</code> defaults to the module
+                        that is being described and <code>action</code> defaults to the
+                        <code>index</code> action. You can specify additional parameters, which are
+                        incorporated into the assembled <acronym>URI</acronym>.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>[routes]</property></entry>
+                    <entry>
+                        Provide custom routing rules for the module. For example:
+
+<programlisting language="ini">
+[routes]
+route1.type                    = Zend_Controller_Router_Route_Static
+route1.route                   = static-page-one
+route1.defaults.module         = content
+route1.defaults.controller     = index
+route1.defaults.action         = view
+route1.defaults.id             = 1
+</programlisting>
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>[menus]</property></entry>
+                    <entry>
+                        Defines default menus and the items that they contain. For example:
+
+<programlisting language="ini">
+[menus]
+some-menu.someEntry.label    = a test link
+some-menu.someEntry.uri      = "http://example.com"
+</programlisting>
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>[types]</property></entry>
+                    <entry>
+                        Defines content types, which control the structure of content entries. For
+                        example:
+
+<programlisting language="ini">
+[types]
+basic-page.label                            = Basic Page
+basic-page.group                            = Pages
+basic-page.iconFile                         = images/icon-page.png
+basic-page.elements.title.type              = text
+basic-page.elements.title.options.label     = Title
+basic-page.elements.title.options.required  = true
+basic-page.elements.title.display.tagName   = h1
+basic-page.elements.title.display.filters[] = HtmlSpecialChars
+basic-page.elements.body.type               = editor
+basic-page.elements.body.options.label      = Body
+basic-page.elements.body.display.filters[]  = DefaultStripTags
+</programlisting>
+
+                        The format of this section is:
+
+<programlisting language="text">
+&lt;<replaceable>type</replaceable>&gt;.&lt;<replaceable>property</replaceable>&gt; = &lt;<replaceable>value</replaceable>&gt;
+</programlisting>
+
+                        Or:
+
+<programlisting language="text">
+&lt;<replaceable>type</replaceable>&gt;.elements.&lt;<replaceable>element</replaceable>&gt;.&lt;<replaceable>property</replaceable>&gt; = &lt;<replaceable>value</replaceable>&gt;
+</programlisting>
+
+                        Valid values for settings in this region are as follows:
+
+                        <itemizedlist>
+                            <listitem>
+                                <property>label</property>: name of the content type.
+                            </listitem>
+
+                            <listitem>
+                                <property>group</property>: the category that the content type
+                                belongs to.
+                            </listitem>
+
+                            <listitem>
+                                <property>iconFile</property>: (optional) an icon representing the
+                                content type, specified as a <acronym>URL</acronym> relative to the
+                                module's folder.
+                            </listitem>
+
+                            <listitem>
+                                <property>elements</property>: list of elements that compose the
+                                content type. Each element can have multiple properties. For
+                                details, see <xref linkend="content.type.elements"/>.
+                            </listitem>
+                        </itemizedlist>
+                    </entry>
+                </row>
+
+                <row>
+                    <entry><property>[widgets]</property></entry>
+                    <entry>
+                        Declares widget types provided by the module. Widgets are configurable
+                        action controllers. To add a widget type, you must specify the controller.
+                        Be sure to provide a label and description. Optionally, you can specify an
+                        icon and default options for the widget configuration. For example:
+
+<programlisting language="ini">
+[widgets]
+clock.label             = Clock Widget
+clock.description       = A widget that displays the current time.
+clock.icon              = clock-widget.png
+clock.controller        = clock-widget
+clock.defaults.format   = 12h
+</programlisting>
+    </entry>
+                </row>
+
+                <row id="modules.config.acl">
+                    <entry><property>[acl]</property></entry>
+                    <entry>
+                        Declares resources, privileges and default "allow" rules that are relevant
+                        to the module. For example:
+
+<programlisting language="ini">
+[acl]
+users.label                             = Users
+users.privileges.add.label              = Add Users
+users.privileges.add.allow              = member, administrator
+
+users.privileges.permissions.label      = Manage Permissions
+users.privileges.permissions.allow      = administrator
+users.privileges.permissions.needsSuper = true
+</programlisting>
+
+                        The <property>needsSuper</property> option specifies that only Perforce
+                        superusers can have this privilege.
+                    </entry>
+                </row>
+
+                <row id="modules.config.workflows">
+                    <entry><property>[workflows]</property></entry>
+                    <entry>
+                        Declares workflows, the content types affected, the states content should be
+                        guided through. Each state can include declarations for available
+                        transitions, conditions, and actions. For example:
+
+<programlisting language="ini">
+[workflows]
+example.label                                                   = Example Workflow
+example.types[]                                                 = basic-page
+example.states.draft.label                                      = Draft
+example.states.draft.transitions.review.label                   = Promote to Review
+example.states.draft.transitions.review.actions.email.action    = SendEmail
+example.states.draft.transitions.review.actions.email.toRole    = reviewers
+example.states.draft.transitions.published.label                = Publish
+
+example.states.review.label                                     = Review
+example.states.review.transitions.draft.label                   = Demote to Draft
+example.states.review.transitions.published.label               = Publish
+example.states.review.transitions.published.conditions[]        = IsCategorized
+
+example.states.published.label                                  = Published
+example.states.published.transitions.review.label               = Demote to Review
+example.states.published.transitions.draft.label                = Demote to Draft
+</programlisting>
+
+                        See <xref linkend="workflows.configure"/> for more details, but please note
+                        that defining workflows in <filename>module.ini</filename> requires the
+                        workflow identifier and 'states', as demonstrated above.
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

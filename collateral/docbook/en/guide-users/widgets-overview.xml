@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="widgets.overview">
+    <title>Overview</title>
+
+    <para>
+        <emphasis>Widgets</emphasis> are like mini-applications that you can embed in Web pages.
+        &product.longname; comes with a set of default widgets, and you can add your own widgets to
+        this set. Widgets are displayed in a dedicated <emphasis>region</emphasis> specified by the
+        current theme, and you can configure the order (top to bottom) in which they are displayed.
+    </para>
+
+    <para>
+        Widgets are provided by modules. To add or remove widgets from &product.name; you need to
+        have appropriate privileges in the application as well as access to the filesystem where
+        modules are stored. Please see <xref linkend="modules.management.addremove"/> for more
+        details.
+    </para>
+
+    <para>
+        &product.name; ships with the following widgets:
+    </para>
+
+    <variablelist>
+        <varlistentry>
+            <term>Associated Categories</term>
+
+            <listitem>
+                The Associated Categories widget is designed to display any categories associated
+                with the currently displayed content entry. Each displayed category is linked so
+                that users can discover additional content in each category.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>Image Widget</term>
+
+            <listitem>
+                The Image Widget allows you to display an image; either one that has already been
+                added to &product.name;, or from a remote web site.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>Menu Widget</term>
+
+            <listitem>
+                The Menu Widget allows you to display a menu, or a subset of a menu. You can choose
+                the menu, the starting point within its hierarchy, limit the depth of entries to
+                be displayed, and limit the total number of entries.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>Recent Content</term>
+
+            <listitem>
+                The Recent Content widget lists the most recently created or modified content
+                entries, up to a limit you specify.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>Search Widget</term>
+
+            <listitem>
+                The Search Widget provides a search interface so that users can locate content
+                entries based on the text they contain.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>Text Widget</term>
+
+            <listitem>
+                The Text Widget allows you to place arbitrary text on a page.
+            </listitem>
+        </varlistentry>
+    </variablelist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

@@ -1,0 +1,695 @@
+/* CSS Document */
+
+body {
+    background: #f2f2f2;
+    color: #1a1a1a;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* General */
+
+p {
+    font-size: 14px;
+    line-height: 19px;
+    padding: 0 15px;
+}
+li p {
+    padding: 0;
+}
+
+img {
+    border: none;
+}
+
+a {
+    text-decoration: none;
+    color: #00649d;
+}
+a:hover {
+    color: #f00;
+    text-decoration: underline;
+}
+a:active {
+    color: #f84;
+}
+a[name] {
+    display: block;
+}
+
+h1,
+div.chapter > div.titlepage h2,
+div.index > div.titlepage h2,
+div.glossary > div.titlepage h2,
+div.appendix > div.titlepage h2 {
+    background-color: #e6f2f6;
+    border: 1px solid #bcd6e5;
+    font-size: 24px;
+    padding: 5px 0 2px 15px;
+    font-weight: bold;
+    margin: 0.67em 0;
+}
+
+h2,
+div.index h3,
+div.glossary h3 {
+    font-size: 21px;
+    font-weight: normal;
+    margin: 16px 15px 8px 15px;
+    border-bottom: 1px solid black;
+}
+
+h1 a, h2 a {
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+h3 {
+    font-size: 17px;
+    padding-left: 15px;
+    margin-bottom: 6px;
+}
+
+h4 {
+    font-size: 13px;
+    padding-left: 15px;
+    margin-bottom: 0;
+}
+
+h4.title {
+    font-size: 15px;
+}
+
+pre {
+    background-color: #e6f2f6;
+    border: 1px dotted #bcd6e5;
+    padding: 10px 15px;
+    font-size: 12px;
+    margin: 0px 15px;
+}
+
+blockquote {
+    border-left: 2px solid #ddd;
+    margin: 0 4em 0 2em;
+    padding-left: 6px;
+    color: #888;
+}
+
+/* Containers */
+
+#header {
+    background: url('images/header-repeat.jpg') repeat-x;
+    padding: 3px 0 0 0;
+    height: 92px;
+}
+
+.container.header {
+    float: right;
+    position: relative;
+    left: -50%;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.container.main,
+div.section, div.book, div.part, div.chapter, div.appendix, div.index, div.glossary {
+    margin: 0 auto;
+    background: white;
+    border: 1px solid #c7c7c7;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    padding: 0 10px 10px 10px;
+    width: 90%;
+    overflow: visible;
+    position: relative;
+}
+div.section div.section {
+    background: transparent;
+}
+
+div.section.has-sidebar p,
+div.section.has-sidebar ul,
+div.section.has-sidebar div.titlepage,
+div.section.has-sidebar dl {
+    padding-right: 35%;
+}
+
+div.chapter div.section.has-sidebar {
+    margin-right: -10px;
+}
+
+div.chapter div.section, div.section div.section, div.index div.index {
+    border: 0 none;
+    padding: 0;
+    margin: 0;
+    width: auto;
+}
+
+/* breadcrumbs */
+
+.breadcrumbs {
+    clear: both;
+    font-size: 10px;
+    margin: 0 auto;
+    width: 90%;
+    padding: 10px 0;
+    color: #3a3a3a;
+}
+
+.breadcrumbs .prev-next-nav {
+    float: right;
+    font-size: 12px;
+    margin-top: -4px;
+}
+
+.breadcrumbs .prev-next-nav .disabled {
+    color: #8d8d8d;
+}
+
+/* Navigation */
+
+#nav {
+    position: relative;
+    left: 50%;
+    display: block;
+    overflow: hidden;
+    list-style-type: none;
+    margin: 0 auto;
+    padding: 0;
+    height: 63px;
+    overflow: hidden;
+}
+
+#nav li {
+    float: left;
+    background: url('images/nav-divider.jpg') no-repeat top right;
+    display: inline;
+    padding: 0;
+    height: 63px;
+    overflow: hidden;
+}
+
+#nav li a {
+    color: #f2f2f2;
+    display: block;
+    font-size: 16px;
+    text-shadow: 1px 1px 1px #000;
+    text-decoration: none;
+    padding: 17px 16px 0 16px;
+    height: 37px;
+    float: left;
+}
+
+#nav li.logo {
+    padding: 13px 16px 0 0;
+}
+
+#nav li a:hover {
+    background: url('images/nav-button.jpg') no-repeat top center #262626;
+}
+
+#nav li.active {
+    background: url('images/nav-active-arrow.png') no-repeat 50% 54px ;
+}
+#nav li.active a {
+    background: url('images/nav-button-active.png') no-repeat center #1d1d1d;
+}
+
+/* Page Content */
+
+ul.homepage {
+    list-style: none;
+    padding-left: 15px;
+}
+
+ul.homepage li {
+    font-size: 20px;
+    padding-bottom: 13px;
+}
+
+ol {
+    padding-right: 15px;
+}
+
+div.section.has-sidebar dd,
+li {
+    font-size: 14px;
+    line-height: 19px;
+    padding-bottom: 5px;
+}
+
+ul.homepage li ol {
+    padding-top: 4px;
+}
+
+ul.homepage li ol li {
+    font-size: 11px;
+    line-height: 14px;
+    padding: 2px 0;
+}
+
+dl {
+    padding: 0 15px;
+    font-size: 14px;
+}
+dd {
+    margin-bottom: 6px;
+}
+
+.toc dd {
+    margin: 0 5px;
+}
+
+/* table styling */
+
+table {
+    font-size: 13px;
+    line-height: 19px;
+    padding: 0;
+    margin: 0 15px;
+    border-spacing: 0;
+    border-collapse: separate;
+    border: 1px dotted #ccd;
+}
+table td, table th {
+    padding: 4px 8px;
+    border: 1px solid white;
+    vertical-align: top;
+}
+table thead {
+    background-color: #cde7f0;
+}
+table tbody {
+    background-color: #e6f2f6;
+}
+table th {
+    text-align: left;
+    font-weight: bold;
+}
+
+table pre {
+    font-size: 11px;
+    line-height: 14px;
+    border: 1px dotted #88b;
+    background-color: #dde;
+    margin: 3px 0;
+}
+
+table li {
+    font-size: 13px;
+}
+
+div.wide table {
+    width: auto;
+    margin: 0 15px;
+}
+
+dt {
+    line-height: 19px;
+    padding: 1px 0 2px 0;
+}
+
+.variablelist .term {
+    font-weight: bold;
+}
+
+/* Media Object Callouts */
+
+.mediaobject, .mediaobjectco {
+    padding: 0 15px;
+}
+
+li .mediaobject, li .mediaobjectco,
+.mediaobjectco .mediaobject {
+    padding: 0;
+}
+
+p.float-right img {
+    float: right;
+    margin-left: 12px;
+}
+
+.mediaobjectco {
+    text-align: center;
+    overflow: hidden;
+    margin: 1em 0;
+}
+
+.mediaobjectco a {
+    color: black;
+    text-decoration: none;
+}
+.mediaobjectco a.xref {
+    color: #00649d;
+}
+
+.mediaobjectco a.link {
+    color: #00649d;
+}
+
+.mediaobject table,
+.mediaobjectco table {
+    border: 0 none;
+    width: auto;
+}
+.mediaobject table tbody,
+.mediaobjectco table tbody {
+    background: transparent;
+}
+.mediaobject table td,
+.mediaobjectco table td {
+    padding: 4px 2px;
+    border: 0 none;
+    text-align: left;
+}
+.mediaobject table td p,
+.mediaobjectco table td p {
+    padding: 0;
+}
+
+.mediaobject table td.active,
+.mediaobjectco table td.active {
+    background: url('images/highlight-yellow.png') repeat;
+}
+
+.mediaobjectco dl {
+    text-align: left;
+}
+.mediaobjectco dt {
+    display: inline;
+    clear: left;
+}
+.mediaobjectco dd {
+    display: inline;
+}
+.mediaobjectco .imagemap-wrapper {
+    display: block;
+    margin: 0;
+    position: relative;
+}
+.mediaobjectco .imagemap-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.imagemap-wrapper .highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    display: none;
+    z-index: -5;
+}
+.imagemap-wrapper.active .highlight {
+    display: block;
+    background: url('images/highlight-yellow.png') repeat;
+    z-index: 5;
+}
+/*
+ * example of making a spot-specific style
+.mediaobjectco td.screen-mc-spot-type.active,
+.imagemap-wrapper.screen-mc-spot-type .highlight {
+    background: rgba(0, 128, 0, .32);
+    background: rgba(255, 128, 0, 0.4);
+}
+*/
+
+.mediaobject img {
+    margin: 6px 0;
+}
+
+/* styling for table of arguments, which typically appear in other tables */
+
+table div.args p.title {
+    display: none;
+}
+table div.args table {
+    width: auto;
+    margin: 0;
+    border-collapse: collapse;
+    border: 0 none;
+}
+table div.args table td {
+    border: 0 none;
+    padding-right: 12px;
+}
+
+table div.args table td + td {
+}
+
+table div.args table td:last-child {
+    padding-right: 12px;
+    font-size: 13px;
+    font-family: inherit;
+    font-weight: inherit;
+    color: inherit;
+}
+
+table .variablelist dl {
+    font-size: inherit;
+}
+
+/* styling for notes and warnings, which are marked up as tables */
+
+div.note, div.warning {
+    background-color: #e6f2f6;
+    border: 2px solid #bcd6e5;
+    margin: 12px auto;
+    padding: 6px;
+    width: 75%;
+    font-size: 13px;
+}
+div.note p, div.warning p {
+    font-size: 13px;
+    padding: 0;
+}
+div.note li p, div.warning li p {
+    margin: 0 0 0.5em 0;
+}
+div.note li p:last-child, div.warning li p:last-child {
+    margin: 0;
+}
+div.warning {
+    background-color: #fbf8d6;
+    border: 2px solid #fddb65;
+}
+
+div.note table, div.warning table {
+    border: 0 none;
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0;
+}
+div.note table tbody, div.warning table tbody {
+    background: transparent;
+}
+div.note table td, div.note table th,
+div.warning table td, div.warning table th {
+    border: 0 none;
+}
+
+/* sidebar style */
+
+div.sidebar {
+    position: absolute;
+    top: 1em;
+    right: 25px;
+    width: 30%;
+}
+div.section.has-sidebar .sidebar p,
+div.section.has-sidebar .sidebar div.titlepage {
+    padding-right: 0;
+}
+
+.box, div.section div.sidebar div.section {
+    background: #ededed;
+
+    border: 1px solid white;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+
+    -moz-box-shadow: 0px 0px 4px #adadad;
+    -webkit-box-shadow: 0px 0px 4px #adadad;
+    box-shadow: 0px 0px 4px #adadad;
+
+    padding: 10px 15px 7px 15px;
+    margin: 0 0 17px 0;
+}
+
+.box h2, .sidebar .section h2 {
+    height: 45px;
+}
+
+.sidebar .section ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 5px 0;
+}
+.sidebar .section ul.bullet {
+    margin-left: 1em;
+    list-style: disc;
+}
+.sidebar .section ul li {
+    font-size: 12px;
+    line-height: 17px;
+    color: #2f2f2f;
+}
+
+.sidebar p {
+    font-size: 12px;
+    color: #2f2f2f;
+    margin: 0;
+    padding: 2px 0 10px 0;
+}
+
+.sidebar h5 {
+    font-size: 19px;
+    line-height: 23px;
+    font-weight: normal;
+    margin: 0;
+    padding: 5px 0 8px 0;
+}
+
+.sidebar h5.subtitle img {
+    float: left;
+    vertical-align: top;
+    margin-top: -4px;
+}
+
+.sidebar .mediaobject {
+    height: 31px;
+}
+
+.mediaobject a.link span em, .mediaobject a.ulink span em {
+    font-style: normal;
+}
+
+.mediaobject a.link span, .mediaobject a.ulink span {
+    background: transparent url('images/btn-left.gif') no-repeat 0 0;
+    display: block;
+    color: white;
+    font-size: 14px;
+    font-weight: normal;
+    text-shadow: 1px 1px 1px black;
+    padding: 6px 5px 9px 13px;
+}
+
+.mediaobject a:hover.link span, .mediaobject a:hover.ulink span {
+    background: transparent url('images/btn-left-hover.gif') no-repeat 0 0;
+}
+
+.mediaobject a.link, .mediaobject a.ulink {
+    float: right;
+    background: transparent url('images/btn-right.gif') no-repeat top right;
+    display: block;
+    text-decoration: none;
+    padding-right: 23px;
+    height: 31px;
+}
+
+.mediaobject a:hover.link, .mediaobject a:hover.ulink {
+    background: transparent url('images/btn-right-hover.gif') no-repeat top right;
+}
+
+/* styling for specific docbook elements */
+
+span.application {
+    font-weight: bold;
+}
+
+span.guibutton {
+    border: 1px solid #aaa;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    padding: 1px 4px 0 4px;
+    background: url("images/button-bg.png") top left repeat-x;
+    display: inline-block;
+    font-size: 12px;
+}
+
+span.guimenuitem {
+    border-top: 1px solid #ccc;
+    background: #eee;
+    padding: 1px 3px 3px 3px;
+}
+
+span.dialog {
+    font-weight: bold;
+    color: #1a1a1a;
+    background: white;
+    border: 1px solid #1a1a1a;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    -moz-box-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    padding: 2px 4px;
+    font-size: 12px;
+    text-wrap: none;
+    white-space: nowrap;
+}
+span.screen {
+    font-weight: bold;
+    color: #444;
+}
+span.pubsub-topic {
+    font-family: monospace;
+    font-weight: bold;
+}
+span.css {
+    font-family: monospace;
+    color: #3c1a3c;
+}
+
+acronym, span.glossterm {
+    border-bottom: 1px dotted #999;
+    cursor: help;
+}
+
+div.revinfo {
+    width: 100%;
+    text-align: center;
+    color: #1a1a1a;
+    font-size: 10px;
+}
+
+code.varname {
+    color: #a70;
+}
+
+/* SyntaxHighlighter customizations */
+
+.syntaxhighlighter {
+    padding: 0 15px !important;
+    position: static !important;
+}
+
+.syntaxhighlighter a,
+.syntaxhighlighter div,
+.syntaxhighlighter code,
+.syntaxhighlighter table,
+.syntaxhighlighter table td,
+.syntaxhighlighter table tr,
+.syntaxhighlighter table tbody,
+.syntaxhighlighter table thead,
+.syntaxhighlighter table caption,
+.syntaxhighlighter textarea {
+    font-size: 12px !important;
+}
+
+.syntaxhighlighter,
+.syntaxhighlighter .line.alt1,
+.syntaxhighlighter .line.alt2 {
+    overflow-y: hidden !important;
+    background: none !important;
+}
+.syntaxhighlighter .gutter .line {
+    border-right: 1px solid #aaa !important;
+    background: #f4f4f4 !important;
+}

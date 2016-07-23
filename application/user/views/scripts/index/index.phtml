@@ -1,0 +1,64 @@
+<?
+// get data grid namespace
+$namespace  = $this->dataGrid()->getNamespace();
+
+// data store url
+$url        = $this->url(
+    array(
+        'module'        => 'user',
+        'controller'    => 'index',
+        'action'        => 'index',
+        'format'        => 'json'
+    )
+);
+
+// set up data grid columns
+$columns = array(
+    'id'                => array(
+        'label'         => 'Username',
+        'width'         => '15%'
+    ),
+    'fullName'          => array(
+        'label'         => 'Full Name',
+        'width'         => '30%'
+    ),
+    'email'             => array(
+        'label'         => 'Email Address',
+        'width'         => '30%'
+    ),
+    'roles'             => array(
+        'width'         => '16%',
+        'formatter'     => $namespace . '.Formatters.roles'
+    )
+);
+if (count($this->actions)) {
+    $columns[] = $this->dataGrid()->getDefaultActionsColumn();
+}
+
+// set up footer buttons
+$buttons = array();
+if ($this->showAddLink) {
+    $buttons['Add User'] = array(
+        'attribs'       => array(
+            'class'     => 'add-button',
+            'onclick'   => $namespace . '.Utility.openFormDialog("add");'
+        )
+    );
+}
+
+print $this->dataGrid(
+    $namespace,
+    array(
+        'form'          => $this->form,
+        'url'           => $url,
+        'pageSize'      => $this->pageSize,
+        'actions'       => $this->actions,
+        'columns'       => $columns,
+        'footer'        => array(
+            'buttons'       => $buttons
+        ),
+        'attribs'       => array(
+            'disableSort'   => array('_item', 'roles')
+        )
+    )
+);

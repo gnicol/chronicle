@@ -1,0 +1,349 @@
+/* Dijit Slider */
+.p4cms-ui .dijitSlider td {
+    vertical-align: middle;
+}
+
+.p4cms-ui .dijitSliderMoveable {
+    vertical-align:middle;
+}
+
+.p4cms-ui .dijitSliderImageHandle {
+    margin:0;
+    padding:0;
+    border:8px solid gray;
+    width:0;
+    height:0;
+}
+
+.p4cms-ui .dijitSliderImageHandleH {
+    vertical-align:top;
+}
+
+.p4cms-ui .dijitSliderBar {
+    border-style:solid;
+    border-color:black;
+}
+
+.p4cms-ui .dijitSliderBarContainerV {
+    height:100%;
+}
+
+.p4cms-ui .dijitSliderBarH {
+    height:4px;
+    border-width:1px 0;
+}
+
+.p4cms-ui .dijitSliderBarV {
+    width:4px;
+    border-width:0 1px;
+}
+
+.p4cms-ui .dijitSliderProgressBar {
+    background-color:red;
+}
+
+.p4cms-ui .dijitSliderProgressBarV {
+    height:0%;
+    vertical-align:top;
+    text-align:left;
+}
+
+.p4cms-ui .dijitSliderProgressBarH {
+    width:0%;
+    vertical-align:middle;
+}
+
+.p4cms-ui .dijitSliderRemainingBar {
+    background-color:transparent;
+}
+
+.p4cms-ui .dijitSliderRemainingBarV {
+    height:100%;
+    text-align:left;
+}
+
+.p4cms-ui .dijitSliderRemainingBarH {
+    width:100% !important;
+}
+
+/* the slider bumper is the space consumed by the slider handle when it hangs over an edge */
+.p4cms-ui .dijitSliderBumperV {
+    width:4px;
+    height:8px;
+    border-width:0 1px;
+}
+
+.p4cms-ui .dijitSliderBumperH {
+    width:8px;
+    height:4px;
+    border-width:1px 0;
+}
+
+.p4cms-ui .dijitSliderBottomBumper,
+.p4cms-ui .dijitSliderLeftBumper {
+    background-color:red;
+}
+
+.p4cms-ui .dijitSliderTopBumper,
+.p4cms-ui .dijitSliderRightBumper {
+    background-color:transparent;
+}
+
+.p4cms-ui .dijitSliderDecoration {
+    text-align:center;
+}
+
+.p4cms-ui .dijitSliderDecorationH {
+    width: 100%;
+}
+
+.p4cms-ui .dijitSliderDecorationV {
+    height: 100%;
+}
+
+.p4cms-ui .dijitSliderButton {
+    font-family:monospace;
+    margin:0;
+    padding:0;
+}
+
+.p4cms-ui .dijitSliderButtonContainer {
+    text-align:center;
+    height:0;
+}
+
+.p4cms-ui .dijitSlider .dijitButtonNode {
+    padding:0;
+}
+
+.p4cms-ui .dijitRuleContainerV {
+    height:100%;
+    line-height:0;
+    float:left;
+    text-align:left;
+}
+
+.p4cms-ui .dj_opera .dijitRuleContainerV {
+    line-height:2%;
+}
+
+.p4cms-ui .dj_ie .dijitRuleContainerV {
+    line-height:normal;
+}
+
+.p4cms-ui .dj_gecko .dijitRuleContainerV {
+    margin:0 0 1px 0; /* mozilla bug workaround for float:left,height:100% block elements */
+}
+
+.p4cms-ui .dijitSliderFocused .dijitSliderBar {
+    border-color: #769dc0;
+}
+
+.p4cms-ui .dijitSliderHover .dijitSliderBar {
+    border-color: #769dc0;
+}
+
+.p4cms-ui .dijitSliderDisabled .dijitSliderBar {
+    background-image: none;
+    border-color: #d3d3d3;
+}
+
+/* Horizontal Slider */
+
+.p4cms-ui .dijitRuleLabelsContainerH {
+    padding: 2px 0px;
+}
+
+.p4cms-ui .dijitSlider .dijitSliderProgressBarH,
+.p4cms-ui .dijitSlider .dijitSliderLeftBumper {
+    border-color: #b5bcc7;
+    background-color: #cfe5fa;
+}
+
+.p4cms-ui .dijitSlider .dijitSliderRemainingBarH,
+.p4cms-ui .dijitSlider .dijitSliderRightBumper {
+    border-color: #b5bcc7;
+    background-color: #fff;
+}
+.p4cms-ui .dijitSliderRightBumper {
+    border-right: solid 1px #b5bcc7;
+}
+
+.p4cms-ui .dijitSliderLeftBumper {
+    border-left: solid 1px #b5bcc7;
+}
+.p4cms-ui .dijitSliderHover .dijitSliderProgressBarH,
+.p4cms-ui .dijitSliderHover .dijitSliderLeftBumper {
+    background-color: #abd6ff;
+    border-color: #769dc0;
+}
+
+.p4cms-ui .dijitSliderHover .dijitSliderRemainingBarH {
+    background-color: #fff;
+    border-color: #769dc0;
+}
+
+.p4cms-ui .dijitSliderFocused .dijitSliderProgressBarH,
+.p4cms-ui .dijitSliderFocused .dijitSliderLeftBumper {
+    background-color: #abd6ff;
+    border-color: #769dc0;
+}
+
+.p4cms-ui .dijitSliderFocused .dijitSliderRemainingBarH,
+.p4cms-ui .dijitSliderFocused .dijitSliderRightBumper {
+    background-color: #fff;
+    border-color: #769dc0;
+}
+
+.p4cms-ui .dijitSliderDisabled .dijitSliderProgressBarH,
+.p4cms-ui .dijitSliderDisabled .dijitSliderLeftBumper {
+    background-color: #cdcdcd;
+    background-image:none;
+}
+
+.p4cms-ui .dijitSliderDisabled .dijitSliderRemainingBarH,
+.p4cms-ui .dijitSliderDisabled .dijitSliderRightBumper {
+    background-color: #efefef;
+}
+
+/* Vertical Slider */
+
+.p4cms-ui .dijitRuleLabelsContainerV {
+    padding: 0px 2px;
+}
+
+.p4cms-ui .dijitSlider .dijitSliderProgressBarV,
+.p4cms-ui .dijitSlider .dijitSliderBottomBumper {
+    border-color: #b5bcc7;
+    background-color: #cfe5fa;
+}
+
+.p4cms-ui .dijitSlider .dijitSliderRemainingBarV,
+.p4cms-ui .dijitSlider .dijitSliderTopBumper {
+    border-color: #b5bcc7;
+    background-color: #fff;
+}
+
+.p4cms-ui .dijitSliderBottomBumper {
+    border-bottom: solid 1px #b5bcc7;
+}
+
+.p4cms-ui .dijitSliderTopBumper {
+    border-top: solid 1px #b5bcc7;
+}
+
+.p4cms-ui .dijitSliderHover .dijitSliderProgressBarV,
+.p4cms-ui .dijitSliderHover .dijitSliderBottomBumper {
+    background-color: #abd6ff;
+}
+
+.p4cms-ui .dijitSliderHover .dijitSliderRemainingBarV,
+.p4cms-ui .dijitSliderHover .dijitSliderTopBumper {
+    background-color: #fff;
+}
+
+.p4cms-ui .dijitSliderFocused .dijitSliderProgressBarV,
+.p4cms-ui .dijitSliderFocused .dijitSliderBottomBumper {
+    background-color: #abd6ff;
+}
+
+.p4cms-ui .dijitSliderFocused .dijitSliderRemainingBarV,
+.p4cms-ui .dijitSliderFocused .dijitSliderTopBumper {
+    background-color: #fff;
+}
+
+.p4cms-ui .dijitSliderDisabled .dijitSliderProgressBarV,
+.p4cms-ui .dijitSliderDisabled .dijitSliderBottomBumper {
+    background-color: #cdcdcd;
+}
+
+.p4cms-ui .dijitSliderDisabled .dijitSliderRemainingBarV,
+.p4cms-ui .dijitSliderDisabled .dijitSliderTopBumper {
+    background-color: #efefef;
+}
+
+
+/* ------- Thumbs ------- */
+
+.p4cms-ui .dijitSliderImageHandleH {
+    border: 0px;
+    width: 18px;
+    height: 16px;
+}
+
+.p4cms-ui .dijitSliderImageHandleV {
+    border: 0px;
+    width: 18px;
+    height: 16px;
+}
+
+
+/* ---- Increment/Decrement Buttons ---- */
+
+.p4cms-ui .dijitSliderButtonContainerH {
+    padding: 1px 3px 1px 2px;
+}
+
+.p4cms-ui .dijitSliderButtonContainerV {
+    padding: 3px 1px 2px 1px;
+}
+
+.p4cms-ui .dijitSliderDecrementIconH,
+.p4cms-ui .dijitSliderIncrementIconH,
+.p4cms-ui .dijitSliderDecrementIconV,
+.p4cms-ui .dijitSliderIncrementIconV {
+    background-color: #e9ecf2;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border: solid 1px #b5bcc7;
+    font-size: 1px;
+}
+
+.p4cms-ui .dijitSliderDecrementIconH,
+.p4cms-ui .dijitSliderIncrementIconH {
+    height: 12px;
+    width: 9px;
+}
+
+.p4cms-ui .dijitSliderDecrementIconV,
+.p4cms-ui .dijitSliderIncrementIconV {
+    height: 9px;
+    width: 12px;
+}
+
+.p4cms-ui .dijitSliderActive .dijitSliderDecrementIconH,
+.p4cms-ui .dijitSliderActive .dijitSliderIncrementIconH,
+.p4cms-ui .dijitSliderActive .dijitSliderDecrementIconV,
+.p4cms-ui .dijitSliderActive .dijitSliderIncrementIconV,
+.p4cms-ui .dijitSliderHover .dijitSliderDecrementIconH,
+.p4cms-ui .dijitSliderHover .dijitSliderIncrementIconH,
+.p4cms-ui .dijitSliderHover .dijitSliderDecrementIconV,
+.p4cms-ui .dijitSliderHover .dijitSliderIncrementIconV {
+    border: solid 1px #769dc0;
+    background-color:#fff;
+}
+
+
+.p4cms-ui .dijitSliderButtonContainerV .dijitSliderDecrementButtonHover,
+.p4cms-ui .dijitSliderButtonContainerH .dijitSliderDecrementButtonHover,
+.p4cms-ui .dijitSliderButtonContainerV .dijitSliderIncrementButtonHover,
+.p4cms-ui .dijitSliderButtonContainerH .dijitSliderIncrementButtonHover {
+    background-color: #cce3fc;
+}
+
+.p4cms-ui .dijitSliderButtonContainerV .dijitSliderDecrementButtonActive,
+.p4cms-ui .dijitSliderButtonContainerH .dijitSliderDecrementButtonActive,
+.p4cms-ui .dijitSliderButtonContainerV .dijitSliderIncrementButtonActive,
+.p4cms-ui .dijitSliderButtonContainerH .dijitSliderIncrementButtonActive {
+    background-color: #a5d0fc;
+    border-color:#6591b9;
+}
+
+.p4cms-ui .dijitSliderDisabled .dijitSliderBar {
+    border-color: #d3d3d3;
+}
+
+.p4cms-ui .dijitSliderReadOnly *, .p4cms-ui .dijitSliderDisabled * {
+    border-color: #d3d3d3;
+    color: #bdbdbd;
+}

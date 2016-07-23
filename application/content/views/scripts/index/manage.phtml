@@ -1,0 +1,11 @@
+<?
+
+// make the type column narrower on the manage grid
+$this->columns = $this->dataGrid()->normalizeColumns($this->columns);
+if (isset($this->columns['type'])) {
+    $this->columns['type'] = array('width' => '9%');
+}
+
+print $this->render('index/browse.partial.phtml');
+
+?>

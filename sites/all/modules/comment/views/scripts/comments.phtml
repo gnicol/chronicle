@@ -1,0 +1,118 @@
+<div class="comments">
+
+  <? if ($this->showComments) : ?>
+    <h1>
+      Comments
+      <span class="comment-count">(<?= $this->comments->count(); ?>)</span>
+    </h1>
+
+    <ul class="comment-list">
+      <? foreach ($this->comments as $comment) :
+          $hasVoted = in_array($comment->getId(), $this->votedCommentIds);
+          $canVote  = $this->allowVoting && (!$hasVoted || !$this->oneVotePerUser);
+      ?>
+        <li commentId="<?= $comment->getId() ?>"
+            class="comment <?= $this->cycle(array('odd', 'even'))->next() ?>">
+
+          <? if ($this->showVotes) : ?>
+            <div class="comment-votes">
+              <span class="comment-vote-up">
+                <a href="javascript://"
+                  <? if ($canVote) : ?>
+                    onclick="p4cms.comment.voteUp('<?= $comment->getId() ?>')"
+                  <? else: ?>
+                    class="comment-vote-disabled"
+                  <? endif; ?>
+                title="Vote Up"></a>
+              </span>
+              <span class="comment-vote-count"><?= $comment->votes ?> vote<?= $comment->votes !== 1 ? 's' : '' ?></span>
+              <span class="comment-vote-down">
+                <a href="javascript://"
+                  <? if ($canVote) : ?>
+                    onclick="p4cms.comment.voteDown('<?= $comment->getId() ?>')"
+                  <? else: ?>
+                    class="comment-vote-disabled"
+                  <? endif; ?>
+                title="Vote Down"></a>
+              </span>
+            </div>
+          <? endif; ?>
+
+          <span class="comment-gravatar">
+            <?= $this->gravatar($comment->email) ?>
+          </span>
+          <span class='comment-author'>
+            <?= $this->escape($comment->name ?: $comment->user) ?>
+          </span>
+          <span class='comment-body'>
+            <?= nl2br($this->escape($comment->comment)) ?>
+          </span>
+          <span class='comment-time'
+                title="<?= date("Y/m/d H:m a", $comment->getPostTime()) ?>">
+            <?= $this->timeAgo($comment->getPostTime()) ?>
+          </span>
+        </li>
+      <? endforeach; ?>
+    </ul>
+  <? endif; ?>
+
+  <? if ($this->allowComments) : ?>
+    <div dojoType="dojox.layout.ContentPane"
+         href="<?= $this->url(array(
+             'module'     => 'comment',
+             'controller' => 'index',
+             'action'     => 'post',
+             'path'       => $this->path,
+             'format'     => 'partial'
+         )); ?>"
+         onLoad="
+             var pane   = dijit.byId(this.id);
+             var form   = dojo.query('form', pane.domNode)[0];
+             var submit = dojo.query('input[type=submit]', form)[0];
+
+             // connect to prevent default form submit action as we want
+             // to stay on the current page and just refresh to display
+             // the new comment
+             dojo.connect(form, 'onsubmit', function(event){
+                 dojo.stopEvent(event);
+
+                 // prevent multiple-submits.
+                 if (dojo.attr(submit, 'disabled')) {
+                     return;
+                 }
+                 dojo.attr(submit, 'disabled', true);
+
+                 var url  = p4cms.url({
+                     module:     'comment',
+                     controller: 'index',
+                     action:     'post'
+                 });
+                 var data = dojo.mixin(
+                     dojo.formToObject(form),
+                     {format: 'json'}
+                 );
+
+                 dojo.xhrPost({
+                     url:       url,
+                     content:   data,
+                     handleAs:  'json',
+                     // If successful, we either reload the page or reload the form content
+                     // with a new submit button - no need to re-enable the submit button.
+                     load:      function(response){
+                         if (response.isValid) {
+                             window.location.reload();
+                         } else {
+                             pane.set('content', response.form);
+                         }
+                     },
+                     // if error, re-enable submit button so user can try again.
+                     error:    function(){
+                         dojo.removeAttr(submit, 'disabled');
+                     }
+                 });
+             });
+         ">
+    </div>
+  <? endif; ?>
+
+</div>

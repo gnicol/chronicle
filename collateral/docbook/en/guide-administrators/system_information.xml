@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="site.system-information">
+    <title>System Information</title>
+
+    <para>
+        &product.longname; provides a report called System Information that presents all the
+        operating parameters that could influence, or be influenced by, &product.name;'s operation.
+        This includes the configured sites, all of the installed modules and themes, including
+        runtime information from <acronym>PHP</acronym>, the Perforce server, and the Apache web
+        server. Entries describing &product.name; components include checksum comparisons to help
+        you identify whether anything within the release has been modified.
+    </para>
+
+    <bridgehead>
+        To view System Information:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Choose <command>Manage > System Information</command>. The
+            <emphasis role="screen">System Information</emphasis> screen is displayed:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-system_information.png"/>
+                </imageobject>
+            </mediaobject>
+
+            The screenshot indicates that the file <filename>Widget.php</filename> within the
+            <classname>P4Cms</classname> library has been modified, whereas all the files in the
+            libraries <classname>P4</classname>, <classname>Phly</classname>, and
+            <classname>Zend</classname> match their original distribution checksums. The checksum
+            checks can take some time, so you may see a progress graphic for any entries waiting
+            on the result the validation process.
+        </listitem>
+
+        <listitem>
+            Click on each of the tabs on the left side to view a specific grouping of information.
+        </listitem>
+    </orderedlist>
+
+
+    <note>
+        <title>All System Information at Once</title>
+
+        <para>
+            &product.name; includes a stylesheet for printing all system information entries
+            together, to make it easier to review all the included information. If your computer has
+            the ability to <emphasis>print to <acronym>PDF</acronym></emphasis>, you should be able
+            to combine all the information into a single file, which is ideal for attaching to any
+            support requests you may have.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

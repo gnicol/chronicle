@@ -1,0 +1,83 @@
+body.p4cms-ui {
+    background: white;
+}
+
+.p4cms-ui .container {
+    width: 960px;
+    margin: 0px auto;
+}
+
+.p4cms-ui #layout-top {
+    background: url('images/bg-top.png') repeat-x;
+    height: 91px;
+}
+
+.p4cms-ui #layout-top h1 {
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: normal;
+    font-size: 30px;
+    padding: 19px 0 0 0;
+    margin: 0;
+}
+
+.p4cms-ui #layout-top #manage-logo {
+    float:right;
+    padding: 22px 0 0 0;
+}
+
+.p4cms-ui #layout-main {
+    background: none white;
+    padding: 15px 0;
+}
+
+.p4cms-ui #layout-main #menu {
+    padding: 0;
+}
+
+.p4cms-ui #layout-bottom {
+    background: url('images/bg-bottom.jpg') repeat-x;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    height: 31px;
+}
+
+.p4cms-ui #manage-footer {
+    clear: both;
+    color: #303030;
+    padding: 10px 0 0 0;
+    background: transparent;
+    height: auto;
+}
+
+.p4cms-ui #layout-bottom .footer-left {
+    float: left;
+}
+.p4cms-ui #layout-bottom .footer-right {
+    float: right;
+}
+.p4cms-ui #layout-bottom #manage-footer em {
+    padding-left: 6px;
+    color: #5f5f5f;
+}
+.p4cms-ui #layout-bottom #manage-footer a {
+    padding-left: 10px;
+    text-decoration: none;
+    color: #00649d;
+}
+.p4cms-ui #layout-bottom #manage-footer a:hover {
+    color: black;
+}
+.p4cms-ui #layout-bottom #manage-footer .footer-right ul.navigation {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.p4cms-ui #layout-bottom #manage-footer .footer-right ul.navigation li {
+    float: left;
+}
+
+.manage-layout #content {
+    width: auto;
+    padding: 20px;
+}

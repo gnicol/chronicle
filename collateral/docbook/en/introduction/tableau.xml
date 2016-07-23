@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="getstarted.tableau">
+    <title>The Tableau Theme</title>
+
+    <para>
+        For the 2012.3 release, &product.longname;'s default theme showcases a "tablet-first"
+        approach to web site design. Dubbed <emphasis>Tableau</emphasis>, the theme uses
+        magazine-like styling with large photos and generous whitespace, implements gesture-based
+        navigation using horizontal and vertical swipes, and adapts to various sized mobile devices
+        and orientations. These features allow &product.name; to provide a web site that resembles
+        a native mobile device application with no installation or programming required.
+    </para>
+
+    <para>
+        This section describes the presentation and navigation aspects of the theme, and identifies
+        areas of &product.name; that differ from other themes in order to work well on mobile
+        devices.
+    </para>
+
+    <section>
+        <title>Tableau Features</title>
+
+        <para>
+            The home page cycles through a selection of full-screen images and provides a top-level
+            menu for quick access to feature stories:
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-tableau-home.jpg"/>
+            </imageobject>
+        </mediaobject>
+
+        <para>
+            Swiping to the left brings the story <emphasis>grid</emphasis> into view:
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-tableau-grid.jpg"/>
+            </imageobject>
+        </mediaobject>
+
+        <para>
+            The grid is comprised of
+            <link linkend="widgets.overview"><term4gloss>widget</term4gloss>s</link>, and can span
+            multiple pages; swipe left or right to navigate the grid. Tapping on a content entry from
+            the front page or the grid slides the content into view:
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-tableau-sample_content.jpg"/>
+            </imageobject>
+        </mediaobject>
+
+        <para>
+            Subsequent pages are auto-paginated to fit your mobile device's screen size:
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-tableau-sample_content_2.jpg"/>
+            </imageobject>
+        </mediaobject>
+
+        <warning>
+            <title>Perform Administrative Functions in a Desktop Browser</title>
+
+            <para>
+                The Tableau theme is intended for anonymous users to experience. For administrative 
+                functions, please use a desktop browser.
+            </para>
+        </warning>
+    </section>
+
+    <section id="tableau.navigation">
+        <title>Toolbar</title>
+
+        <para>
+            The Tableau theme's presentation occupies the full browser window. When you login to
+            &product.name;, this means that the
+            <link linkend="getstarted.manage-toolbar">toolbar</link> might obscure content, buttons,
+            or links. The toolbar has an additional button to the right of the user menu to hide the
+            toolbar when necessary:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata width="145" fileref="images/screen-tableau-toolbar.jpg" format="JPG"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+
+        <para>
+            When tapped, the toolbar slides out of view allowing access to obscured page elements.
+            To bring the toolbar back, a new button appears in the top right of the display:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata width="36" fileref="images/screen-tableau-navbar.jpg" format="JPG"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+
+        <para>
+            While viewing content, a <emphasis>Home</emphasis> and <emphasis>Back</emphasis>
+            button may also appear in the top right of the display to provide navigation to the
+            home page or a previously viewed page. These buttons appear light grey when there is
+            nothing further to see in the indicated direction:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata width="151" fileref="images/screen-tableau-navbar_2.jpg" format="JPG"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+
+        <para>
+            The grid and content pages provide <emphasis>Next</emphasis> and
+            <emphasis>Prev</emphasis> buttons at the bottom of the display to navigate the current
+            content:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-tableau-footer.jpg"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+    </section>
+
+    <section id="tableau.rotator">
+        <title>Image Rotator</title>
+
+        <para>
+            The cycling of images on the home page, or on the <emphasis>grid</emphasis>, is achieved
+            with the Image Rotator <term4gloss>widget</term4gloss>. Images cross-fade as they cycle,
+            however select devices also support panning and zooming during the cycle for a more
+            interesting presentation.
+        </para>
+
+        <para>
+            <inlinemediaobject>
+                <imageobject role="inline">
+                    <imagedata width="120" fileref="images/screen-tableau-rotator1.jpg" format="JPG"/>
+                </imageobject>
+            </inlinemediaobject>
+
+            <inlinemediaobject>
+                <imageobject role="inline">
+                    <imagedata width="120" fileref="images/screen-tableau-rotator2.jpg" format="JPG"/>
+                </imageobject>
+            </inlinemediaobject>
+
+            <inlinemediaobject>
+                <imageobject role="inline">
+                    <imagedata width="120" fileref="images/screen-tableau-rotator3.jpg" format="JPG"/>
+                </imageobject>
+            </inlinemediaobject>
+
+            <inlinemediaobject>
+                <imageobject role="inline">
+                    <imagedata width="120" fileref="images/screen-tableau-rotator4.jpg" format="JPG"/>
+                </imageobject>
+            </inlinemediaobject>
+
+            <inlinemediaobject>
+                <imageobject role="inline">
+                    <imagedata width="120" fileref="images/screen-tableau-rotator5.jpg" format="JPG"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+
+        <para>
+            Both the cover page and the <emphasis>grid</emphasis> have responsive layouts that
+            would degrade quickly if the rotator's size was specified. For this reason,
+            the rotator's <emphasis>width</emphasis> and <emphasis>height</emphasis> configuration
+            fields are not available in these regions of the Tableau theme.
+        </para>
+    </section>
+
+    <section id="tableau.editing">
+        <title>Editing Content</title>
+
+        <para>
+            The traditional editing context that &product.name; provides does not work very well on
+            a mobile device, so the
+            <link linkend="content.wysiwyg"><acronym>WYSIWYG</acronym></link> editor appears in a
+            dialog:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-tableau-wysiwyg.jpg"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+    </section>
+
+    <section id="tableau.social">
+        <title>Social Integrations</title>
+
+        <para>
+            In most &product.name; themes, social integration features such as 
+            <link linkend="comments.overview">Comments</link>,
+            <link linkend="social.disqus">Disqus</link>, and
+            <link linkend="social.sharethis">ShareThis</link> enhance the presentation of content
+            entries to include additional features. For the tableau theme, accessing these features
+            is handled with buttons that appear in the footer:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/screen-tableau-footer_2.jpg"/>
+                </imageobject>
+            </mediaobject>
+        </para>
+
+        <para>
+            For Comments and Disqus each link, when tapped, opens its respective display:
+        </para>
+
+        <para>
+            <inlinemediaobject>
+                <imageobject role="inline">
+                    <imagedata width="320" fileref="images/screen-tableau-comments.jpg" format="JPG"/>
+                </imageobject>
+            </inlinemediaobject>
+
+            <inlinemediaobject>
+                <imageobject role="inline">
+                    <imagedata width="320" fileref="images/screen-tableau-disqus.jpg" format="JPG"/>
+                </imageobject>
+            </inlinemediaobject>
+        </para>
+    </section>
+
+    <section id="tableau.image-gallery">
+        <title>Image Gallery</title>
+
+        <para>
+            When you tap on an image presented in an image gallery, the full image is displayed in
+            a lightbox. Unlike the lightbox presented for other themes, you cannot navigate the
+            gallery's images with previous/next arrows.
+        </para>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

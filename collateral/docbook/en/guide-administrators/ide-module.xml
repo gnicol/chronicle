@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="installation.management.ide-module">
+    <title>IDE Module</title>
+
+    <para>
+        The optional <emphasis role="bold">IDE</emphasis> module provides an interface to edit theme
+        or module files via your browser. This is useful when you only have browser-based access to
+        &product.longname;. This module needs to be enabled before you can use it. Please see
+        <xref linkend="modules.management.enable-disable"/> for more details. Also, the web server
+        user needs to have write access to the files in the "sites" folder within your
+        &product.name; installation in order to save any changes made.
+    </para>
+
+    <para>
+        The IDE module's editing capabilities are powered by the
+        <ulink url="http://ace.ajax.org/">ACE Javascript Editor</ulink>, which provides features
+        such as:
+    </para>
+
+    <itemizedlist>
+        <listitem>Syntax highlighting</listitem>
+
+        <listitem>Auto indentation and outdent</listitem>
+        
+        <listitem>Work with huge documents</listitem>
+
+        <listitem>
+            Fully customizable
+            <ulink url="https://github.com/ajaxorg/ace/wiki/Default-Keyboard-Shortcuts">keybindings</ulink>
+        </listitem>
+
+        <listitem>Themes</listitem>
+
+        <listitem>Search and replace with regular expressions</listitem>
+
+        <listitem>Highlight matching parentheses</listitem>
+
+        <listitem>Toggle between soft tabs and real tabs</listitem>
+
+        <listitem>Displays hidden characters</listitem>
+
+        <listitem>Highlight selected word</listitem>
+    </itemizedlist>
+
+    <warning>
+        <title>Internet Explorer</title>
+
+        <para>
+            The IDE module's editing interface does not currently work in Internet Explorer 7 or 8.
+            It does work in Internet Explorer 9.
+        </para>
+    </warning>
+
+    <para>
+        Once enabled, choose <command>Manage > IDE</command> to display the IDE interface:
+    </para>
+
+    <mediaobjectco role="screen-ide">
+        <subtitle>The Manage Content Screen</subtitle>
+
+        <imageobjectco>
+            <areaspec units="imagemap">
+                <area id="screen-ide-spot-toolbar" linkends="screen-ide-co-toolbar" coords="0,23,640,41"/>
+                <area id="screen-ide-spot-tree" linkends="screen-ide-co-tree" coords="4,51,203,415"/>
+                <area id="screen-ide-spot-tabs" linkends="screen-ide-co-tabs" coords="207,50,637,68"/>
+                <area id="screen-ide-spot-editor" linkends="screen-ide-co-editor" coords="207,68,637,415"/>
+            </areaspec>
+
+            <imageobject>
+                <imagedata fileref="images/screen-ide-callouts.png"/>
+            </imageobject>
+
+            <calloutlist>
+                <callout id="screen-ide-co-toolbar" arearefs="screen-ide-spot-toolbar">
+                    <para>
+                        <emphasis role="bold">IDE Toolbar</emphasis> -
+                        Provides the following options:
+                        <orderedlist>
+                            <listitem>
+                                <command>New File</command> - Creates a new editor tab for an empty
+                                file. The file will not exist in the filesystem until
+                                <command>Save File</command> is completed.
+                            </listitem>
+
+                            <listitem>
+                                <command>New Folder</command> - Creates a new directory within the
+                                <filename><constant>CMSDIR</constant>/sites</filename> path. A
+                                dialog opens prompting for the folder name and path.
+                            </listitem>
+
+                            <listitem>
+                                <command>New Package</command> - Creates a new module or theme,
+                                including all default files or directories. A dialog opens prompting
+                                for the package type, name, description, and tags.
+                            </listitem>
+
+                            <listitem>
+                                <command>Open Recent</command> - Provides a drop-down selection of
+                                recently opened/edited files; selecting a filename opens a tab, or
+                                focuses on an existing tab, so you can edit the file.
+                            </listitem>
+
+                            <listitem>
+                                <command>Save File</command> - Saves the file in the currently
+                                selected tab. If the tab contains a new file, a dialog opens
+                                prompting for the filename and path. The common keyboard shortcut
+                                <keysym>CTRL-S</keysym> (or <keysym>Command-S</keysym> on Mac)
+                                will also save the file.
+                            </listitem>
+
+                            <listitem>
+                                <command>Change Theme</command> - Provides a drop-down selection of
+                                available editor themes that influence the styling of the editor.
+                            </listitem>
+                        </orderedlist>
+                    </para>
+                </callout>
+
+                <callout id="screen-ide-co-tree" arearefs="screen-ide-spot-tree">
+                    <para>
+                        <emphasis role="bold">Directory Tree</emphasis>:
+                        Represents the folder and file structure contained within the
+                        <filename><constant>CMSDIR</constant>/sites</filename> path. Clicking
+                        on the <guibutton>+</guibutton> button to the left of a directory name will
+                        toggle the display of that directory's contents. Double-click on a filename
+                        to open a tab so you can edit the file.
+                    </para>
+                </callout>
+
+                <callout id="screen-ide-co-tabs" arearefs="screen-ide-spot-tabs">
+                    <para>
+                        <emphasis role="bold">File Tabs</emphasis>:
+                        Each file open for editing has its own tab. Click on a tab's label, which
+                        represents the name of the file being edited, to display that tab's file
+                        for editing. Click on the <guibutton>X</guibutton> button to the right of a
+                        tab's label to close that tab and discard any unsaved changes.
+                    </para>
+                </callout>
+
+                <callout id="screen-ide-co-editor" arearefs="screen-ide-spot-editor">
+                    <para>
+                        <emphasis role="bold">Editor</emphasis>:
+                        The editor displays the file's contents. If the file represents a type that
+                        the editor recognizes, the file's syntax may be colorized, blocks of code
+                        can be collapsed, and certain kinds of syntax errors may be earmarked.
+                    </para>
+                </callout>
+            </calloutlist>
+        </imageobjectco>
+    </mediaobjectco>
+
+    <note>
+        <title>Drag-and-Drop Active</title>
+
+        <para>
+            With a <link linkend="content.add.dnd.supported-browsers">supported browser</link>, you
+            can add or replace files in a directory by dragging them from outside your browser onto
+            the desired folder in the directory tree.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

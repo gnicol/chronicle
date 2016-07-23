@@ -1,0 +1,10 @@
+<phpunit bootstrap="../../../../../tests/phpunit/TestBootstrap.php">
+ <testsuites>
+  <testsuite name="Analytics Module">
+   <directory>.</directory>
+  </testsuite>
+ </testsuites>
+ <php>
+  <const name="TEST_ACCOUNT_NUMBER" value="UA-XXXXX-1"/>
+ </php>
+</phpunit>

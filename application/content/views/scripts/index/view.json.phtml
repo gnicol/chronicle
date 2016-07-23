@@ -1,0 +1,7 @@
+<?= Zend_Json::encode($this->contentEntry()->data(array(
+    'fields' => $this->fields,
+    'change' => $this->includeChange,
+    'status' => $this->includeStatus,
+    'opened' => $this->includeOpened
+)));
+?>

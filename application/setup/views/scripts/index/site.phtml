@@ -1,0 +1,14 @@
+<?= $this->partial('index/steps.phtml', array('step' => '4')); ?>
+
+<div class="info">
+<h1>Choose a title and address for the site:</h1>
+
+<?= $this->form ?>
+</div>
+<script type="text/javascript">
+    dojo.addOnLoad(function() {
+        var node = dojo.query('#title-element input')[0];
+        node.focus();
+        node.select();
+    });
+</script>

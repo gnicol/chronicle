@@ -1,0 +1,63 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.filters">
+    <title>Filters</title>
+
+    <para>
+        <emphasis>Filters</emphasis> modify data. The filter infrastructure provides a simple
+        chaining mechanism so that filters can be applied in a specified order. Filters can be
+        called explicitly or used implicitly wherever filters are commonly used, for example, for
+        form elements. Place filter classes in the module folder, in the
+        <filename>filters</filename> folder.
+    </para>
+
+    <para>
+        Here is the skeleton of a filter to perform operation <emphasis>bar</emphasis> for the
+        <classname>Foo</classname> module:
+    </para>
+
+<programlisting language="php">
+&lt;?php
+/**
+ * Filter description
+ *
+ * @copyright   copyright info
+ * @license     license info
+ * @version     version info
+ */
+class Foo_Filter_Bar implements Zend_Filter_Interface
+{
+    /**
+     * Description
+     *
+     * @param  string  $value  The value to be filtered.
+     */
+    public function filter($value)
+    {
+        // perform 'bar' operation to create $filtered
+        return $filtered;
+    }
+}
+</programlisting>
+
+    <para>
+        For details, see the
+        <ulink url="http://framework.zend.com/manual/1.11/en/zend.filter.html">Zend
+        Framework documentation</ulink>.
+    </para>
+
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

@@ -1,0 +1,8 @@
+<h1 class="sitemap-title">
+ <img class="sitemap-icon" src="<?= $this->module('menu')->getBaseUrl() ?>/images/sitemap-64x64.png" alt="sitemap-icon"/>
+ <span>Sitemap</span>
+</h1>
+
+<div class="sitemap-content">
+  <?= $this->menu($this->sitemap, array('ulClass' => 'sitemap')); ?>
+</div>

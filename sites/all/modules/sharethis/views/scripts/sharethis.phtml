@@ -1,0 +1,26 @@
+<div class="sharethis-container">
+<? if ($this->insertJavascript): ?>
+    <script type="text/javascript">
+        var switchTo5x = true;
+        dojo.io.script.get({
+            url: 'http://w.sharethis.com/button/buttons.js',
+            checkString: 'stLight',
+            load: function() {
+                <? if ($this->publisherKey): ?>
+                stLight.options({publisher: "<?= $this->publisherKey ?>"});
+                <? endif; ?>
+            }
+        });
+    </script>
+<? endif; ?>
+    <div class="buttons">
+    <?
+        $classSuffix = $this->buttonStyle === 'small' ? '' : '_' . $this->buttonStyle;
+        foreach ($this->services as $service):
+    ?>
+        <span class='st_<?= $service . $classSuffix ?>'></span>
+    <?
+        endforeach;
+    ?>
+    </div>
+</div>

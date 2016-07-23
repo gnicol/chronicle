@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="new-site">
+    <title>Creating a New Web Site</title>
+
+    <bridgehead>
+        To create a new web site:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Choose <guimenuitem>Manage &gt; Add Site</guimenuitem>. The
+            <emphasis role="screen">Setup Requirements</emphasis> screen is displayed, and
+            &product.longname; verifies that your web server contains the correct versions of
+            required components. (If a requirement is missing, &product.name; advises you how best
+            to resolve the problem.)
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Continue</guibutton>. The <emphasis role="screen">Setup Site
+            Storage</emphasis> screen is displayed. All sites share a single Perforce server,
+            so the options on this screen are disabled.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Continue</guibutton>. The <emphasis role="screen">Setup
+            Administrator</emphasis> screen is displayed. Enter the depot administrator's username
+            and password.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Continue</guibutton>. The <emphasis role="screen">Setup
+            Site</emphasis> screen is displayed.
+        </listitem>
+
+        <listitem>
+            Specify the site name and one or more <acronym>URL</acronym>s for the site. Click
+            <guibutton>Create Site</guibutton>. The <emphasis role="screen">Setup
+            Summary</emphasis> screen is displayed.
+        </listitem>
+
+        <listitem>
+            To display the new site, click <guibutton>View Site</guibutton>.
+        </listitem>
+    </orderedlist>
+
+    <note>
+        <title>Multiple Sites, Single Perforce Server</title>
+
+        <para>
+            &product.name; allows multiple sites, but all sites must co-exist in a single Perforce
+            server.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

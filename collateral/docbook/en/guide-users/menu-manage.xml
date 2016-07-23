@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="navigation.menu.manage">
+    <title>Managing Menus</title>
+
+    <para>
+        The <emphasis role="screen">Manage Menus</emphasis> screen is where most menu
+        management tasks are performed. This section provides a summary of its features. Hover your
+        mouse over each of the numbered callouts to highlight the associated area of the screen.
+    </para>
+
+    <mediaobjectco role="screen-mm">
+        <subtitle>The Manage Menu Screen</subtitle>
+
+        <imageobjectco>
+            <areaspec units="imagemap">
+                <area id="screen-mme-spot-search" linkends="screen-mme-co-search" coords="0,90,130,124"/>
+                <area id="screen-mme-spot-menu" linkends="screen-mme-co-menu" coords="0,129,130,218"/>
+                <area id="screen-mme-spot-type" linkends="screen-mme-co-type" coords="0,224,130,379"/>
+                <area id="screen-mme-spot-actions" linkends="screen-mme-co-actions" coords="559,107,612,356"/>
+                <area id="screen-mme-spot-scrollbar" linkends="screen-mme-co-scrollbar" coords="613,107,639,356"/>
+                <area id="screen-mme-spot-buttons" linkends="screen-mme-co-buttons" coords="398,357,639,375"/>
+            </areaspec>
+
+            <imageobject>
+                <imagedata fileref="images/screen-manage_menus-callouts.png"/>
+            </imageobject>
+
+            <calloutlist>
+                <callout id="screen-mme-co-search" arearefs="screen-mme-spot-search">
+                    <para>
+                        <emphasis role="bold">Filter by Text Search</emphasis>: 
+                        Enter text to filter the list of menus and menu items to entries containing
+                        the text.
+                    </para>
+                </callout>
+                <callout id="screen-mme-co-menu" arearefs="screen-mme-spot-menu">
+                    <para>
+                        <emphasis role="bold">Filter by Menu</emphasis>:
+                        Click on one or more checkboxes to filter the list of menus and menu items
+                        to entries of the selected menus. When no checkboxes are checked, items from
+                        all menus are included.
+                    </para>
+                </callout>
+                <callout id="screen-mme-co-type" arearefs="screen-mme-spot-type">
+                    <para>
+                        <emphasis role="bold">Filter by Menu Item Type</emphasis>:
+                        Click on one or more checkboxes to filter the list of menus and menu items
+                        to items of the selected types. When no checkboxes are checked, menus and
+                        menu items from all types are included.
+                    </para>
+                </callout>
+                <callout id="screen-mme-co-actions" arearefs="screen-mme-spot-actions">
+                    <para>
+                        <emphasis role="bold">Actions Drop-down Menu</emphasis>:
+                        Click on one of the drop-down menus in the Actions column to see and use
+                        actions available for each entry, including Edit, Delete, Add Menu Item.
+                    </para>
+                </callout>
+                <callout id="screen-mme-co-scrollbar" arearefs="screen-mme-spot-scrollbar">
+                    <para>
+                        <emphasis role="bold">Lazy-load Scrollbar</emphasis>:
+                        When there are many more menus and menu items than can fit on-screen, only
+                        enough items are retrieved to fill the display. When you use the scrollbar,
+                        additional items are fetched. This means that scrolling might appear to be
+                        slightly slower than you might expect, but it allows filtering, sorting and
+                        initial display to be much faster when you have hundreds or thousands of
+                        menu items.
+                    </para>
+                </callout>
+                <callout id="screen-mme-co-buttons" arearefs="screen-mme-spot-buttons">
+                    <para>
+                        <emphasis role="bold">Buttons</emphasis>:
+                        Click <guibutton>Add Menu</guibutton> or <guibutton>Add Menu
+                        Item</guibutton> to add menu components as required. If necessary, you may
+                        click <guibutton>Reset to Defaults</guibutton> to reset all menus to their
+                        default state.
+                    </para>
+                </callout>
+            </calloutlist>
+        </imageobjectco>
+    </mediaobjectco>
+    
+    <section id="navigation.menu.manage.dragndrop">
+        <title>Dragging Menu Items to Manage Position</title>
+        
+        <para>
+            In addition to being able to manage a menu item's position through the
+            <emphasis role="dialog">Edit Menu Item</emphasis> dialog, a menu item row in the
+            <emphasis role="screen">Manage Menus</emphasis> screen can be dragged onto and between
+            other menu items.
+        </para>
+
+        <para>
+            When a menu item is dragged on top of another menu or menu item, the item beneath is
+            highlighted. Note that you cannot drag the top-level menus.
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-manage_menus-dnd-nested-highlight.png"/>
+            </imageobject>
+        </mediaobject>
+
+        <para>
+            If you release the dragged menu item here, it becomes nested within the
+            highlighted menu/menu item.
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-manage_menus-dnd-nested-moved.png"/>
+            </imageobject>
+        </mediaobject>
+
+        <para>
+            When a menu item is dragged between two menus or menu items, a thin marker, or "drop
+            line", appears, indicating the target location.
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-manage_menus-dnd-between-highlight.png"/>
+            </imageobject>
+        </mediaobject>
+
+        <para>
+            If you release the dragged menu item here, it is moved to this location. If the
+            location is between two rows of different depths, the menu item is moved to the
+            depth closest to its pre-drag depth.
+        </para>
+            
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-manage_menus-dnd-between-moved.png"/>
+            </imageobject>
+        </mediaobject>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

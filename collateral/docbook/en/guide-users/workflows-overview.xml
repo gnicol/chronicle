@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="workflows.overview">
+    <title>Overview</title>
+
+    <para>
+        A workflow is a group of <emphasis>states</emphasis> that are used to guide content
+        from creation to publication. Before content is published, you can define states that
+        provide a simple and linear workflow, or states that provide a branching workflow of
+        arbitrary complexity. An example of a simple, linear workflow would be:
+        <emphasis>draft</emphasis> -&gt; <emphasis>review</emphasis> -&gt;
+        <emphasis>published</emphasis>.
+    </para>
+
+    <para>
+        Each state is defined by its name and a set of <emphasis>transitions</emphasis> to other
+        states. For example, the default workflow provided by &product.longname; provides
+        transitions to the <emphasis>draft</emphasis> and <emphasis>published</emphasis> states from
+        the <emphasis>review</emphasis> state.
+    </para>
+
+    <para>
+        Each transition can specify <emphasis>conditions</emphasis> that must be met before the
+        transition is permitted, and <emphasis>actions</emphasis> that should occur when transitions
+        are made. For example, it is possible to specify a condition requiring content to be
+        categorized before the transition to the next state, and to specify that all site users with
+        the reviewer's role be sent an email informing them of the transition to the review state.
+    </para>
+
+    <para>
+        A workflow applies to content when it has been assigned via the content's content type. All
+        content of a particular content type inherits the same workflow. If you edit a content type
+        to use a different workflow, the disposition of content created with the original workflow
+        may change: content in a state that exists in both workflows remains in that state, content
+        in any other state is considered to be in the new workflow's default state. If no workflow
+        has been assigned to a content type, all content of that type is considered to be
+        <emphasis>published</emphasis>.
+    </para>
+
+    <para>
+        Your interaction with workflows occurs each time you save content. If a workflow is
+        assigned to your content's content type, when you save the content options are presented to
+        transition the content to other states, provided the appropriate conditions have been met.
+        If no workflow has been assigned, your content is considered published when it is saved.
+        While saving the content, a transition only occurs when the content's workflow state differs
+        from its previous state, or when the content entry is new and is being saved with a
+        non-default state.
+    </para>
+
+    <para>
+        Workflow states, and their transitions, conditions and actions are specified in the States
+        field on the <xref linkend="workflows.add"/> screen. Workflow syntax is presented in
+        <xref linkend="workflows.configure"/>.
+    </para>
+
+    <note>
+        <title>The "Published" State</title>
+
+        <para>
+            When content has an assigned workflow and is in the
+            <emphasis role="bold">published</emphasis> state, or if the content has no workflow
+            assigned, the content is considered to be <emphasis>published</emphasis>. Content in any
+            other state is considered to be <emphasis>unpublished</emphasis>. This is important when
+            considering the permissions labelled <emphasis>Access Unpublished Content</emphasis> and
+            <emphasis>Publish Content</emphasis>.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

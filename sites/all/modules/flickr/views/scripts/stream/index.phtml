@@ -1,0 +1,21 @@
+<? if ($this->hasConfig && $this->apiKey) { ?>
+<div dojoType="p4cms.flickr.SlideShow"
+    imageWidth          = "<?= $this->escapeAttr($this->imageDimensions) ?>"
+    imageHeight         = "<?= $this->escapeAttr($this->imageDimensions) ?>"
+    slideshowInterval   = "<?= $this->escapeAttr($this->imageDelay) ?>"
+    fixedHeight         = "true"
+    autoStart           = "true"
+    titleTemplate       = "<?= ($this->showTitle) ? '${title}' : '' ?>"
+    apikey              = "<?= $this->escapeAttr($this->apiKey)?>"
+    userid              = "<?= $this->escapeAttr($this->userId) ?>"
+    groupid             = "<?= $this->escapeAttr($this->groupId) ?>"
+    tags                = "<?= $this->escapeAttr($this->tags) ?>"
+    widgetId            = "<?= $this->escapeAttr($this->widgetId)?>"
+    widgetRegion        = "<?= $this->escapeAttr($this->widgetRegion)?>"
+></div>
+<?
+} else if (!$this->apiKey) {
+    echo "The Flickr module is not configured.";
+} else {
+    echo "No image slideshow data to fetch.<br />Plese enter a tag, user, or group.";
+} ?>

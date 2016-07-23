@@ -1,0 +1,10 @@
+.p4cms-ui.setup-module #buttons-element {
+    margin-bottom: 3px;
+}
+.p4cms-ui.setup-module fieldset#fieldset-buttons {
+    display: inline;
+}
+
+.p4cms-ui.setup-module .info .summary table tr.odd td {
+    background-color: #eef2f5;
+}

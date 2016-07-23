@@ -1,0 +1,60 @@
+<?
+// setup paginated content adapter.
+$adapter    = new Zend_Paginator_Adapter_Iterator($this->modules);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// serve dojo data to populate the data grid.
+// pass per-item callback to craft each entry.
+print $this->dataGrid()->dojoData(
+    $paginator,
+    function($module, $dataGrid)
+    {
+        $status  = $module->isEnabled() ? 'enabled' : 'disabled';
+        $iconUrl = ($module->hasIcon())
+            ? $module->getIconUrl()
+            : $dataGrid->view->module('site')->getBaseUrl() . '/images/module-' . $status . '.png';
+
+        $dependencies = array();
+        foreach ($module->getDependencies() as $dependency) {
+            // get a pretty label if we have the dependent module otherwise use id
+            $label = P4Cms_Module::exists($dependency['name'])
+                ? P4Cms_Module::fetch($dependency['name'])->getLabel()
+                : ucfirst($dependency['name']);
+
+            $dependencies[] = array(
+                'name'      => $dependency['name'],
+                'label'     => $label,
+                'type'      => $dependency['type'],
+                'versions'  => $dependency['versions'],
+                'satisfied' => (P4Cms_Module::isDependencySatisfied(
+                    $dependency['name'],
+                    $dependency['type'],
+                    $dependency['versions']
+                ) ? 1 : 0)
+            );
+        }
+
+        $isConfigurable = $module->isEnabled() && $module->isConfigurable();
+        return array(
+            'name'                  => $module->getName(),
+            'label'                 => $module->getLabel(),
+            'version'               => $module->getVersion(),
+            'status'                => ucfirst($status),
+            'core'                  => (int) $module->isCoreModule(),
+            'enabled'               => (int) $module->isEnabled(),
+            'configurable'          => (int) $isConfigurable,
+            'configRouteParams'     => $isConfigurable ? $module->getConfigRouteParams() : null,
+            'description'           => $module->getDescription(),
+            'maintainer'            => array(
+                'name'  => $module->getMaintainerInfo('name'),
+                'email' => $module->getMaintainerInfo('email'),
+                'url'   => $module->getMaintainerInfo('url'),
+            ),
+            'dependencies'          => $dependencies,
+            'icon'                  => $iconUrl
+        );
+    },
+    'name'
+);

@@ -1,0 +1,26 @@
+.content-entry-type-pin-post h1 {
+    font-size: 24px;
+}
+
+.content-element.content-element-type-pinboard {
+    overflow: hidden;
+    margin: 10px 0 20px 0;
+}
+
+.content-element.content-element-type-pinboard .pin {
+    width: 175px;
+    margin: 1px 10px 10px 1px;
+    float: left;
+    border: 9px solid #fff;
+    box-shadow: 0px 1px 3px #555;
+    -moz-box-shadow: 0 1px 3px #555;
+    -webkit-box-shadow: 0 1px 3px #555;
+    font-size: 11px;
+}
+
+.content-element.content-element-type-pinboard .pin img {
+    width: 175px;
+    display: block;
+    margin-bottom: 9px;
+    border: 0 none;
+}

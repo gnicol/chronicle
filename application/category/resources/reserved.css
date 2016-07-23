@@ -1,0 +1,143 @@
+
+/* Content sub-form styles */
+
+.p4cms-ui .content-form .category-sub-form dt#category-categories-label {
+    display: none;
+}
+
+.p4cms-ui .content-form .category-sub-form dd#category-categories-element {
+    width: 240px;
+    height: 200px;
+    overflow: auto;
+    padding: 0 0 0 3px;
+    margin: 0;
+    border: 1px solid #aaa;
+    background-color: white;
+}
+
+.p4cms-ui.content-form-container .content-form .category-sub-form dd#category-categories-element {
+    width: 230px;
+}
+
+.p4cms-ui .content-form .category-sub-form #category-categories-element label {
+    display: block;
+    cursor: pointer;
+    line-height: normal;
+    padding-left: 16px;
+    text-indent: -16px;
+}
+
+.p4cms-ui .content-form .category-sub-form dd#addCategory-element {
+    margin: 8px 0px 8px 0px;
+}
+
+.p4cms-ui .content-form .category-sub-form dd#addCategory-element .dijitDropDownButton {
+    margin: 0;
+}
+
+.p4cms-ui .content-form .category-sub-form #addCategory-element .dijitButtonText {
+    font-size: 1em;
+}
+
+
+/* Tooltip dialog add category styles */
+
+.dijitPopup .p4cms-ui .category-form h1,
+.dijitPopup .p4cms-ui .category-form .title-label,
+.dijitPopup .p4cms-ui .category-form .parent-label,
+.dijitPopup .p4cms-ui .category-form p.description {
+    display: none;
+}
+
+.dijitPopup .p4cms-ui .category-form dd {
+    clear: both;
+    margin: 0;
+    width: auto;
+    min-width: 0px;
+}
+
+.dijitPopup .p4cms-ui .category-form fieldset {
+    padding: 0px;
+}
+
+.dijitPopup .p4cms-ui .category-form input,
+.dijitPopup .p4cms-ui .category-form select {
+    width: 200px;
+}
+
+.dijitPopup .p4cms-ui .category-form dd#buttons-element {
+    text-align: left;
+    margin: 10px 0 0 0;
+    padding: 0;
+    left: 0;
+    top: 0;
+}
+
+.dijitPopup .p4cms-ui .category-form dd#save-element {
+    margin: 0;
+}
+
+.dijitPopup .p4cms-ui .category-form dd#save-element .dijitButton {
+    margin-left: 0;
+}
+
+.dijitPopup .p4cms-ui .category-form .dijitButtonText {
+    font-size: 1em;
+}
+
+.dijitPopup .p4cms-ui .category-form ul.errors {
+    margin: 3px 0;
+    font-size: .8em;
+}
+
+
+/* Add/Edit category page styles */
+
+.p4cms-ui .category-module.manage-controller select#indexContent {
+    max-width: 300px;
+}
+
+/* Categories grid */
+
+.p4cms-ui .categories-grid .dojoxGridCell div.category {
+    background: url('images/folder-24x24.gif') 0 50% no-repeat;
+    padding: 6px 0 6px 30px;
+    margin-left: 4px;
+}
+
+.p4cms-ui .categories-grid .dojoxGridCell div.category.has-content {
+    background: url('images/folder-content-24x24.gif') 0 50% no-repeat;
+}
+.p4cms-ui .categories-grid .dojoxGridCell div.category.obligatory {
+    background: url('images/folder-disabled-24x24.gif') 0 50% no-repeat;
+}
+.p4cms-ui .categories-grid .dojoxGridCell div.category.obligatory.has-content {
+    background: url('images/folder-content-disabled-24x24.gif') 0 50% no-repeat;
+}
+
+.p4cms-ui .categories-grid .dojoxGrid .dojoxGridRowSelected .dojoxGridRowTable tr {
+    background: transparent;
+}
+
+.p4cms-ui .data-grid.categories-grid td.dojoxGridRowSelected {
+    background: transparent;
+    color: #000000;
+}
+
+.p4cms-ui.dojoDndMove .categories-grid .dojoxGrid td.dojoxGridRowSelected {
+    color: rgba(0,0,0,0.5);
+}
+
+.p4cms-ui .categories-grid .dojoxGrid .dojoxGridRowSelected .dojoxGridRowTable .dojoxGridCell a {
+    color: #000000;
+}
+
+.p4cms-ui .categories-grid .grid-footer .selected-rows {
+    display: none;
+}
+
+/* Category form */
+
+.p4cms-ui .category-form textarea#description {
+    width: 500px;
+}

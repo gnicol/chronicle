@@ -1,0 +1,47 @@
+<?
+if ($this->videoId) {
+    $params = array(
+        'version'           => '3',
+        'feature'           => 'player_embedded',
+        'autoplay'          => $this->autoplay,
+        'controls'          => $this->controls,
+        'rel'               => $this->showRelated,
+        'iv_load_policy'    => $this->showAnnotations,
+        'hd'                => $this->playHd
+    );
+
+    if ($this->controls != 0) {
+        if ($this->allowFullscreen) {
+            $params['fs']       = $this->allowFullscreen;
+        }
+
+        $params['autohide']     = $this->autohide;
+    }
+
+    // looping a single video requires the playlist be set to the id of that video
+    if ($this->loop) {
+        $params['loop']     = $this->loop;
+        $params['playlist'] = $this->videoId;
+    }
+
+    $url = 'http://www.youtube.com/v/' . $this->videoId . '?' . http_build_query($params);
+    ?>
+    <object style="height: <?= $this->escapeAttr($this->videoHeight) ?>px; width: <?= $this->escapeAttr($this->videoWidth) ?>px">
+    <param name="movie" value="<?= $url ?>">
+    <? if ($this->allowFullscreen) {?>
+    <param name="allowFullScreen" value="true">
+    <?}?>
+    <param name="allowScriptAccess" value="always">
+    <embed src="<?=$url?>"
+           type="application/x-shockwave-flash"
+           <? if ($this->allowFullscreen) {?>
+           allowfullscreen="true"
+           <?}?>
+           allowScriptAccess="always"
+           wmode="opaque"
+           width="<?= $this->escapeAttr($this->videoWidth) ?>"
+           height="<?= $this->escapeAttr($this->videoHeight) ?>">
+    </object>
+<?} else {
+    echo "No video to display.";
+}?>

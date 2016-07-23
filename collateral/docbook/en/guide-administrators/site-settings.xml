@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="site.settings">
+    <title>General Settings</title>
+
+    <para>
+        As an administrator, additional option appears for you in the <guibutton>Manage</guibutton>
+        menu:
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-toolbar_menu-general_settings.png"/>
+            </imageobject>
+        </mediaobject>
+    </para>
+
+    <para>
+        When you click <guimenuitem>General Settings</guimenuitem>, the
+        <emphasis role="screen">General Settings</emphasis> is displayed.
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-general_settings.png"/>
+            </imageobject>
+        </mediaobject>
+    </para>
+
+    <variablelist>
+        <varlistentry>
+            <term>Title</term>
+
+            <listitem>
+                The title of your site.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term>Description</term>
+
+            <listitem>
+                A description of your site. This is included in meta tags on each page.
+            </listitem>
+        </varlistentry>
+
+        <varlistentry id="robots">
+            <term>robots.txt</term>
+
+            <listitem>
+                A "Robots Exclusion Standard" definition, to instruct search engine robots which
+                portions of your site <emphasis>not</emphasis> to index. For further details, please
+                see <ulink url="http://www.robotstxt.org/orig.html">A Standard for Robot
+                Exclusion</ulink> at
+                <ulink url="http://www.robotstxt.org/">www.robotstxt.org</ulink>, and
+                <ulink url="http://en.wikipedia.org/wiki/Robots_exclusion_standard">Robots Exclusion
+                Standard</ulink> at <ulink url="http://www.wikipedia.org/">Wikipedia</ulink>.
+            </listitem>
+        </varlistentry>
+    </variablelist>
+
+    <para>
+        The Perforce Server connection settings are also presented to assist with any administrative
+        tasks you may need to perform outside of &product.name;.
+    </para>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

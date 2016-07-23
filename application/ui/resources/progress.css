@@ -1,0 +1,25 @@
+/* Progress Bar */
+
+.p4cms-ui .dijitProgressBar {
+    border: 1px solid #666;
+    border-radius: 3px;
+    background-color: #ccc;
+    margin: 15px 0 10px 0;
+}
+
+.p4cms-ui .dijitProgressBarLabel {
+    padding: 5px 0 5px 5px;
+    line-height: 1;
+    color: #fff;
+    text-shadow: 0 0 2px #000;
+}
+
+.p4cms-ui .dijitProgressBarFull {
+    height: 30px;
+    border-right-color: #666;
+}
+
+.p4cms-ui .dijitProgressBarFull .dijitProgressBarTile {
+    background-color: #2c59d7;
+    background-image: none;
+}

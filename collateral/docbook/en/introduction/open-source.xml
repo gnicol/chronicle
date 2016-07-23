@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="introduction.opensource">
+    <title>Open Source</title>
+
+    <section id="introduction.opensource.license">
+        <title>&product.name; License</title>
+
+        <para>
+            Copyright &copy; 2011-2012, Perforce Software<?linebreak?>
+            All rights reserved.
+        </para>
+
+        <para>
+            Redistribution and use in source and binary forms, with or without modification, are
+            permitted provided that the following conditions are met:
+        </para>
+
+        <itemizedlist role="bullet">
+            <listitem>
+                Redistributions of source code must retain the above copyright notice, this list of
+                conditions and the following disclaimer.
+            </listitem>
+
+            <listitem>
+                Redistributions in binary form must reproduce the above copyright notice, this list
+                of conditions and the following disclaimer in the documentation and/or other
+                materials provided with the distribution.
+            </listitem>
+        </itemizedlist>
+
+        <para>
+            THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY
+            EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+            MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL
+            COPYRIGHT HOLDER BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+            CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+            SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
+            ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+            NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+            ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+        </para>
+
+        <para>
+            This product is subject to U.S. export control laws and regulations including, but not
+            limited to, the U.S. Export Administration Regulations, the International Traffic in
+            Arms Regulation requirements, and all applicable end-use, end-user and destination
+            restrictions. Licensee shall not permit, directly or indirectly, use of any Perforce
+            technology in or by any U.S. embargoed country or otherwise in violation of any U.S.
+            export control laws and regulations.
+        </para>
+
+        <para>
+            This distribution also includes the following Perforce software; please consult the
+            following for the license terms that apply to these pieces of software only:
+        </para>
+
+        <itemizedlist role="bullet">
+            <listitem>
+                <application>Perforce Server and Client</application>
+                (<application>p4d</application> and <application>p4</application>)<?linebreak?>
+                Location: <filename>p4-bin/bin.<replaceable>&lt;platform&gt;</replaceable></filename><?linebreak?>
+                License: <ulink url="http://www.perforce.com/downloads/terms-use">http://www.perforce.com/downloads/terms-use</ulink>
+            </listitem>
+        </itemizedlist>
+
+        <para>
+            This distribution also includes the following third-party software; please consult the
+            accompanying license file for the license terms that apply to that software only:
+        </para>
+
+        <itemizedlist role="bullet">
+            <listitem>
+                <application>Ace Editor</application>
+                Location:     <filename>sites/all/modules/ide/resources/ace</filename><?linebreak?>
+                License file: <filename>sites/all/modules/ide/resources/ace/LICENSE</filename>
+            </listitem>
+
+            <listitem>
+                <application>Dojo Toolkit</application>
+                (<emphasis>Includes the full Dojo, Dijit and Dojox projects</emphasis>)<?linebreak?>
+                Location:     <filename>application/dojo/resources</filename><?linebreak?>
+                License file: <filename>application/dojo/resources/dojo/LICENSE</filename>
+            </listitem>
+
+            <listitem>
+                <application>jQuery</application><?linebreak?>
+                Location:     <filename>docs/manual/jquery-1.6.2.min.js</filename><?linebreak?>
+                License file: <filename>docs/manual/jquery/MIT-LICENSE</filename>
+            </listitem>
+
+            <listitem>
+                <application>Phly Publish-Subscribe System</application><?linebreak?>
+                Location:     <filename>library/Phly</filename><?linebreak?>
+                License file: <filename>library/Phly/LICENSE.txt</filename>
+            </listitem>
+
+            <listitem>
+                <application>SimpleDiff</application><?linebreak?>
+                Location:     <filename>library/simplediff</filename><?linebreak?>
+                License file: <filename>library/simplediff/LICENSE.txt</filename>
+            </listitem>
+
+            <listitem>
+                <application>SyntaxHighlighter</application><?linebreak?>
+                Location:     <filename>docs/manual/syntaxhighlighter_3.0.83</filename><?linebreak?>
+                License file: <filename>docs/manual/syntaxhighlighter_3.0.83/MIT-LICENSE</filename>
+            </listitem>
+
+            <listitem>
+                <application>Zend Framework</application><?linebreak?>
+                Location:     <filename>library/Zend</filename><?linebreak?>
+                License file: <filename>library/Zend/LICENSE.txt</filename>
+            </listitem>
+        </itemizedlist>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

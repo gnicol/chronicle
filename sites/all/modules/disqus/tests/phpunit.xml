@@ -1,0 +1,10 @@
+<phpunit bootstrap="../../../../../tests/phpunit/TestBootstrap.php">
+ <testsuites>
+  <testsuite name="Disqus Module">
+   <directory>.</directory>
+  </testsuite>
+ </testsuites>
+ <php>
+  <const name="DISQUS_SHORT_NAME" value="test-short-name"/>
+ </php>
+</phpunit>

@@ -1,0 +1,429 @@
+    		         Installation Instructions for
+      Perforce Chronicle, the Perforce Content Management System
+
+                             Version 2012.3
+
+Introduction
+
+    This document describes the installation process for Perforce
+    Chronicle (hereafter referred to as "Chronicle") release 2012.3.
+    Varying OS distributions achieve the same results in different ways
+    so while we do our best to inform, you may need to consult your
+    specific distribution documentation.
+
+    * Please note, installing Chronicle is typically a System
+      Administrator function and often requires root access.
+
+Supported Web Server Platforms
+
+    Because Chronicle includes binary versions of other Perforce
+    software components, we support Chronicle on the following operating
+    systems and web servers:
+
+    Linux 2.6 Intel (x86, x86_64) or
+    Mac OS X 10.6 or 10.7 (x86_64) with:
+    
+    * Apache Web Server 2.2 or newer
+      http://httpd.apache.org/
+
+Required Web Server Software
+
+    The following components are needed on the web server for Chronicle:
+
+    * PHP 5.3.x
+      http://www.php.net
+
+    For platforms running Apache:
+
+    * Apache module 'mod_rewrite' URL rewriting engine
+      http://httpd.apache.org/docs/2.2/mod/mod_rewrite.html
+
+Perforce Server Requirements
+
+    * Perforce 2012.1 or newer (included with Chronicle for platforms
+      above)
+      http://www.perforce.com
+
+        * Perforce Server (P4D)
+        * Perforce Command Line Client (P4)
+
+Recommended Software on Web Server
+
+    The following components are not required, but we recommended you
+    install them for improved performance:
+
+    * P4PHP (the Perforce PHP Extension)
+      Included with the Chronicle package, install directions below.
+
+    * APC (the Alternative PHP Cache)
+      http://php.net/apc
+      Install instructions for APC below.
+
+    * ImageMagick or GD PHP extension
+      http://php.net/magick
+      http://php.net/gd
+
+Step by Step Installation Instructions
+
+    1. Expand the Chronicle package (a "compressed tarball").
+
+        * Many graphical file manager applications (Nautilus on Linux,
+          Finder on Mac, etc.) can automatically expand the Chronicle
+          tarball package by simply double-clicking it.
+
+        * From the command line, you can expand it via the tar command:
+
+            $ tar -zxf p4chronicle.tgz
+   
+        * The contents of the Chronicle package are expanded into a
+          top-level folder named "p4chronicle-<version>", where
+          <version> corresponds to the version downloaded.
+
+    2. Move the contents of the Chronicle package to the correct
+       location.
+
+        * Identify a location where to place the Chronicle files; this
+          should correspond to a directory associated to the virtual
+          host configured under Apache (see the Apache Configuration
+          and Setup section below).
+
+            $ mv /path/to/p4chronicle-<version> /path/to/p4chronicle/vhost/web-root
+    
+        ** Please Note **
+
+        * The command above moves the top-level p4chronicle folder; if
+          you wish to move the contents of the p4chronicle folder (such
+          as if the destination folder already exists), please ensure
+          you move the ".htaccess" file as well, since it is not
+          included with the "*" wildcard. E.g.:
+
+            $ cd /path/to/p4chronicle-<version>
+            $ mv * .htaccess /path/to/p4chronicle/vhost/web-root/
+
+
+    Apache Configuration and Setup  
+
+    * Apache can vary between OS distributions, so please see the
+      documentation specific to your installation of Apache.
+
+    * For example, on Mac OS X, you may have to enable Web Sharing
+      within the Sharing control panel in System Preferences.
+
+    3. Setup an Apache virtual host ("vhost") for your installation.
+    
+        * Please see Apache's full documentation for complete details:
+
+            http://httpd.apache.org/docs/2.2/vhosts/
+
+        * Virtual host configuration example:
+
+            <VirtualHost *:80>
+              ServerName p4chronicle-instance
+              ServerAlias p4chronicle-instance.machine.domain.com
+              ErrorLog "/path/to/apache/logs/p4chronicle-instance.error_log"
+              CustomLog "/path/to/apache/logs/p4chronicle-instance.access_log" common
+              DocumentRoot "/path/to/p4chronicle/vhost/web-root"
+              <Directory "/path/to/p4chronicle/vhost/web-root">
+                AllowOverride All
+                Order allow,deny
+                Allow from all
+              </Directory>
+            </VirtualHost>
+
+        * Ensure the DocumentRoot and Directory correspond to the same
+          location where you placed the Chronicle package contents in
+          step 2.
+      
+    4. Ensure the correct Apache modules are enabled.
+    
+        * To query whether the PHP and Rewrite modules are active, you
+          can use the 'apachectl' utility to list all the modules
+          active (this may be named 'apache2ctl' on your system):
+
+            $ apachectl -t -D DUMP_MODULES
+
+            * Simply look for 'php5_module' and 'rewrite_module' in the
+              output. If you see them, you can skip ahead to step 5.
+
+        * If your distribution ships with the Apache utility, 'a2enmod',
+          you can use this to enable the PHP and Rewrite modules:
+
+            $ sudo a2enmod php5 rewrite
+
+        * Without the 'a2enmod' utility, you can fall back to editing
+          the Apache configuration file by hand. Locate your Apache
+          configuration file for modules and either uncomment or add
+          the following lines:
+
+            LoadModule  php5_module     libexec/apache2/libphp5.so
+            LoadModule  rewrite_module  libexec/apache2/mod_rewrite.so
+
+        * Please note your Apache installation may have different paths
+          for where its modules (the .so files) are located.
+
+    5. Restart your web server!
+
+        * To ensure the Apache configuration changes you made become
+          active, please restart the web server.
+
+            $ sudo apachectl restart
+
+        * You can then query Apache's active virtual hosts and modules
+          to confirm your changes are in effect:
+
+            $ apachectl -t -D DUMP_VHOSTS
+            $ apachectl -t -D DUMP_MODULES
+
+
+    System Administration
+
+    6. Assign correct ownership and permission of the Chronicle files.
+
+        * The 'data' top-level folder in the Chronicle distribution
+          needs to be writeable by the web server. To achieve this
+          effect, simply change ownership of the data folder to the web
+          user:
+
+            $ sudo chown -R www /path/to/p4chronicle/vhost/web-root/data
+
+        * The 'www' user above is an example of what the web server user
+          name might be. Depending on your distribution, this could be
+          '_www', 'web', 'nobody' or something else entirely.
+
+        * From a security perspective, we recommend that the minimum
+          file permissions should be granted to the user/group, under
+          which the web server runs, against the Chronicle distribution.
+
+
+Perforce Server Requirements 
+
+    The Chronicle package includes a copy of P4D for use in the p4-bin/
+    directory.  During installation you can choose to let the
+    application run P4D for you, or point to a pre-configured Perforce
+    installation.
+
+    While allowing the application to handle P4D lowers the barrier to
+    entry we highly suggest you run your own Perforce server for
+    performance reasons. For more information on how to setup a Perforce
+    server please see the following:
+
+        http://www.perforce.com/perforce/technical.html
+
+    Note:
+
+    We strongly recommend that you do not utilize a Spec Depot, because
+    Chronicle makes heavy use of temporary labels and clients, which
+    can quickly consume disk space within the Spec Depot. For more
+    information on disabling or removing a Spec Depot, please see the
+    following Knowledge Base article:
+
+        http://kb.perforce.com/article/1007/removing-or-disabling-a-spec-depot
+
+    Similarly, we also recommend disabling the use of client workspace
+    and global metadata locks (server locks); please see this Knowledge
+    Base article on how to disable server locks:
+
+        http://kb.perforce.com/article/1576/client-workspace-and-global-metadata-locks
+
+    While Chronicle can be configured to use an existing Perforce Server
+    serving non-Chronicle users, we do not recommend this approach for
+    the following reasons:
+
+        * Performance impact: sharing a single database will decrease
+          performance for both traditional Perforce clients and Chronicle
+          users during times of heavy load.
+
+        * Inappropriate security model for public sites: A single
+          database should not be used to house both confidential data
+          (e.g. source code added by traditional Perforce clients) and to
+          back a public facing application such as Chronicle. In the
+          unlikely event of a security breach this could lead to
+          disclosure of confidential data.
+
+        * Server locks: it is recommended this feature be disabled for
+          Chronicle Perforce servers but be enabled for traditional
+          Perforce servers. The administrator will be forced to
+          compromise one way or the other when sharing a server.
+
+        * If you purchase and install a Chronicle-specific Perforce
+          server license, traditional Perforce clients (p4, P4V, etc.)
+          will not be able to access the Perforce Server.
+
+
+Perforce Server License
+
+    By default, the Perforce Server runs without a license. This will
+    give you up to 20 users and 20 clients, or up to 1000 files. That
+    is, if you exceed 20 users, the Perforce Server will be then limited
+    to 1000 files; correspondingly, if you exceed 1000 files, the
+    Perforce Server will then be limited to 20 users and 20 clients.
+    If you exceed both 1000 files and 20 users (or 20 clients), the
+    Perforce Server will no longer work until either of those counts
+    are brought below their limits.
+
+    You can view the license usage from within Chronicle. Once logged
+    in (and with appropriate permissions), you can click Manage ->
+    System Information -> Perforce tab. The license usage will be
+    displayed at the bottom.
+
+    These limits can be lifted by purchasing a license. Please contact
+    sales@perforce.com, or visit:
+
+        http://www.perforce.com/purchase
+        
+    Please note:
+
+    * A Perforce Server licensed for Chronicle use will enforce the
+      use of passwords.
+
+    * Traditional Perforce clients (p4, P4V, etc.) cannot access a
+      Perforce Server licensed for Chronicle.
+
+
+Advanced Installation & Performance Tuning
+ 
+    While we designed Chronicle to be used out of the box, it does so at
+    the cost of performance. Therefore, we strongly recommend you make
+    the following configuration changes to achieve better performance.
+
+    P4PHP, the Perforce extension for PHP:
+
+    * By default, Chronicle communicates to the Perforce Server using
+      the bundled Perforce Command Line client, P4. By installing P4PHP,
+      Chronicle will automatically detect its presence and use that
+      instead.
+
+        1. First determine which php.ini file is in use by the PHP
+           Apache module. Please note that it may not necessarily be the
+           same php.ini file that is in use when calling PHP from the
+           command line (running 'php --ini' from the command line will
+           report this).
+
+           If you're having trouble determining which php.ini the PHP
+           Apache module is using, create a PHP file that can be served
+           through Apache with the following contents:
+             
+                <?php phpinfo();?>
+           
+           Point your browser to this file and look for this table row
+           in the resulting table:
+             
+                Loaded Configuration File
+
+        2. To enable P4PHP, edit the web server's php.ini file and add
+           the following line:
+
+                extension=/path/to/p4chronicle/p4-bin/bin.<platform>/p4php/perforce-php53.so
+
+           Alternatively, you can copy the 'perforce-php53.so' file to
+           the default location for PHP extensions, and then just add
+           this line instead:
+
+                extension=perforce-php53.so
+
+        3. Restart Apache for the changes to become active.
+
+        4. To verify that P4PHP is active, navigate to the phpinfo file
+           you created in step 1. You should then see a "perforce"
+           section (you can search for "Perforce Module"). It should
+           report that the module is enabled and display the version
+           information.
+
+    Alternative PHP Cache (APC)
+
+    * APC is a free, open, and robust framework for caching and
+      optimizing PHP intermediate code. Enabling APC will further
+      improve Chronicle performance. More information about APC can be
+      found here:
+
+            http://pecl.php.net/package/APC
+
+        1. To enable APC first download and install the package; if
+           your distribution does not offer the APC package for PHP,
+           you can do so via PECL:
+
+                $ sudo pecl install apc
+
+        2. Ensure APC is enabled in your PHP Apache module's php.ini
+           file (as determined in the section above for P4PHP). You may
+           need to add the following line:
+
+                extension=apc.so
+
+        3. Restart Apache for the changes to become active.
+
+        4. To verify that APC is active, navigate to the phpinfo file
+           you created in step 1 in the section above for P4PHP. You
+           should then see a "apc" section (you may have to search for
+           "APC Support"). It should report its version information and
+           a table for its directives.
+
+            * We currently do not have any specific recommendations for 
+              which APC directives to set.
+
+    ImageMagick or GD PHP extension
+
+    * ImageMagick and GD are PHP extensions for image processing. If
+      either one of these extensions is present, Chronicle will use them
+      for image scaling and sharpening functions for displaying images.
+
+    * If Chronicle detects both, it will prefer ImageMagick due to its
+      support for more image formats and more features. More information
+      about ImageMagick can be found here:
+
+            http://pecl.php.net/package/imagick
+
+        1. To enable ImageMagick first download and install the package;
+           if your distribution does not offer the ImageMagick package
+           for PHP, you can do so via PECL:
+
+                $ sudo pecl install imagick
+
+        2. Ensure ImageMagick is enabled in your PHP Apache module's
+           php.ini file (as determined in the section above for P4PHP).
+           You may need to add the following line:
+
+                extension=imagick.so
+
+        3. Restart Apache for the changes to become active.
+
+        4. To verify that ImageMagick is active, navigate to the phpinfo
+           file you created in step 1 in the section above for P4PHP.
+           You should then see a "imagick" section (you may have to
+           search for "ImageMagick"). It should report its version
+           information and a table for its directives.
+
+            * We currently do not have any specific recommendations for 
+              which ImageMagick directives to set.
+
+    * If you do not or cannot use ImageMagick, you can use the GD PHP
+      extension instead.
+
+        1. GD is typically included with PHP itself; if not, your OS may
+           provide a package for it.
+
+        2. Ensure GD is enabled in your PHP Apache module's php.ini file
+           (as determined in the section above for P4PHP). You may need
+           to add the following line:
+
+                extension=gd.so
+
+        3. Restart Apache for the changes to become active.
+
+        4. To verify that GD is active, navigate to the phpinfo file you
+           created in step 1 in the section above for P4PHP. You should
+           then see a "gd" section (you may have to search for "GD
+           Support"). It should report its version information and a
+           table for its directives.
+
+            * We currently do not have any specific recommendations for 
+              which GD directives to set.
+
+
+    ** Please note about phpinfo file created above **
+
+    * Once you've completed installing and enabling P4PHP and APC, we
+      recommend you remove the phpinfo file you created to avoid
+      disclosing information about your installation.
+
+END

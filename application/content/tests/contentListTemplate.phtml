@@ -1,0 +1,8 @@
+<ul>
+<?
+foreach ($this->entries as $entry) {
+    ?>
+    <li id = "<?= $entry->getId() ?>" class = "<?= $entry->getContentType()->getId() ?>"><?= $entry->title ?></li>
+    <?
+}
+?></ul>

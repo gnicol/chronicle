@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="branches.manage">
+    <title>Managing Sites and Branches</title>
+
+    <para>
+        The <emphasis role="screen">Sites and Branches</emphasis> screen is where many branch
+        management tasks are performed. This section provides a summary of this screen's features.
+        Hover your mouse over each of the numbered callouts to highlight the associated area of the
+        screen.
+    </para>
+
+    <mediaobjectco role="screen-mc">
+        <subtitle>The Sites and Branches Screen</subtitle>
+
+        <imageobjectco>
+            <areaspec units="imagemap">
+                <area id="screen-msb-spot-search" linkends="screen-msb-co-search" coords="0,90,129,124"/>
+                <area id="screen-msb-spot-site" linkends="screen-msb-co-site" coords="0,128,129,158"/>
+                <area id="screen-msb-spot-owner" linkends="screen-msb-co-owner" coords="0,164,129,194"/>
+                <area id="screen-msb-spot-actions" linkends="screen-msb-co-actions" coords="577,109,607,171"/>
+                <area id="screen-msb-spot-scrollbar" linkends="screen-msb-co-scrollbar" coords="611,107,639,230"/>
+                <area id="screen-msb-spot-buttons" linkends="screen-msb-co-buttons" coords="498,231,639,250"/>
+            </areaspec>
+
+            <imageobject>
+                <imagedata fileref="images/screen-manage_sites_and_branches-callouts.png"/>
+            </imageobject>
+
+            <calloutlist>
+                <callout id="screen-msb-co-search" arearefs="screen-msb-spot-search">
+                    <para>
+                        <emphasis role="bold">Filter by Text Search</emphasis>:
+                        Enter text to filter the list of sites and branches to entries whose names
+                        or owners match the text.
+                    </para>
+                </callout>
+
+                <callout id="screen-msb-co-site" arearefs="screen-msb-spot-site">
+                    <para>
+                        <emphasis role="bold">Filter by Site</emphasis>:
+                        Click on one or more checkboxes to filter the list of branches to those
+                        belonging the selected sites. When no checkboxes are checked, all branches
+                        in all sites are included.
+                    </para>
+                </callout>
+
+                <callout id="screen-msb-co-owner" arearefs="screen-msb-spot-owner">
+                    <para>
+                        <emphasis role="bold">Filter by Owner</emphasis>:
+                        Click on one or more checkboxes to filter the list of sites and branches to
+                        those belonging to the selected owner. When no checkboxes are checked, all
+                        branches and sites for any owner are included.
+                    </para>
+                </callout>
+
+                <callout id="screen-msb-co-actions" arearefs="screen-msb-spot-actions">
+                    <para>
+                        <emphasis role="bold">Actions Drop-down Menu</emphasis>:
+                        Click on one of the drop-down menus in the Actions column to see and use
+                        actions available for each entry, including Edit, Delete, and Add Branch.
+                    </para>
+                </callout>
+
+                <callout id="screen-msb-co-scrollbar" arearefs="screen-msb-spot-scrollbar">
+                    <para>
+                        <emphasis role="bold">Lazy-load Scrollbar</emphasis>:
+                        When there are many more sites and branches than fits on-screen, only enough
+                        entries are retrieved to fill the display. When you use the scrollbar,
+                        additional entries are fetched. This means that scrolling might appear to be
+                        slightly slower than you might expect, but it allows filtering, sorting and
+                        initial display to be much faster when you have hundreds or thousands of
+                        sites or branches.
+                    </para>
+                </callout>
+
+                <callout id="screen-msb-co-buttons" arearefs="screen-msb-spot-buttons">
+                    <para>
+                        <emphasis role="bold">Buttons</emphasis>:
+                        The buttons at the bottom right provide the ability to add a new site, or
+                        add a new branch.
+                    </para>
+                </callout>
+            </calloutlist>
+        </imageobjectco>
+    </mediaobjectco>
+
+    <note>
+        <title>Determining the Active Branch</title>
+
+        <para>
+            The name of active branch appears at the left end of the management toolbar, and within
+            the datagrid the active branch is denoted with "(active)". In the screenshot above, this
+            is "Live".
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

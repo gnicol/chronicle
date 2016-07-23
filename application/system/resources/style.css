@@ -1,0 +1,285 @@
+/* tab wrapper styling, including Claro theme overrides */
+.tab-wrapper .system-information {
+    width: 960px;
+}
+
+span.systemInformationUpper{
+    background: url('../../ui/resources/images/email-icon.jpg') center left no-repeat;
+    margin-left: 10px;
+}
+
+span.systemInformationUpper a {
+    color: #00649D;
+    font-size: 13px;
+    padding-left: 25px;
+}
+
+span.systemInformationUpper a:hover {
+    color: black;
+}
+
+.tab-wrapper .system-information .dijitTabContainerLeft-tabs {
+    border: 0 none;
+    width: 212px;
+    float: left;
+}
+.tab-wrapper .system-information .dijitTab {
+    left: 0;
+    margin: 4px 0;
+    height: 31px;
+}
+.tab-wrapper .system-information .dijitTabInnerDiv,
+.tab-wrapper .system-information .dijitTabActive .dijitTabInnerDiv,
+.tab-wrapper .system-information .dijitTabContent,
+.tab-wrapper .system-information .dijitTabActive .dijitTabContent {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border: 0 none;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+}
+.tab-wrapper .system-information .dijitTabContent div {
+    overflow: hidden;
+}
+
+.tab-wrapper .system-information img.dijitIcon {
+    display: none;
+}
+.tab-wrapper .system-information .dijitTab.dijitTabActive,
+.tab-wrapper .system-information .dijitTab.dijitTabChecked,
+.tab-wrapper .system-information .dijitTab.dijitTabHover {
+    background: url('../../setup/resources/images/step-arrow-cap.png') right top no-repeat;
+}
+
+.tab-wrapper .system-information .dijitTab .tabLabel {
+    float: left;
+    display: inline-block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #1a1a1a;
+    padding: 7px 0px 7px 10px;
+    border: 1px solid #a7a7a7;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    background: url('../../ui/resources/images/button-bg.png') left top repeat-x;
+    width: 190px;
+}
+
+.tab-wrapper .system-information .dijitTab.dijitTabActive .tabLabel,
+.tab-wrapper .system-information .dijitTab.dijitTabChecked .tabLabel,
+.tab-wrapper .system-information .dijitTab.dijitTabHover .tabLabel {
+    background: url('../../ui/resources/images/button-bg-hover.png') left top repeat-x;
+    border-right: 0px;
+    -webkit-border-top-right-radius: 0px;
+    -webkit-border-bottom-right-radius: 0px;
+    -moz-border-radius-topright: 0px;
+    -moz-border-radius-bottomright: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+
+.tab-wrapper .system-information .dijitTabPaneWrapper {
+    border: 0 none;
+    background: inherit;
+}
+.tab-wrapper .system-information .dijitContentPane {
+    background: inherit;
+    padding: 3px 2px 0 24px;
+}
+
+.tab-wrapper .system-information .dijitContentPane h1.system-info-section-heading {
+    display: none;
+}
+
+/* styling for status report panes */
+.p4cms-ui .status-wrapper {
+    border: 1px solid #c7c7c7;
+    border-radius: 6px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    margin: 0;
+    padding: 0;
+    width: auto;
+}
+
+.p4cms-ui .status-wrapper .status:first-child {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-top-right-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-topright: 6px;
+}
+
+.p4cms-ui .status-wrapper .status:last-child {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -webkit-border-bottom-right-radius: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    -moz-border-radius-bottomright: 6px;
+}
+
+/* styling for each status report row */
+.p4cms-ui .status-wrapper .status {
+    padding: 9px 12px;
+    margin: 0;
+    border: 0px;
+    color: #1a1a1a;
+    font-size: 12px;
+    overflow: hidden;
+}
+.p4cms-ui .status-wrapper .status + .status {
+    border-top: 1px solid #c7c7c7;
+}
+
+.p4cms-ui .status-wrapper .status .label {
+    clear: left;
+    float: left;
+    display: inline-block;
+    width: 125px;
+    font-weight: bold;
+}
+.p4cms-ui .status-wrapper .status .value {
+    margin-left: 120px;
+}
+
+.p4cms-ui .status-wrapper .status.good {
+    background: #e3f9e4;
+}
+.p4cms-ui .status-wrapper .status.bad {
+    background: #f9e7e7;
+}
+.p4cms-ui .status-wrapper .status.warn {
+    background: #fdf9dc;
+}
+.p4cms-ui .status-wrapper .status.loading {
+    background: #e7e7f9 url('/application/dojo/resources/dijit/icons/images/loadingAnimation_rtl.gif') 50% 50% no-repeat;
+}
+
+.p4cms-ui .status-wrapper .status .message {
+    float: left;
+    display: inline-block;
+    padding-right: 12px;
+}
+
+.p4cms-ui .status-wrapper .status.iframe {
+    padding: 0;
+}
+.p4cms-ui .status-wrapper .status.iframe iframe {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+
+/* phpinfo() styling */
+.p4cms-ui .status-wrapper .status.phpinfo {
+    text-align: center;
+    overflow: scroll;
+    font-size: 100.01%;
+    height: 580px;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo,
+.p4cms-ui .status-wrapper .status.phpinfo td,
+.p4cms-ui .status-wrapper .status.phpinfo th,
+.p4cms-ui .status-wrapper .status.phpinfo h1,
+.p4cms-ui .status-wrapper .status.phpinfo h2
+{
+    color: #000;
+    font-family: sans-serif;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo pre {
+    margin: 0px; font-family: monospace;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo a {
+    color: #009;
+    text-decoration: none;
+    background-color: #fff;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo a:hover {
+    text-decoration: underline;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo a:visited {
+    color: #000;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo table {
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo th {
+    text-align: center !important;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo td,
+.p4cms-ui .status-wrapper .status.phpinfo th
+{
+    padding: 3px;
+    border: 1px solid #000;
+    font-size: 12px;
+    vertical-align: baseline;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo h1 {
+    font-size: 150%;
+    text-align: center;
+    margin: 0.67em 0;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo h2 {
+    font-size: 125%;
+    text-align: center;
+    margin: 0.67em 0;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo .p {
+    text-align: left;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo .e {
+    background-color: #ccf;
+    font-weight: bold;
+    color: #000;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo .h {
+    background-color: #99c;
+    font-weight: bold;
+    color: #000;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo .v {
+    background-color: #ccc;
+    color: #000;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo .vr {
+    background-color: #ccc;
+    text-align: right;
+    color: #000;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo img {
+    float: right;
+    border: 0px;
+}
+
+.p4cms-ui .status-wrapper .status.phpinfo hr {
+    width: 100%;
+    background-color: #ccc;
+    border: 0px;
+    height: 1px;
+    color: #000;
+}

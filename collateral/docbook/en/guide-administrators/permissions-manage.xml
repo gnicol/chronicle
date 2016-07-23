@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="permissions.manage">
+    <title>Managing Permissions</title>
+
+    <para>
+        Permissions are the association of <emphasis>privileges</emphasis>, which are actions that
+        are provided by <emphasis>resources</emphasis> such as a &product.longname; module, to
+        <emphasis>roles</emphasis>. For example, you may want to give users having the
+        <emphasis>member</emphasis> role the privileges to add new categories and associate them
+        with content, but not give them the privilege of managing categories. There are many
+        privileges provided by &product.name; and each activated module can implement its own
+        resources and privileges.
+    </para>
+
+    <para>
+        The <emphasis role="screen">Manage Permissions</emphasis> screen is where management of
+        privilege and role associations are performed. Privileges are listed vertically in the
+        first column, roles are listed horizontally, representing the grid of possible permission
+        associations. Hover your mouse over each of the numbered callouts to highlight the
+        associated area of the screen.
+    </para>
+
+    <mediaobjectco role="screen-mp">
+        <subtitle>The Manage Permissions Screen</subtitle>
+
+        <imageobjectco>
+            <areaspec units="imagemap">
+                <area id="screen-mp-spot-search" linkends="screen-mp-co-search" coords="0,91,129,125"/>
+                <area id="screen-mp-spot-filter" linkends="screen-mp-co-filter" coords="0,128,129,277"/>
+                <area id="screen-mp-spot-resource" linkends="screen-mp-co-resource" coords="148,107,613,124"/>
+                <area id="screen-mp-spot-privileges" linkends="screen-mp-co-privileges" coords="148,188,288,253"/>
+                <area id="screen-mp-spot-roles" linkends="screen-mp-co-roles" coords="288,89,640,107"/>
+                <area id="screen-mp-spot-checks" linkends="screen-mp-co-checks" coords="288,124,613,253"/>
+                <area id="screen-mp-spot-buttons" linkends="screen-mp-co-buttons" coords="472,256,640,274"/>
+            </areaspec>
+
+            <imageobject>
+                <imagedata fileref="images/screen-manage_permissions-callouts.png"/>
+            </imageobject>
+
+            <calloutlist>
+                <callout id="screen-mp-co-search" arearefs="screen-mp-spot-search">
+                    <para>
+                        <emphasis role="bold">Filter by Text Search</emphasis>: 
+                        Enter text to filter the list of permissions to entries containing the text.
+                    </para>
+                </callout>
+                <callout id="screen-mp-co-filter" arearefs="screen-mp-spot-filter">
+                    <para>
+                        <emphasis role="bold">Filter by Resource</emphasis>:
+                        Click on one or more checkboxes to filter the list of permissions to entries
+                        of the selected resources. When no checkboxes are checked, permissions for
+                        every resource are included.
+                    </para>
+                </callout>
+                <callout id="screen-mp-co-resource" arearefs="screen-mp-spot-resource">
+                    <para>
+                        <emphasis role="bold">Resources</emphasis>:
+                        Resources are groups of privileges, typically provided by a &product.name;
+                        module. Clicking on the checkboxes in these rows toggles all of the
+                        resource's privileges on or off.
+                    </para>
+                </callout>
+                <callout id="screen-mp-co-privileges" arearefs="screen-mp-spot-privileges">
+                    <para>
+                        <emphasis role="bold">Privilege</emphasis>:
+                        Each privilege provided by a resource is listed in its own row.
+                    </para>
+                </callout>
+                <callout id="screen-mp-co-roles" arearefs="screen-mp-spot-roles">
+                    <para>
+                        <emphasis role="bold">Roles</emphasis>:
+                        Each configured role is listed in its own column. If there are more roles
+                        than can fit on-screen, a horizontal scrollbar appears near the bottom of
+                        the grid.
+                    </para>
+                </callout>
+                <callout id="screen-mp-co-checks" arearefs="screen-mp-spot-checks">
+                    <para>
+                        <emphasis role="bold">Checkboxes</emphasis>:
+                        Each checked checkbox indicates that the privilege in the checkbox's row
+                        has been permitted to the role in the checkbox's column. Unchecked
+                        checkboxes indicate that the checkbox's role does not have permission to
+                        use the privilege in the checkbox's row.
+                    </para>
+                </callout>
+                <callout id="screen-mp-co-buttons" arearefs="screen-mp-spot-buttons">
+                    <para>
+                        <emphasis role="bold">Buttons</emphasis>:
+                        Checking or unchecking checkboxes does not immediately save the permission
+                        changes. You must click <guibutton>Save Changes</guibutton> to apply any
+                        permissions changes you have made. If necessary, you may click
+                        <guibutton>Reset to Defaults</guibutton> to reset all permissions to their
+                        default state.
+                    </para>
+                </callout>
+            </calloutlist>
+        </imageobjectco>
+    </mediaobjectco>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

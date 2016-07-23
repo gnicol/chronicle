@@ -1,0 +1,26 @@
+<span class="systemInformationUpper">
+    <a href="mailto:support@perforce.com?subject=Perforce%20Chronicle%20Support%20Request&body=<?= $this->escapeAttr(P4CMS_VERSION) ?>">Email Support</a>
+</span>
+
+<script type="text/javascript">
+    dojo.connect(window, 'onload', p4cms.system.next);
+</script>
+
+<div class="tab-wrapper">
+ <div dojoType="dijit.layout.TabContainer" class="system-information" tabPosition="left-h" doLayout="false">
+  <? foreach ($this->info as $info) : ?>
+  <div dojoType ="dijit.layout.ContentPane" title="<?= $this->escapeAttr($info->title) ?>" class="details">
+   <h1 class="system-info-section-heading"><?= $this->escape($info->title) ?></h1>
+   <?= $info->render($this); ?>
+  </div>
+  <? endforeach; ?>
+ </div>
+</div>
+
+<?
+// rendering system info could inadvertently alter
+// the page title, layout, etc. so we set these last
+$this->headTitle()->set('System Information');
+$this->layout()->setLayout('manage-layout');
+$this->layout()->enableLayout();
+?>

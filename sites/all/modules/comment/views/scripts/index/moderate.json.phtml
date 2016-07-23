@@ -1,0 +1,75 @@
+<?
+// setup comment paginator.
+$adapter    = new P4Cms_Record_PaginatorAdapter($this->query);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// serve dojo data to populate the data grid.
+$contentLookup = array();
+print $this->dataGrid()->dojoData(
+    $paginator,
+    function ($comment, $helper) use (&$contentLookup)
+    {
+        $view = $helper->view;
+        $data = $comment->toArray();
+        
+        // truncate comment in grid.
+        $data['comment'] = $view->truncate($data['comment'], 60, '...');
+        
+        // if comment is re: content, fetch content entry.
+        $path = dirname($comment->getId());
+        if (preg_match('#content/(.+)#', $path, $matches)) {
+            $id = $matches[1];
+            if (!isset($contentLookup[$id])) {
+                try {
+                    $contentLookup[$id] = P4Cms_Content::fetch($id);
+                } catch (P4Cms_Model_NotFoundException $e) {
+                    // unable to dereference content entry.
+                }
+            }
+            if (isset($contentLookup[$id])) {
+                $contentEntry    = $contentLookup[$id];
+                $data['content'] = array(
+                    'id'    => $contentEntry->getId(),
+                    'title' => $contentEntry->getTitle(),
+                    'uri'   => $contentEntry->getUri()
+                );
+            }
+        }
+        
+        // build a tooltip.
+        $tooltip = "<dl>"
+                 . "<dt class=comment-author>Author</dt>"
+                 . "<dd class=comment-author>"
+                 . $view->escape($comment->name ?: $comment->user)
+                 . " (" . $view->escape($comment->email) . ")"
+                 . "</dd>";
+
+        // include content title if possible.
+        if (isset($data['content']['title'])) {
+            $tooltip .= "<dt class=comment-about>Regarding</dt>"
+                     .  "<dd class=comment-about>"
+                     .  $view->escape($data['content']['title'])
+                     .  "</dd>";
+        }
+        
+        // include vote count.
+        $tooltip .= "<dt class=comment-votes>Votes</dt>"
+                 .  "<dd class=comment-votes>"
+                 . sprintf("%+d", $comment->votes)
+                 .  "</dd>";
+        
+        // full comment in tooltip.
+        $tooltip .= "<dt class=comment-body>Body</dt>"
+                 .  "<dd class=comment-body>"
+                 .  nl2br($view->escape($comment->comment))
+                 .  "</dd>";
+        
+        // close out tooltip.
+        $tooltip        .= "</dl>";
+        $data['tooltip'] = $tooltip;
+        
+        return $data;
+    }
+);

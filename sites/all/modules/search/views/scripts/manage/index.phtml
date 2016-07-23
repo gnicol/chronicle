@@ -1,0 +1,29 @@
+<div class="search-configuration">
+    <?= $this->form ?>
+
+    <form class="search-maintenance">
+        <fieldset>
+            <legend>Maintenance</legend>
+            <dl>
+                <dt>
+                    <button dojoType="dijit.form.Button" type="button" onclick="p4cms.search.optimize"
+                        class="search-button">
+                        <span class="button-text">Optimize</span>
+                    </button>
+                </dt>
+                <dd>
+                    <p class="button-label">Optimize the search index to improve performance.</p>
+                </dd>
+                <dt>
+                    <button dojoType="dijit.form.Button" type="button" onclick="p4cms.search.rebuild"
+                        class="search-button">
+                        <span class="button-text">Rebuild</span>
+                    </button>
+                </dt>
+                <dd>
+                    <p class="button-label">Rebuild the search index from existing data.</p>
+                </dd>
+            </dl>
+        </fieldset>
+    </form>
+</div>

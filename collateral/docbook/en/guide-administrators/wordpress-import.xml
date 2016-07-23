@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="installation.management.wordpress-import">
+    <title>Wordpress Import Module</title>
+
+    <para>
+        The WordPress Import module imports a WordPress XML file, exported from WordPress 3.1 or
+        greater, into &product.longname;.
+    </para>
+
+    <section>
+        <title>To Obtain a WordPress XML File</title>
+
+        <orderedlist>
+            <listitem>
+                Login to your WordPress installation as an admin.
+            </listitem>
+
+            <listitem>
+                Navigate to <command>Tools > Export</command>.
+            </listitem>
+
+            <listitem>
+                Select what to include in the export.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Download Export File</guibutton>.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section>
+        <title>To Import the WordPress XML File</title>
+
+        <orderedlist>
+            <listitem>
+                Ensure the WordPress Import module is enabled. Please refer to
+                <xref linkend="modules.management.enable-disable"/>.
+            </listitem>
+
+            <listitem>
+                Choose <command>Manage > WordPress Import</command>. The
+                <emphasis role="screen">Import</emphasis> screen is displayed:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-wordpress_import.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Choose File</guibutton>, then navigate to and select the WordPress
+                export file you downloaded earlier.
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Import</guibutton> to import the file. A progress dialog appears:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-wordpress_import.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                When the import is complete, the progress dialog updates, and displays any userids
+                that had to have their password reset:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-wordpress_import-complete.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Close</guibutton>.
+            </listitem>
+        </orderedlist>
+    </section>
+
+    <section>
+        <title>Import Limitations</title>
+
+        <para>
+            Due to limitations in the WordPress export, some information is not carried over.
+        </para>
+
+        <itemizedlist>
+            <listitem>
+                <emphasis role="bold">Users</emphasis>:
+                User roles and passwords are not included in a WordPress export, so all imported
+                users are created with the &product.name; <emphasis>Member</emphasis> role, and
+                passwords are reset &mdash; all generated passwords are shown at the end of the
+                import process. During user import, if a WordPress userid matches an existing
+                &product.name; userid, the &product.name; user's full name and email address are
+                updated to match the corresponding WordPress user's details, and the password is
+                left unchanged.
+            </listitem>
+
+            <listitem>
+                <emphasis role="bold">Tags</emphasis>:
+                &product.name; does not support tags. During import, WordPress tags are converted
+                to &product.name; categories.
+            </listitem>
+
+            <listitem>
+                <emphasis role="bold"> Menus</emphasis>:
+                &product.name; does not support content hierarchies, so typical WordPress navigation
+                cannot be imported. However, WordPress does support menu items and these, except for
+                draft menu items, are imported into &product.name; menus.
+            </listitem>
+
+            <listitem>
+                <emphasis role="bold">Content</emphasis>:
+                All content provided by the WordPress XML file is imported, including items not
+                linked to any presentation in WordPress. <emphasis>Draft</emphasis> and
+                <emphasis>published</emphasis> content is mapped to the corresponding workflow
+                state in &product.name;. WordPress <emphasis>posts</emphasis> are imported as
+                &product.name; <emphasis>Blog Post</emphasis> entries, and WordPress
+                <emphasis>pages</emphasis> are imported as &product.name; <emphasis>Basic
+                Page</emphasis> entries. Assets, such as images and linked files, are downloaded
+                from their original URLs and imported into &product.name; as content entries of an
+                appropriate content type. Internal links are adjusted to refer to their new
+                content id's within &product.name;.
+            </listitem>
+
+            <listitem>
+                <emphasis role="bold">Comments</emphasis>:
+                As the &product.name;'s Comments module is optional, no attempt is made to import
+                WordPress comments.
+            </listitem>
+        </itemizedlist>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

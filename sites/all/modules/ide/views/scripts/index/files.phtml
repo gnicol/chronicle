@@ -1,0 +1,12 @@
+<?
+// if a file has been specified, stream it to the client.
+// otherwise dump data (client probably should have specified json)
+if ($this->file) {
+    ob_end_clean();
+    header('Content-Type: ' . P4Cms_FileUtility::getMimeType($this->file));
+    header('Content-Length: ' . filesize($this->file));
+    readfile($this->file);
+} else {
+    print_r($this->data);
+}
+?>

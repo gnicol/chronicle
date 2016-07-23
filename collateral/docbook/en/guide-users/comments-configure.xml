@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="comments.configure">
+    <title>Comment Configuration</title>
+
+    <bridgehead>
+        To configure comments for a content entry:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Navigate to the content entry for which you wish to configure comments.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Edit</guibutton> in the &product.name; toolbar to begin
+            editing.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-content-edit.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click the <guibutton>Comments</guibutton> button in the toolbar.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-edit_content-comments-focus.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para></para>
+
+            The comments configuration dialog appears:
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-content_edit-comments.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Adjust the comment configuration:
+            <variablelist>
+                <varlistentry>
+                    <term>Allow Comments</term>
+
+                    <listitem>
+                        When checked, comments for this content entry are allowed. This is the
+                        default.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Require Login to Post</term>
+
+                    <listitem>
+                        When checked, only authenticated users may comment. Requires
+                        <emphasis role="bold">Allow Comments</emphasis>.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Require Approval</term>
+
+                    <listitem>
+                        When checked, comments are not immediately viewable until a user with the
+                        <emphasis>Moderate Comments</emphasis> privilege approves them. Requires
+                        <emphasis role="bold">Allow Comments</emphasis>.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Show Comments</term>
+
+                    <listitem>
+                        When checked, allows comments to be displayed beneath the content entry.
+                        This is the default. Requires <emphasis role="bold">Allow
+                        Comments</emphasis>.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Require Login to View</term>
+
+                    <listitem>
+                        When checked, only authenticated users may see comments beneath the content
+                        entry. Requires <emphasis role="bold">Show Comments</emphasis>.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>Allow Voting</term>
+
+                    <listitem>
+                        When checked, allows users to vote on displayed comments. This is the
+                        default. Requires <emphasis role="bold">Show Comments</emphasis>.
+                    </listitem>
+                </varlistentry>
+
+                <varlistentry>
+                    <term>One Vote Per-User</term>
+
+                    <listitem>
+                        When checked, users may only vote once on a comment. This is the default.
+                        Requires <emphasis role="bold">Allow Voting</emphasis>.
+                    </listitem>
+                </varlistentry>
+            </variablelist>
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton> to save your content and the updated comment
+            configuration.
+        </listitem>
+    </orderedlist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

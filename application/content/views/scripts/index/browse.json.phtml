@@ -1,0 +1,69 @@
+<?
+// setup paginated content adapter.
+$adapter    = new P4Cms_Record_PaginatorAdapter($this->query);
+$paginator  = new Zend_Paginator($adapter);
+$paginator->setCurrentPageNumber($this->pageOffset);
+$paginator->setItemCountPerPage($this->pageSize);
+
+// prepare user/acl information for per-item callback ahead of time.
+// if there is no actions column, don't bother checking privileges
+// at all as it can be expensive (particularly with lots of roles).
+$acl = $role = $privileges = null;
+if (in_array('actions', $this->columns)) {
+    $acl        = P4Cms_Acl::fetchActive();
+    $user       = P4Cms_User::fetchActive();
+    $role       = $user->getAggregateRole($acl);
+    $actions    = $this->dataGrid()->getPublishedActions();
+    $privileges = array();
+    foreach ($actions->getPages() as $action) {
+        $privileges[] = $action->getPrivilege();
+    }
+    $privileges = array_unique(array_filter($privileges));
+}
+
+// serve dojo data to populate the data grid.
+// pass per-item callback to craft each entry.
+print $this->dataGrid()->dojoData(
+    $paginator,
+    function($content, $dataGrid) use ($acl, $role, $privileges)
+    {
+        $contentType = $content->getContentType();
+        $iconUrl     = $dataGrid->view->url(
+            array(
+                'module'        => 'content',
+                'controller'    => 'type',
+                'action'        => 'icon',
+                'id'            => $contentType->getId()
+            )
+        );
+
+        // determine the user's privileges for this content entry.
+        $allowed  = array();
+        if ($acl && $role && $privileges) {
+            $resource = $acl->get('content/' . $content->getId());
+            foreach ($privileges as $privilege) {
+                if ($acl->isAllowed($role, $resource, $privilege)) {
+                    $allowed[] = $privilege;
+                }
+            }
+        }
+
+        return array(
+            'id'              => $content->getId(),
+            'uri'             => $content->getUri(),
+            'title'           => $content->getTitle(),
+            'type'            => array(
+                                     "id"          => $contentType->getId(),
+                                     "label"       => $contentType->getLabel(),
+                                     "description" => $contentType->getDescription(),
+                                     "fields"      => $contentType->getElementNames()
+                                 ),
+            'icon'            => $iconUrl,
+            '#REdate'         => $dataGrid->view->timeAgo($content->getModTime()),
+            'rawDate'         => $content->getModTime(),
+            'deleted'         => $content->isDeleted(),
+            'version'         => $content->toP4File()->getStatus('headRev'),
+            'privileges'      => $allowed
+        );
+    }
+);

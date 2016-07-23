@@ -1,0 +1,21 @@
+<?
+    $data = array(
+        'isValid'       => $this->isValid,
+        'errors'        => $this->errors,
+        'displayValue'  => $this->displayValue
+    );
+
+    // if we have been passed an entry; include details
+    // on the head revision. we include these to allow a
+    // conflict check to run on every validate request.
+    if ($this->entry) {
+        $data += $this->contentEntry($this->entry)->data(array(
+            'fields' => false,
+            'change' => true,
+            'status' => true,
+            'opened' => true
+        ));
+    }
+
+    print Zend_Json::encode($data);
+?>

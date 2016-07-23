@@ -1,0 +1,84 @@
+<div class="grid-options theme-grid-options">
+ <?= $this->form ?>
+</div>
+
+<div class="current-theme">
+<h1>Current Theme</h1>
+    <div class="container">
+        <img class="icon"
+             src="<?= $this->theme->hasIcon() ? $this->theme->getIconUrl()
+                                              : $this->module('site')->getBaseUrl() . '/images/theme-icon.png' ?>"
+             alt="Theme Icon"/>
+        <div class="details">
+            <h2><?= $this->escape($this->theme->label) ?></h2>
+
+            <? if ($this->theme->description): ?>
+            <div class="description">
+                <?= $this->escape($this->theme->description) ?>
+            </div>
+            <? endif; ?>
+
+            <p class="version"><span>Version:</span> <?= $this->escape($this->theme->version) ?></p>
+
+            <div class="maintainer">
+            <?
+                $maintainer = $this->theme->maintainerInfo;
+                if ($maintainer['name']):
+            ?>
+            <span class="name"><?= $this->escape($maintainer['name']) ?></span>
+            <? endif; ?>
+            <? if ($maintainer['email']): ?>
+            <span class="email"><a href="mailto:<?= $this->escape($maintainer['email']) ?>"><?= $this->escape($maintainer['email']) ?></a></span>
+            <? endif; ?>
+            <? if ($maintainer['url']): ?>
+            <span class="url"><a href="<?= $this->escape($maintainer['url']) ?>"><?= $this->escape($maintainer['url']) ?></a></span>
+            <? endif; ?>
+            </div>
+
+        </div>
+        <br class="clear"/>
+    </div>
+<h1>Available Themes</h1>
+</div>
+<?
+// get data grid namespace
+$namespace  = $this->dataGrid()->getNamespace();
+
+// data store url
+$url        = $this->url(
+    array(
+        'module'        => 'site',
+        'controller'    => 'theme',
+        'action'        => 'index',
+        'format'        => 'json'
+    )
+);
+
+// set up data grid columns
+$columns = array(
+    'name'              => array(
+        'label'         => 'Theme',
+        'width'         => '80%',
+        'formatter'     => $namespace . '.Formatters.theme'
+    ),
+    'maintainer'        => array(
+        'label'         => 'Maintained By',
+        'width'         => '20%',
+        'formatter'     => $namespace . '.Formatters.maintainer'
+    )
+);
+if (count($this->actions)) {
+    $columns[] = $this->dataGrid()->getDefaultActionsColumn();
+}
+
+print $this->dataGrid(
+    $namespace,
+    array(
+        'url'           => $url . '?' . $this->query,
+        'pageSize'      => $this->pageSize,
+        'columns'       => $columns,
+        'attribs'       => array(
+            'minGridHeight' => '180px'
+        )
+    )
+);

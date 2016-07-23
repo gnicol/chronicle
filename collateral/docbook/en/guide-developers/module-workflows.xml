@@ -1,0 +1,109 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.workflows">
+    <title>Workflows</title>
+
+    <para>
+        As described in <xref linkend="workflows.overview"/>, a workflow is a group of
+        <emphasis>states</emphasis> used to guide content (or any
+        <classname>P4Cms_Record</classname> object) to being published, and each state may express
+        <emphasis>transitions</emphasis> to other states, which can be restricted by
+        <emphasis>conditions</emphasis> or enhanced with <emphasis>actions</emphasis>. Development
+        for workflows focuses on the creation of conditions and actions that can be used by
+        transitions.
+    </para>
+
+    <para>
+        Place condition classes in the module folder, within the
+        <filename>workflows/conditions</filename> folder. Place action classes in the module folder,
+        within the <filename>workflows/actions</filename> folder.
+    </para>
+
+    <para>
+        Here is the skeleton of a workflow condition:
+    </para>
+
+<programlisting language="php">
+&lt;?php
+/**
+ * A skeleton workflow condition that always evaluates to true.
+ *
+ * @copyright   copyright info
+ * @license     license info
+ * @version     version info
+ */
+class Foo_Workflow_Condition_True extends Workflow_ConditionAbstract
+{
+    /**
+     * Always return true.
+     *
+     * @param   Workflow_Model_Transition   $transition     transition to evaluate this condition for.
+     * @param   P4Cms_Record                $record         record to evaluate this condition for.
+     * @param   array|null                  $pending        optional - updated values to consider.
+     * @return  bool                        true no matter what.
+     */
+    protected function _evaluate(
+        Workflow_Model_Transition $transition,
+        P4Cms_Record $record,
+        array $pending = null)
+    {
+        return true;
+    }
+}
+</programlisting>
+
+    <para>
+        The <varname>$pending</varname> parameter is an array of <emphasis>current</emphasis>
+        values that may populate a record, and can be compared to the <varname>$record</varname>
+        object to determine the differences made during editing.
+    </para>
+
+    <para>
+        Here is the skeleton of a workflow action:
+    </para>
+
+<programlisting language="php">
+&lt;?php
+/**
+ * A sample workflow action that does nothing.
+ *
+ * @copyright   copyright info
+ * @license     license info
+ * @version     version info
+ */
+class Foo_Workflow_Action_Skeleton extends Workflow_ActionAbstract
+{
+    /**
+     * Does nothing.
+     *
+     * @param   Workflow_Model_Transition   $transition     transition to invoke this action for.
+     * @param   P4Cms_Record                $record         record to invoke this action for.
+     * @return  Workflow_ActionInterface    provides fluent interface.
+     */
+    public function invoke(Workflow_Model_Transition $transition, P4Cms_Record $record)
+    {
+        return $this;
+    }
+}
+</programlisting>
+
+    <para>
+        For details on how to update your workflow configuration to utilize new conditions or
+        actions, please refer to <xref linkend="workflows.configure"/>.
+    </para>
+
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

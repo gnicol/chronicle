@@ -1,0 +1,335 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.example">
+    <title>Hello World Widget</title>
+
+    <para>
+        This section demonstrates the creation of a module that provides a widget that displays
+        "Hello World". To create the required components, perform the following steps. For further
+        details about specific topics, refer to the linked documentation.
+    </para>
+
+    <orderedlist>
+        <listitem>
+            <para>
+                Create a skeletal module structure in the folder
+                <filename>sites/all/modules</filename>:
+            </para>
+
+<programlisting language="text">
+hello/
+    controllers/
+    forms/
+    resources/
+    views/
+        scripts/
+            widget/
+</programlisting>
+
+        </listitem>
+
+        <listitem>
+            <para>
+                Create the <filename>hello/module.ini</filename> module definition file:
+            </para>
+
+<programlisting language="ini">
+version                     = 1.0
+description                 = A module that prints out Hello World.
+tags                        = hello, world
+
+[maintainer]
+name                        = Perforce Software
+email                       = support@perforce.com
+url                         = http://www.perforce.com/
+
+[stylesheets]
+all.href                    = hello.css
+
+[widgets]
+world.label                 = Hello
+world.description           = This demo widget says hello.
+world.controller            = widget
+world.defaults.hellotext    = Hello, World
+</programlisting>
+
+            <para>
+                The first eight lines of this file specify its version, provide a description, list
+                the tags used for filtering modules, and identify the maintainer of the module.
+            </para>
+
+            <para>
+                The <code>[stylesheets]</code> section includes the
+                <acronym>CSS</acronym> stylesheet <filename>hello.css</filename> in the generated
+                <acronym>HTML</acronym> to ensure that the widget is styled correctly.
+            </para>
+
+            <para>
+                The <code>[widgets]</code> section specifies that this module provides a widget
+                identified as <emphasis>world</emphasis> and labelled as
+                <emphasis>Hello</emphasis>, with an appropriate description. It also specifies
+                that the controller supporting this widget is named <emphasis>widget</emphasis>,
+                which translates to the controller filename
+                <filename>WidgetController.php</filename>. Finally, it specifies that the field
+                name <emphasis>hellotext</emphasis> has the default value of
+                <emphasis>Hello, World</emphasis>.
+            </para>
+
+            <para>
+                At this point, the module is listed on the Manage Modules page, though it doesn't do
+                anything yet.
+            </para>
+
+            <para>
+                For details about module configuration details, see <xref linkend="modules.config"/>.
+            </para>
+
+        </listitem>
+
+        <listitem>
+            <para>
+                Create the <filename>hello/controllers/WidgetController.php</filename> file:
+            </para>
+
+<programlisting language="php">
+&lt;?php
+class Hello_WidgetController extends P4Cms_Widget_ControllerAbstract
+{
+    /**
+     * Hello World dummy prep to demonstrate setup for our view script.
+     */
+    public function indexAction()
+    {
+        $this->view->response = array(
+            'text' => $this->getOption('hellotext')
+        );
+    }
+
+    /**
+     * Get config sub-form to present additional options when
+     * configuring a widget of this type.
+     *
+     * @param   P4Cms_Widget            $widget  the widget instance being
+     *                                           configured.
+     * @return  Zend_Form_SubForm|null  the sub-form to integrate into the
+     *                                  default widget config form or null
+     *                                  for no sub-form.
+     */
+    public static function getConfigSubForm($widget)
+    {
+        return new Hello_Form_Widget;
+    }
+}
+</programlisting>
+
+            <para>
+                This controller responds to requests made to the widget, using the
+                <methodname>indexAction</methodname> method. It retrieves the option
+                <emphasis>hellotext</emphasis> from its configuration (which is
+                specified in the form) and assigns it to a view variable named
+                <emphasis>response</emphasis>.
+            </para>
+
+            <para>
+                The <methodname>getConfigSubForm</methodname> methods provides a sub-form to
+                assist with configuring modules.
+            </para>
+
+            <para>
+                For more details about controllers, see <xref linkend="modules.controllers"/>.
+            </para>
+
+        </listitem>
+
+        <listitem>
+            <para>
+                Create the <filename>hello/forms/Widget.php</filename> configuration sub-form file:
+            </para>
+
+<programlisting language="php">
+&lt;?php
+class Hello_Form_Widget extends P4Cms_Form_SubForm
+{
+    /**
+     * Defines the elements that make up the config form.
+     * Called automatically when the form object is created.
+     */
+    public function init()
+    {
+        // add a required field to collect some text
+        $this-&gt;addElement(
+            'text', 'hellotext',
+            array(
+                'label'         =&gt; 'Hello Required Text',
+                'required'      =&gt; true,
+                'description'   =&gt; 'Enter some text to display here.'
+            )
+        );
+    }
+}
+</programlisting>
+
+            <para>
+                The preceding are form elements. All <acronym>HTML</acronym> form input
+                types are permissible. For details about the options for building
+                your elements, see the
+                <ulink url="http://framework.zend.com/manual/en/zend.form.html">Zend Form
+                documentation</ulink>.
+            </para>
+
+        </listitem>
+
+        <listitem>
+            <para>
+                Create the <filename>hello/resources/hello.css</filename> <acronym>CSS</acronym>
+                file:
+            </para>
+
+<programlisting language="css">
+.widget-hello-world,
+#region-features .widget-container .widget.widget-hello-world {
+    border: 2px solid red;
+    margin: 6px;
+    padding: 2px 4px;
+}
+
+.widget-hello-world span {
+    font-weight: bold;
+}
+</programlisting>
+
+            <para>
+                <acronym>CSS</acronym> classes are inserted into your module's output by
+                &product.longname; based on the contents of <filename>hello/module.ini</filename>.
+            </para>
+
+            <para>
+                The <acronym>CSS</acronym> class <emphasis>widget-hello-world</emphasis> is
+                composed of three parts:
+            </para>
+
+            <itemizedlist>
+                <listitem>widget - identifies this as a widget class</listitem>
+                <listitem>
+                    <emphasis>module</emphasis> - the module providing this widget, in this case
+                    <emphasis>hello</emphasis>.
+                </listitem>
+                <listitem>
+                    <emphasis>identifier</emphasis> - the widget's identifier, as specified in the
+                    module configuration file, in this case <emphasis>world</emphasis>.
+                </listitem>
+            </itemizedlist>
+
+            <note>
+                <title>CSS Specifier</title>
+
+                <para>
+                    The specifier beginning with <code>#region-features</code> is included to ensure
+                    correct styling in any of the default theme's regions. Normally, theme styles
+                    override module styles.
+                </para>
+            </note>
+
+            <para>
+                For more details about resources, see <xref linkend="themes.resources"/>. Resources
+                for modules are identical to resources for themes, but are stored in the module's
+                folder structure.
+            </para>
+
+        </listitem>
+
+        <listitem>
+            <para>
+                Create the <filename>hello/views/scripts/widget/index.phtml</filename> view script:
+            </para>
+
+<programlisting language="php">
+&lt;? foreach ($this-&gt;response as $name =&gt; $text) : ?>
+    &lt;span&gt;TEXT: &lt;?= $text ?&gt;&lt;/span&gt;&lt;br/&gt;
+&lt;? endforeach; ?&gt;
+</programlisting>
+
+            <para>
+                The <code>$this</code> object in the view script is the direct
+                <classname>Zend_View</classname> object that is referenced and populated in the
+                controller. In this case, only the response array is used. However,
+                variables, other arrays, and methods in the <classname>Zend_View</classname>
+                object are also available and in scope.
+            </para>
+
+            <para>
+                For more information, see the
+                <ulink url="http://framework.zend.com/manual/en/zend.view.html">Zend_View
+                documentation</ulink>.
+            </para>
+
+        </listitem>
+
+        <listitem>
+            <para>
+                Try the new module!
+            </para>
+
+            <para>
+                You now have a functional module that you can enable in &product.name;. To make it
+                available to the page editor, perform the following steps:
+            </para>
+
+            <orderedlist>
+                <listitem>
+                    Log into your instance of &product.name;.
+                </listitem>
+
+                <listitem>
+                    To enable the <emphasis role="bold">Hello</emphasis> module, follow the
+                    instructions in <xref linkend="modules.management.enable-disable"/>.
+                </listitem>
+
+                <listitem>
+                    Click <guibutton>Back to Website</guibutton>.
+                </listitem>
+
+                <listitem>
+                    Click <guibutton>Widgets</guibutton>.
+                </listitem>
+
+                <listitem>
+                    Click a <guibutton>plus icon</guibutton> in one of the available regions.
+                </listitem>
+
+                <listitem>
+                    Choose the <emphasis role="bold">Hello</emphasis> widget from the list of
+                    widgets. The <emphasis role="dialog">Configuration</emphasis> dialog is
+                    displayed, containing the sub-form.
+                </listitem>
+
+                <listitem>
+                    Enter the requested values and click <guibutton>Save</guibutton>.
+                    &product.name; displays a red-bordered box, containing
+                    <emphasis role="bold">TEXT:</emphasis> plus the text you entered in the
+                    sub-form.
+                </listitem>
+            </orderedlist>
+
+            <para>
+                 Congratulations! You have successfully created your first module for
+                 &product.name;.
+            </para>
+
+        </listitem>
+    </orderedlist>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

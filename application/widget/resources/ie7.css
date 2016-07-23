@@ -1,0 +1,6 @@
+/**
+ * IE7 needs the editor to have a set width in css
+ */
+.p4cms-ui .widget-config .dijitEditor {
+    width: 500px;
+}

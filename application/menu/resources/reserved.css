@@ -1,0 +1,225 @@
+/* menu form */
+
+.p4cms-ui .dijitDialog .menu-form dd {
+    margin-left: 160px;
+}
+
+.p4cms-ui .dijitDialog .menu-form dt {
+    width: 150px;
+}
+
+/* menu item form */
+
+.p4cms-ui .menu-item-form dt.menu-item-location {
+    display: none;
+}
+
+.p4cms-ui .menu-item-form dd.menu-item-position {
+    margin-bottom: 0;
+}
+
+.p4cms-ui .menu-item-form dd#action-element select {
+    width: 250px;
+}
+
+.p4cms-ui .menu-item-content-form dd.menu-item-label {
+    margin-bottom: 2px;
+}
+
+.p4cms-ui .menu-item-form textarea#params {
+    width: 500px;
+}
+
+.p4cms-ui .menus-grid .dojoxGrid .dojoxGridRowSelected .dojoxGridRowTable tr {
+    background: transparent;
+}
+
+.p4cms-ui .data-grid.menus-grid td.dojoxGridRowSelected {
+    background: transparent;
+    color: #000000;
+}
+
+.p4cms-ui.dojoDndMove .menus-grid .dojoxGrid td.dojoxGridRowSelected {
+    color: rgba(0,0,0,0.5);
+}
+
+.p4cms-ui .menus-grid .dojoxGrid .dojoxGridRowSelected .dojoxGridRowTable .dojoxGridCell a {
+    color: #000000;
+}
+
+.p4cms-ui .menus-grid .grid-footer .selected-rows {
+    display: none;
+}
+
+/* management grid icons */
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu .title {
+    position: relative;
+    top: 5px;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu .icon {
+    float: left;
+    position: relative;
+    top: -1px;
+    margin-right: 6px;
+    width: 24px;
+    height: 24px;
+    background: url('images/grid-icons.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu.obligatory .icon {
+    background-position: -25px 0;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu-item .icon {
+    background-position: 0 -25px;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu-item.obligatory .icon {
+    background-position: -25px -25px;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu-item.type-heading .icon {
+    background-position: 0 -50px;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu-item.type-heading.obligatory .icon {
+    background-position: -25px -50px;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu-item.type-link .icon {
+    background-position: 0 -75px;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu-item.type-link.obligatory .icon {
+    background-position: -25px -75px;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu-item.type-dynamic .icon {
+    background-position: 0 -100px;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu-item.type-dynamic.obligatory .icon {
+    background-position: -25px -100px;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu-item.type-content .icon {
+    background-position: 0 -125px;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu-item.type-content.obligatory .icon {
+    background-position: -25px -125px;
+}
+
+.p4cms-ui .menus-grid .dojoxGridCell div.menu-item.type-separator .icon {
+    display: none;
+}
+.p4cms-ui .menus-grid .dojoxGridCell div.menu-item.type-separator .title {
+    display: block;
+    height: 8px;
+    border-top: 2px dotted #aaa;
+    margin: 0 10px;
+    color: transparent;
+}
+
+
+/* Tooltip preview for dynamic menu items */
+
+.p4cms-ui .menu-grid-dynamic-tooltip {
+    padding-bottom: 5px;
+    font-size: 11px;
+}
+
+.p4cms-ui .menu-grid-dynamic-tooltip a{
+    color: white;
+    background: none;
+    text-decoration: none;
+}
+
+.p4cms-ui .menu-grid-dynamic-tooltip ul {
+    margin: 0 0 0 20px;
+    padding: 0 5px;
+}
+
+.p4cms-ui .menu-grid-dynamic-tooltip h1 {
+    display: block;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 5px 7px;
+    margin: 0 0 10px 0;
+    color: #aaa;
+    border-bottom: 1px solid #aaa;
+}
+
+.p4cms-ui .menu-grid-dynamic-tooltip p.more {
+    color: #aaa;
+    margin: 0 0 0 10px;
+}
+
+.p4cms-ui .menu-grid-dynamic-tooltip p.empty {
+    text-align: center;
+    font-style: italic;
+}
+
+/* grid sub-forms */
+
+.p4cms-ui .menus-grid-options .type-sub-form dl dd {
+    max-height: 250px;
+}
+
+/* menu item content sub-form */
+
+.p4cms-ui .content-sub-form .menus-sub-form dd {
+    width: 100%
+}
+
+.p4cms-ui .content-sub-form .menus-sub-form fieldset {
+    border: none;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.p4cms-ui .content-sub-form .menus-sub-form dd select {
+    max-width: 225px;
+}
+
+.p4cms-ui .content-sub-form .menus-sub-form dd.menu-item-remove {
+    margin: 0;
+    padding: 0;
+    width: auto;
+    float: right;
+}
+
+.p4cms-ui .content-sub-form .menus-sub-form dd.menu-item-remove label {
+    padding: 0;
+    cursor: pointer;
+    border-bottom: 1px dotted #aaa;
+    text-transform: uppercase;
+    font-size: 10px;
+    color: #444;
+}
+
+.p4cms-ui .content-sub-form .menus-sub-form dd.menu-item-remove input {
+    width: 0;
+    visibility: hidden;
+}
+
+.p4cms-ui .menus-sub-form dd#addMenuItem-element .dijitButton {
+    margin-left: 0;
+}
+
+
+/* menu widget config form */
+
+.p4cms-ui .widget-config dd.menu-root {
+    margin-bottom: 3px;
+}
+
+.p4cms-ui .widget-config dd.keep-root p.description {
+    margin-top: 2px;
+}

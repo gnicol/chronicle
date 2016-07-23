@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="analytics">
+    <title>Google Analytics</title>
+
+    <para>
+        &product.longname; provides an optional module called
+        <emphasis role="bold">Analytics</emphasis> that facilitates collecting site-specific metrics
+        via <ulink url="http://www.google.com/analytics/">Google Analytics</ulink>. Data collection
+        includes all the basic Google Analytics traffic analysis, plus optional tracking variables
+        for the active userid, the active role, the current content id, and the current content
+        type.
+    </para>
+
+    <note>
+        <title>No Reporting Built In</title>
+
+        <para>
+            The Analytics module does not provide any reporting capabilities. You use the Google
+            Analytics interface to explore any data collected.
+        </para>
+    </note>
+
+    <bridgehead>
+        To enable the Analytics module:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Choose <command>Manage > Modules</command>. The <emphasis role="screen">Manage
+            Modules</emphasis> screen is displayed, listing available modules.
+        </listitem>
+
+        <listitem>
+            Find the Analytics module in the list of modules, either by scrolling or typing
+            <emphasis>analytics</emphasis> into the Search field.
+        </listitem>
+
+        <listitem>
+            Click the Analytics module's <guibutton>Enable</guibutton> and then <guibutton>Enable
+            Module</guibutton>. The Analytics module is enabled.
+        </listitem>
+    </orderedlist>
+
+    <bridgehead id="analytics.module.configure">
+        To configure the Analytics module:
+    </bridgehead>
+
+    <para>
+        You need to have a Google Analytics account for data collection and reporting. Visit
+        <ulink url="http://www.google.com/analytics/">http://www.google.com/analytics/</ulink>
+        to go through the process of signing up, and then setting up a site profile where your site
+        metrics data can be collected.
+    </para>
+
+    <para>
+        Once you have a site profile setup at Google Analytics, its profile identifier appears
+        beside the site name in the list of site profiles. Profile identifiers look like
+        <emphasis role="bold">UA-XXXXXX-X</emphasis>, where each <emphasis role="bold">X</emphasis>
+        represents a number. You need to configure the Analytics module with this identifier in step
+        <xref linkend="ga.site.profile.id"/> below.
+    </para>
+
+    <orderedlist>
+        <listitem>
+            Click the Analytics module's <guibutton>Configure</guibutton> button. The
+            <emphasis role="dialog">Analytics Configuration</emphasis> dialog is displayed.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-analytics_configuration.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem id="ga.site.profile.id">
+            Enter the appropriate Google Analytics site profile identifier into the
+            <emphasis role="bold">Site Profile Id</emphasis> field.
+        </listitem>
+
+        <listitem>
+            Check any of the checkboxes besides the tracking variables that you wish to include
+            during data collection.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton>. Your Analytics module configuration is saved.
+        </listitem>
+    </orderedlist>
+
+    <note>
+        <title>Reporting Delay</title>
+
+        <para>
+            Once activated, you need to allow approximately 24 hours before collected data appears
+            in the reports at Google Analytics. Any configuration changes to the selection of
+            tracking variables incur a similar delay.
+        </para>
+    </note>
+
+    <note>
+        <title>Reporting for Tracking Variables</title>
+
+        <para>
+            To view the reports for the optional tracking variables, you need to login to Google
+            Analytics, view the report for a site, click on the Visitors report, and then click
+            on the <emphasis>Custom Variables</emphasis> section.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

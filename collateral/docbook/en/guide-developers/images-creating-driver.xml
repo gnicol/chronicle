@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="image.manipulation.creating-driver">
+    <title>Writing Drivers</title>
+
+    <para>
+        &product.longname; supplies a set of drivers for commonly used image libraries, but
+        developers may want to create their own drivers.
+
+        A custom driver typically implements <classname>P4Cms_Image_Driver_Interface</classname>
+        and extends from <classname>P4Cms_Image_Driver_Abstract</classname>, which provides
+        infrastructure for image transformations and driver management, plus a uniform strategy for
+        invoking transformation methods: a transformation called <emphasis>'transform'</emphasis> will
+        be invoked by calling the <methodname>_transform()</methodname> method.
+    </para>
+
+    <para>
+        For example, when a developer wants to create a new image driver using the
+        <classname>foo</classname> extension that implements the <emphasis>'scale'</emphasis>,
+        <emphasis>'sharpen'</emphasis> and <emphasis>'rotate'</emphasis> transformations, the driver
+        class might look like this:
+
+<programlisting language="php">
+&lt;?php
+class P4Cms_Image_Driver_Foo extends P4Cms_Image_Driver_Abstract
+{
+    /**
+     * @var string  The name of the extension required for this driver to function.
+     */
+    protected   $_requiredExtension     = 'foo';
+
+    /**
+     * @var array   The list of transformations this driver implements.
+     */
+    protected   $_supportedTransforms   = array(
+        'scale',
+        'sharpen',
+        'rotate'
+    );
+
+    /**
+     * Set the image data.
+     *
+     * @param   string|null             $data optional - image data
+     * @return  P4Cms_Image_Driver_Foo  provides fluent interface
+     */
+    public function setData($data = null)
+    {
+        // set image data
+
+        return $this;
+    }
+
+    /**
+     * Return binary image data.
+     *
+     * @param   string          $type   optional - the image format (will return image data
+     *                                  in the same format as input if not provided)
+     * @return  string|null     binary image data or null if no image data were set
+     */
+    public function getData($type = null)
+    {
+        // early exit if there is no image data
+        if (!$this->hasData()) {
+            return null;
+        }
+
+        // get image data into $data
+
+        return $data;
+    }
+
+    /**
+     * Check if there is image data to operate with.
+     *
+     * @return  bool    true if there has been image data set, false otherwise.
+     */
+    public function hasData()
+    {
+        // check if there is image data
+
+        return $data ? true : false;
+    }
+
+    /**
+     * Check if given image type is supported.
+     *
+     * @param   string  $type   image type to check for
+     * @return  bool    true if given image type is supported, false otherwise
+     */
+    public function isSupportedType($type)
+    {
+        // check if image type is supported
+
+        return $supported ? true : false;
+    }
+
+    /**
+     * Scale the image to the given size.
+     *
+     * @param   int     $width          the width in pixels
+     * @param   int     $height         the height in pixels
+     */
+    protected function _scale($width, $height)
+    {
+        // implement image scaling
+    }
+
+    /**
+     * Sharpen the image.
+     */
+    protected function _sharpen()
+    {
+        // implement image sharpening
+    }
+
+    /**
+     * Rotate the image.
+     *
+     * @param   float   $degrees        the rotation angle
+     */
+    protected function _rotate($degrees)
+    {
+        // implement image rotate
+    }
+
+    /**
+     * Return image width in pixels.
+     *
+     * @return  int     image width in pixels
+     */
+    protected function _getImageWidth()
+    {
+        // get image width
+
+        return $width
+    }
+
+    /**
+     * Return image height in pixels.
+     *
+     * @return  int     image height in pixels
+     */
+    protected function _getImageHeight()
+    {
+        // get image height
+
+        return $height;
+    }
+}
+</programlisting>
+    </para>
+
+</section>

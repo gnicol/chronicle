@@ -1,0 +1,119 @@
+/* history sub-toolbar */
+
+.p4cms-ui .history-toolbar {
+    font-size: 13px;
+}
+
+.p4cms-ui .history-toolbar .user {
+    font-weight: bold;
+    color: white;
+}
+
+.p4cms-ui .history-toolbar .description {
+    font-style: italic;
+    padding-left: 15px;
+}
+
+.p4cms-ui .history-toolbar .version {
+    display: inline-block;
+    margin-right: 6px;
+    position: relative;
+    top: 2px;
+}
+
+.p4cms-ui .history-toolbar .change {
+    display: inline-block;
+    position: relative;
+    top: 3px;
+}
+
+.p4cms-ui .history-toolbar .left {
+    display: inline-block;
+    float: left;
+    margin-right: 12px;
+    padding-right: 12px;
+    border-right: 1px solid #2a2a2a;
+}
+
+.p4cms-ui .history-toolbar .middle {
+    display: inline-block;
+    float: left;
+    color: #efefef;
+}
+
+.p4cms-ui .history-toolbar .right {
+    display: inline-block;
+    float: right;
+    margin-left: 12px;
+    padding-left: 12px;
+    border-left: 1px solid #2a2a2a;
+}
+
+/* history sub-toolbar - description tooltip */
+.p4cms-ui .history-tooltip {
+    word-wrap: break-word;
+    max-width: 512px;
+}
+
+/* history sub-toobar - prev/next buttons */
+
+.p4cms-ui .history-toolbar .dijitIcon.button-prev,
+.p4cms-ui .history-toolbar .dijitIcon.button-next {
+    width: 8px;
+    height: 13px;
+    background: url('../../ui/resources/images/buttonArrows.png') no-repeat;
+}
+
+.p4cms-ui .history-toolbar .dijitIcon.button-prev {
+    background-position: -80px -1px;
+}
+
+.p4cms-ui .history-toolbar .dijitButtonDisabled .dijitIcon.button-prev {
+    background-position: -180px -1px;
+}
+
+.p4cms-ui .history-toolbar .dijitIcon.button-next {
+    background-position: -28px -1px;
+}
+
+.p4cms-ui .history-toolbar .dijitButtonDisabled .dijitIcon.button-next {
+    background-position: -128px -1px;
+}
+
+
+/* history sub-toobar - versions button */
+
+.p4cms-ui .history-toolbar .dijitDropDownButton.versions-button .dijitButtonContents,
+.p4cms-ui .history-toolbar .dijitDropDownButton.dijitDropDownButtonHoverFocused.versions-button .dijitButtonContents {
+    padding: 0;
+    border: none;
+    width: 16px;
+    height: 20px;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    background: transparent url('btn-versions.gif') left top no-repeat;
+}
+.p4cms-ui .history-toolbar .dijitDropDownButton.versions-button:hover {
+    background-color: #fff;
+    background-color: transparent;
+}
+
+.p4cms-ui .history-toolbar .dijitDropDownButton.versions-button .dijitArrowButtonInner {
+    background-image: none;
+}
+
+/* history grid */
+
+.p4cms-ui .history-grid.data-grid {
+    overflow: auto;
+}
+
+.p4cms-ui .history-grid.data-grid .version.dojoxGridCell,
+.p4cms-ui .history-grid.data-grid .version.dojoxGridCell div {
+    text-align: center;
+}
+
+.p4cms-ui.dijitDialog .history-grid-wrapper {
+    width: 960px;
+}

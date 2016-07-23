@@ -1,0 +1,129 @@
+/**
+ * Search page styles.
+ */
+
+.search-module.index-action .search-form {
+    margin-top: -5px;
+}
+
+.search-module.index-action .search-info {
+    clear: both;
+    color: #333;
+    padding-left: 3px;
+    position: relative;
+    top: -10px;
+}
+
+.search-module.index-action .search-error {
+    clear: both;
+    color: #333;
+    font-weight: bold;
+    padding-left: 3px;
+    position: relative;
+    top: -10px;
+}
+
+.search-module.index-action .search-form dt#query-label {
+    display: none;
+}
+
+.search-module.index-action .search-form dd input {
+    font-size: 1.6em;
+    width: 300px !important;
+}
+
+.search-module.index-action .search-form dd {
+    float: left;
+}
+
+.search-module.index-action .search-form dd span.dijitButton {
+    font-size: 1.1em;
+    margin-top: 0px;
+    margin-left: 5px;
+}
+
+.search-module.index-action .search-results {
+    clear: both;
+    padding-bottom: 10px;
+}
+
+.search-module.index-action .search-results ul {
+    list-style-type: none;
+    margin-left: 0px;
+    padding-left: 0px;
+    font-size: 1.3em;
+}
+
+.search-module.index-action .search-results ul li {
+    padding-bottom: 15px;
+}
+
+.search-module.index-action .search-results ul li p {
+    padding: 0;
+    margin: 0;
+}
+
+.search-module.index-action .search-results p.excerpt {
+    font-size: .9em;
+    margin: 3px 0px;
+    padding: 0px;
+}
+
+.search-module.index-action .search-results ul li p.uri {
+    color: #666;
+    font-size: .8em;
+}
+
+.search-form .dijitValidationIcon {
+    display: none;
+}
+
+/**
+ * Search widget styles.
+ */
+
+.widget form.search-form dt {
+    float: none;
+    text-align: left;
+    min-width: 0;
+    font-size: 1.2em;
+}
+
+.widget form.search-form dd {
+    float: none;
+    margin: 5px 0px 0px 0px;
+    min-width: 0;
+}
+
+/**
+ * Search Management page styles.
+ */
+
+.p4cms-ui.form-dialog .search-configuration form.search-maintenance {
+    padding: 0;
+}
+
+.p4cms-ui .search-configuration .search-maintenance .search-button {
+    margin-right: 10px;
+}
+
+.p4cms-ui .search-configuration .search-maintenance .button-text {
+    display: block;
+    width: 75px;
+}
+
+.p4cms-ui .search-configuration .search-maintenance .button-label {
+    line-height: 35px;
+    position: relative;
+    top: -4px;
+}
+
+/* Search Tooltip Dialog */
+
+.p4cms-search-dialog .dijitTooltipContents form {
+    margin: 15px 10px 5px 10px;
+}
+
+.p4cms-search-dialog .dijitTooltipContents form #submit-element {
+    margin-left: 65px;
+}

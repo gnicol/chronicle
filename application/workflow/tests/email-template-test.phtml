@@ -1,0 +1,8 @@
+[sendEmail testing template]
+<p>Variables check:</p>
+<? 
+    $expectedVariables = array('transition', 'record', 'action');
+    foreach ($expectedVariables as $variable) {
+        printf("%s=%s <br>", $variable, isset($this->$variable) ? 'ok' : 'fail');
+    }
+?>

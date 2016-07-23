@@ -1,0 +1,48 @@
+<?= $this->doctype() ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <?= $this->headMeta() ?>
+ <?= $this->headTitle() ?>
+ <?= $this->dojo() ?>
+ <?= $this->headLink()->setIncludeTheme(false) ?>
+ <?= $this->headScript() ?>
+ <?= $this->headStyle() ?>
+</head>
+<body class='claro p4cms-ui
+ <?=$this->layout()->getLayout()?>
+ <?=$this->request()->getModuleName()?>-module
+ <?=$this->request()->getControllerName()?>-controller
+ <?=$this->request()->getActionName()?>-action'>
+ <?=$this->toolbar(null, array('displayContext' => 'manage'))?>
+ <?= $this->notifications() ?>
+ 
+<div id="layout-top">
+ <div class="container">
+  <h1><?= $this->bodyTitle() ?></h1>
+  <div id="manage-logo">
+   <a href="<?= $this->request()->baseUrl ?>/"><img src="<?= $this->module('ui')->getBaseUrl() ?>/images/p4cms-logo.png" alt="Chronicle logo"/></a>
+  </div>
+ </div>
+</div>
+
+<div id="layout-main">
+ <div class="container">
+<?= $this->layout()->content ?>
+  <div class="clear"></div>
+ </div>
+</div>
+
+<div id="layout-bottom">
+ <div class="container">
+  <div id="manage-footer">
+   <div class="footer-left">
+    &copy; <?=date('Y')?> Perforce Software - <?=$this->version()?>
+   </div>
+   <div class="footer-right">
+    <?= $this->menu('manage-footer') ?>
+   </div>
+  </div>
+ </div>
+</div>
+</body>
+</html>

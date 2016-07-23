@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="themes.anatomy.components">
+    <title>Components</title>
+
+    <para>
+        Themes are composed of the following components. The only required file is
+        <filename>theme.ini</filename> &mdash; all other files are optional.
+    </para>
+
+    <table frame="all" id="themes.anatomy.components.table-1">
+        <title>Theme Components</title>
+        <tgroup cols="2">
+            <thead>
+                <row>
+                    <entry>File(s)</entry>
+                    <entry>Description</entry>
+                </row>
+            </thead>
+
+            <tbody>
+                <row>
+                    <entry>
+                        <link linkend="themes.config"><filename>theme.ini</filename></link>
+                    </entry>
+
+                    <entry>
+                        Identifies the theme to &product.longname; and provides its default
+                        configuration.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="themes.resources">Resources</link>
+                    </entry>
+
+                    <entry>
+                        <acronym>CSS</acronym> stylesheets, JavaScript, and other assets that help
+                        define the theme's presentation.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="themes.layouts">Layouts</link>
+                    </entry>
+
+                    <entry>
+                        A <emphasis>layout</emphasis> is an <acronym>HTML</acronym> file that
+                        provides the markup for the overall look of a page. A layout is used to
+                        implement headers and footers, specify which stylesheets and scripts to use,
+                        and define the locations for content and regions. Layouts can include
+                        <acronym moreinfo="http://www.php.net">PHP</acronym> code.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="themes.view.scripts">View Scripts</link>
+                    </entry>
+
+                    <entry>
+                        <acronym>HTML</acronym> files that control the presentation for specific
+                        actions in the application. View scripts can contain
+                        <acronym>PHP</acronym> code.
+                    </entry>
+                </row>
+
+                <row>
+                    <entry>
+                        <link linkend="themes.view.helpers">View&#xA0;Helpers</link>
+                    </entry>
+
+                    <entry>
+                        <acronym>PHP</acronym> classes that assist in markup generation.
+                    </entry>
+                </row>
+            </tbody>
+        </tgroup>
+    </table>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

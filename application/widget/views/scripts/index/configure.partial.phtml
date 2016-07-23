@@ -1,0 +1,10 @@
+<?
+// render the form before emitting, to prepare dojo requires.
+$form = $this->form->render();
+
+// emit the dojo requires.
+print $this->dojo(array('extras', 'layers'));
+
+// print the form.
+print $form;
+?>

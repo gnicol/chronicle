@@ -1,0 +1,75 @@
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="modules.validators">
+    <title>Validators</title>
+
+    <para>
+        A <emphasis>validator</emphasis> compares data to a set of requirements and returns a
+        boolean value indicating its validity. Place validator class files in the
+        <filename>validators</filename> folder under your module's folder.
+    </para>
+
+    <para>
+        Here is the skeleton of a validator that performs validation <emphasis>bar</emphasis> for
+        the <classname>Foo</classname> module:
+    </para>
+
+<programlisting language="php">
+&lt;?php
+/**
+ * Validator description
+ *
+ * @copyright   copyright info
+ * @license     license info
+ * @version     version info
+ */
+class Foo_Validator_Bar implements Zend_Validate_Abstract
+{
+    const NOTBAR = 'notbar';
+
+    protected $_messageTemplates = array(
+        self::NOTBAR = "The value is not bar"
+    );
+
+    /**
+     * Validates values for bar-ness.
+     *
+     * @param   mixed       $value  The value to be validated.
+     * @return  boolean     True if the value is bar, false otherwise.
+     */
+    public function isValid($value)
+    {
+        $this->_setValue($value);
+
+        // if bar, return true
+        if (isset($value) &amp;&amp; is_string($value) &amp;&amp; $value === 'bar') {
+            return true;
+        }
+
+        // not bar, return false
+        $this->_error(self::NOTBAR);
+        return false;
+    }
+}
+</programlisting>
+
+    <para>
+        For details, see the
+        <ulink url="http://framework.zend.com/manual/1.11/en/zend.validate.html">Zend
+        Framework documentation</ulink>.
+    </para>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

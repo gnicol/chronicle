@@ -1,0 +1,486 @@
+/* =GLOBAL STYLES
+-----------------------------------*/
+body {
+    background: white;
+    margin: 0;
+    padding: 0;
+    font-family: Geneva, Arial, Helvetica, sans-serif;
+    color: #2f2f2f;
+    text-align: left;
+}
+
+p {
+    font-size: 12px;
+    line-height: 17px;
+    padding: 2px 0 10px 0;
+    margin: 0;
+}
+
+a { color: #087e90 }
+a:hover { color: black }
+
+h1 {
+    font-size: 22px;
+    font-weight: normal;
+    margin: .5em 0;
+}
+h1.content-element {
+    margin: .5em 0;
+}
+
+h2 {
+    font-size: 19px;
+    line-height: 23px;
+    font-weight: normal;
+    margin: 0;
+    padding: 5px 0 8px 0;
+}
+
+h3 {
+    margin: 0;
+    font-size: 14px;
+}
+
+a img { border: none }
+
+.clear { clear: both }
+
+.right5 { padding-right: 5px; }
+.margin-right { margin-right: 2%; }
+
+/* Use this class to center content */
+
+.centered {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Use these classes to float images to the left or right.
+This will allow copy to flow around the image*/
+
+.float-left {
+    float: left;
+    margin: 0;
+}
+
+.float-right {
+    float: right;
+    margin: 0;
+}
+
+
+/* =CONTAINER STYLES
+-----------------------------------*/
+
+#header {
+    background: url(../images/header-repeat.jpg) repeat-x;
+    padding: 12px 0 10px 0;
+    height: 153px;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+#footer {
+    background: url(../images/footer-repeat.jpg) repeat-x;
+    padding: 12px 0 0 0;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    height: 30px;
+    overflow: hidden;
+}
+
+.main {
+    float: left;
+    width: 64%;
+    min-height: 400px;
+    height: 100%;
+}
+
+.sidebar {
+    float: right;
+    width: 34%;
+}
+
+/* =REGION STYLES
+-----------------------------------*/
+
+#region-splash {
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+#region-features {
+    overflow: hidden;
+}
+#region-header .widget-container,
+#region-features .widget-container {
+    float: left;
+    padding: 0;
+}
+
+#region-header {
+    overflow: hidden;
+    height: 63px;
+}
+#region-header .layout-title {
+    float: right;
+    overflow: hidden;
+}
+#region-header .layout-title .widget-content {
+    font-size: 22px;
+    text-shadow: 0px 0px 5px white;
+    font-weight: normal;
+    margin: 0;
+    padding-top: 20px;
+    vertical-align: middle;
+    text-align: right;
+    width: 400px;
+    overflow: hidden;
+}
+
+#region-splash .widget-container {
+    padding: 0;
+    margin: 10px 0;
+}
+
+#region-splash .widget-1 {
+    margin: 0;
+    text-align: center;
+}
+
+#region-splash .widget-container .widget-title {
+    font-size: 19px;
+    padding: 5px 0 8px 0;
+}
+#region-splash .widget-container .widget-content {
+    font-size: 12px;
+    line-height: 17px;
+}
+.content-entry {
+    padding: 0;
+}
+.content-element {
+    margin: 0;
+}
+
+#region-features .widget-container {
+    float: left;
+    width: 32%;
+}
+#region-features .widget-container .widget-title,
+#region-sidebar .widget-container .widget-title {
+    height: 20px;
+    font-size: 19px;
+    padding: 5px 0 8px 0;
+}
+#region-features .widget-container .widget,
+#region-sidebar .widget-container .widget {
+    background: #ededed;
+
+    border: 1px solid white;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+
+    -moz-box-shadow: 0px 0px 4px #adadad;
+    -webkit-box-shadow: 0px 0px 4px #adadad;
+    box-shadow: 0px 0px 4px #adadad;
+
+    padding: 10px 15px;
+    margin: 5px 1px 15px 1px;
+
+    font-size: 12px;
+    line-height: 17px;
+    min-height: 190px;
+}
+
+#region-sidebar .widget-container .widget {
+    min-height: 0;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#region-features .widget-container .widget img {
+    float: left;
+}
+#region-features .widget-container + .widget-container {
+    margin-left: 18px;
+}
+#region-features .widget-container.widget-4,
+#region-features .widget-container.widget-7,
+#region-features .widget-container.widget-10,
+#region-features .widget-container.widget-13,
+#region-features .widget-container.widget-16,
+#region-features .widget-container.widget-19,
+#region-features .widget-container.widget-22,
+#region-features .widget-container.widget-25,
+#region-features .widget-container.widget-28
+{
+    margin-left: 0;
+    clear: both;
+}
+#region-features .widget-container p {
+    min-height: 120px;
+}
+#region-features .widget-container p+p {
+    min-height: 0;
+}
+
+/* =CONTENT STYLES
+-----------------------------------*/
+
+.logo {
+    float: left;
+}
+
+.title { padding-top: 20px; }
+
+hr {
+    border: none;
+    border-bottom: 1px solid #e5e5e5;
+    margin: 10px 0 15px 0;
+}
+
+/* Navigation */
+
+#header .container ul.navigation {
+    float: left;
+    background: url("../images/nav-divider.jpg") no-repeat top left;
+    list-style-type: none;
+    margin: 16px 0 0 0;
+    padding: 0 0 0 2px;
+    height: 72px;
+    overflow: hidden;
+}
+
+#header .container ul.navigation li {
+    float: left;
+    background: url(../images/nav-divider.jpg) no-repeat top right;
+    display: block;
+    padding: 0px;
+    padding-right: 2px;
+}
+
+#header .container ul.navigation li a {
+    color: #f2f2f2;
+    font-size: 16px;
+    text-shadow: 1px 1px 1px #000;
+    text-decoration: none;
+    padding: 27px 17px 0px 17px;
+    text-transform: uppercase;
+    height: 45px;
+    display: block;
+    float: left;
+}
+
+#header .container ul.navigation li a:hover {
+    background: url(../images/nav-button.jpg) no-repeat center #202020;
+}
+
+#footer .container ul.navigation {
+    float: left;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#footer .container ul.navigation li {
+    float: left;
+    display: block;
+    padding: 0 12px 0 0;
+}
+
+#footer .container ul.navigation li a {
+    color: white;
+    font-size: 12px;
+    text-shadow: 1px 1px 1px #000;
+    text-decoration: underline;
+    margin: 0;
+    padding: 0;
+}
+
+#footer .container ul.navigation li a:hover {
+    color: #16a0b5;
+}
+
+/* Buttons */
+
+.button {
+    height: 31px;
+    padding-top: 10px;
+}
+
+p + .button {
+    padding-top: 0;
+}
+
+a.button-link span {
+    background: transparent url("../images/btn-left.gif") no-repeat 0 0;
+    display: block;
+    color: black;
+    font-size: 13px;
+    font-weight: normal;
+    text-shadow: 1px 1px 1px white;
+    padding: 5px 5px 10px 13px;
+}
+
+a:hover.button-link span {
+    background: transparent url("../images/btn-left-hover.gif") no-repeat 0 0;
+}
+
+a.button-link {
+    float: right;
+    background: transparent url("../images/btn-right.gif") no-repeat top right;
+    display: block;
+    text-decoration: none;
+    padding-right: 23px;
+    height: 31px;
+}
+
+a:hover.button-link {
+    background: transparent url("../images/btn-right-hover.gif") no-repeat top right;
+}
+
+
+/* Chronicle-Info Button */
+
+#region-splash .chronicle-info a.call-to-action {
+    display: block;
+    float: right;
+    background: transparent url(../images/btn-purple-right.jpg) no-repeat top right;
+    text-decoration: none;
+    padding-right: 50px;
+    height: 49px;
+    position: relative;
+    top: -20px;
+}
+
+#region-splash .chronicle-info a.call-to-action span {
+    background: transparent url(../images/btn-purple-left.jpg) no-repeat 0 0;
+    display: block;
+    color: white;
+    font-size: 19px;
+    font-weight: normal;
+    text-shadow: 1px 1px 1px black;
+    padding: 13px 6px 0px 13px;
+    white-space: nowrap;
+    height: 49px;
+}
+
+#region-splash .chronicle-info a.call-to-action:hover {
+    background: transparent url(../images/btn-purple-right-hover.jpg) no-repeat top right;
+}
+
+#region-splash .chronicle-info a.call-to-action:hover span {
+    background: transparent url(../images/btn-purple-left-hover.jpg) no-repeat 0 0;
+}
+
+
+/* Content List Widget */
+
+#region-splash .content-list ul {
+    overflow: hidden;
+    list-style-type: square;
+    padding-left: 2%;
+}
+
+#region-splash .content-list ul li {
+    float: left;
+    width: 44%;
+    font-size: 17px;
+}
+
+#region-splash .content-list ul li.content-list-entry-odd {
+    clear: both;
+}
+
+#region-splash .content-list ul li .content-list-icon-field {
+    float: left;
+}
+
+#region-splash .content-list ul li .content-list-title-field {
+    float: left;
+    width: 365px;
+    margin-right: 10px;
+    margin-top: 2px;
+}
+
+/* =Sidebar and Boxes */
+
+.box {
+    background: #ededed;
+
+    border: 1px solid white;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+
+    -moz-box-shadow: 0px 0px 4px #adadad;
+    -webkit-box-shadow: 0px 0px 4px #adadad;
+    box-shadow: 0px 0px 4px #adadad;
+
+    padding: 10px 15px 7px 15px;
+    margin: 5px 0 12px 0;
+    height: 190px;
+}
+
+.box h2 {
+    height: 45px;
+}
+
+.box ul {
+    list-style: none;
+    font-size: 13px;
+    margin: 0;
+    padding: 0 0 5px 0;
+}
+
+.box li {
+    padding-bottom: 6px;
+}
+
+.three-boxes {
+    float: left;
+    width: 32%;
+}
+
+/* =Footer */
+
+#footer .region {
+    height: 25px;
+}
+
+#footer .region .footer-menu {
+    padding: 0;
+    font-size: 12px;
+    height: 23px;
+    float: left;
+}
+
+#footer .region .footer-menu a {
+    padding-right: 10px;
+}
+
+#footer .region .footer-menu .widget-menu-widget {
+    margin-top: 3px;
+    min-height: 18px;
+}
+
+#footer .region .powered-by {
+    color: #9f9f9f;
+    padding: 5px 0 0 0;
+    font-size: 12px;
+    float: right
+}
+
+#footer .region .powered-by a {
+    color: #cfcfcf;
+    text-decoration: none;
+}
+
+#footer .region .powered-by a:hover {
+    color: #16a0b5;
+}

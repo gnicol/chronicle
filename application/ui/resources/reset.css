@@ -1,0 +1,68 @@
+/* Reset everything in p4cms-ui scope. */
+
+body.p4cms-ui, .p4cms-ui a, .p4cms-ui div, .p4cms-ui dl, .p4cms-ui dt, .p4cms-ui dd, .p4cms-ui li, .p4cms-ui h1, .p4cms-ui h2, .p4cms-ui h3, .p4cms-ui h4, .p4cms-ui h5, .p4cms-ui h6, .p4cms-ui pre, .p4cms-ui form, .p4cms-ui fieldset, .p4cms-ui input, .p4cms-ui table, .p4cms-ui textarea, .p4cms-ui p, .p4cms-ui blockquote, .p4cms-ui th, .p4cms-ui td {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    outline: 0;
+    background: transparent;
+    float: none;
+    width: auto;
+    height: auto;
+    font-size: 100.01%;
+    font-weight: inherit;
+    font-family: inherit;
+    vertical-align: baseline;
+    text-align: left;
+    color: inherit;
+}
+
+.p4cms-ui h1 { font-size: 1.6em; }
+.p4cms-ui h2 { font-size: 1.5em; }
+.p4cms-ui h3 { font-size: 1.4em; }
+.p4cms-ui h4 { font-size: 1.3em; }
+.p4cms-ui h5 { font-size: 1.2em; }
+.p4cms-ui h6 { font-size: 1em; }
+
+.p4cms-ui img {
+    border: 0 none;
+}
+
+.p4cms-ui a {
+    color: #00e;
+    text-decoration: underline;
+}
+
+.p4cms-ui select {
+    font-size: 100.01%;
+}
+
+.p4cms-ui address, .p4cms-ui caption, .p4cms-ui cite, .p4cms-ui code, .p4cms-ui dfn, .p4cms-ui th, .p4cms-ui var {
+    font-style: normal;
+    font-weight: normal;
+}
+
+.p4cms-ui caption, .p4cms-ui th {
+    text-align: left;
+}
+
+.p4cms-ui q:before, .p4cms-ui q:after {
+    content: "";
+}
+
+.p4cms-ui abbr, .p4cms-ui acronym {
+    border: 0;
+}
+
+.clear{
+    clear: both;
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"], button {
+    padding: 1px 6px;
+}
+
+/* Disable focus outline for aesthetic reasons */
+*:focus {
+    outline: none;
+}

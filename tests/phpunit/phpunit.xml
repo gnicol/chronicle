@@ -1,0 +1,33 @@
+<phpunit bootstrap="TestBootstrap.php">
+ <testsuites>
+  <testsuite name="P4 Library">
+   <directory>P4</directory>
+  </testsuite>
+  <testsuite name="P4Cms Library">
+   <directory>P4Cms</directory>
+  </testsuite>
+  <testsuite name="Application">
+   <file>BootstrapTest.php</file>
+   <file>AllModuleTests.php</file>
+   <file>UntestedModulesTest.php</file>
+  </testsuite>
+ </testsuites>
+ <php>
+  <const name="P4_PATH"                 value="p4"/>
+  <const name="P4D_PATH"                value="p4d"/>
+  <const name="PHP_PATH"                value="php"/>
+  <!--
+  <const name="HTTP_HOST"               value=""/>
+  <const name="TEST_LOG_PATH"           value=""/>
+  <const name="TEST_SESSION_SAVE_PATH"  value=""/>
+  -->
+ </php>
+ <filter>
+  <blacklist>
+   <directory>.</directory>
+   <directory>../../library/Phly</directory>
+   <directory>../../library/simplediff</directory>
+   <directory>../../library/Zend</directory>
+  </blacklist>
+ </filter>
+</phpunit>

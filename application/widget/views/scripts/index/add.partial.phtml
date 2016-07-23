@@ -1,0 +1,22 @@
+<div class="display-group">
+<ul class="widget-types">
+<? foreach ($this->types as $type): ?>
+ <li>
+  <a href="javascript://" class="add-widget"
+   widgetType="<?=$this->escapeAttr($type->getId())?>"
+   widgetContext="<?=htmlspecialchars($this->widgetContext)?>"
+   ><img class="widget-type-icon" 
+   <? if ($type->hasIcon()): ?>
+    src="<?=$type->getIconUrl()?>"
+   <? else: ?>
+    src="<?=$this->module('widget')->getBaseUrl()?>/images/icon-widget-default.png"
+   <? endif; ?>></a>
+  <a href="javascript://" class="add-widget"
+   widgetType="<?=$this->escapeAttr($type->getId())?>"
+   widgetContext="<?=htmlspecialchars($this->widgetContext)?>"
+   ><span class="widget-type-label"><?=$this->escape($type->label)?></span></a>
+  <p class="widget-type-description"><?=$this->escape($type->description)?></p>
+ </li>
+<? endforeach ?>
+</ul>
+</div>

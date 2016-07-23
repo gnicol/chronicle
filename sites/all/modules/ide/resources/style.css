@@ -1,0 +1,140 @@
+.editor-layout .editor {
+    padding: 0;
+    margin: 0;
+    background: url('images/bg-toolbar.gif') left 36px repeat-x;
+}
+
+.editor-layout .editor .editor-toolbar {
+    padding: 0;
+    border: none;
+    height: 35px;
+    background: transparent;
+}
+
+/* override the default dijit icons with tweaked versions */
+.editor-layout .editor .dijitIconSave,
+.editor-layout .editor .dijitIconSave,
+.editor-layout .editor .dijitIconPrint,
+.editor-layout .editor .dijitIconCut,
+.editor-layout .editor .dijitIconCopy,
+.editor-layout .editor .dijitIconClear,
+.editor-layout .editor .dijitIconDelete,
+.editor-layout .editor .dijitIconUndo,
+.editor-layout .editor .dijitIconEdit,
+.editor-layout .editor .dijitIconNewTask,
+.editor-layout .editor .dijitIconEditTask,
+.editor-layout .editor .dijitIconEditProperty,
+.editor-layout .editor .dijitIconTask,
+.editor-layout .editor .dijitIconFilter,
+.editor-layout .editor .dijitIconConfigure,
+.editor-layout .editor .dijitIconSearch,
+.editor-layout .editor .dijitIconApplication,
+.editor-layout .editor .dijitIconBookmark,
+.editor-layout .editor .dijitIconChart,
+.editor-layout .editor .dijitIconConnector,
+.editor-layout .editor .dijitIconDatabase,
+.editor-layout .editor .dijitIconDocuments,
+.editor-layout .editor .dijitIconMail,
+.editor-layout .editor .dijitLeaf,
+.editor-layout .editor .dijitIconFile,
+.editor-layout .editor .dijitIconFunction,
+.editor-layout .editor .dijitIconKey,
+.editor-layout .editor .dijitIconPackage,
+.editor-layout .editor .dijitIconSample,
+.editor-layout .editor .dijitIconTable,
+.editor-layout .editor .dijitIconUsers,
+.editor-layout .editor .dijitFolderClosed,
+.editor-layout .editor .dijitIconFolderClosed,
+.editor-layout .editor .dijitFolderOpened,
+.editor-layout .editor .dijitIconFolderOpen,
+.editor-layout .editor .dijitIconError {
+    background-image: url("images/dijitIcons.png");
+}
+
+.editor-layout .editor .editor-toolbar .dijitToolbar {
+    background: transparent;
+    padding: 2px 4px 4px 12px;
+    border: 0 none;
+}
+
+.editor-layout .editor .editor-toolbar .dijitButtonNode {
+    -webkit-transition-duration: 0;
+    -moz-transition-duration: 0;
+    transition-duration: 0;
+}
+
+.editor-layout .editor .editor-toolbar .dijitButtonContents {
+    padding-bottom: 2px;
+}
+
+.editor-layout .editor .dijitGutterH {
+    height: 0;
+}
+
+.editor-layout .editor .editor-sidebar {
+    margin-left: 5px;
+    margin-bottom: 5px;
+}
+
+.editor-layout .editor .editor-tree {
+    width: 300px;
+    font-size: 12px;
+}
+
+.editor-layout .editor .editor-tabs {
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.editor-layout .editor .editor-tabs .dijitTab {
+    padding-top: 0;
+}
+
+.editor-layout .editor .editor-tabs .dijitTab .dijitTabContent {
+    padding-bottom: 6px;
+}
+
+.editor-layout .editor .editor-tabs .dijitContentPane {
+    padding: 0;
+    overflow: hidden;
+}
+
+.dijitTooltipDialog.p4cms-user-login form {
+    margin: 15px 10px 5px 10px;
+}
+
+.dijitTooltipDialog.p4cms-user-login dd p.description {
+    display: none;
+}
+
+.dijitTooltipDialog.p4cms-user-login input {
+    width: 150px;
+}
+
+.dijitTooltipDialog.p4cms-user-login label.required {
+    background: none;
+}
+
+.dijitTooltipDialog.p4cms-user-login #buttons-element {
+    text-align: left;
+    margin: 10px 0 0 65px;
+}
+
+/* Tooltip/Dialog Forms */
+
+.editor-layout .dijitTooltipDialog form {
+    margin: 15px 10px 5px 10px;
+}
+
+.editor-layout .dijitTooltipDialog form #buttons-element {
+    text-align: left;
+    margin: 10px 0 0 65px;
+}
+
+.editor-layout .dijitDialog form dl dt {
+    width: 100px;
+}
+
+.editor-layout .dijitDialog form dl dd {
+    margin-left: 105px;
+}

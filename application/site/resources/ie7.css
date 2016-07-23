@@ -1,0 +1,20 @@
+/**
+ * IE7 sucks at line-height and isn't using what we have set anyways,
+ * change elements that are listening to match the elements that are not
+ */
+.p4cms-ui .pull-form ul.nested-checkbox li .count {
+    line-height: 1.5em;
+}
+
+/**
+ * IE7 is having some odd inline vs block behaviour in the nested checkbox,
+ * Floating the label left, appears to fix things
+ */
+.p4cms-ui .pull-form ul.nested-checkbox li label {
+    float: left;
+}
+
+/* IE7 fix for applying margins on left floats */
+.p4cms-ui.dijitDialog .pull-form dl dt + dd {
+    margin-left: 0px;
+}

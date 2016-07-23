@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE glossary
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<glossary>
+    <para>
+        A glossary of terms used in this documentation.
+    </para>
+
+    <glossdiv>
+        <title>A</title>
+
+        <glossentry id="ACL">
+            <glossterm>ACL</glossterm>
+            <acronym>ACL</acronym>
+            <glossdef>
+                <para>Access Control List</para>
+                <para>
+                    An access control list defines resources and roles, which can be used to determine whether sufficient privileges exist to allow access.
+                </para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="active directory">
+            <glossterm>Active Directory</glossterm>
+            <glossdef>
+                <para>A directory service by Microsoft providing a central location for network administration and security.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="AJAX">
+            <glossterm>AJAX</glossterm>
+            <acronym>AJAX</acronym>
+            <glossdef>
+                <para>Asynchronous JavaScript and XML</para>
+                <para>
+                    A technique used in web application programming that allows for transfer of information between the browser and web server without requiring a page reload.
+                </para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="APC">
+            <glossterm>APC</glossterm>
+            <acronym>APC</acronym>
+            <glossdef>
+                <para>Alternative PHP Cache</para>
+                <para>
+                    A free and open opcode cache for PHP. See <ulink url="http://www.php.net/apc"/>
+                </para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="API">
+            <glossterm>API</glossterm>
+            <acronym>API</acronym>
+            <glossdef>
+                <para>Application Programming Interface</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="ARIA">
+            <glossterm>ARIA</glossterm>
+            <acronym>ARIA</acronym>
+            <glossdef>
+                <para>Accessible Rich Internet Applications</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="aspect ratio">
+            <glossterm>Aspect Ratio</glossterm>
+            <glossdef>
+                <para>The ratio of an image's width to its height.</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>B</title>
+
+        <glossentry id="branch">
+            <glossterm>Branch</glossterm>
+            <glossdef>
+                <para>A distinct copy of all content and configuration that can be independently edited.</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>C</title>
+
+        <glossentry id="CAPTCHA">
+            <glossterm>CAPTCHA</glossterm>
+            <acronym>CAPTCHA</acronym>
+            <glossdef>
+                <para>Completely Automated Public Turing test to tell Computers and Humans Apart: a kind of challenge-response test used by web sites attempting to prevent automated abuse of the site's features.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="category">
+            <glossterm>Category</glossterm>
+            <glossdef>
+                <para>A hierarchical grouping to assist in organizing content.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="content type">
+            <glossterm>Content Type</glossterm>
+            <glossdef>
+                <para>Defines the structure of content entries, with one or more elements/fields of various types.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="controller">
+            <glossterm>Controller</glossterm>
+            <glossdef>
+                <para>Responds to requests and provides the logic required to use the appropriate models and views to form a response.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="cookies">
+            <glossterm>Cookies</glossterm>
+            <glossdef>
+                <para>Cookies, or more formally browser cookies, or HTTP cookies, are used by web sites to maintain shared knowledge between the user's web browser and the web site. The shared knowledge could be used for authentication, preferences, shopping cart contents, and other assorted information that facilitates a user's interaction with a web site.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="CSS">
+            <glossterm>CSS</glossterm>
+            <acronym>CSS</acronym>
+            <glossdef>
+                <para>Context Sensitive Stylesheet</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>D</title>
+
+        <glossentry id="DNS">
+            <glossterm>DNS</glossterm>
+            <acronym>DNS</acronym>
+            <glossdef>
+                <para>Domain Name System</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>G</title>
+
+        <glossentry id="GA">
+            <glossterm>GA</glossterm>
+            <acronym>GA</acronym>
+            <glossdef>
+                <para>Generally Available</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="GPS">
+            <glossterm>GPS</glossterm>
+            <acronym>GPS</acronym>
+            <glossdef>
+                <para>Global Positioning System</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>H</title>
+
+        <glossentry id="HTML">
+            <glossterm>HTML</glossterm>
+            <acronym>HTML</acronym>
+            <glossdef>
+                <para>Hyper Text Markup Language</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="HTTP">
+            <glossterm>HTTP</glossterm>
+            <acronym>HTTP</acronym>
+            <glossdef>
+                <para>Hyper Text Transport Protocol</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>I</title>
+
+        <glossentry id="IE">
+            <glossterm>IE</glossterm>
+            <acronym>IE</acronym>
+            <glossdef>
+                <para>IE, short for Internet Explorer, the web browser Microsoft provides with its Windows operating system.</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>J</title>
+
+        <glossentry id="javascript">
+            <glossterm>JavaScript</glossterm>
+            <acronym>JavaScript</acronym>
+            <glossdef>
+                <para>JavaScript is a scripting language most commonly found implemented in web browsers to provide enhanced user interfaces and dynamic web sites.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="JSON">
+            <glossterm>JSON</glossterm>
+            <acronym>JSON</acronym>
+            <glossdef>
+                <para>JavaScript Object Notation</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>L</title>
+
+        <glossentry id="LAMP">
+            <glossterm>LAMP</glossterm>
+            <acronym>LAMP</acronym>
+            <glossdef>
+                <para>A suite of software packages, specifically the Linux operating system, the Apache web server, the MySQL database server, and the PHP scripting language.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="layout">
+            <glossterm>Layout</glossterm>
+            <glossdef>
+                <para>A view script the defines the overall page structure, such as where the "header", "footer", "sidebar", and "content" areas should exist, and the HTML markup that defines them.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="LDAP">
+            <glossterm>LDAP</glossterm>
+            <glossdef>
+                <para>Lightweight Directory Access Protocol, an application protocol for accessing and maintaining distributed directory information services.</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>M</title>
+
+        <glossentry id="menu">
+            <glossterm>Menu</glossterm>
+            <glossdef>
+                <para>A hierarchical collection of links or headings that provide navigation facilities for a web site.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="module">
+            <glossterm>Module</glossterm>
+            <glossdef>
+                <para>A package of code, resources, configuration (and more) that provides or extends the functionality of &product.name;.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="MP3">
+            <glossterm>MP3</glossterm>
+            <acronym>MP3</acronym>
+            <glossdef>
+                <para>MPEG-1/MPEG-2 Audio Layer III</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="MVC">
+            <glossterm>MVC</glossterm>
+            <acronym>MVC</acronym>
+            <glossdef>
+                <para>Model-View-Controller</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>N</title>
+
+        <glossentry id="notification">
+            <glossterm>Notification</glossterm>
+            <glossdef>
+                <para>A status message that appears in the top right of the browser, indicating the success, warning, or failure of an operation.</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>O</title>
+
+        <glossentry id="OOP">
+            <glossterm>OOP</glossterm>
+            <acronym>OOP</acronym>
+            <glossdef>
+                <para>Object-Oriented Programming</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>P</title>
+
+        <glossentry id="P4PHP">
+            <glossterm>P4PHP</glossterm>
+            <acronym>P4PHP</acronym>
+            <glossdef>
+                <para>Perforce PHP Extension which allows PHP scripts to speak more directly with a Perforce server.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="PHP">
+            <glossterm>PHP</glossterm>
+            <acronym>PHP</acronym>
+            <glossdef>
+                <para>PHP: Hypertext Preprocessor</para>
+                <para>
+                    A commonly used programming language used to enhance web pages and develop
+                    web-based applications, such as &product.longname; See
+                    <ulink url="http://www.php.net/"/>
+                </para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="pub/sub">
+            <glossterm>pub/sub</glossterm>
+            <acronym>pub/sub</acronym>
+            <glossdef>
+                <para>Publish-Subscribe is a messaging pattern that allows otherwise disconnected code blocks to participate in specific programming tasks.</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>R</title>
+
+        <glossentry id="region">
+            <glossterm>Region</glossterm>
+            <glossdef>
+                <para>A rectangular area on a page, such as "header", "footer", "sidebar", that is used to contain widgets.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="RSS">
+            <glossterm>RSS</glossterm>
+            <acronym>RSS</acronym>
+            <glossdef>
+                <para>Really Simple Syndication</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>T</title>
+
+        <glossentry id="theme">
+            <glossterm>Theme</glossterm>
+            <glossdef>
+                <para>Customizes all aspects of the presentation of a website, including HTML markup, CSS stylesheets, images, etc.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="trigger">
+            <glossterm>Trigger</glossterm>
+            <glossdef>
+                <para>A user-written script called by the Perforce server whenever certain operations are performed.</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>U</title>
+
+        <glossentry id="URI">
+            <glossterm>URI</glossterm>
+            <acronym>URI</acronym>
+            <glossdef>
+                <para>Uniform Resource Identifier</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="URL">
+            <glossterm>URL</glossterm>
+            <acronym>URL</acronym>
+            <glossdef>
+                <para>Uniform Resource Locator</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>V</title>
+
+        <glossentry id="view script">
+            <glossterm>View Script</glossterm>
+            <glossdef>
+                <para>An HTML file that can contain PHP code to help produce the HTML markup for a specific task or element of a page.</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>W</title>
+
+        <glossentry id="WCMS">
+            <glossterm>WCMS</glossterm>
+            <acronym>WCMS</acronym>
+            <glossdef>
+                <para>Web-based Content Management System</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="widget">
+            <glossterm>Widget</glossterm>
+            <glossdef>
+                <para>A mini-application that can be embedded in a region on a page, useful for customizing the appearance or functionality of a web site.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="workflow">
+            <glossterm>Workflow</glossterm>
+            <glossdef>
+                <para>A customizable group of states to help guide content from creation to publication, such as "draft", "review", "published".</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="workflow action">
+            <glossterm>Workflow Action</glossterm>
+            <glossdef>
+                <para>An operation triggered by a successful workflow transition, such as sending an email to a reviewer when a content entry transitions to "review" state.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="workflow condition">
+            <glossterm>Workflow Condition</glossterm>
+            <glossdef>
+                <para>A test that must pass before a workflow transition may proceed. For example, a condition might test that content contains the word "reviewed".</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="workflow transition">
+            <glossterm>Workflow Transition</glossterm>
+            <glossdef>
+                <para>Describes the process of advancing a content entry from one workflow state to another, which checks workflow conditions, and if all successful, executing workflow actions.</para>
+            </glossdef>
+        </glossentry>
+
+        <glossentry id="WYSIWYG">
+            <glossterm>WYSIWYG</glossterm>
+            <acronym>WYSIWYG</acronym>
+            <glossdef>
+                <para>What You See Is What You Get</para>
+                <para>
+                    refers to the attempt to make the editing view of content match the
+                    presentation view.
+                </para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+
+    <glossdiv>
+        <title>X</title>
+
+        <glossentry id="XML">
+            <glossterm>XML</glossterm>
+            <acronym>XML</acronym>
+            <glossdef>
+                <para>Extensible Markup Language</para>
+            </glossdef>
+        </glossentry>
+    </glossdiv>
+</glossary>
+<!--
+vim:se ts=4 sw=4 et:
+-->

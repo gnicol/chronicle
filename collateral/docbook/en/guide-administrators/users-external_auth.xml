@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="users.external_auth">
+    <title>External Authentication</title>
+
+    <para>
+        &product.longname; may use a Perforce server that is configured for <emphasis>external
+        authentication</emphasis> (such as <acronym>LDAP</acronym> or <term4gloss>Active
+        Directory</term4gloss>). This section describes the features, and limitations, of working
+        with such a Perforce server.
+    </para>
+
+    <note>
+        <title>Using <term4gloss>Trigger</term4gloss>s for External Authentication</title>
+
+        <para>
+            <emphasis><term4gloss>Trigger</term4gloss>s</emphasis> are the mechanism a Perforce
+            server uses to integrate with an external authentication system. Please see the
+            <ulink url="http://www.perforce.com/perforce/doc.current/manuals/p4sag/06_scripting.html#1059697">Perforce
+            System Administrator's Guide</ulink> for details.
+        </para>
+    </note>
+
+    <para>
+        There are two <term4gloss>trigger</term4gloss>s used to configure external authentication:
+        <emphasis>auth-check</emphasis> which verifies that the provided user credentials are
+        correct, and <emphasis>auth-set</emphasis> which sets credentials for a user.
+    </para>
+
+    <para>
+        A Perforce server may only have the <emphasis>auth-check</emphasis>
+        <term4gloss>trigger</term4gloss> configured. In this case, passwords cannot be changed via
+        the Perforce server; password changes would need to be made via the external
+        authentication system.
+    </para>
+
+    <para>
+        It is not workable to only have an <emphasis>auth-set</emphasis>
+        <term4gloss>trigger</term4gloss> configured. The <emphasis>auth-check</emphasis>
+        <term4gloss>trigger</term4gloss> is processed first to verify current credentials prior
+        to setting new credentials. Also, even when an <emphasis>auth-set</emphasis>
+        <term4gloss>trigger</term4gloss> is configured, Perforce superusers cannot reset or change
+        other users' passwords.
+    </para>
+
+    <para>
+        &product.name; detects if the Perforce server is configured for external authentication by
+        running the command <command>p4 -Ztag info</command>, and looking for the output
+        <emphasis>externalAuth enabled</emphasis>. When external authentication is configured, the
+        following changes occur in &product.name;:
+    </para>
+
+    <section>
+        <title>Setup</title>
+
+        <para>
+            During the Setup process, you are prompted for the password of the system user
+            <emphasis>chronicle</emphasis> on the <emphasis role="screen">Setup:
+            Administrator</emphasis> screen:
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/screen-setup-administrator-external_auth.png"/>
+            </imageobject>
+        </mediaobject>
+
+        <para>
+            The <emphasis>chronicle</emphasis> user is an auto-generated user used for system
+            requests between &product.name; and the Perforce server. Once you provide a password,
+            &product.name; verifies the password before continuing with the Setup process.
+        </para>
+    </section>
+
+    <section>
+        <title>Adding a User</title>
+
+        <para>
+            While adding a new user to &product.name;, the <emphasis role="dialog">Add
+            User</emphasis> dialog provides a notice regarding external authentication, and the
+            password fields are removed:
+        </para>
+
+        <blockquote>
+            <para>
+                Your Perforce Server is using external authentication. An entry for this user must
+                be added to the external authentication system before the user can log into
+                &product.name;.
+            </para>
+        </blockquote>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/dialog-add_user-external_auth.png"/>
+            </imageobject>
+        </mediaobject>
+    </section>
+
+    <section>
+        <title>Editing a User</title>
+
+        <para>
+            While editing an existing user's profile, the <emphasis role="dialog">Edit
+            User</emphasis> dialog provides a warning when a user clicks the
+            <emphasis role="bold">Change Password</emphasis> checkbox if the password cannot be
+            changed:
+        </para>
+
+        <blockquote>
+            <para>
+                Your Perforce Server is using external authentication. Please change the user's
+                password in the external authentication system.
+            </para>
+        </blockquote>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/dialog-edit_user-external_auth.png"/>
+            </imageobject>
+        </mediaobject>
+    </section>
+
+    <section>
+        <title>Self-Signup</title>
+
+        <para>
+            While logging into &product.name;, the <guibutton>+ New User</guibutton> button is
+            removed from the login dialog.
+        </para>
+
+        <mediaobject>
+            <imageobject>
+                <imagedata fileref="images/dialog-login-external_auth.png"/>
+            </imageobject>
+        </mediaobject>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

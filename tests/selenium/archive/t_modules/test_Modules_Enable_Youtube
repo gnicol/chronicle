@@ -1,0 +1,45 @@
+from selenium import selenium
+import unittest, time, re, sys, getopt
+sys.path.append("shared")
+import functions
+
+class test_Modules_Enable_Youtube(unittest.TestCase):
+    def setUp(self):
+        self.verificationErrors = []
+        self.selenium = selenium(connection["host"], connection["port"], connection["browser"], connection["url"])
+        self.selenium.start()
+
+    def test_modules_enable_youtube(self):
+        sel = self.selenium
+        sel.open("/")
+        sel.click("p4cms-site-toolbar-stack-controller_p4cms_ui_toolbar_ContentPane_0_label")
+        sel.click("css=input.dijitOffScreen")
+        sel.click("css=ul > li:nth(1) > ul > li:nth(1) > a > span")
+        sel.wait_for_page_to_load("30000")
+        sel.click("typeFilter-display-external")
+        functions.waitForElementPresent(sel,"//div[3]/table/tbody/tr/td/div/div/div/div[2]/span/span/span/span[2]"
+        sel.click_at("//div[3]/table/tbody/tr/td/div/div/div/div[2]/span/span/span/span[2]", "")
+        functions.waitForTextPresent(sel,"Enable Module")
+        sel.click("//div[@id='buttons-element']/fieldset/span/input")
+        sel.click("p4cms_ui_ConfirmTooltip_14-button-action_label")
+        try: 
+        	self.failUnless(sel.is_element_present("//div[3]/table/tbody/tr/td[3]/div/span"))
+        	functions.printResults("6447","pass")
+        except AssertionError, e: 
+        	self.verificationErrors.append(str(e))
+        	functions.printResults("6447","fail")
+        sel.click("p4cms-site-toolbar-stack-controller_p4cms_ui_toolbar_ContentPane_4_label")
+    
+    def tearDown(self):
+        self.selenium.stop()
+        self.assertEqual([], self.verificationErrors)
+
+if __name__ == "__main__":
+
+    connection = functions.connect(sys.argv)
+    del sys.argv[1:]
+    
+    detailids = ("6447")
+    functions.printDetailIds(detailids)
+
+    unittest.main()

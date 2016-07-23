@@ -1,0 +1,259 @@
+
+/* Forms */
+
+form.p4cms-ui p.description,
+.p4cms-ui form p.description {
+    margin: 0;
+    padding-top: 3px;
+    padding-bottom: 10px;
+    color: #555;
+    max-width: 375px;
+    font-size: 11px;
+}
+
+form.p4cms-ui dl dt,
+.p4cms-ui form dl dt {
+    font-size: 13px;
+    float: left;
+    clear: left;
+    padding-right: 5px;
+    padding-top: 1px;
+    text-align: right;
+    width: 150px;
+}
+
+form.p4cms-ui dt label,
+.p4cms-ui form dt label {
+    padding-top: 5px;
+    padding-right: 12px;
+}
+
+form.p4cms-ui dl dd,
+.p4cms-ui form dl dd {
+    font-size: 13px;
+    min-width: 300px;
+    float: left;
+    clear: right;
+    margin-bottom: 15px;
+}
+
+form.p4cms-ui dd.display-group,
+.p4cms-ui form dd.display-group {
+    float: none;
+    clear: both;
+    min-width: 0;
+    margin: 0;
+}
+
+form.p4cms-ui fieldset,
+.p4cms-ui form fieldset {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.p4cms-ui .dijitTextBox,
+.p4cms-ui .dijitSpinner,
+.p4cms-ui .dijitComboBox {
+    background: url("images/input-bg-repeat.jpg") repeat-x scroll 0 0 white;
+    border: 1px solid #a8a8a8;
+    font-family: inherit;
+    font-size: 13px;
+    padding: 3px 0 0 0;
+    margin: 0;
+    width: auto;
+    height: 17px;
+}
+
+.p4cms-ui .dijitDateTextBox {
+    padding: 0;
+}
+.p4cms-ui .dijitDateTextBox input.dijitInputInner {
+    background: transparent;
+    padding: 0;
+}
+
+.p4cms-ui .dijitComboBoxHover {
+    background-color: white;
+}
+
+.p4cms-ui .dijitComboBox input {
+    border: 0;
+}
+
+.p4cms-ui .dijitComboBox .dijitInputField {
+    padding: 0 3px;
+    background-color: transparent;
+}
+
+.p4cms-ui .dijitComboBox .dijitDownArrowButton,
+.p4cms-ui .dijitComboBoxHover .dijitDownArrowButton,
+.p4cms-ui .dijitComboBoxActive .dijitDownArrowButton {
+    border: none;
+    background: transparent;
+    padding: 1px;
+}
+
+.p4cms-ui .dijitComboBox .dijitArrowButtonInner,
+.p4cms-ui .dijitComboBoxHover .dijitArrowButtonInner,
+.p4cms-ui .dijitComboBoxFocused .dijitArrowButtonInner {
+    border: none;
+    padding: 1px;
+}
+
+.p4cms-ui .dijitComboBox .dijitArrowButton input,
+.p4cms-ui .dijitComboBoxHover .dijitArrowButton input,
+.p4cms-ui .dijitComboBoxFocused .dijitArrowButton input,
+.p4cms-ui .dijitComboBoxHover .dijitDownArrowButtonHover .dijitArrowButtonInner,
+.p4cms-ui .dijitComboBox .dijitHasDropDownOpen .dijitArrowButtonInner {
+    background-color: transparent;
+    background-image: url('images/buttonArrows.png');
+    background-position: -53px 2px;
+}
+
+form.p4cms-ui fieldset legend,
+.p4cms-ui form fieldset legend {
+    font-size: 1.2em;
+    line-height: .6em;
+}
+
+form.p4cms-ui label.checkbox,
+.p4cms-ui form label.checkbox {
+    float: left;
+}
+
+.p4cms-ui form input[type=text],
+.p4cms-ui form input[type=password],
+form.p4cms-ui input[type=text],
+form.p4cms-ui input[type=password],
+form.p4cms-ui textarea,
+.p4cms-ui form textarea {
+    border: 1px solid #a8a8a8;
+    background: url('images/input-bg-repeat.jpg') repeat-x white;
+    background-position: top;
+    padding: 3px;
+    position: relative;
+    top: -3px;
+    font-size: 13px;
+}
+
+.p4cms-ui form select,
+form.p4cms-ui select {
+    font-size: 12px;
+}
+
+form.p4cms-ui textarea,
+.p4cms-ui form textarea {
+    padding: 3px 4px;
+}
+
+form.p4cms-ui label input[type=checkbox],
+form.p4cms-ui input[type=radio] {
+    margin-right: 3px;
+}
+
+form.p4cms-ui input[type=radio] {
+    margin-left: 1px;
+}
+
+form.p4cms-ui ul.errors,
+.p4cms-ui form ul.errors {
+    list-style-type: none;
+    margin-left: 0;
+    margin-top: 3px;
+    padding-left: 0;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+form.p4cms-ui ul.errors li,
+.p4cms-ui form ul.errors li {
+    color: #f80320;
+    max-width: 375px;
+}
+
+.p4cms-ui form label.required {
+    background-image: url('images/required-asterisk.png');
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+.p4cms-ui form label.required.disabled,
+.p4cms-ui form label.required.readonly {
+    background-image: none;
+}
+
+.p4cms-ui form input:disabled,
+.p4cms-ui form textarea:disabled,
+.p4cms-ui form input[readonly],
+.p4cms-ui form textarea[readonly],
+form.p4cms-ui input:disabled,
+form.p4cms-ui textarea:disabled,
+form.p4cms-ui input[readonly],
+form.p4cms-ui textarea[readonly] {
+    color: #555;
+    background: #f3f3f3;
+    border-color: #ccc;
+}
+
+/* Nested Checkbox */
+
+.p4cms-ui form ul.nested-checkbox {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+.p4cms-ui form ul.nested-checkbox ul {
+    list-style-type: none;
+    padding: 0px 0px 0px 15px;
+    margin: 0px;
+}
+
+.p4cms-ui form ul.nested-checkbox li {
+    padding: 0px;
+    margin: 2px 0;
+}
+
+.p4cms-ui form ul.nested-checkbox li label {
+    padding: 0;
+    margin: 0;
+    line-height: normal;
+    display: block;
+}
+
+.p4cms-ui form ul.empty-checkbox li {
+    color: #777;
+}
+
+
+/* Forms in Dialogs */
+
+.p4cms-ui.dijitDialog.form-dialog form {
+    margin: 0;
+    padding: 20px 10px 10px 10px;
+    border: 1px solid #ccc;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: #fff;
+    overflow: auto;
+}
+
+.p4cms-ui.dijitDialog.form-dialog form.multi-part {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    overflow: inherit;
+}
+
+/**
+ * We scroll the form if the dialog hasn't been sized, but the dialog can become
+ * sized later when the browser is resized, causing the dialog's scrollNode to scroll,
+ * so we need to disable the form scroll
+ */
+.p4cms-ui.dijitDialog.form-dialog.scrolling form {
+    overflow: hidden;
+}

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="content.add">
+    <title>Adding Content</title>
+
+    <bridgehead>
+        To add content to your web site:
+    </bridgehead>
+
+    <orderedlist>
+        <listitem>
+            Click <guibutton>Add</guibutton> in the &product.longname; toolbar.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-manage-add.png"/>
+                </imageobject>
+            </mediaobject>
+
+            <para></para>
+
+            The <emphasis role="dialog">Add Content</emphasis> dialog is displayed, listing the
+            available <link linkend="content.type.overview">content types</link>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/dialog-add_content.png"/>
+                </imageobject>
+            </mediaobject>
+        </listitem>
+
+        <listitem>
+            Click on a group (Pages or Assets, but there may be others) and then click the type of
+            content that you want to add. &product.name; displays the
+            <emphasis role="screen">Add</emphasis> screen for the selected type. Hover your mouse
+            over each of the numbered callouts to highlight the associated area of the screen.
+
+            <mediaobjectco role="screen-ac">
+                <subtitle>The Add Content Screen</subtitle>
+
+                <imageobjectco>
+                    <areaspec units="imagemap">
+                        <area id="screen-ac-spot-mode" linkends="screen-ac-co-mode" coords="0,25,134,42"/>
+                        <area id="screen-ac-spot-associations" linkends="screen-ac-co-associations" coords="145,25,303,42"/>
+                        <area id="screen-ac-spot-disposition" linkends="screen-ac-co-disposition" coords="543,25,639,42"/>
+                        <area id="screen-ac-spot-editarea" linkends="screen-ac-co-editarea" coords="0,135,409,185"/>
+                    </areaspec>
+
+                    <imageobject>
+                        <imagedata fileref="images/screen-add_content-callouts.png"/>
+                    </imageobject>
+
+                    <calloutlist>
+                        <callout id="screen-ac-co-mode" arearefs="screen-ac-spot-mode">
+                            <para>
+                                <emphasis role="bold">Editing Mode</emphasis>:
+                                Choose between <emphasis role="bold">In-Place Mode</emphasis>, which
+                                provides editing of the visible elements in their in-page location,
+                                and <emphasis role="bold">Form Mode</emphasis>, which provides
+                                editing of all content elements within a form.
+                            </para>
+                        </callout>
+                        <callout id="screen-ac-co-associations" arearefs="screen-ac-spot-associations">
+                            <para>
+                                Content entries can have custom <acronym>URL</acronym>s. They can
+                                also be associated with <emphasis role="bold">Menus</emphasis> and 
+                                <emphasis role="bold">Categories</emphasis>. Optional modules may
+                                provide additional association, or other content management
+                                capabilities. Click on each button to discover the options
+                                available.
+                            </para>
+                        </callout>
+                        <callout id="screen-ac-co-disposition" arearefs="screen-ac-spot-disposition">
+                            <para>
+                                <emphasis role="bold">Save or Cancel</emphasis>:
+                                Click on <guibutton>Save</guibutton> to save your content, or
+                                <guibutton>Cancel</guibutton> to stop adding new content.
+                            </para>
+                        </callout>
+                        <callout id="screen-ac-co-editarea" arearefs="screen-ac-spot-editarea">
+                            <para>
+                                <emphasis role="bold">Editable Elements</emphasis>:
+                                Each editable element is surrounded by a dotted border. Click within
+                                each border to edit that element.
+                            </para>
+                        </callout>
+                    </calloutlist>
+                </imageobjectco>
+            </mediaobjectco>
+        </listitem>
+
+        <listitem>
+            Click within the dotted borders to edit an element. Continue editing elements until
+            your new content entry is complete.
+        </listitem>
+
+        <listitem>
+            Click <guibutton>Save</guibutton>.
+
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="images/toolbar-add_content-save.png"/>
+                </imageobject>
+            </mediaobject>
+
+            Your content is added to the web site.
+        </listitem>
+    </orderedlist>
+
+    <note>
+        <title>Saving With Workflow</title>
+
+        <para>
+            If a <emphasis>workflow</emphasis> is assigned to the type of content you are adding,
+            some additional options may be available to you, including the option to publish the
+            content and/or provide a comment describing why the content was added. These options
+            are presented after you click <guibutton>Save</guibutton>.
+        </para>
+    </note>
+
+    <section>
+        <title>Bulk File Addition via Drag-and-Drop</title>
+
+        <para>
+            For <link linkend="content.add.dnd.supported-browsers">supported web browsers</link>,
+            &product.name; makes it possible to bulk add file-based content, such as images,
+            <acronym>PDF</acronym> or Microsoft Word documents, etc.
+        </para>
+
+        <orderedlist>
+            <listitem>
+                Select the files you wish to add to &product.name;:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-bulk_file_select.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Drag them over your web browser window:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/screen-upload_content.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Release the files. &product.name; displays a confirmation dialog:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-upload_content.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Click <guibutton>Upload</guibutton>. The bulk upload begins, and a progress dialog
+                is displayed:
+
+                <mediaobject>
+                    <imageobject>
+                        <imagedata fileref="images/dialog-upload_content-progress.png"/>
+                    </imageobject>
+                </mediaobject>
+            </listitem>
+
+            <listitem>
+                Allow the upload to complete; depending on the size of the files, and the speed of
+                your network connection, it may take some time to finish. Once finished, the
+                progress dialog disappears and your files are now included in &product.name;.
+            </listitem>
+        </orderedlist>
+
+        <section id="content.add.dnd.supported-browsers">
+            <title>Supported Web Browser for Drag-and-Drop File Operations</title>
+
+            <para>
+                The following web browsers support drag-and-drop bulk file operations:
+            </para>
+
+            <itemizedlist>
+                <listitem>Google Chrome</listitem>
+                <listitem>Apple Safari</listitem>
+                <listitem>Mozilla Firefox (4.0+)</listitem>
+            </itemizedlist>
+        </section>
+    </section>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

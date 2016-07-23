@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE section
+[
+    <!ENTITY % xinclude SYSTEM "../../en/xinclude.mod">
+    %xinclude;
+
+    <!-- Add translated specific definitions and snippets -->
+    <!ENTITY % language-snippets SYSTEM "../standalone/language-snippets.xml">
+    %language-snippets;
+
+    <!-- Fallback to English definitions and snippets (in case of missing translation) -->
+    <!ENTITY % language-snippets.default SYSTEM "../../en/standalone/language-snippets.xml">
+    %language-snippets.default;
+]>
+<section id="users.overview">
+    <title>Overview</title>
+
+    <para>
+        This chapter covers the management aspects of users, roles, and permissions.
+    </para>
+
+    <para>
+        A <emphasis>user</emphasis> in &product.longname; means a user account registered with the
+        underlying Perforce server that stores all your site's content. User accounts allow
+        people to login to your site to provide content or perform other actions.
+    </para>
+
+    <para>
+        The actions users may perform are dictated by the <emphasis>roles</emphasis> assigned to
+        them. By default, each created user account is assigned the <emphasis>member</emphasis>
+        role, which permits the user to access and create content. Assigning additional roles
+        to a user adds to the actions the user may perform.
+    </para>
+
+    <para>
+        Permissions describe the <emphasis>privileges</emphasis>, which are provided by
+        <emphasis>resources</emphasis> such as modules, that each role can bestow upon a user.
+    </para>
+
+    <note>
+        <title>What Happens When a User is Deleted?</title>
+
+        <para>
+            When a user account is deleted, the user account registered with the underlying Perforce
+            server is removed, along with any roles assigned to the user. None of the content entries
+            created or owned by the user, nor any other records, are removed or changed in any way.
+        </para>
+
+        <para>
+            If a user is subsequently created with the same userid, and is assigned the same roles,
+            the user regains access to all previously created content with that userid.
+        </para>
+    </note>
+</section>
+<!--
+vim:se ts=4 sw=4 et:
+-->

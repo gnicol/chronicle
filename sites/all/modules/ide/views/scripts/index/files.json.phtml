@@ -1,0 +1,6 @@
+<?
+// if a file has been set, encode and print the contents of the file
+// otherwise, encode and print the data property.
+$data = $this->file ? file_get_contents($this->file) : $this->data;
+print Zend_Json::encode($data);
+?>

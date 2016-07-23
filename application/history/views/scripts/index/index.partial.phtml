@@ -1,0 +1,60 @@
+<div class="history-grid-wrapper">
+<?
+// get data grid namespace
+$namespace  = $this->dataGrid()->getNamespace();
+
+// data store url
+$url        = $this->url(
+    array(
+        'module'        => 'history',
+        'controller'    => 'index',
+        'action'        => 'index',
+        'format'        => 'json',
+        'type'          => $this->type,
+        'id'            => $this->id
+    )
+);
+
+// set up data grid columns
+$columns = array(
+    'version'           => array(
+        'label'         => '#',
+        'fixedWidth'    => '7%',
+        'order'         => 10,
+        'classes'       => 'version',
+    ),
+    'user'              => array(
+        'width'         => '15%',
+        'order'         => 20
+    ),
+    'description'       => array(
+        'width'         => '35%',
+        'minWidth'      => '25%',
+        'order'         => 30
+    ),
+    'date'              => array(
+        'width'         => '15%',
+        'order'         => 40
+    )
+);
+if (count($this->actions)) {
+    $columns[] = $this->dataGrid()->getDefaultActionsColumn();
+}
+
+print $this->dataGrid(
+    $namespace,
+    array(
+        'form'          => $this->form,
+        'url'           => $url,
+        'pageSize'      => $this->pageSize,
+        'actions'       => $this->actions,
+        'columns'       => $columns,
+        'attribs'       => array(
+            'selectionMode' => 'single',
+            'keepSelection' => true,
+            'minGridHeight' => 0.70
+        )
+    )
+);
+?>
+</div>

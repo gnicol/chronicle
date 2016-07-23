@@ -1,0 +1,36 @@
+<?
+
+// setup dojo data response.
+$data = new Zend_Dojo_Data;
+$data->setIdentifier('uri')
+     ->setMetadata(
+        array(
+            'numRows'   => count($this->results),
+            'label'     => 'Search Results'
+        )
+);
+
+// add results to data envelope.
+foreach ($this->results as $result) {
+    
+    // skip results without a title or uri.
+    $document = $result->getDocument();
+    $fields   = $document->getFieldNames();
+    if (!in_array('title', $fields) || !in_array('uri', $fields)) {
+        continue;
+    }
+
+    // add document to data if no conflict.
+    if (!$data->hasItem($document->uri)) {
+        $data->addItem(
+            array(
+                'uri'       => $document->uri,
+                'title'     => $document->title
+            )
+        );
+    }
+}
+
+print $data;
+
+?>

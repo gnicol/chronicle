@@ -1,0 +1,70 @@
+<div dojoType="p4cms.mobile.Book" class="search-results-book"
+     paginate="{sourceNode: '.search-results', columns: 1, preserveSourceNode: false}">
+  <div dojoType="p4cms.mobile.Page" selected="true">
+    <div class="mblViewContent search-results">
+      <h1>Search</h1>
+
+      <?= $this->form ?>
+
+      <? if (isset($this->error)): ?>
+        <p class="search-error">
+            There was a problem with your search: <?= $this->error; ?>
+        </p>
+        <? elseif (isset($this->paginator)): ?>
+        <h2>
+            About <?= $this->paginator->getTotalItemCount(); ?> results (<?= round($this->time, 2) ?>s)
+        </h2>
+
+        <? if ($this->paginator->count() == 0): ?>
+          <p class=no-matches>No matching documents.</p>
+        <? endif; ?>
+      <? endif; ?>
+      <ul>
+<?
+        if (isset($this->results)):
+          foreach ($this->results as $result):
+            $document = $result->getDocument();
+            if (!in_array('title', $document->getFieldNames())) {
+                $content = P4Cms_Content::fetch($document->contentId);
+                $title = $content->getTitle();
+            } else {
+                $title = $document->title;
+            }
+
+            // skip results without a title.
+            if (!$title) {
+                continue;
+            }
+            // attempt to get excerpt.
+            $excerpt = null;
+            if (in_array('excerpt', $document->getFieldNames())) {
+                $excerpt = $document->excerpt;
+            }
+?>
+
+            <li>
+            <p class="title">
+            <? if (in_array('uri', $document->getFieldNames())): ?>
+            <a href="<?=$document->uri?>"><?=$title?></a>
+            <? else: ?>
+            <?=$title?>
+            <? endif; ?>
+            </p>
+
+            <? if ($excerpt): ?>
+            <p class=excerpt>
+            <?=$excerpt?>
+            </p>
+            <? endif; ?>
+
+            <p class="uri"><?=$document->uri?></p>
+
+            </li>
+<?
+          endforeach;
+        endif;
+?>
+      </ul>
+    </div>
+  </div>
+</div>

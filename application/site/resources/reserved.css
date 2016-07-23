@@ -1,0 +1,484 @@
+/* module datagrid styling */
+
+.p4cms-ui .data-grid.module-grid .dojoxGridRow td {
+    vertical-align: top;
+}
+
+.p4cms-ui .data-grid.module-grid .module,
+.p4cms-ui .data-grid.module-grid .maintainer,
+.p4cms-ui .data-grid.module-grid .status {
+    padding: 0;
+}
+
+.p4cms-ui .data-grid.module-grid .module .icon {
+    float: left;
+    margin: 0 10px 3px 3px;
+    border: 1px solid #c7c7c7;
+    background-color: white;
+    width: 128px;
+    height: 128px;
+    text-align: center;
+    overflow: hidden;
+}
+.p4cms-ui .data-grid.module-grid .module .icon img {
+    height: 128px;
+}
+
+.p4cms-ui .data-grid.module-grid .module .info {
+    margin-left: 145px;
+}
+.p4cms-ui .data-grid.module-grid .module .info .name {
+    font-size: 18px;
+    font-weight: bold;
+}
+.p4cms-ui .data-grid.module-grid .module .info .version {
+    float: right;
+    font-size: 11px;
+    color: #777;
+    padding: 2px 4px;
+    margin-right: 5px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.p4cms-ui .data-grid.module-grid .module .description,
+.p4cms-ui .data-grid.module-grid .module .dependencies {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.p4cms-ui .data-grid.module-grid .module .dependencies ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 3px;
+}
+.p4cms-ui .data-grid.module-grid .module .dependencies li span {
+    padding: 0 2px;
+}
+.p4cms-ui .data-grid.module-grid .module .dependencies li span.status {
+    display: inline-block;
+    text-align: center;
+    position: relative;
+    top: 1px;
+    padding: 0;
+    padding-left: 3px;
+    width: 16px;
+    font-size: 16px;
+    line-height: 16px;
+    font-weight: bold;
+}
+.p4cms-ui .data-grid.module-grid .module .dependencies .satisfied span.status {
+    color: #0c0;
+}
+.p4cms-ui .data-grid.module-grid .module .dependencies .missing span.status {
+    color: #c00;
+}
+
+.p4cms-ui .data-grid.module-grid .module .buttons {
+    margin-top: 10px;
+}
+
+.p4cms-ui .data-grid.module-grid .maintainer span {
+    display: block;
+}
+.p4cms-ui .data-grid.module-grid .maintainer span.name {
+    font-weight: bold;
+}
+
+.p4cms-ui .data-grid.module-grid .status.disabled {
+    color: #777;
+}
+
+
+/* theme datagrid styling */
+
+.p4cms-ui .data-grid.theme-grid .dojoxGridRow td {
+    vertical-align: top;
+}
+
+.p4cms-ui .data-grid.theme-grid .theme,
+.p4cms-ui .data-grid.theme-grid .maintainer,
+.p4cms-ui .data-grid.theme-grid .status {
+    padding: 0;
+}
+
+.p4cms-ui .data-grid.theme-grid .theme .icon {
+    float: left;
+    margin: 0 10px 3px 3px;
+    border: 1px solid #c7c7c7;
+    background-color: white;
+    width: 128px;
+    height: 128px;
+    text-align: center;
+    overflow: hidden;
+}
+.p4cms-ui .data-grid.theme-grid .theme .icon img {
+    height: 128px;
+}
+
+.p4cms-ui .data-grid.theme-grid .theme .info {
+    margin-left: 145px;
+}
+.p4cms-ui .data-grid.theme-grid .theme .info .name {
+    font-size: 18px;
+    font-weight: bold;
+}
+.p4cms-ui .data-grid.theme-grid .theme .info .version {
+    float: right;
+    font-size: 11px;
+    color: #777;
+    padding: 2px 4px;
+    margin-right: 5px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+}
+
+.p4cms-ui .data-grid.theme-grid .theme .description {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 12px;
+}
+
+.p4cms-ui .data-grid.theme-grid .theme .buttons {
+    margin-top: 10px;
+}
+
+.p4cms-ui .data-grid.theme-grid .maintainer span {
+    display: block;
+}
+.p4cms-ui .data-grid.theme-grid .maintainer span.name {
+    font-weight: bold;
+}
+
+
+/* current theme styling */
+
+.p4cms-ui .current-theme {
+    float: left;
+    padding: 0 0 0 18px;
+    width: 750px;
+}
+
+.p4cms-ui .current-theme h1 {
+    margin: 7px 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.p4cms-ui .current-theme h2 {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.p4cms-ui .current-theme .container {
+    background: #eff2f4;
+    border: 1px #c7c7c7 solid;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px;
+    width: 730px;
+    margin-bottom: 24px;
+}
+
+.p4cms-ui .current-theme .icon {
+    float: left;
+    max-width: 192px;
+    max-height: 192px;
+    border: 1px solid #c7c7c7;
+    background-color: white;
+    vertical-align: top;
+    padding: 5px;
+}
+
+.p4cms-ui .current-theme .details {
+    float: left;
+    font-size: 13px;
+    width: 510px;
+    margin-left: 15px;
+}
+
+.p4cms-ui .current-theme .description {
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+
+.p4cms-ui .current-theme .maintainer {
+    margin: 10px 0;
+}
+
+.p4cms-ui .current-theme .details .version span {
+    font-weight: bold;
+}
+
+.p4cms-ui .current-theme .maintainer span {
+    display: block;
+}
+
+.p4cms-ui .current-theme .maintainer span.name {
+    font-weight: bold;
+}
+
+
+/* branches menu */
+
+.p4cms-ui .branches-menu .indent-icon {
+    color: #888;
+    position: relative;
+    top: 1px;
+    padding: 0 2px;
+}
+
+
+/* branch datagrid styling */
+
+.p4cms-ui .branches-grid .dojoxGridCell div.site {
+    font-weight: bold;
+}
+
+.p4cms-ui .branches-grid .dojoxGridCell div .name {
+    position: relative;
+    top: 5px;
+}
+
+.p4cms-ui .branches-grid .dojoxGridCell div.site .icon,
+.p4cms-ui .branches-grid .dojoxGridCell div.branch .icon {
+    float: left;
+    position: relative;
+    top: -1px;
+    margin-right: 6px;
+    width: 24px;
+    height: 24px;
+    background: url('images/branch-grid-icons.png');
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+
+.p4cms-ui .branches-grid .dojoxGridCell div.site.obligatory .icon {
+    background-position: -25px 0;
+}
+
+.p4cms-ui .branches-grid .dojoxGridCell div.branch .icon {
+    background-position: 0 -25px;
+}
+
+.p4cms-ui .branches-grid .dojoxGridCell div.branch.obligatory .icon {
+    background-position: -25px -25px;
+}
+
+.p4cms-ui .dijitTooltip .grid-tooltip.branch {
+    padding: 5px 0;
+}
+
+.p4cms-ui .dijitTooltip .grid-tooltip.branch dt {
+    display: block;
+    float: left;
+    width: 75px;
+    text-align: right;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.p4cms-ui .dijitTooltip .grid-tooltip.branch dd {
+    display: block;
+    margin-left: 82px;
+    padding-right: 25px;
+}
+
+.p4cms-ui .branches-grid .dojoxGridRow.site .dojoxGridCell.actions .dijitDropDownButton {
+    display: none;
+}
+
+/* pull dialog */
+
+.p4cms-ui.dijitDialog .pull-form dl dt {
+    width: 75px;
+}
+
+.p4cms-ui.dijitDialog .pull-form dl dd {
+    margin-left: 80px;
+}
+
+.p4cms-ui .pull-form #pull-mode-label {
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+
+.p4cms-ui .pull-form #pull-mode-element {
+    padding: 20px 0 5px 17px;
+}
+
+.p4cms-ui .pull-form #pull-mode-element input[type=radio] {
+    margin-left: -17px;
+}
+
+.p4cms-ui .pull-form #pull-mode-element br {
+    display: none;
+}
+
+.p4cms-ui .pull-form #pull-mode-element .description {
+    display: block;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+
+.p4cms-ui .pull-form #pull-paths-label {
+    width: auto;
+    float: none;
+    text-align: left;
+    margin-bottom: 3px;
+}
+
+.p4cms-ui .pull-form #pull-paths-element {
+    margin-left: 0;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 400px;
+    min-height: 150px;
+}
+
+.p4cms-ui .pull-form #pull-paths-element .description {
+    display: block;
+    max-width: none;
+    overflow: hidden;
+    padding: 0;
+    background: url('../../ui/resources/images/tableheader-gradient.jpg') repeat-x bottom #f5f5f5;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    border-bottom: 1px solid #ccc;
+}
+
+.p4cms-ui .pull-form #pull-paths-element .header-items,
+.p4cms-ui .pull-form #pull-paths-element .header-quantity {
+    display: block;
+    float: left;
+    font-size: 13px;
+    padding: 6px 10px 7px 10px;
+    color: black;
+}
+
+.p4cms-ui .pull-form #pull-paths-element .header-quantity {
+    float: right;
+    border-left: 1px solid #ccc;
+    width: 65px;
+    text-align: center;
+}
+
+.p4cms-ui .pull-form ul.nested-checkbox {
+    padding: 3px 10px;
+}
+
+.p4cms-ui .pull-form ul.nested-checkbox li label{
+    display: inline;
+}
+
+.p4cms-ui .pull-form ul.nested-checkbox li .count-column {
+    float: right;
+}
+
+.p4cms-ui .pull-form ul.nested-checkbox li .count {
+    display: block;
+    width: 50px;
+    text-align: right;
+    padding-right: 25px;
+}
+
+.p4cms-ui .pull-form ul.nested-checkbox li .count a {
+    cursor: pointer;
+}
+
+.p4cms-ui .pull-form ul.nested-checkbox li .count-column.hidden,
+.p4cms-ui .pull-form ul.nested-checkbox li .conflict-count {
+    display: none;
+}
+
+.p4cms-ui .pull-form ul.nested-checkbox li.conflict {
+    background-image: url('../../ui/resources/images/notifications-warn.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+}
+
+.p4cms-ui .pull-form dt#pull-note-label {
+    display: none;
+}
+
+.p4cms-ui .pull-form dd#pull-note-element {
+    margin-top: 15px;
+    margin-left: 0;
+    text-align: center;
+}
+
+.p4cms-ui .pull-form dd#pull-note-element .conflict-note {
+    background-image: url('../../ui/resources/images/notifications-warn.png');
+    background-repeat: no-repeat;
+    background-position: left center;
+    padding-left: 25px;
+    color: red;
+}
+
+/* hide site selects when adding a branch of the active branch */
+.p4cms-ui.branch-dialog.add-to-active dt#branch-site-label,
+.p4cms-ui.branch-dialog.add-to-active dd#branch-site-element {
+    display: none;
+}
+
+/* pull details tooltip dialog */
+
+.p4cms-ui.dijitTooltipDialog.p4cms-branch-pull-details .dijitTooltipConnector {
+    left: 38px;
+}
+
+.p4cms-ui.dijitTooltipDialog.p4cms-branch-pull-details .dijitTooltipContents {
+    width: 300px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.p4cms-ui.dijitTooltipDialog.p4cms-branch-pull-details table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.p4cms-ui.dijitTooltipDialog.p4cms-branch-pull-details table th {
+    border-bottom: 1px solid #aaa;
+    font-size: 12px;
+}
+
+.p4cms-ui.dijitTooltipDialog.p4cms-branch-pull-details table tr {
+    height: 18px;
+    font-size: 11px;
+}
+
+.p4cms-ui.dijitTooltipDialog.p4cms-branch-pull-details table tr.even {
+    background-color: #E0E0E0;
+}
+
+.p4cms-ui.dijitTooltipDialog.p4cms-branch-pull-details table td,
+.p4cms-ui.dijitTooltipDialog.p4cms-branch-pull-details table th {
+    vertical-align: middle;
+    padding: 0 10px;
+}
+
+.p4cms-ui.dijitTooltipDialog.p4cms-branch-pull-details table td.column-action {
+    width: 25%;
+}
+
+.p4cms-ui.dijitTooltipDialog.p4cms-branch-pull-details table tr.conflict .column-label {
+    background-image: url('../../ui/resources/images/notifications-warn.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    padding-right: 25px;
+}

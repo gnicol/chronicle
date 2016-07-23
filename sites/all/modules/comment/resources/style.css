@@ -1,0 +1,230 @@
+/* Comment List */
+
+.comments {
+    padding-top: 25px;
+    clear: both;
+    font-size: 11px;
+}
+
+.comments h2 {
+    margin-top: 15px;
+}
+
+.comments ul.comment-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 1.1em;
+}
+
+.comments ul.comment-list li.comment {
+    min-height: 80px;
+    padding: 10px;
+    margin: 0;
+}
+
+.comments ul.comment-list li.comment.odd {
+    background-color: #eee;
+}
+
+.comments ul.comment-list li.comment span {
+    display: block;
+    margin-left: 90px;
+}
+
+.comments ul.comment-list li.comment .comment-gravatar {
+    float: left;
+    margin: 0;
+}
+
+.comments ul.comment-list li.comment .comment-author {
+    font-weight: bold;
+}
+
+.comments ul.comment-list li.comment .comment-body {
+    min-height: 30px;
+}
+
+.comments ul.comment-list li.comment .comment-time {
+    margin-top: 15px;
+    font-size: .9em;
+    font-style: italic;
+    color: #656565;
+}
+
+.comments ul.comment-list li.comment .comment-votes {
+    float: right;
+    text-align: center;
+    margin: 0 0 15px 15px;
+    min-width: 100px;
+}
+
+.comments ul.comment-list li.comment .comment-votes span {
+    margin: 0;
+}
+
+.comments ul.comment-list li.comment .comment-vote-count {
+    display: inline;
+}
+
+.comments ul.comment-list li.comment .comment-vote-disabled {
+    color: #999;
+    text-decoration: none;
+    cursor: default;
+}
+
+.comments ul.comment-list li.comment .comment-votes span a {
+    display: block;
+    background: url("images/arrows-updown.png") no-repeat;
+    width: 100px;
+    height: 13px;
+}
+
+.comments ul.comment-list li.comment .comment-votes span.comment-vote-up a {
+    background-position: center 0px;
+}
+
+.comments ul.comment-list li.comment .comment-votes span.comment-vote-down a {
+    background-position: center -17px;
+}
+
+.comments ul.comment-list li.comment .comment-votes span.comment-vote-up a.comment-vote-disabled {
+    background-position: center -36px;
+}
+
+.comments ul.comment-list li.comment .comment-votes span.comment-vote-down a.comment-vote-disabled {
+    background-position: center -53px;
+}
+
+/* Comment Form */
+
+.comment-form dl dt {
+    float: left;
+    text-align: right;
+    width: 90px;
+    font-size: 12px;
+    line-height: 12px;
+}
+
+.comment-form dl dt label {
+    padding-right: 12px;
+    font-size: 12px;
+}
+
+.comment-form dl dt .required {
+    background-image: url('../../../../../application/ui/resources/images/required-asterisk.png');
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+
+.comment-form dl dd {
+    margin-left: 95px;
+    margin-bottom: 7px;
+}
+
+.comment-form dl dd input[type=text],
+.comment-form dl dd textarea {
+    border: 1px solid #999;
+    padding: 2px;
+    margin: 0;
+    position: relative;
+    top: -4px;
+    font-size: 12px;
+}
+
+.comment-form dl dd textarea {
+    width: 400px;
+    font-family: inherit;
+}
+
+.comment-form dl dd#captcha-element pre {
+    float: left;
+    font-size: 6px;
+    font-family: monospace;
+    background-color: #f3f3f3;
+    color: #333;
+    padding: 10px;
+    border: 1px solid #999;
+    line-height: 1;
+    position: relative;
+    top: -9px;
+    margin-bottom: 0px;
+}
+
+.comment-form dl dd#captcha-element input {
+    display: block;
+    clear: both;
+}
+
+.comment-form dl dd#post-element input {
+    margin-top: 10px;
+}
+
+.comment-form ul.errors {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.comment-form ul.errors li {
+    color: #f80320;
+    max-width: 375px;
+}
+
+/* Content Comment Sub-Form */
+
+.p4cms-ui.content-form .comments-sub-form dl dd .sub-checkbox {
+    margin-left: 15px;
+}
+
+
+/* Comments Module Dialog */
+
+.p4cms-ui.dijitDialog .comments-sub-form dl dt {
+    clear: right;
+    margin-bottom: 12px;
+}
+
+.p4cms-ui.dijitDialog .comments-sub-form dl dd {
+    clear: none;
+    float: left;
+}
+
+/* Moderate Comments Grid */
+
+.p4cms-ui .comment-grid .dojoxGridCell.status {
+    text-transform: capitalize;
+}
+
+.p4cms-ui .dijitTooltip .grid-tooltip.comment {
+    padding: 5px 0;
+}
+
+.p4cms-ui .dijitTooltip .grid-tooltip.comment dt {
+    display: block;
+    float: left;
+    width: 75px;
+    text-align: right;
+    font-weight: bold;
+    color: #aaa;
+}
+
+.p4cms-ui .dijitTooltip .grid-tooltip.comment dd {
+    display: block;
+    margin-left: 82px;
+    padding-right: 25px;
+}
+
+.p4cms-ui .dijitTooltip .grid-tooltip.comment dt.comment-body {
+    display: none;
+}
+
+.p4cms-ui .dijitTooltip .grid-tooltip.comment dd.comment-body {
+    font-size: 12px;
+    border-top: 1px solid #aaa;
+    padding: 10px 0 0 0;
+    margin: 5px 0 0 0;
+    font-style: italic;
+}

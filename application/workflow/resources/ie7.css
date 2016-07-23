@@ -1,0 +1,5 @@
+/* Content sub-form */
+
+.p4cms-ui #workflow-sub-form #fieldset-scheduleGroup dd#workflow-scheduledTime-element {
+    top: -29px;
+}
